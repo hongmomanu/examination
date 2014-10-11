@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1" >
+    <title>舟山市社会救助管理系统</title>
+
+    {% script "/js/easyui/jquery.min.js" %}
+    {% script "/js/easyui/jquery.easyui.min.js" %}
+    {% script "/js/easyui/locale/easyui-lang-zh_CN.js" %}
+    {% style "/js/easyui/themes/bootstrap/easyui.css" %}
+    {% style "/css/screen.css" %}
+
+   <!-- <script data-main="jsnew/mainapp" src="require.js"></script>
+    <script type="text/javascript"  src="jsnew/commonfuncs/jquery.json-2.4.js"></script>
+-->
+</head>
+<body class="easyui-layout" id="mainlayoutpanel">
+<div data-options="region:'north',border:true" class="cs-north" >
+    <div class="cs-north-bg">
+        <div class="cs-north-logo">
+
+        </div>
+
+
+        <ul class="ui-skin-nav" style="display: none;">
+            <li class="li-skinitem" title="gray"><span class="gray" rel="gray"></span></li>
+            <li class="li-skinitem" title="default"><span class="default" rel="default"></span></li>
+            <li class="li-skinitem" title="bootstrap"><span class="bootstrap" rel="bootstrap"></span></li>
+            <li class="li-skinitem" title="black"><span class="black" rel="black"></span></li>
+            <li class="li-skinitem" title="metro"><span class="metro" rel="metro"></span></li>
+            <li class="li-skinitem" title="pepper-grinder"><span class="pepper-grinder" rel="pepper-grinder"></span></li>
+            <li class="li-skinitem" title="blue"><span class="blue" rel="blue"></span></li>
+            <li class="li-skinitem" title="cupertino"><span class="cupertino" rel="cupertino"></span></li>
+            <li class="li-skinitem" title="dark-hive"><span class="dark-hive" rel="dark-hive"></span></li>
+            <li class="li-skinitem" title="sunny"><span class="sunny" rel="sunny"></span></li>
+        </ul>
+
+        <ul id="headnavul">
+            <li class="li-skinitem" ><img src="/img/head/1.png"/><a id="welcomename">欢迎您:</a></li>
+            <li class="li-skinitem"><img src="/img/head/5.png"/><a id="domshowalterpwd">重设密码</a></li>
+            <li class="li-skinitem"><img src="/img/head/7.png"/>
+                <a id="domlogout" style="text-decoration: none;">退出</a></li>
+        </ul>
+
+
+    </div>
+</div>
+<div data-options="region:'west',split:true,border:true"  id="westpanel"  title="业务导航" class="cs-west">
+
+</div>
+<div id="mainPanle" data-options="region:'center',border:false">
+    <div id="tabs" class="easyui-tabs"   fit="true" border="false" >
+        <div title="主页" class="indexbackground">
+            <div class="cs-home-remark">
+                <h1>欢迎使用网上体检系统</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-options="region:'south',border:false" class="cs-south">
+    <a  id="indextime"></a>
+</div>
+
+</body>
+</html>
