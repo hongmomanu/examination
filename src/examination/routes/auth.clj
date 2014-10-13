@@ -76,8 +76,8 @@
   (POST "/auth/deldivision" [divisionid]
     (auth/deldivision divisionid))
 
-  (POST "/auth/delrole" [id]
-    (auth/delrole id))
+  (POST "/auth/delrole" [roleid]
+    (auth/delrole roleid))
 
 
 

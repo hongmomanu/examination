@@ -67,7 +67,7 @@
   :jvm-opts
   ["-server"]
   :plugins
-  [[lein-ring "0.8.12"] [lein-environ "0.5.0"] [lein-ancient "0.5.5"]]
+  [[lein-ring "0.8.12"] [lein-environ "0.5.0"] [lein-ancient "0.5.5"][lein-immutant "1.2.1"]]
   :repositories [
                   ["java.net" "http://download.java.net/maven/2"]
                   ["nexus" "https://code.lds.org/nexus/content/groups/main-repo"]
