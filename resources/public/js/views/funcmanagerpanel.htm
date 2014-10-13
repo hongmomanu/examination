@@ -5,68 +5,77 @@
         <table id="funcmanagerpanel" >
             <thead>
             <tr>
-                <th data-options="field:'funcname',width:100">功能名</th>
-                <th data-options="field:'functype',width:100">功能类别</th>
-
+                <th data-options="field:'text',width:300,formatter:function(val,rowData,rowIndex){
+                     var signaturepath=rowData.signaturepath;
+                     return '<span signaturepath=&quot;'+signaturepath+'&quot; class=&quot;treefunc&quot;>' + val + '</span>';
+                }">功能树</th>
 
             </tr>
+
             </thead>
 
 
         </table>
     </div>
 
-    <div data-options="region:'east',split:true,collapsed:true" title="详细信息" style="width:300px;height: 100%;">
+    <div data-options="region:'east',split:true,collapsed:true" title="详细信息" style="width:500px;">
 
-            <div style="padding:10px 0 10px 60px">
+            <div style="padding:10px 10px 10px 10px;">
 
             <form id="funcinfoform" method="post">
-            <table>
+            <table class="formtable" style="width: 100%;">
                 <tr>
-                    <td>功能名:</td>
-                    <td><input class="easyui-validatebox" type="text" name="funcname" data-options="required:true"></td>
+                    <td>功能名称:</td>
+                    <td><input class="easyui-textbox" style="width: 100%" type="text" name="funcname" data-options="required:true"></td>
                 </tr>
-                <tr>
-                    <td>功能类型:</td>
-                    <td><input class="easyui-validatebox" type="text" name="functype" data-options="required:true"></td>
-                </tr>
+
                 <tr>
                     <td>功能标识:</td>
-                    <td><input class="easyui-validatebox" type="text" name="label" data-options="required:true"></td>
+                    <td>
+                    <input class="easyui-textbox" name="label" style="width: 100%">
+                    </td>
                 </tr>
                 <tr>
-                    <td>功能图标:</td>
-                    <td><input class="easyui-validatebox" type="text" name="imgurl" data-options="required:false"></td>
+                    <td>图标样式:</td>
+                    <td>
+                    <!--<input type="text" name="imgcss" >-->
+                    <input class="easyui-textbox" data-options="multiline:true"  style="width:100%;height: 80px;" name="imgcss">
+                    </td>
                 </tr>
                 <tr>
-                    <td>排序号:</td>
-                    <td><input class="easyui-validatebox" type="text" name="sortnum" data-options="required:false"></td>
+                    <td>排列序号:</td>
+                    <td>
+                    <input class="easyui-textbox" name="sortnum" style="width: 100%" >
+                    </td>
                 </tr>
 
 
 
-                <tr><td>
-                    <input type="text" name="funcid" style="display: none;">
-                </td></tr>
+                <tr style="display: none;">
+                    <td>
+                        <input type="text" name="funcid" style="display: none;">
+                        <input type="text" name="pid" style="display: none;">
+                        <input type="text" name="value" style="display: none;">
+                    </td>
+                </tr>
+
 
             </table>
         </form>
-        </div>
+
+            </div>
+
             <div style="text-align:center;padding:5px" id="funcformbtns">
                 <a  class="easyui-linkbutton save" data-options="disabled:true" >保存</a>
                 <a  class="easyui-linkbutton del" data-options="disabled:true" >删除</a>
+                <a  class="easyui-linkbutton new"  >新增</a>
             </div>
 
 
 
 
     </div>
-    <div id="funcpaneltb" style="padding:5px;height:auto;vertical-align: middle;">
-        <a>快速搜索: <input class="keyword" type="keyword" style="width:120px"></a>
 
-        <a class="easyui-linkbutton newfunc" data-options="iconCls:'icon-new'">新增功能</a>
-
-    </div>
 
 
 </div>
