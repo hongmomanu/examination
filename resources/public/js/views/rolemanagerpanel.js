@@ -137,7 +137,7 @@ define(function () {
             if($('#newrolewin').length>0){
                 $('#newrolewin').dialog('open');
             }else{
-                require(['text!views/manager/newrolewin.htm','views/manager/newrolewin'],
+                require(['text!views/newrolewin.htm','views/newrolewin'],
                     function(div,newrolejs){
                         $('body').append(div);
                         newrolejs.render();

@@ -4,7 +4,7 @@ define(function () {
         $('#newrolewin').dialog({
             title: '新增角色窗口',
             width: 300,
-            height: 280,
+            height: 110,
             closed: false,
             cache: false,
             buttons:[{
