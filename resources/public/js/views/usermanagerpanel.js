@@ -90,7 +90,7 @@ define(function () {
             if($('#newuserwin').length>0){
                 $('#newuserwin').dialog('open');
             }else{
-                require(['text!views/manager/newuserwin.htm','views/manager/newuserwin'],
+                require(['text!views/newuserwin.htm','views/newuserwin'],
                     function(div,newuserjs){
                         $('body').append(div);
                         newuserjs.render();
