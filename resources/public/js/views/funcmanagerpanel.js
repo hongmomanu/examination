@@ -34,7 +34,7 @@ define(function () {
         $('#funcformbtns .del').click(function () {
             $.messager.confirm('确定要删除功能么?', '你正在试图删除功能?', function (r) {
                 if (r) {
-                    require(['jqueryplugin/easyui-form', 'commonfuncs/AjaxForm']
+                    require(['js/jqueryplugin/easyui-form.js', 'js/commonfuncs/AjaxForm.js']
                         , function (easyuifrom, ajaxfrom) {
                             var params = $('#funcinfoform').form("serialize");
                             var success = function () {

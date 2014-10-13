@@ -13,7 +13,7 @@ define(function () {
             collapsible: true,
             rownumbers: true,
             method:'post',
-            url:'../auth/getenums',
+            url:'auth/getenums',
             remoteSort: false,
 
             fit:true,
@@ -38,7 +38,7 @@ define(function () {
         $('#enumformbtns .del').click(function(){
             $.messager.confirm('确定要删除功能么?', '你正在试图删除功能?', function(r){
                 if (r){
-                    require(['jqueryplugin/easyui-form','commonfuncs/AjaxForm']
+                    require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyuifrom,ajaxfrom){
                             var params=$('#enuminfoform').form("serialize");
 
@@ -53,7 +53,7 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','删除枚举失败!');
                             }
-                            ajaxfrom.ajaxsend('post','json','../auth/delenum',params,success,null,errorfunc)
+                            ajaxfrom.ajaxsend('post','json','auth/delenum',params,success,null,errorfunc)
 
                         });
                 }
@@ -83,7 +83,7 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','修改枚举失败!');
                             };
-                            ajaxfrom.ajaxsend('post','json','../auth/editenum',params,success,null,errorfunc);
+                            ajaxfrom.ajaxsend('post','json','auth/editenum',params,success,null,errorfunc);
 
                         });
                     }
@@ -96,7 +96,7 @@ define(function () {
             if($('#newenumwin').length>0){
                 $('#newenumwin').dialog('open');
             }else{
-                require(['text!views/manager/newenumwin.htm','views/manager/newenumwin'],
+                require(['text!views/newenumwin.htm','views/newenumwin'],
                     function(div,newenumjs){
                         $('body').append(div);
                         newenumjs.render();
