@@ -12,7 +12,7 @@ define(function () {
                 id:'savenewpasswordbtn',
                 handler:function(){
                    //alert(1);
-                    require(['jqueryplugin/easyui-form','commonfuncs/AjaxForm']
+                    require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyform,ajaxfrom){
 
 
