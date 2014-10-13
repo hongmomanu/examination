@@ -1,0 +1,64 @@
+<div id="deptmanagerlayout" class="easyui-layout" style="width:100%;height:100%;" data-options="fit:true">
+
+
+    <div data-options="region:'center',title:'用户列表'">
+        <table id="deptmanagerpanel" >
+            <thead>
+            <tr>
+                <th data-options="field:'deptname',width:100">科室名</th>
+                <th data-options="field:'depttype',width:100">科室类型</th>
+                <th data-options="field:'pycode',width:100">拼音代码</th>
+                <th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>
+
+            </tr>
+            </thead>
+
+
+        </table>
+    </div>
+
+    <div data-options="region:'east',split:true,collapsed:true" title="详细信息" style="width:300px;height: 100%;">
+
+            <div style="padding:10px 0 10px 60px">
+
+            <form id="deptinfoform" method="post">
+            <table>
+                <tr>
+                    <td>登陆名:</td>
+                    <td><input class="easyui-validatebox" type="text" name="deptname" data-options="required:true"></td>
+                </tr>
+                <tr>
+                    <td>用户名:</td>
+                    <td><input class="easyui-validatebox" type="text" name="displayname" data-options="required:true"></td>
+                </tr>
+
+                <tr>
+                    <td>密码:</td>
+                    <td><input class="easyui-validatebox" type="password" name="password"  ></td>
+                </tr>
+
+                <tr><td>
+                    <input type="text" name="id" style="display: none;">
+                </td></tr>
+
+            </table>
+        </form>
+        </div>
+            <div style="text-align:center;padding:5px" id="deptformbtns">
+                <a  class="easyui-linkbutton save" data-options="disabled:true" >保存</a>
+                <a  class="easyui-linkbutton del" data-options="disabled:true" >删除</a>
+            </div>
+
+
+
+
+    </div>
+    <div id="deptpaneltb" style="padding:5px;height:auto;vertical-align: middle;">
+        <a>快速搜索: <input class="keyword" type="keyword" style="width:120px"></a>
+
+        <a class="easyui-linkbutton newdept" data-options="iconCls:'icon-new'">新增用户</a>
+
+    </div>
+
+
+</div>
