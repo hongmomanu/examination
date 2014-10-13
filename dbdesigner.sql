@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS systemlog
 
 --init
 
-insert into functions (pid,funcname,label)values(-1,"绍兴市人民医院体检系统","绍兴市人民医院体检系统")
+insert into functions (pid,funcname,label)values(-1,"绍兴市人民医院体检系统","绍兴市人民医院体检系统");
 insert into functions (pid,funcname,label)values(1,"系统菜单","系统菜单");
 insert into functions (pid,funcname,label)values(2,"权限设置","权限设置");
 insert into functions (pid,funcname,label)values(3,"用户管理","usermanagerpanel");

@@ -4,7 +4,7 @@ define(function () {
         $('#newuserwin').dialog({
             title: '新增用户窗口',
             width: 300,
-            height: 280,
+            height: 250,
             closed: false,
             cache: false,
             buttons:[{

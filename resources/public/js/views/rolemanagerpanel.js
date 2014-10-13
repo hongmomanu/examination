@@ -18,7 +18,7 @@ define(function () {
             treeField: 'text',
             idField: 'id',
             onBeforeLoad: function (row, params) {
-                if (!row)params.node = -2;
+                if (!row)params.node = -1;
                 else params.node = row.id;
                 try{
                     params.roleid=$('#rolemanagerpanel').datagrid('getSelected').id;

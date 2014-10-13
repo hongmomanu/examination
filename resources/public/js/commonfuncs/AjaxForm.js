@@ -18,11 +18,11 @@ define(function(){
            });
 
        },
-       ajaxsend:function(method,type,url,params,success,complete,errorfunc){
+       ajaxsend:function(method,type,url,params,success,complete,errorfunc,hideprogress){
 
-           $.messager.progress();
+           if(!hideprogress)$.messager.progress();
            var compfunc=function(){
-               $.messager.progress('close');
+               if(!hideprogress)$.messager.progress('close');
                if(complete)complete();
            };
            $.ajax({

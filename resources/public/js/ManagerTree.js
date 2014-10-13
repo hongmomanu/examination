@@ -6,7 +6,7 @@ define(function(){
     var a={
 
         render:function(parameters){
-            $('#authorityacc,#systemgacc,#serverlogacc').tree({
+            $('.main_menu_tree').tree({
                 onClick: function (node){
                     var tree=$(this);
                     var me=this;
@@ -33,7 +33,7 @@ define(function(){
                 onBeforeLoad:function(node, param){
                     param.leaf=true;
                     //param.roleid=$.getUrlParam('roleid');
-                    param.type=$(this).attr('name');
+                    param.type=$(this).panel('options').name;
                 },
                 url:'../auth/getfuncsbyrole'
 
