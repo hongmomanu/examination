@@ -14,7 +14,7 @@ define(function () {
             method: 'post',
             animate:true,
             checkbox:true,
-            url: '../auth/gettreefunc',
+            url: 'auth/gettreefunc',
             treeField: 'text',
             idField: 'id',
             onBeforeLoad: function (row, params) {
@@ -48,7 +48,7 @@ define(function () {
             collapsible: true,
             rownumbers: true,
             method:'post',
-            url:'../auth/getroles',
+            url:'auth/getroles',
             remoteSort: false,
 
             fit:true,
@@ -78,7 +78,7 @@ define(function () {
         $('#roleformbtns .del').click(function(){
             $.messager.confirm('确定要删除角色配置么?', '你正在试图删除角色配置?', function(r){
                 if (r){
-                    require(['jqueryplugin/easyui-form','commonfuncs/AjaxForm']
+                    require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyuifrom,ajaxfrom){
                             var params=$('#roleinfoform').form("serialize");
                             var success=function(){
@@ -88,7 +88,7 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','删除角色失败!');
                             }
-                            ajaxfrom.ajaxsend('post','json','../auth/delrole',params,success,null,errorfunc)
+                            ajaxfrom.ajaxsend('post','json','auth/delrole',params,success,null,errorfunc)
 
                         });
                 }
@@ -97,7 +97,7 @@ define(function () {
         $('#roleformbtns .save').click(function(){
             $.messager.confirm('确定要修改角色配置么?', '你正在试图角色配置?', function(r){
                     if (r){
-                        require(['jqueryplugin/easyui-form','commonfuncs/AjaxForm']
+                        require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                             ,function(easyform,ajaxfrom){
 
 
@@ -125,7 +125,7 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','配置角色功能失败!');
                             };
-                            ajaxfrom.ajaxsend('post','json','../auth/makerolefunc',params,success,null,errorfunc);
+                            ajaxfrom.ajaxsend('post','json','auth/makerolefunc',params,success,null,errorfunc);
                         });
                     }
                 }

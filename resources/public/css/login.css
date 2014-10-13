@@ -1,5 +1,5 @@
 body {
-    background-image:url(/img/loginbg.jpg);
+    background-image:url(../img/loginbg.jpg);
     margin:0 auto;text-align:center;
     background-position:center top;
     background-repeat:no-repeat;
@@ -11,7 +11,7 @@ body {
 
 
 form {
-    background-image:url(/img/loginmain.png);
+    background-image:url(../img/loginmain.png);
     background-position:center top;
     background-repeat:no-repeat;
     height: 315px;
@@ -44,14 +44,14 @@ table{
     color: #FFFFFF;
 
 
-    background-image:url(/img/loginfooter.png);
+    background-image:url(../img/loginfooter.png);
     background-position:center top;
     background-repeat:repeat;
 }
 #poweredby a {color:#fff}
 #keeplogin   {color:white; font-size:14px; text-align:left;}
 .button-s {
-    background-image:url(/img/loginbtn.png);
+    background-image:url(../img/loginbtn.png);
     width: 168px!important;
     height: 36px;
     padding-right: 150px;

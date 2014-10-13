@@ -9,7 +9,7 @@ define(function(){
 
                $('#westpanel').panel({
                     onLoad:function(){
-                        require(['../js/ManagerTree.js','../js/commonfuncs/AjaxForm.js'],
+                        require(['js/ManagerTree.js','js/commonfuncs/AjaxForm.js'],
                             function(ManagerTree,ajaxfrom){
 
                                 var params={};
@@ -30,7 +30,7 @@ define(function(){
                                 var errorfunc=function(){
                                     //$.messager.alert('操作失败','新增用户失败!');
                                 }
-                                ajaxfrom.ajaxsend('post','json','../auth/getfuncsbyrole',params,success,null,errorfunc,true);
+                                ajaxfrom.ajaxsend('post','json','auth/getfuncsbyrole',params,success,null,errorfunc,true);
 
 
                         });
@@ -38,7 +38,7 @@ define(function(){
 
                 });
 
-                $('#westpanel').panel('refresh','../html/menu_qxgl.html');
+                $('#westpanel').panel('refresh','html/menu_qxgl.html');
 
 
 

@@ -5,7 +5,7 @@ define(function () {
             rownumbers: true,
             method: 'post',
 
-            url: '../auth/gettreefunc',
+            url: 'auth/gettreefunc',
             treeField: 'text',
             idField: 'id',
             onBeforeLoad: function (row, params) {
@@ -45,7 +45,7 @@ define(function () {
                             var errorfunc = function () {
                                 $.messager.alert('操作失败', '删除功能失败!');
                             }
-                            ajaxfrom.ajaxsend('post', 'json', '../auth/delfunc', params, success, null, errorfunc)
+                            ajaxfrom.ajaxsend('post', 'json', 'auth/delfunc', params, success, null, errorfunc)
 
                         });
                 }
@@ -54,7 +54,7 @@ define(function () {
         $('#funcformbtns .save').click(function () {
             $.messager.confirm('确定要修改功能配置么?', '你正在试图功能配置?', function (r) {
                     if (r) {
-                        require(['jqueryplugin/easyui-form', 'commonfuncs/AjaxForm']
+                        require(['js/jqueryplugin/easyui-form.js', 'js/commonfuncs/AjaxForm.js']
                             , function (easyform, ajaxfrom) {
                                 var params = $('#funcinfoform').form("serialize");
                                 //testobj= $('#funcinfoform');
@@ -62,7 +62,12 @@ define(function () {
 
                                     if(res.success){
                                         $.messager.alert('操作成功', '修改功能成功!');
-                                        $('#funcmanagerpanel').treegrid('reload', params.pid);
+                                        if(params.pid<0){
+                                            $('#funcmanagerpanel').treegrid('reload') ;
+                                        }else{
+                                            $('#funcmanagerpanel').treegrid('reload', params.pid);
+                                        }
+
                                     }else{
                                         $.messager.alert('操作失败', res.msg);
                                     }
@@ -72,7 +77,7 @@ define(function () {
                                     $.messager.alert('操作失败', '修改功能失败!');
                                 };
 
-                                ajaxfrom.ajaxsend('post', 'json', '../auth/editfunc', params, success, null, errorfunc);
+                                ajaxfrom.ajaxsend('post', 'json', 'auth/editfunc', params, success, null, errorfunc);
                             });
                     }
                 }
@@ -82,14 +87,14 @@ define(function () {
 
         $('#funcformbtns .new').click(function () {
 
-                require(['jqueryplugin/easyui-form', 'commonfuncs/AjaxForm']
+                require(['js/jqueryplugin/easyui-form.js', 'js/commonfuncs/AjaxForm.js']
                     , function (easyform, ajaxfrom) {
                         var params = $('#funcinfoform').form("serialize");
                         //params.parentid = params.funcid;
                         var success = function (res) {
                             if(res.success){
                                 $.messager.alert('操作成功', '新增功能成功!');
-                                if(params.pid<-1){
+                                if(params.pid<0){
                                     $('#funcmanagerpanel').treegrid('reload') ;
                                 }
                                 else{
@@ -104,7 +109,7 @@ define(function () {
                         var errorfunc = function () {
                             $.messager.alert('操作失败', '新增功能失败!');
                         };
-                        ajaxfrom.ajaxsend('post', 'json', '../auth/addnewfunc', params, success, null, errorfunc);
+                        ajaxfrom.ajaxsend('post', 'json', 'auth/addnewfunc', params, success, null, errorfunc);
                     });
             }
         );

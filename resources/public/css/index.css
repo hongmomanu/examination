@@ -270,6 +270,7 @@ a:active {
 .ui-skin-nav .li-skinitem,#headnavul .li-skinitem {
     float: left;
     font-size: 12px;
+    cursor: pointer;
     /*line-height: 30px;*/
     margin-left: 10px;
     margin-bottom: 0px;

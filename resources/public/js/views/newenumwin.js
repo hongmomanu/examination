@@ -12,7 +12,7 @@ define(function () {
                 id:'savenewenumbtn',
                 disabled:true,
                 handler:function(){
-                    require(['jqueryplugin/easyui-form','commonfuncs/AjaxForm']
+                    require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyform,ajaxfrom){
                             var params=$('#newenumwin form').form("serialize");
                             var success=function(res){
@@ -28,7 +28,7 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','新增枚举失败!');
                             }
-                            ajaxfrom.ajaxsend('post','json','../auth/addnewenum',params,success,null,errorfunc)
+                            ajaxfrom.ajaxsend('post','json','auth/addnewenum',params,success,null,errorfunc)
 
                         });
 

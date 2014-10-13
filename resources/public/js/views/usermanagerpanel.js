@@ -13,7 +13,7 @@ define(function () {
             collapsible: true,
             rownumbers: true,
             method:'post',
-            url:'../auth/getusers',
+            url:'auth/getusers',
             remoteSort: false,
             sortName:'time',
             sortOrder:'desc',
@@ -39,7 +39,7 @@ define(function () {
         $('#userformbtns .del').click(function(){
             $.messager.confirm('确定要删除用户么?', '你正在试图删除用户?', function(r){
                 if (r){
-                    require(['jqueryplugin/easyui-form','commonfuncs/AjaxForm']
+                    require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyuifrom,ajaxfrom){
                             var params=$('#userinfoform').form("serialize");
                             var success=function(){
@@ -49,7 +49,7 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','删除用户失败!');
                             }
-                            ajaxfrom.ajaxsend('post','json','../auth/deluser',params,success,null,errorfunc)
+                            ajaxfrom.ajaxsend('post','json','auth/deluser',params,success,null,errorfunc)
 
                         });
                 }
@@ -58,7 +58,7 @@ define(function () {
         $('#userformbtns .save').click(function(){
             $.messager.confirm('确定要修改用户么?', '你正在试图修改用户?', function(r){
                     if (r){
-                        require(['jqueryplugin/easyui-form','commonfuncs/AjaxForm']
+                        require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                             ,function(easyform,ajaxfrom){
 
 
@@ -77,7 +77,7 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','修改用户失败!');
                             }
-                            ajaxfrom.ajaxsend('post','json','../auth/edituser',params,success,null,errorfunc)
+                            ajaxfrom.ajaxsend('post','json','auth/edituser',params,success,null,errorfunc)
 
                         });
                     }

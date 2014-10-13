@@ -25,7 +25,7 @@ define(function(){
                         var jsfile=folder+node.value;
                         var value=node.value;
                         var title=node.text;
-                        require(['../js/TreeClickEvent.js'],function(TreeClickEvent){
+                        require(['js/TreeClickEvent.js'],function(TreeClickEvent){
                             TreeClickEvent.ShowContent(htmlfile,jsfile,title,value,folder,null,node.id);
                             me.nodeid=node.id;
                         });
@@ -37,7 +37,7 @@ define(function(){
                     //param.roleid=$.getUrlParam('roleid');
                     param.type=$(this).panel('options').name;
                 },
-                url:'../auth/getfuncsbyrole'
+                url:'auth/getfuncsbyrole'
 
             });
 
