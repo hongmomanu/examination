@@ -12,6 +12,61 @@
               :make-pool? true
               :naming {:keys clojure.string/lower-case
                        :fields clojure.string/upper-case}})
+
+(def db-store-sqlite "sqlite.db3")
+
+(def datapath (str (System/getProperty "user.dir") "/"))
+
+;;sqlite 嵌入式数据库
+(def db-spec-sqlite {:classname "org.sqlite.JDBC"
+                     :subprotocol "sqlite"
+                     :subname (str datapath db-store-sqlite)
+                     })
+
+;;oracle 连接
+(def db-oracle  {:classname "oracle.jdbc.OracleDriver"
+                 :subprotocol "oracle"
+                 :subname "thin:@192.168.2.141:1521:orcl"
+                 :user "CIVILAFFAIRS_ZS"
+                 :password "hvit"
+                 :naming {:keys clojure.string/lower-case :fields clojure.string/upper-case}})
+;;mysql 连接
+(def db-mysql {
+                :db "test"
+                :user "root"
+                :password "shayu626"
+                :host "localhost"
+                :port 3306
+                :classname "org.mariadb.jdbc.Driver"
+                :subname "//localhost:3306/test"
+                :subprotocol "mysql"
+                :delimiters "`"
+                ;:classname "org.mariadb.jdbc"
+                ;:subprotocol "mysql"
+                ;;:subname "//127.0.0.1:9306?characterEncoding=utf8&maxAllowedPacket=512000"
+                ;:subname "//127.0.0.1:3306/test"
+                ;:user "root"
+                ;:password "shayu626"
+                })
+;;sqlserver 连接
+(def db-sqlserver {:classname "net.sourceforge.jtds.jdbc.Driver"
+                   :subprotocol "jtds:sqlserver"
+                   :subname "//192.168.2.141:11630/haiyusql;instance=SQLEXPRESS;user=sa;password=hvit123!"
+                   })
+
+;;postgres 连接
+(def db-postgres  {:classname "org.postgresql.Driver" ; must be in classpath
+                   :subprotocol "postgresql"
+                   :subname "//localhost:5432/postgres"
+                   ; Any additional keys are passed to the driver
+                   ; as driver-specific properties.
+                   :user "postgres"
+                   :password "shayu626"})
+
+
+
+
+
 (defn initialized?
   "checks to see if the database schema is present"
   []
