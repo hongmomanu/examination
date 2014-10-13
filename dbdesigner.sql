@@ -84,6 +84,19 @@ CREATE TABLE IF NOT EXISTS systemlog
 
 );
 
+-- 检查科室
+CREATE TABLE IF NOT EXISTS checkdept
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  提交时间
+  depttype     INT, --  用户id
+  deptname VARCHAR(100), --  科室名称
+  pycode  VARCHAR(100)   --拼音代码
+
+);
+
+--
+
 
 
 --init
