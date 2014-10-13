@@ -40,6 +40,39 @@ define(function(){
 
                 $('#westpanel').panel('refresh','../html/menu_qxgl.html');
 
+
+
+        $('#domshowalterpwd').click(function(){
+            if($('#edituserpasswin').length>0){
+                $('#edituserpasswin').dialog('open');
+            }else{
+                require(['text!views/edituserpasswin.htm','views/edituserpasswin'],
+                    function(div,edituserjs){
+                        $('body').append(div);
+                        edituserjs.render();
+                    });
+            }
+
+        });
+        $('#domlogout').click(function(){
+            $.messager.confirm('您确定要退出吗?', '你正在试图退出.你想继续么?', function(r){
+                if(r){
+                    $.ajax({
+                        type: 'get',
+                        url: 'logout',
+                        complete :function() {
+                            location.href="logout";
+                        }
+                    });
+                }
+            });
+
+        })
+
+
+
+
+
     }
 
      return {

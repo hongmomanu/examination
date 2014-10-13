@@ -166,7 +166,7 @@
 (defn get-user [user]
   (first (select users
 
-           (fields :username :password :id :roleid)
+           (fields :username :password :id :roleid :displayname)
            (with roles
              (fields :rolename )
              )

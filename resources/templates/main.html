@@ -42,7 +42,7 @@
         </ul>-->
 
         <ul id="headnavul">
-            <li class="li-skinitem" ><img src="/img/head/1.png"/><a id="welcomename">欢迎您:</a></li>
+            <li class="li-skinitem" ><img src="/img/head/1.png"/><a id="welcomename">欢迎您:{{displayname}}</a></li>
             <li class="li-skinitem"><img src="/img/head/5.png"/><a id="domshowalterpwd">重设密码</a></li>
             <li class="li-skinitem"><img src="/img/head/7.png"/>
                 <a id="domlogout" style="text-decoration: none;">退出</a></li>
@@ -56,7 +56,7 @@
 </div>
 <div id="mainPanle" data-options="region:'center'" >
     <div id="tabs" class="easyui-tabs" data-options="fit:true,border:false">
-        <div title="主页" class="indexbackground">
+        <div title="主页" id="0" class="indexbackground">
             <div class="cs-home-remark">
                 <h1>欢迎使用网上体检系统</h1>
             </div>

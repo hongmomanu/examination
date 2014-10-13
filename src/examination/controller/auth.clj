@@ -115,12 +115,12 @@
     "profile.html"
     {:user (db/get-user (session/get :user-id)) :msg erromsg}))
 
-(defn update-profile [{:keys [passwordold passwordnew]}]
+(defn update-profile [{:keys [oldpassword password]}]
   (let [user (db/get-user (session/get :user-id))
-        ispassword (crypt/compare passwordold (:password user))
+        ispassword (crypt/compare oldpassword (:password user))
         ]
     (if ispassword (do (db/updateuser
-    {:password (crypt/encrypt passwordnew)} (:id user)) (resp/redirect "/")) (profile "旧密码错误") )
+    {:password (crypt/encrypt password)} (:id user)) (resp/json {:success true})) (resp/json {:success false}) )
 
     )
     )
@@ -152,7 +152,7 @@
         useritem (db/get-user username)
 
         ]
-    {:userid (:id useritem) :roleid (:roleid useritem)}
+    {:userid (:id useritem) :roleid (:roleid useritem) :displayname (:displayname useritem)}
     )
   )
 (defn getusers [start limit  totalname rowsname keyword]

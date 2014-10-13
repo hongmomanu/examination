@@ -17,12 +17,7 @@ define(function(){
                         //businesstype:businesstype,
                         closable: true
                     };
-                    if($('#tabs').tabs('exists',1)){
 
-                        $('#tabs').tabs('select', 1);
-                        $('#tabs').tabs('close',1);
-
-                    }
                     $('#tabs').tabs('add',options);
                     LoadingMask.ajaxLoadEnd();
                     jsfile.render(res);

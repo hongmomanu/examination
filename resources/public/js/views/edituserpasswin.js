@@ -12,17 +12,12 @@ define(function () {
                 id:'savenewpasswordbtn',
                 handler:function(){
                    //alert(1);
-                    require(['commonfuncs/md5','jqueryplugin/easyui-form','commonfuncs/AjaxForm']
-                        ,function(md5,easyform,ajaxfrom){
+                    require(['jqueryplugin/easyui-form','commonfuncs/AjaxForm']
+                        ,function(easyform,ajaxfrom){
 
 
                             var params=$('#edituserpasswin form').form("serialize");
-                            params.password=CryptoJS.enc.Base64.stringify(CryptoJS.MD5(params.password));
-                            params.oldpassword=CryptoJS.enc.Base64.stringify(CryptoJS.MD5(params.oldpassword));
-                            params.username=username;
-                            params.displayname=displayname;
-                            params.iscommon=true;
-                            params.userid=userid;
+
                             var success=function(res){
                                 if(res.success){
                                     $.messager.alert('操作成功','修改密码成功!');
@@ -35,7 +30,7 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','原始密码错误!');
                             }
-                            ajaxfrom.ajaxsend('post','json','ajax/edituser.jsp',params,success,null,errorfunc)
+                            ajaxfrom.ajaxsend('post','json','update-profile',params,success,null,errorfunc)
 
                         });
 

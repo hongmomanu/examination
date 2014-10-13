@@ -12,22 +12,24 @@ define(function(){
                     var me=this;
                     if(tree.tree('isLeaf', node.target)){
                         var isnew=false;
-                        if($('#tabs').tabs('exists',1)){
-                            $('#tabs').tabs('select',1);
-                            isnew=$('#tabs').tabs('getSelected').panel('options').id!=node.id;
+                        var tabs=$('#tabs').tabs('tabs');
+                        for(var i=0;i<tabs.length;i++){
+                            if(tabs[i].panel('options').id==node.id){
+                                $('#tabs').tabs('select',i);
+                                return;
+                            }
                         }
-                        if(!$('#tabs').tabs('exists',1)||me.nodeid!=node.id||isnew){
-                            var folder="views/";
-                            var htmlfile='text!'+folder+node.value+'.htm';
-                            var jsfile=folder+node.value;
-                            var value=node.value;
-                            var title=node.text;
-                            require(['../js/TreeClickEvent.js'],function(TreeClickEvent){
-                                TreeClickEvent.ShowContent(htmlfile,jsfile,title,value,folder,null,node.id);
-                                me.nodeid=node.id;
-                            });
 
-                        }
+                        var folder="views/";
+                        var htmlfile='text!'+folder+node.value+'.htm';
+                        var jsfile=folder+node.value;
+                        var value=node.value;
+                        var title=node.text;
+                        require(['../js/TreeClickEvent.js'],function(TreeClickEvent){
+                            TreeClickEvent.ShowContent(htmlfile,jsfile,title,value,folder,null,node.id);
+                            me.nodeid=node.id;
+                        });
+
                     }
                 },
                 onBeforeLoad:function(node, param){

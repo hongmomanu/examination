@@ -14,12 +14,13 @@
          content (auth/getapps)
          userid   (:userid content)
          roleid   (:roleid content)
+         displayname   (:displayname content)
          ]
     (if (nil? userid)
       (layout/render
         "login.html" {:login-error  (session/get :login-error)})
       (layout/render "main.html"
-        {:userid userid :roleid roleid}
+        {:userid userid :roleid roleid :displayname displayname}
          ) )
     )
   )
