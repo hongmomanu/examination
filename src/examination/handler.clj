@@ -2,6 +2,7 @@
   (:require [compojure.core :refer [defroutes]]
             [examination.routes.home :refer [home-routes]]
             [examination.routes.auth :refer [auth-routes]]
+            [examination.routes.maintain :refer [maintain-routes]]
             [examination.routes.index :refer [index-routes]]
             [examination.middleware :refer [load-middleware]]
             [examination.session-manager :as session-manager]
@@ -66,7 +67,7 @@
 
 (def app (app-handler
            ;; add your application routes here
-           [home-routes auth-routes index-routes base-routes]
+           [home-routes auth-routes index-routes maintain-routes base-routes]
            ;; add custom middleware here
            :middleware (load-middleware)
            :ring-defaults (mk-defaults false)

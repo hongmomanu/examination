@@ -5,7 +5,7 @@ define(function () {
             rownumbers: true,
             method: 'post',
 
-            url: 'auth/gettreeitem',
+            url: 'maintain/gettreeitem',
             treeField: 'text',
             idField: 'id',
             onBeforeLoad: function (row, params) {

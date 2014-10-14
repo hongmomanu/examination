@@ -63,6 +63,9 @@
 
   (POST "/auth/gettreefunc" [node roleid callback]
     (auth/gettreefunc node roleid callback))
+
+
+
   (GET "/auth/gettreefunc" [node roleid callback]
     (auth/gettreefunc node roleid callback))
 
