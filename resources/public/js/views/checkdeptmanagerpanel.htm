@@ -1,14 +1,14 @@
 <div id="deptmanagerlayout" class="easyui-layout" style="width:100%;height:100%;" data-options="fit:true">
 
 
-    <div data-options="region:'center',title:'用户列表'">
+    <div data-options="region:'center',title:'科室列表'">
         <table id="deptmanagerpanel" >
             <thead>
             <tr>
                 <th data-options="field:'deptname',width:100">科室名</th>
-                <th data-options="field:'depttype',width:100">科室类型</th>
+                <!--<th data-options="field:'depttype',width:100">科室类型</th>-->
                 <th data-options="field:'pycode',width:100">拼音代码</th>
-                <th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>
+                <th data-options="field:'time',hidden:true,width:150,align:'center',sortable:true">注册时间</th>
 
             </tr>
             </thead>
@@ -24,17 +24,20 @@
             <form id="deptinfoform" method="post">
             <table>
                 <tr>
-                    <td>登陆名:</td>
+                    <td>科室名:</td>
                     <td><input class="easyui-validatebox" type="text" name="deptname" data-options="required:true"></td>
                 </tr>
                 <tr>
-                    <td>用户名:</td>
-                    <td><input class="easyui-validatebox" type="text" name="displayname" data-options="required:true"></td>
+                    <td>拼音简码:</td>
+                    <td><input class="easyui-validatebox" type="text" name="pycode" data-options="required:true"></td>
                 </tr>
 
                 <tr>
-                    <td>密码:</td>
-                    <td><input class="easyui-validatebox" type="password" name="password"  ></td>
+                    <td>科室类别:</td>
+                    <td><input class="easyui-combobox lazy-combobox" type="text"
+                               name="depttype" searchtype="科室类别"
+                               data-options="required:true,valueField: 'enumeratevalue',
+                                         textField: 'enumeratelabel',width:140"></td>
                 </tr>
 
                 <tr><td>

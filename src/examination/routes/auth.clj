@@ -44,11 +44,20 @@
 
   (GET "/auth/getenumbytype" [type  callback]
     (auth/getenumbytype type  callback))
-  (POST "/auth/edituser" [username displayname password id]
-    (auth/edituser username displayname password id)
+  (POST "/auth/getenumbytype" [type  callback]
+    (auth/getenumbytype type  callback))
+  (POST "/auth/edituser" [username displayname password usercode deptids id ]
+    (auth/edituser username displayname password usercode deptids id )
+    )
+  (POST "/auth/editdept" [deptname depttype pycode  id]
+    (auth/editdept deptname depttype pycode  id)
     )
   (POST "/auth/getusers" [start limit  totalname rowsname keyword]
     (auth/getusers start limit  totalname rowsname keyword))
+
+  (POST "/auth/getdepts" [start limit  totalname rowsname keyword]
+    (auth/getdepts start limit  totalname rowsname keyword))
+
   (POST "/auth/addnewuser" [username displayname  password divisionid roleid]
     (auth/addnewuser username displayname  password divisionid roleid))
 
@@ -107,6 +116,8 @@
     (auth/delenum id))
   (POST "/auth/deluser" [id]
     (auth/deluser id))
+  (POST "/auth/deldept" [id]
+    (auth/deldept id))
 
   (POST "/auth/addnewrole" [rolename]
     (auth/addnewrole rolename))
@@ -128,6 +139,10 @@
     (auth/getproxy req))
   (POST "/auth/proxy" req
     (auth/postproxy req))
+
+  (POST "/auth/addnewdept" [deptname pycode depttype]
+    (auth/addnewdept deptname pycode depttype)
+    )
 
   (POST "/auth/uploadfile"  [file]
 

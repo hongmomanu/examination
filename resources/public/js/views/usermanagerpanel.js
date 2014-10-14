@@ -1,6 +1,19 @@
 define(function () {
 
     function render(parameters) {
+        var combox=$('#usermanagerlayout .lazy-combobox');
+        combox.combobox({
+            url:'auth/getroles?start=0&limit=100',
+            onShowPanel: function () {
+             var url = 'auth/getroles?start=0&limit=100';
+             $(this).combobox('reload', url);
+            }
+
+        });
+        $('#usermanagerlayout .loaded-combobox').combobox({
+            url:'auth/getdepts?start=0&limit=100'
+        });
+
         $('#userpaneltb .keyword').bind('click keypress',function(e){
             var keycode = (event.keyCode ? event.keyCode : event.which);
             if($(this).attr("type")==='keyword'&&keycode!=13)return;
@@ -13,6 +26,7 @@ define(function () {
             collapsible: true,
             rownumbers: true,
             method:'post',
+            fitColumns:true,
             url:'auth/getusers',
             remoteSort: false,
             sortName:'time',
@@ -29,9 +43,14 @@ define(function () {
                 params.rowsname = "rows";
             },
             onClickRow:function(index, rowData){
+                var deptids=rowData.deptids;
+                deptids=deptids?deptids.split(","):[];
+                rowData.deptids=deptids;
                 $('#userinfoform').form('load',rowData);
                 $('#userformbtns .save,#userformbtns .del').linkbutton('enable');
+
                 $('#usermanagerlayout').layout('expand','east');
+
             }
 
         });

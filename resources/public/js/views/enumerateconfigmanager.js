@@ -15,7 +15,7 @@ define(function () {
             method:'post',
             url:'auth/getenums',
             remoteSort: false,
-
+            fitColumns:true,
             fit:true,
             toolbar:'#enumpaneltb',
             pagination:true,
@@ -62,7 +62,7 @@ define(function () {
         $('#enumformbtns .save').click(function(){
             $.messager.confirm('确定要修改枚举么?', '你正在试图修改枚举?', function(r){
                     if (r){
-                        require(['jqueryplugin/easyui-form','commonfuncs/AjaxForm']
+                        require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                             ,function(easyform,ajaxfrom){
 
 

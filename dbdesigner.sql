@@ -5,9 +5,11 @@ CREATE TABLE IF NOT EXISTS users
   id          INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
   username    VARCHAR(50), --用户名字
   password    VARCHAR(50), --用户密码
-  issuper     INTEGER DEFAULT(0), --super user
+  usercode     VARCHAR(50), --员工工号
+  --issuper     INTEGER DEFAULT(0), --super user
   displayname VACHAR(50), --显示名称
-  divisionid  INTEGER, --行政区划id
+  deptids      VACHAR(50), --dept id
+--divisionid  INTEGER, --行政区划id
   time        DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --注册时间
   roleid      INTEGER                                           --角色id
 
@@ -89,7 +91,7 @@ CREATE TABLE IF NOT EXISTS checkdept
 (
   id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
   DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  提交时间
-  depttype     INT, --  用户id
+  depttype     INT, --
   deptname VARCHAR(100), --  科室名称
   pycode  VARCHAR(100)   --拼音代码
 
@@ -117,5 +119,7 @@ insert into functorole(funcid,roleid)values(5,1);
 insert into functorole(funcid,roleid)values(6,1);
 update users set roleid =1;
 
+
+--ALTER TABLE 'users' ADD 'usercode' nvarchar(100) ;
 
 
