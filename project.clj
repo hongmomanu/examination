@@ -29,8 +29,9 @@
    [net.sourceforge.jtds/jtds "1.2.4"]  ;;sqlserver jdbc
 
    [clj-http "0.9.2"]
-   [me.raynes/fs "1.4.5"]
 
+   [me.raynes/fs "1.4.5"]
+   [com.belerweb/pinyin4j "2.5.0"]
 
    [com.taoensso/tower "3.0.2"]
    [log4j

@@ -17,6 +17,7 @@ define(function () {
             remoteSort: false,
             sortName:'time',
             sortOrder:'desc',
+            fitColumns:true,
             fit:true,
             toolbar:'#deptpaneltb',
             pagination:true,

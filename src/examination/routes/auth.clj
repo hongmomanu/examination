@@ -44,6 +44,8 @@
 
   (GET "/auth/getenumbytype" [type  callback]
     (auth/getenumbytype type  callback))
+  (POST "/auth/getenumbytype" [type  callback]
+    (auth/getenumbytype type  callback))
   (POST "/auth/edituser" [username displayname password id]
     (auth/edituser username displayname password id)
     )

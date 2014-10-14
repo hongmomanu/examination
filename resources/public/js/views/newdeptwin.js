@@ -76,7 +76,8 @@ define(function () {
 
         $('#newdeptwin .lazy-combobox').combobox({
             onShowPanel: function () {
-                var url = 'auth/getroles?start=0&limit=100' ;
+                var searchtype = $(this).attr('searchtype');
+                var url = 'auth/getenumbytype?type='+searchtype;
                 $(this).combobox('reload', url);
             }
 
