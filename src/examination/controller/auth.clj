@@ -179,7 +179,8 @@
   (let [results (db/getdepts start limit keyword )
          nums  (:counts (first (db/getdeptnums keyword)))
         ]
-    (resp/json (assoc {} rowsname results totalname nums))
+    (if(nil? totalname) (resp/json results) (resp/json (assoc {} rowsname results totalname nums)))
+
     )
   )
 (defn deluser [userid]

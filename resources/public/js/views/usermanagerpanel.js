@@ -11,6 +11,9 @@ define(function () {
              }*/
 
         });
+        $('#usermanagerlayout .loaded-combobox').combobox({
+            url:'auth/getdepts?start=0&limit=100'
+        });
 
         $('#userpaneltb .keyword').bind('click keypress',function(e){
             var keycode = (event.keyCode ? event.keyCode : event.which);
