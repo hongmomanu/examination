@@ -8,6 +8,7 @@
                 <th data-options="field:'username',width:100">用户名</th>
                 <th data-options="field:'displayname',width:100">员工姓名</th>
                 <th data-options="field:'usercode',width:100">员工工号</th>
+                <th data-options="field:'deptids',width:100">所属科室</th>
                 <th data-options="field:'rolename',width:100">角色</th>
                 <th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>
 
@@ -47,8 +48,8 @@
                     <td>所属科室:</td>
                     <td><input class="easyui-combobox loaded-combobox" type="text"
                                name="deptids"
-                               data-options="required:false,valueField: 'id',
-                                         textField: 'deptids',width:140"></td>
+                               data-options="required:false,valueField: 'id',multiple:true,multiline:true,
+                                         textField: 'deptname',width:140,height:50"></td>
                 </tr>
 
 
