@@ -96,6 +96,13 @@
     )
 
   )
+(defn addnewdept [deptname pycode depttype]
+  (let [
+         result (db/adddept {:deptname deptname :pycode pycode  :depttype depttype})
+         ]
+    (resp/json {:success true :msg result})
+    )
+  )
 (defn getsessionidjs [req]
 
   (let [sessionid (:value (get (:cookies req) "ring-session"))
@@ -136,6 +143,16 @@
                                        {:username username :displayname displayname :password password} userid)}))
     )
   )
+(defn editdept [deptname depttype pycode id]
+  (let [dept (first (db/getdepts 0 10 deptname))
+        ]
+    (if (nil? dept)
+      (resp/json {:success true :msg (db/updatedept
+                                       {:deptname deptname :depttype depttype :pycode pycode} id)})
+      (resp/json {:success false :msg "已存在"})
+      )
+    )
+  )
 (defn handle-login [username password]
   (let [user (db/get-user username)]
     (if (and user (crypt/compare password (:password user)))
@@ -162,8 +179,18 @@
     (resp/json (assoc {} rowsname results totalname nums))
     )
   )
+(defn getdepts [start limit  totalname rowsname keyword]
+  (let [results (db/getdepts start limit keyword )
+         nums  (:counts (first (db/getdeptnums keyword)))
+        ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+  )
 (defn deluser [userid]
   (resp/json {:success true :msg (db/deluser userid)})
+  )
+(defn deldept [deptid]
+  (resp/json {:success true :msg (db/deldept deptid)})
   )
 (defn getenums [start limit  totalname rowsname keyword]
   (let [results (db/getenums keyword start limit )
@@ -263,6 +290,7 @@
     (:body content)
     )
   )
+
 (defn authcrossdomainpost [req]
 
   (let [{:keys [form-params params query-string  body content-length content-type uri cookies headers]} req

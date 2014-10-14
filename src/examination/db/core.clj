@@ -38,6 +38,10 @@
 
   (database sqlitedb)
   )
+(defentity checkdept
+
+  (database sqlitedb)
+  )
 (defentity enumerate
   (entity-fields :enumeratetype :enumeratevalue :enumeratelabel :id)
   (database sqlitedb)
@@ -55,6 +59,12 @@
   (insert users
     (values user)))
 
+(defn adddept [dept]
+  (insert checkdept
+    (values dept)
+    )
+  )
+
 (defn update-user [id passwordold passwordnew]
   (update users
     (set-fields {:password passwordnew
@@ -63,6 +73,12 @@
 
 (defn updateuser [fields id]
   (update users
+    (set-fields fields)
+    (where {:id id})
+    )
+  )
+(defn updatedept [fields id]
+  (update checkdept
     (set-fields fields)
     (where {:id id})
     )
@@ -79,10 +95,24 @@
     (limit limits)
     (offset start))
   )
+(defn getdepts [start limits keyword]
+  (select checkdept
+
+    (fields :deptname :depttype :id :pycode :time )
+
+    (where {:deptname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (limit limits)
+    (offset start))
+  )
 
 (defn deluser [userid]
   (delete users
     (where {:id userid})
+    )
+  )
+(defn deldept [deptid]
+  (delete checkdept
+    (where {:id deptid})
     )
   )
 
@@ -160,6 +190,12 @@
 (defn getusernums [keyword]
   (select users
     (where {:username [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (aggregate (count :id) :counts)
+    )
+  )
+(defn getdeptnums [keyword]
+  (select checkdept
+    (where {:deptname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
     (aggregate (count :id) :counts)
     )
   )
