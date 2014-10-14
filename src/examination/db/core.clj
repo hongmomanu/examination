@@ -87,7 +87,7 @@
 (defn getusers [start limits keyword]
   (select users
 
-    (fields :username :password :id :roleid :time :displayname :usercode)
+    (fields :username :password :id :roleid :time :displayname :usercode :deptids)
     (with roles
       (fields :rolename )
       )

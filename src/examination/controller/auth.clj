@@ -133,21 +133,20 @@
     )
 
 
-(defn edituser [username displayname password usercode userid]
+(defn edituser [username displayname password usercode deptids userid]
   (let [user (db/get-user username)
         password (if(> (count password) 30)password (crypt/encrypt password))
         ]
     (if (and (not (nil? user)) (not= (:id  user) (read-string userid)))
       (resp/json {:success false :msg "用户名已存在"})
       (resp/json {:success true :msg (db/updateuser
-                                       {:username username :displayname displayname :password password :usercode usercode} userid)}))
+                                       {:username username :displayname displayname :password password
+                                        :usercode usercode :deptids deptids} userid)}))
     )
   )
-(defn editdept [deptname depttype pycode id]
-
+(defn editdept [deptname depttype pycode  id]
       (resp/json {:success true :msg (db/updatedept
-                                       {:deptname deptname :depttype depttype :pycode pycode} id)})
-
+                                       {:deptname deptname :depttype depttype :pycode pycode } id)})
   )
 (defn handle-login [username password]
   (let [user (db/get-user username)]

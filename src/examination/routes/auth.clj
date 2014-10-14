@@ -46,11 +46,11 @@
     (auth/getenumbytype type  callback))
   (POST "/auth/getenumbytype" [type  callback]
     (auth/getenumbytype type  callback))
-  (POST "/auth/edituser" [username displayname password usercode id ]
-    (auth/edituser username displayname password usercode id )
+  (POST "/auth/edituser" [username displayname password usercode deptids id ]
+    (auth/edituser username displayname password usercode deptids id )
     )
-  (POST "/auth/editdept" [deptname depttype pycode id]
-    (auth/editdept deptname depttype pycode id)
+  (POST "/auth/editdept" [deptname depttype pycode  id]
+    (auth/editdept deptname depttype pycode  id)
     )
   (POST "/auth/getusers" [start limit  totalname rowsname keyword]
     (auth/getusers start limit  totalname rowsname keyword))

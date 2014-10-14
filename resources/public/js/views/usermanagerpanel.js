@@ -3,12 +3,11 @@ define(function () {
     function render(parameters) {
         var combox=$('#usermanagerlayout .lazy-combobox');
         combox.combobox({
-            url:'auth/getroles?start=0&limit=100'
-            /*onShowPanel: function () {
-             var searchtype = $(this).attr('searchtype');
-             var url = 'auth/getenumbytype?type='+searchtype;
+            url:'auth/getroles?start=0&limit=100',
+            onShowPanel: function () {
+             var url = 'auth/getroles?start=0&limit=100';
              $(this).combobox('reload', url);
-             }*/
+            }
 
         });
         $('#usermanagerlayout .loaded-combobox').combobox({
@@ -44,6 +43,9 @@ define(function () {
                 params.rowsname = "rows";
             },
             onClickRow:function(index, rowData){
+                var deptids=rowData.deptids;
+                deptids=deptids?deptids.split(","):[];
+                rowData.deptids=deptids;
                 $('#userinfoform').form('load',rowData);
                 $('#userformbtns .save,#userformbtns .del').linkbutton('enable');
 
