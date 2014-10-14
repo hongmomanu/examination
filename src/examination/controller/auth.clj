@@ -133,14 +133,14 @@
     )
 
 
-(defn edituser [username displayname password userid]
+(defn edituser [username displayname password usercode userid]
   (let [user (db/get-user username)
         password (if(> (count password) 30)password (crypt/encrypt password))
         ]
     (if (and (not (nil? user)) (not= (:id  user) (read-string userid)))
       (resp/json {:success false :msg "用户名已存在"})
       (resp/json {:success true :msg (db/updateuser
-                                       {:username username :displayname displayname :password password} userid)}))
+                                       {:username username :displayname displayname :password password :usercode usercode} userid)}))
     )
   )
 (defn editdept [deptname depttype pycode id]

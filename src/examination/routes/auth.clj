@@ -46,8 +46,8 @@
     (auth/getenumbytype type  callback))
   (POST "/auth/getenumbytype" [type  callback]
     (auth/getenumbytype type  callback))
-  (POST "/auth/edituser" [username displayname password id]
-    (auth/edituser username displayname password id)
+  (POST "/auth/edituser" [username displayname password usercode id ]
+    (auth/edituser username displayname password usercode id )
     )
   (POST "/auth/editdept" [deptname depttype pycode id]
     (auth/editdept deptname depttype pycode id)
