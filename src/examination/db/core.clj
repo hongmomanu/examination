@@ -42,6 +42,10 @@
 
   (database sqlitedb)
   )
+(defentity checkitem
+
+  (database sqlitedb)
+  )
 (defentity enumerate
   (entity-fields :enumeratetype :enumeratevalue :enumeratelabel :id)
   (database sqlitedb)

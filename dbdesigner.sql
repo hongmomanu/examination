@@ -96,6 +96,17 @@ CREATE TABLE IF NOT EXISTS checkdept
   pycode  VARCHAR(100)   --拼音代码
 
 );
+-- 检查项目
+CREATE TABLE IF NOT EXISTS checkitem
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  提交时间
+  deptid     INTEGER, -- 科室代码
+  itemname VARCHAR(100), --  项目名称
+  price VARCHAR(100), --  价格
+  pycode  VARCHAR(100)   --拼音代码
+
+);
 
 --
 
