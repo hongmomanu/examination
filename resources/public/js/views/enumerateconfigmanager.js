@@ -15,7 +15,7 @@ define(function () {
             method:'post',
             url:'auth/getenums',
             remoteSort: false,
-
+            fitColumns:true,
             fit:true,
             toolbar:'#enumpaneltb',
             pagination:true,
