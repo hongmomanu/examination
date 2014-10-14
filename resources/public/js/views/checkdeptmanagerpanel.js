@@ -37,17 +37,17 @@ define(function () {
         });
 
         $('#deptformbtns .del').click(function(){
-            $.messager.confirm('确定要删除用户么?', '你正在试图删除用户?', function(r){
+            $.messager.confirm('确定要删除科室么?', '你正在试图删除科室?', function(r){
                 if (r){
                     require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyuifrom,ajaxfrom){
                             var params=$('#deptinfoform').form("serialize");
                             var success=function(){
-                                $.messager.alert('操作成功','删除用户成功!');
+                                $.messager.alert('操作成功','删除科室成功!');
                                 $('#deptmanagerpanel').datagrid('reload');
                             };
                             var errorfunc=function(){
-                                $.messager.alert('操作失败','删除用户失败!');
+                                $.messager.alert('操作失败','删除科室失败!');
                             }
                             ajaxfrom.ajaxsend('post','json','auth/deldept',params,success,null,errorfunc)
 
@@ -56,7 +56,7 @@ define(function () {
             });
         });
         $('#deptformbtns .save').click(function(){
-            $.messager.confirm('确定要修改用户么?', '你正在试图修改用户?', function(r){
+            $.messager.confirm('确定要修改科室么?', '你正在试图修改科室?', function(r){
                     if (r){
                         require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                             ,function(easyform,ajaxfrom){
@@ -67,7 +67,7 @@ define(function () {
                             params.iscommon=false;
                             var success=function(res){
                                 if(res.success){
-                                    $.messager.alert('操作成功','修改用户成功!');
+                                    $.messager.alert('操作成功','修改科室成功!');
                                     $('#deptmanagerpanel').datagrid('reload');
                                 }else{
                                     $.messager.alert('操作失败',res.msg);
@@ -75,7 +75,7 @@ define(function () {
 
                             };
                             var errorfunc=function(){
-                                $.messager.alert('操作失败','修改用户失败!');
+                                $.messager.alert('操作失败','修改科室失败!');
                             }
                             ajaxfrom.ajaxsend('post','json','auth/editdept',params,success,null,errorfunc)
 
