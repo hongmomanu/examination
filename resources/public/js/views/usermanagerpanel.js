@@ -1,12 +1,14 @@
 define(function () {
 
     function render(parameters) {
-
-        $('#usermanagertable .lazy-combobox').combobox({
-            onShowPanel: function () {
-                var url = 'auth/getroles?start=0&limit=100' ;
-                $(this).combobox('reload', url);
-            }
+        var combox=$('#usermanagerlayout .lazy-combobox');
+        combox.combobox({
+            url:'auth/getroles?start=0&limit=100'
+            /*onShowPanel: function () {
+             var searchtype = $(this).attr('searchtype');
+             var url = 'auth/getenumbytype?type='+searchtype;
+             $(this).combobox('reload', url);
+             }*/
 
         });
 
@@ -22,6 +24,7 @@ define(function () {
             collapsible: true,
             rownumbers: true,
             method:'post',
+            fitColumns:true,
             url:'auth/getusers',
             remoteSort: false,
             sortName:'time',
