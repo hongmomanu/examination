@@ -6,6 +6,8 @@
             <thead>
             <tr>
                 <th data-options="field:'username',width:100">用户名</th>
+                <th data-options="field:'displayname',width:100">员工姓名</th>
+                <th data-options="field:'usercode',width:100">员工工号</th>
                 <th data-options="field:'rolename',width:100">角色</th>
                 <th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>
 
@@ -16,20 +18,32 @@
         </table>
     </div>
 
-    <div data-options="region:'east',split:true,collapsed:true" title="详细信息" style="width:300px;height: 100%;">
+    <div id="usermanagertable" data-options="region:'east',split:true,collapsed:true" title="详细信息" style="width:300px;height: 100%;">
 
             <div style="padding:10px 0 10px 60px">
 
             <form id="userinfoform" method="post">
             <table>
                 <tr>
-                    <td>登陆名:</td>
+                    <td>用户名:</td>
                     <td><input class="easyui-validatebox" type="text" name="username" data-options="required:true"></td>
                 </tr>
                 <tr>
-                    <td>用户名:</td>
+                    <td>员工姓名:</td>
                     <td><input class="easyui-validatebox" type="text" name="displayname" data-options="required:true"></td>
                 </tr>
+                <tr>
+                    <td>员工工号:</td>
+                    <td><input class="easyui-validatebox" type="text" name="usercode" data-options="required:true"></td>
+                </tr>
+                <tr>
+                    <td>用户角色:</td>
+                    <td><input class="easyui-combobox lazy-combobox" type="text"
+                               name="roleid"
+                               data-options="required:true,valueField: 'id',
+                                         textField: 'rolename' "></td>
+                </tr>
+
 
                 <tr>
                     <td>密码:</td>

@@ -8,7 +8,7 @@
                 <th data-options="field:'deptname',width:100">科室名</th>
                 <th data-options="field:'depttype',width:100">科室类型</th>
                 <th data-options="field:'pycode',width:100">拼音代码</th>
-                <th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>
+                <th data-options="field:'time',hidden:true,width:150,align:'center',sortable:true">注册时间</th>
 
             </tr>
             </thead>
@@ -37,7 +37,7 @@
                     <td><input class="easyui-combobox lazy-combobox" type="text"
                                name="depttype" searchtype="科室类别"
                                data-options="required:true,valueField: 'enumeratevalue',
-                                         textField: 'enumeratelabel' "></td>
+                                         textField: 'enumeratelabel',width:140"></td>
                 </tr>
 
                 <tr><td>

@@ -98,7 +98,7 @@
 (defn getdepts [start limits keyword]
   (select checkdept
 
-    (fields :deptname :depttype :id :pycode :time )
+    (fields :deptname :depttype :id :pycode  )
 
     (where {:deptname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
     (limit limits)

@@ -1,6 +1,15 @@
 define(function () {
 
     function render(parameters) {
+
+        $('#usermanagertable .lazy-combobox').combobox({
+            onShowPanel: function () {
+                var url = 'auth/getroles?start=0&limit=100' ;
+                $(this).combobox('reload', url);
+            }
+
+        });
+
         $('#userpaneltb .keyword').bind('click keypress',function(e){
             var keycode = (event.keyCode ? event.keyCode : event.which);
             if($(this).attr("type")==='keyword'&&keycode!=13)return;
@@ -31,7 +40,9 @@ define(function () {
             onClickRow:function(index, rowData){
                 $('#userinfoform').form('load',rowData);
                 $('#userformbtns .save,#userformbtns .del').linkbutton('enable');
+
                 $('#usermanagerlayout').layout('expand','east');
+
             }
 
         });

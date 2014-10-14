@@ -144,14 +144,10 @@
     )
   )
 (defn editdept [deptname depttype pycode id]
-  (let [dept (first (db/getdepts 0 10 deptname))
-        ]
-    (if (nil? dept)
+
       (resp/json {:success true :msg (db/updatedept
                                        {:deptname deptname :depttype depttype :pycode pycode} id)})
-      (resp/json {:success false :msg "已存在"})
-      )
-    )
+
   )
 (defn handle-login [username password]
   (let [user (db/get-user username)]

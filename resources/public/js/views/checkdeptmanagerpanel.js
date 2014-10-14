@@ -1,6 +1,18 @@
 define(function () {
 
     function render(parameters) {
+        var combox=$('#deptmanagerlayout .lazy-combobox');
+        combox.combobox({
+            url:'auth/getenumbytype?type='+ combox.attr('searchtype')
+            /*onShowPanel: function () {
+                var searchtype = $(this).attr('searchtype');
+                var url = 'auth/getenumbytype?type='+searchtype;
+                $(this).combobox('reload', url);
+            }*/
+
+        });
+
+
         $('#deptpaneltb .keyword').bind('click keypress',function(e){
             var keycode = (event.keyCode ? event.keyCode : event.which);
             if($(this).attr("type")==='keyword'&&keycode!=13)return;
