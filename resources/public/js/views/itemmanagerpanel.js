@@ -36,7 +36,8 @@ define(function () {
 
                 } else if (rowData._parentId == 0) {
                     //rowData.itemname = rowData.textold;
-                    var item = {deptid: rowData.id, pid: rowData._parentId};
+                    var item = {deptid: rowData.id, pid: rowData._parentId,
+                        itemname:"",pycode:"",price:"",sortnum:""};
                     //rowData.label = rowData.value;
                     $('#itemdetailinfodiv').hide();
                     $('#iteminfodiv').show();
