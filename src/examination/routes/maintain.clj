@@ -20,6 +20,8 @@
     (maintain/edititem pycode itemname price sortnum itemid))
   (POST "/maintain/delitem" [itemid]
     (maintain/delitem itemid))
+  (POST "/maintain/delunit" [id]
+    (maintain/delunit id))
   (POST "/maintain/delitemdeatail" [id]
     (maintain/delitemdeatail id))
 

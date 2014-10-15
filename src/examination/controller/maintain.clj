@@ -38,6 +38,9 @@
 (defn delitem [itemid]
   (resp/json {:success true :msg (db/delcheckitem itemid)})
   )
+(defn delunit [id]
+  (resp/json {:success true :msg (db/delunit id)})
+  )
 (defn delitemdeatail [id]
   (resp/json {:success true :msg (db/delcheckitemdeatil id)})
   )

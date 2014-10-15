@@ -21,7 +21,7 @@ define(function () {
         });
         $('#unitmanagerlayout .loaded-combobox').combobox({
             url:'auth/getdepts?start=0&limit=100'
-        });
+        });  */
 
         $('#unitpaneltb .keyword').bind('click keypress',function(e){
             var keycode = (event.keyCode ? event.keyCode : event.which);
@@ -29,7 +29,7 @@ define(function () {
 
                 $('#unitmanagerpanel').datagrid('load',{keyword:$('#unitpaneltb .keyword').val()});
             }
-        );*/
+        );
         $('#unitmanagerpanel').datagrid({
             singleSelect: true,
             collapsible: true,
@@ -78,7 +78,7 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','删除用户失败!');
                             }
-                            ajaxfrom.ajaxsend('post','json','auth/delunit',params,success,null,errorfunc)
+                            ajaxfrom.ajaxsend('post','json','maintain/delunit',params,success,null,errorfunc)
 
                         });
                 }

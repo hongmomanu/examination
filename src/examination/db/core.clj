@@ -304,6 +304,11 @@
     (where {:id itemid})
     )
   )
+(defn delunit [unitid]
+  (delete examinationUnit
+    (where {:id unitid})
+    )
+  )
 (defn delcheckitemdeatil [id]
   (delete checkItemDetail
     (where {:id id})
