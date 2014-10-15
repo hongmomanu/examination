@@ -22,6 +22,10 @@
     (maintain/delitem itemid))
   (POST "/maintain/delitemdeatail" [id]
     (maintain/delitemdeatail id))
+
+  (POST "/maintain/getunits" [start limit  totalname rowsname keyword]
+    (maintain/getunits start limit  totalname rowsname keyword))
+
   (POST "/maintain/addnewcheckitemdetail" [itemid  itemdetailname
                                            unit  downlimit
                                            uplimit	 std_mess

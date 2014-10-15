@@ -108,6 +108,12 @@
     (limit limits)
     (offset start))
   )
+(defn getunits [start limits keyword]
+  (select examinationUnit
+    (where {:unitname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (limit limits)
+    (offset start))
+  )
 (defn getdepts [start limits keyword]
   (select checkdept
 
@@ -247,6 +253,13 @@
     (aggregate (count :id) :counts)
     )
   )
+(defn getunitnums [keyword]
+  (select examinationUnit
+    (where {:unitname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (aggregate (count :id) :counts)
+    )
+  )
+
 (defn getdeptnums [keyword]
   (select checkdept
     (where {:deptname [like (str "%" (if (nil? keyword)"" keyword) "%")]})

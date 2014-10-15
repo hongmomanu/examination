@@ -133,20 +133,20 @@ CREATE TABLE IF NOT EXISTS checkItemDetail
 CREATE TABLE IF NOT EXISTS examinationUnit
 (
   id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
-  DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
   unitcode     VARCHAR(100), -- 代码
-  unitname VARCHAR(100), --  名称
-  manager VARCHAR(100), --  负责人
-  contacter VARCHAR(100), --  联系人
+  unitname    VARCHAR(100), --  名称
+  manager     VARCHAR(100), --  负责人
+  contacter   VARCHAR(100), --  联系人
   telephone		 VARCHAR(100), --  联系电话
-  email		 VARCHAR(100), --  联系email
-  address    VARCHAR(100), --  联系地址
+  email		    VARCHAR(100), --  联系email
+  address     VARCHAR(100), --  联系地址
   postcode    VARCHAR(100), --  邮政编码
   bank        VARCHAR(100), --  业务银行
-  bank_no        VARCHAR(100), --  银行帐号
-  remark        VARCHAR(100), --  备注
-  sortnum int,        --排序号
-  useflag  int  default(1)  --是否有效
+  bank_no     VARCHAR(100), --  银行帐号
+  remark      VARCHAR(100), --  备注
+  sortnum     int,        --排序号
+  useflag     VARCHAR(100)  --是否有效
 
 );
 

@@ -28,6 +28,13 @@
 (defn getitemdetailnums [itemid]
   (:counts (first (db/getitemdetailnums itemid)))
   )
+(defn getunits [start limit  totalname rowsname keyword]
+  (let [results (db/getunits start limit keyword )
+        nums  (:counts (first (db/getunitnums keyword)))
+        ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+  )
 (defn delitem [itemid]
   (resp/json {:success true :msg (db/delcheckitem itemid)})
   )

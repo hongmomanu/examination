@@ -1,7 +1,7 @@
 define(function () {
 
     function render(parameters) {
-        var combox=$('#unitmanagerlayout .lazy-combobox');
+        /*var combox=$('#unitmanagerlayout .lazy-combobox');
         combox.combobox({
             url:'auth/getroles?start=0&limit=100',
             onShowPanel: function () {
@@ -20,22 +20,23 @@ define(function () {
 
                 $('#unitmanagerpanel').datagrid('load',{keyword:$('#unitpaneltb .keyword').val()});
             }
-        );
+        );*/
         $('#unitmanagerpanel').datagrid({
             singleSelect: true,
             collapsible: true,
             rownumbers: true,
             method:'post',
             fitColumns:true,
-            url:'auth/getunits',
+            url:'maintain/getunits',
             remoteSort: false,
-            sortName:'time',
-            sortOrder:'desc',
+            /*sortName:'time',
+            sortOrder:'desc',*/
             fit:true,
             toolbar:'#unitpaneltb',
             pagination:true,
             pageSize:10,
             onBeforeLoad: function (params) {
+                //alert(1);
                 var options = $('#unitmanagerpanel').datagrid('options');
                 params.start = (options.pageNumber - 1) * options.pageSize;
                 params.limit = options.pageSize;
