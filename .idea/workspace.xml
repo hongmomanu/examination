@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ae5813a-5333-4d5a-bc7b-256668f8a93c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sqlite.db3" afterPath="$PROJECT_DIR$/sqlite.db3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js" afterPath="$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f07f9af9-74de-4917-9675-757962f88c56" name="Failed commit: Default" comment="jack commit" />
@@ -71,8 +69,8 @@
       <file leaf-file-name="itemmanagerpanel.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46958175" vertical-offset="509" max-vertical-offset="4284">
-              <caret line="42" column="56" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.4524715" vertical-offset="572" max-vertical-offset="4284">
+              <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -546,7 +544,7 @@
       <workItem from="1412997460200" duration="27884000" />
       <workItem from="1413176952938" duration="17052000" />
       <workItem from="1413252226121" duration="45058000" />
-      <workItem from="1413356227402" duration="3711000" />
+      <workItem from="1413356227402" duration="3792000" />
     </task>
     <task id="LOCAL-00001" summary="jack commit">
       <created>1413004888023</created>
@@ -672,11 +670,15 @@
       <created>1413358358562</created>
       <updated>1413358358562</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="jack commit">
+      <created>1413359962148</created>
+      <updated>1413359962148</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93705000" />
+    <option name="totallyTimeSpent" value="93786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="30" width="1370" height="740" extended-state="0" />
@@ -1128,8 +1130,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46958175" vertical-offset="509" max-vertical-offset="4284">
-          <caret line="42" column="56" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.4524715" vertical-offset="572" max-vertical-offset="4284">
+          <caret line="45" column="42" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
           <folding />
         </state>
       </provider>
