@@ -22,19 +22,61 @@
             )
   )
 
-(defn gettreeitem [node roleid callback]
+(defn getitemnums [deptid]
+  (:counts (first (db/getitemnums deptid)))
+  )
+(defn getitemdetailnums [itemid]
+  (:counts (first (db/getitemdetailnums itemid)))
+  )
+(defn gettreeitem [node roleid pid callback]
 
-  (if (= node "-1")(resp/json [{:id 1 :text "体检科室" :value "体检科室" :children [{:text "体检科室" :value "体检科室"}] }])(resp/json {:text "wu" :value "wu"}))
-  #_(let [
+  (if (= node "-1")
+    (resp/json [{:id 0 :text "体检科室" :value "体检科室"
+                 :children (map #(conj % {:state "closed" :value (:deptname %) :id (str "dept" (:id %)) :nodeid (:id %)
+                                          :text (str (:deptname %) "(" (getitemnums (:id %)) ")")})
+                             (db/getdepts 0 100 nil)) }])
+    (if (= pid "0")(resp/json (map #(conj % {:state "closed" :value (:itemname %) :id (str "item" (:id %)) :nodeid (:id %)
+                                             :text (str (:itemname %) "(" (getitemdetailnums (:id %)) ")")}) (db/getcheckitem node)))
+      (resp/json (map #(conj % {:value (:itemdetailname %) :id (:id %)
+                                           :text (:itemdetailname %)}) (db/getcheckitemdetail node)))
+      ))
 
-         results (db/getfuncsbypid node)
-         roleid (auth/getroleid roleid)
-         funcids (into [](map #(:funcid %) (db/getfuncsbyid roleid)))
-         resultsformat (map #(auth/functreeformat % funcids) results)
+  )
+(defn addnewitem [pycode itemname price sortnum deptid]
+  (resp/json {:success true :msg (db/addnewitem {
+                                                 :pycode pycode
+                                                 :itemname itemname
+                                                 :price price
+                                                 :sortnum sortnum
+                                                 :deptid deptid
+                                                  })})
+  )
 
-         ]
-    (if (nil? callback) (resp/json resultsformat)(resp/jsonp callback resultsformat))
-    )
+(defn addnewcheckitemdetail [itemid  itemdetailname unit  downlimit uplimit	 std_mess
+                             down_mess  up_mess sortnum  pycode]
+
+  (resp/json {:success true :msg (db/addnewcheckitemdetail {
+                                                  :itemid itemid
+                                                  :itemdetailname itemdetailname
+                                                  :unit unit
+                                                  :downlimit downlimit
+                                                  :uplimit uplimit
+                                                  :std_mess std_mess
+                                                  :down_mess down_mess
+                                                  :up_mess up_mess
+                                                  :sortnum sortnum
+                                                  :pycode pycode
+                                                  })})
+
+)
+
+(defn edititem [pycode itemname price sortnum itemid]
+  (resp/json {:success true :msg (db/updateitem {
+                                                  :pycode pycode
+                                                  :itemname itemname
+                                                  :price price
+                                                  :sortnum sortnum
+                                                  } itemid)})
   )
 
 
