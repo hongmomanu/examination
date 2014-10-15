@@ -42,6 +42,10 @@
 
   (database sqlitedb)
   )
+(defentity checkItemDetail
+
+  (database sqlitedb)
+  )
 (defentity checkitem
 
   (database sqlitedb)
@@ -109,6 +113,21 @@
     (offset start))
   )
 
+(defn getcheckitem [deptid]
+  (select checkitem
+    (fields :itemname :price :id :pycode :sortnum )
+    (where {:deptid deptid})
+    )
+
+  )
+(defn getcheckitemdetail [itemid]
+  (select checkItemDetail
+    (fields :itemdetailname :itemid :unit :uplimit :std_mess :up_mess :down_mess :sortnum :downlimit :id :pycode  )
+    (where {:itemid itemid})
+    )
+
+  )
+
 (defn deluser [userid]
   (delete users
     (where {:id userid})
@@ -154,6 +173,20 @@
     (offset start))
 
   )
+(defn getitemnums [id]
+  (select checkitem
+    (where {:deptid id})
+    (aggregate (count :id) :counts)
+    )
+
+  )
+(defn getitemdetailnums [id]
+  (select checkItemDetail
+    (where {:itemid id})
+    (aggregate (count :id) :counts)
+    )
+
+  )
 (defn getenumnums [keyword]
 
   (select enumerate
@@ -178,6 +211,12 @@
   (update divisions
     (set-fields fields)
     (where {:id divisionid})
+    )
+  )
+(defn updateitem [fields itemid]
+  (update checkitem
+    (set-fields fields)
+    (where {:id itemid})
     )
   )
 (defn getlognums [keyword bgtime edtime]
@@ -327,6 +366,18 @@
     (values fields)
     )
   )
+(defn addnewitem [fields]
+  (insert checkitem
+    (values fields)
+    )
+  )
+
+(defn addnewcheckitemdetail [fields]
+  (insert checkItemDetail
+    (values fields)
+    )
+  )
+
 
 (defn adddivision [fields]
   (insert divisions

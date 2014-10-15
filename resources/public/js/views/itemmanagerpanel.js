@@ -10,10 +10,20 @@ define(function () {
             idField: 'id',
             onBeforeLoad: function (row, params) {
                 if (!row)params.node = -1;
-                else params.node = row.id;
-                //params.roleid=$.getUrlParam('roleid');
+                else {
+                    params.node = row.nodeid;
+                    params.pid=row._parentId;
+                }
 
             },
+            /*onContextMenu: function(e,node){
+                e.preventDefault();
+                $(this).tree('select',node.target);
+                $('#mm').menu('show',{
+                    left: e.pageX,
+                    top: e.pageY
+                });
+            },*/
             onLoadSuccess: function (row, data) {
                 /*require(['commonfuncs/treegridtip'], function () {
                     $("#funcmanagerpanel").treegrid('tooltip', ['text']);
@@ -21,14 +31,34 @@ define(function () {
 
             },
             onClickRow: function (rowData) {
-                rowData.itemname = rowData.textold;
-                rowData.itemid = rowData.id;
-                rowData.label = rowData.value;
-                $('#iteminfoform').form('load', rowData);
-                $('#itemformbtns .save,#itemformbtns .del').linkbutton('enable');
-                $('#itemmanagerlayout').layout('expand', 'east');
-            }
+                console.log(rowData);
+                if (rowData._parentId == undefined) {
 
+                } else if (rowData._parentId == 0) {
+                    //rowData.itemname = rowData.textold;
+                    var item = {deptid: rowData.id, pid: rowData._parentId};
+                    //rowData.label = rowData.value;
+                    $('#itemdetailinfodiv').hide();
+                    $('#iteminfodiv').show();
+                    $('#iteminfoform').form('load', item);
+                    $('#newitemformbtns').show();
+                    $('#edititemformbtns').hide();
+                    $('#itemmanagerlayout').layout('expand', 'east');
+                }
+                else if (rowData._parentId.indexOf("dept") >= 0) {
+                    $('#itemdetailinfodiv').hide();
+                    $('#iteminfodiv').show();
+                    rowData.itemid=rowData.nodeid;
+                    rowData.pid= rowData._parentId;
+                    $('#iteminfodiv').form('load', rowData);
+                    //$('#itemdetailformbtns .save,#itemformbtns .del').linkbutton('enable');
+                    $('#newitemformbtns').hide();
+                    $('#edititemformbtns').show();
+                    $('#itemmanagerlayout').layout('expand', 'east');
+                }
+
+
+            }
         });
 
         $('#itemformbtns .del').click(function () {
@@ -51,8 +81,8 @@ define(function () {
                 }
             });
         });
-        $('#itemformbtns .save').click(function () {
-            $.messager.confirm('确定要修改功能配置么?', '你正在试图功能配置?', function (r) {
+        $('#edititemformbtns .save').click(function () {
+            $.messager.confirm('确定要修改项目么?', '你正在试图修改项目?', function (r) {
                     if (r) {
                         require(['js/jqueryplugin/easyui-form.js', 'js/commonfuncs/AjaxForm.js']
                             , function (easyform, ajaxfrom) {
@@ -77,7 +107,7 @@ define(function () {
                                     $.messager.alert('操作失败', '修改功能失败!');
                                 };
 
-                                ajaxfrom.ajaxsend('post', 'json', 'auth/edititem', params, success, null, errorfunc);
+                                ajaxfrom.ajaxsend('post', 'json', 'maintain/edititem', params, success, null, errorfunc);
                             });
                     }
                 }
@@ -85,6 +115,20 @@ define(function () {
 
         });
 
+        $('#edititemformbtns .newdetail').click(function () {
+
+            if($('#newcheckitemwin').length>0){
+                $('#newcheckitemwin').dialog('open');
+            }else{
+                require(['text!views/newcheckitemwin.htm','views/newcheckitemwin'],
+                    function(div,newcheckitem){
+                        $('body').append(div);
+                        newcheckitem.render();
+                    });
+            }
+            }
+
+        );
         $('#itemformbtns .new').click(function () {
 
                 require(['js/jqueryplugin/easyui-form.js', 'js/commonfuncs/AjaxForm.js']
@@ -94,12 +138,10 @@ define(function () {
                         var success = function (res) {
                             if(res.success){
                                 $.messager.alert('操作成功', '新增功能成功!');
-                                if(params.pid<0){
-                                    $('#itemmanagerpanel').treegrid('reload') ;
-                                }
-                                else{
-                                    $('#itemmanagerpanel').treegrid('reload',params.pid);
-                                }
+
+                                $('#itemmanagerpanel').treegrid('reload') ;
+
+
 
                             }else{
                                 $.messager.alert('操作失败', res.msg);
@@ -109,7 +151,7 @@ define(function () {
                         var errorfunc = function () {
                             $.messager.alert('操作失败', '新增功能失败!');
                         };
-                        ajaxfrom.ajaxsend('post', 'json', 'auth/addnewitem', params, success, null, errorfunc);
+                        ajaxfrom.ajaxsend('post', 'json', 'maintain/addnewitem', params, success, null, errorfunc);
                     });
             }
         );

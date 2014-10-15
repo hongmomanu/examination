@@ -95,6 +95,7 @@ CREATE TABLE IF NOT EXISTS checkdept
   deptname VARCHAR(100), --  科室名称
   pycode  VARCHAR(100)   --拼音代码
 
+
 );
 -- 检查项目
 CREATE TABLE IF NOT EXISTS checkitem
@@ -104,11 +105,33 @@ CREATE TABLE IF NOT EXISTS checkitem
   deptid     INTEGER, -- 科室代码
   itemname VARCHAR(100), --  项目名称
   price VARCHAR(100), --  价格
+  sortnum int,        --排序号
   pycode  VARCHAR(100)   --拼音代码
 
 );
 
---
+
+-- 检查项目明细
+CREATE TABLE IF NOT EXISTS checkItemDetail
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  itemid     INTEGER, -- 项目代码
+  itemdetailname VARCHAR(100), --  明细名称
+  unit VARCHAR(100), --  单位
+  downlimit VARCHAR(100), --  参考下限
+  uplimit		 VARCHAR(100), --  参考上限
+  std_mess		 VARCHAR(100), --  正常提示
+  down_mess    VARCHAR(100), --  偏低提示
+  up_mess    VARCHAR(100), --  偏高提示
+  sortnum int,        --排序号
+  pycode  VARCHAR(100)   --拼音代码
+
+);
+
+
+
+
 
 
 
