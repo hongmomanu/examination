@@ -46,6 +46,11 @@
 
   (database sqlitedb)
   )
+
+(defentity examinationUnit
+  (database sqlitedb)
+  )
+
 (defentity checkitem
 
   (database sqlitedb)

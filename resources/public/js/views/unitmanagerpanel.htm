@@ -1,0 +1,85 @@
+<div id="unitmanagerlayout" class="easyui-layout" style="width:100%;height:100%;" data-options="fit:true">
+
+
+    <div data-options="region:'center',title:'用户列表'">
+        <table id="unitmanagerpanel" >
+            <thead>
+            <tr>
+                <th data-options="field:'unitname',width:100">用户名</th>
+                <th data-options="field:'displayname',width:100">员工姓名</th>
+                <th data-options="field:'unitcode',width:100">员工工号</th>
+                <th data-options="field:'deptids',width:100">所属科室</th>
+                <th data-options="field:'rolename',width:100">角色</th>
+                <th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>
+
+            </tr>
+            </thead>
+
+
+        </table>
+    </div>
+
+    <div id="unitmanagertable" data-options="region:'east',split:true,collapsed:true" title="详细信息" style="width:300px;height: 100%;">
+
+            <div style="padding:10px 0 10px 60px">
+
+            <form id="unitinfoform" method="post">
+            <table>
+                <tr>
+                    <td>用户名:</td>
+                    <td><input class="easyui-validatebox" type="text" name="unitname" data-options="required:true"></td>
+                </tr>
+                <tr>
+                    <td>员工姓名:</td>
+                    <td><input class="easyui-validatebox" type="text" name="displayname" data-options="required:true"></td>
+                </tr>
+                <tr>
+                    <td>员工工号:</td>
+                    <td><input class="easyui-validatebox" type="text" name="unitcode" data-options="required:true"></td>
+                </tr>
+                <tr>
+                    <td>用户角色:</td>
+                    <td><input class="easyui-combobox lazy-combobox" type="text"
+                               name="roleid"
+                               data-options="required:true,valueField: 'id',
+                                         textField: 'rolename',width:140"></td>
+                </tr>
+                <tr>
+                    <td>所属科室:</td>
+                    <td><input class="easyui-combobox loaded-combobox" type="text"
+                               name="deptids"
+                               data-options="required:false,valueField: 'id',multiple:true,multiline:true,
+                                         textField: 'deptname',width:140,height:50"></td>
+                </tr>
+
+
+                <tr>
+                    <td>密码:</td>
+                    <td><input class="easyui-validatebox" type="password" name="password"  ></td>
+                </tr>
+
+                <tr><td>
+                    <input type="text" name="id" style="display: none;">
+                </td></tr>
+
+            </table>
+        </form>
+        </div>
+            <div style="text-align:center;padding:5px" id="unitformbtns">
+                <a  class="easyui-linkbutton save" data-options="disabled:true" >保存</a>
+                <a  class="easyui-linkbutton del" data-options="disabled:true" >删除</a>
+            </div>
+
+
+
+
+    </div>
+    <div id="unitpaneltb" style="padding:5px;height:auto;vertical-align: middle;">
+        <a>快速搜索: <input class="keyword" type="keyword" style="width:120px"></a>
+
+        <a class="easyui-linkbutton newunit" data-options="iconCls:'icon-new'">新增用户</a>
+
+    </div>
+
+
+</div>
