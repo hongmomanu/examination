@@ -69,6 +69,23 @@
                                                   })})
 
 )
+(defn edititemdetail [itemid  itemdetailname unit  downlimit uplimit	 std_mess
+                             down_mess  up_mess sortnum  pycode id]
+
+  (resp/json {:success true :msg (db/editcheckitemdetail {
+                                                  :itemid itemid
+                                                  :itemdetailname itemdetailname
+                                                  :unit unit
+                                                  :downlimit downlimit
+                                                  :uplimit uplimit
+                                                  :std_mess std_mess
+                                                  :down_mess down_mess
+                                                  :up_mess up_mess
+                                                  :sortnum sortnum
+                                                  :pycode pycode
+                                                  } id)})
+
+)
 
 (defn edititem [pycode itemname price sortnum itemid]
   (resp/json {:success true :msg (db/updateitem {

@@ -25,5 +25,12 @@
                                            sortnum  pycode ]
     (maintain/addnewcheckitemdetail itemid  itemdetailname unit  downlimit uplimit	 std_mess
                         down_mess  up_mess sortnum  pycode))
+  (POST "/maintain/edititemdetail" [itemid  itemdetailname
+                                           unit  downlimit
+                                           uplimit	 std_mess
+                                           down_mess  up_mess
+                                           sortnum  pycode id]
+    (maintain/edititemdetail itemid  itemdetailname unit  downlimit uplimit	 std_mess
+                        down_mess  up_mess sortnum  pycode id))
 
   )

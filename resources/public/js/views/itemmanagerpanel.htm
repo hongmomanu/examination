@@ -78,37 +78,35 @@
             <form id="itemdetailinfoform" method="post">
                 <table class="formtable" style="width: 100%;">
                     <tr>
-                        <td>项目名称:</td>
-                        <td><input class="easyui-textbox" style="width: 100%" type="text" name="itemname" data-options="required:true"></td>
+                        <td>明细名称:</td>
+                        <td><input class="easyui-validatebox" type="text" name="itemdetailname" data-options="required:true"></td>
+                        <td>单位:</td>
+                        <td><input class="easyui-validatebox" type="text" name="unit" data-options="required:false"></td>
                     </tr>
 
                     <tr>
+                        <td>参考下限:</td>
+                        <td><input  class="easyui-validatebox" type="text" name="downlimit" data-options="required:false" ></td>
+                        <td>参考上限:</td>
+                        <td><input  class="easyui-validatebox" type="text" name="uplimit" data-options="required:false" ></td>
+                    </tr>
+                    <tr>
+                        <td>正常提示:</td>
+                        <td><input  class="easyui-validatebox" type="text" name="std_mess" data-options="required:false" ></td>
+                        <td>偏低提示:</td>
+                        <td><input  class="easyui-validatebox" type="text" name="down_mess" data-options="required:false" ></td>
+                    </tr>
+
+                    <tr>
+                        <td>偏高提示:</td>
+                        <td><input  class="easyui-validatebox" type="text" name="up_mess" data-options="required:false" ></td>
                         <td>拼音代码:</td>
-                        <td>
-                            <input class="easyui-textbox" name="pycode" style="width: 100%">
-                        </td>
+                        <td><input  class="easyui-validatebox" type="text" name="pycode" data-options="required:false" ></td>
                     </tr>
+
                     <tr>
-                        <td>价格:</td>
-                        <td>
-                            <!--<input type="text" name="imgcss" >-->
-                            <input class="easyui-textbox" data-options="multiline:false"  style="width:100%;" name="price">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>排列序号:</td>
-                        <td>
-                            <input class="easyui-textbox" name="sortnum" style="width: 100%" >
-                        </td>
-                    </tr>
-
-
-                    <tr style="display: none;">
-                        <td>
-                            <input type="text" name="itemid" style="display: none;">
-                            <input type="text" name="pid" style="display: none;">
-
-                        </td>
+                        <td>排序号:</td>
+                        <td><input  class="easyui-validatebox" type="text" name="sortnum" data-options="required:false" ></td>
                     </tr>
 
 

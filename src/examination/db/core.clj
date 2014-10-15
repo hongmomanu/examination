@@ -219,6 +219,12 @@
     (where {:id itemid})
     )
   )
+(defn editcheckitemdetail [fields id]
+  (update checkItemDetail
+    (set-fields fields)
+    (where {:id id})
+    )
+  )
 (defn getlognums [keyword bgtime edtime]
 
   (select systemlog

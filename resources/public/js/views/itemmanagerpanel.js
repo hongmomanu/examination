@@ -55,6 +55,16 @@ define(function () {
                     $('#newitemformbtns').hide();
                     $('#edititemformbtns').show();
                     $('#itemmanagerlayout').layout('expand', 'east');
+                }else if (rowData._parentId.indexOf("item") >= 0) {
+                    $('#iteminfodiv').hide();
+                    $('#itemdetailinfodiv').show();
+                    //rowData.itemid=rowData.nodeid;
+                    rowData.pid= rowData._parentId;
+                    $('#itemdetailinfodiv').form('load', rowData);
+                    //$('#itemdetailformbtns .save,#itemformbtns .del').linkbutton('enable');
+                    //$('#newitemformbtns').hide();
+                    //$('#edititemformbtns').show();
+                    $('#itemmanagerlayout').layout('expand', 'east');
                 }
 
 
@@ -81,6 +91,7 @@ define(function () {
                 }
             });
         });
+
         $('#edititemformbtns .save').click(function () {
             $.messager.confirm('确定要修改项目么?', '你正在试图修改项目?', function (r) {
                     if (r) {
@@ -108,6 +119,37 @@ define(function () {
                                 };
 
                                 ajaxfrom.ajaxsend('post', 'json', 'maintain/edititem', params, success, null, errorfunc);
+                            });
+                    }
+                }
+            );
+
+        });
+    $('#itemdetailformbtns .save').click(function () {
+            $.messager.confirm('确定要修改项目明细么?', '你正在试图修改项目明细?', function (r) {
+                    if (r) {
+                        require(['js/jqueryplugin/easyui-form.js', 'js/commonfuncs/AjaxForm.js']
+                            , function (easyform, ajaxfrom) {
+                                var params = $('#itemdetailinfoform').form("serialize");
+                                params.id=$('#itemmanagerpanel').treegrid('getSelected').id;
+                                params.itemid=$('#itemmanagerpanel').treegrid('getSelected').itemid;
+                                //testobj= $('#iteminfoform');
+                                var success = function (res) {
+
+                                    if(res.success){
+                                        $.messager.alert('操作成功', '修改成功!');
+                                        $('#itemmanagerpanel').treegrid('reload',$('#itemmanagerpanel').treegrid('getSelected')._parentId)
+
+                                    }else{
+                                        $.messager.alert('操作失败', res.msg);
+                                    }
+
+                                };
+                                var errorfunc = function () {
+                                    $.messager.alert('操作失败', '修改功能失败!');
+                                };
+
+                                ajaxfrom.ajaxsend('post', 'json', 'maintain/edititemdetail', params, success, null, errorfunc);
                             });
                     }
                 }
