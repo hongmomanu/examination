@@ -72,21 +72,20 @@ define(function () {
             }
         });
 
-        $('#itemformbtns .del').click(function () {
+        $('#edititemformbtns .del').click(function () {
             $.messager.confirm('确定要删除功能么?', '你正在试图删除功能?', function (r) {
                 if (r) {
                     require(['js/jqueryplugin/easyui-form.js', 'js/commonfuncs/AjaxForm.js']
                         , function (easyuifrom, ajaxfrom) {
                             var params = $('#iteminfoform').form("serialize");
                             var success = function () {
-                                $.messager.alert('操作成功', '删除功能成功!');
-                                if (params.pid == -1)$('#itemmanagerpanel').treegrid('reload');
-                                else $('#itemmanagerpanel').treegrid('reload', params.pid);
+                                $.messager.alert('操作成功', '删除成功!');
+                                $('#itemmanagerpanel').treegrid('reload',$('#itemmanagerpanel').treegrid('getSelected')._parentId)
                             };
                             var errorfunc = function () {
                                 $.messager.alert('操作失败', '删除功能失败!');
                             }
-                            ajaxfrom.ajaxsend('post', 'json', 'auth/delitem', params, success, null, errorfunc)
+                            ajaxfrom.ajaxsend('post', 'json', 'maintain/delitem', params, success, null, errorfunc)
 
                         });
                 }

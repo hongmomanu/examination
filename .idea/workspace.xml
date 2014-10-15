@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ae5813a-5333-4d5a-bc7b-256668f8a93c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sqlite.db3" afterPath="$PROJECT_DIR$/sqlite.db3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/examination/db/core.clj" afterPath="$PROJECT_DIR$/src/examination/db/core.clj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js" afterPath="$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/examination/controller/maintain.clj" afterPath="$PROJECT_DIR$/src/examination/controller/maintain.clj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/examination/routes/maintain.clj" afterPath="$PROJECT_DIR$/src/examination/routes/maintain.clj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f07f9af9-74de-4917-9675-757962f88c56" name="Failed commit: Default" comment="jack commit" />
@@ -71,8 +73,8 @@
       <file leaf-file-name="itemmanagerpanel.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17110266" vertical-offset="612" max-vertical-offset="4302">
-              <caret line="39" column="64" selection-start-line="39" selection-start-column="64" selection-end-line="39" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.81178707" vertical-offset="1157" max-vertical-offset="4284">
+              <caret line="88" column="28" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -81,8 +83,8 @@
       <file leaf-file-name="newcheckitemwin.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="322" max-vertical-offset="2214">
-              <caret line="26" column="130" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="130" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2214">
+              <caret line="7" column="32" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -121,8 +123,8 @@
       <file leaf-file-name="itemmanagerpanel.htm" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.5178572" vertical-offset="1301" max-vertical-offset="2430">
-              <caret line="77" column="40" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="40" />
+            <state vertical-scroll-proportion="-4.25" vertical-offset="986" max-vertical-offset="2430">
+              <caret line="68" column="93" selection-start-line="68" selection-start-column="77" selection-end-line="68" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -131,8 +133,8 @@
       <file leaf-file-name="core.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/examination/db/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3621" max-vertical-offset="7848">
-              <caret line="219" column="34" selection-start-line="219" selection-start-column="5" selection-end-line="219" selection-end-column="5" />
+            <state vertical-scroll-proportion="-7.8965516" vertical-offset="4703" max-vertical-offset="7938">
+              <caret line="274" column="6" selection-start-line="274" selection-start-column="3" selection-end-line="274" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -151,8 +153,8 @@
       <file leaf-file-name="maintain.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/examination/routes/maintain.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="116" max-vertical-offset="756">
-              <caret line="32" column="28" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="116" max-vertical-offset="792">
+              <caret line="21" column="21" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -161,8 +163,8 @@
       <file leaf-file-name="maintain.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/examination/controller/maintain.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1944">
-              <caret line="39" column="88" selection-start-line="39" selection-start-column="70" selection-end-line="39" selection-end-column="70" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1998">
+              <caret line="31" column="49" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -546,7 +548,7 @@
       <workItem from="1412997460200" duration="27884000" />
       <workItem from="1413176952938" duration="17052000" />
       <workItem from="1413252226121" duration="45058000" />
-      <workItem from="1413356227402" duration="1518000" />
+      <workItem from="1413356227402" duration="2106000" />
     </task>
     <task id="LOCAL-00001" summary="jack commit">
       <created>1413004888023</created>
@@ -664,11 +666,15 @@
       <created>1413357444712</created>
       <updated>1413357444712</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="jack commit">
+      <created>1413357768880</created>
+      <updated>1413357768881</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91512000" />
+    <option name="totallyTimeSpent" value="92100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="30" width="1370" height="740" extended-state="0" />
@@ -1078,50 +1084,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.5178572" vertical-offset="1301" max-vertical-offset="2430">
-          <caret line="77" column="40" selection-start-line="77" selection-start-column="22" selection-end-line="77" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="322" max-vertical-offset="2214">
-          <caret line="26" column="130" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="130" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2214">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/examination/db/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3621" max-vertical-offset="7848">
-          <caret line="219" column="34" selection-start-line="219" selection-start-column="5" selection-end-line="219" selection-end-column="5" />
+        <state vertical-scroll-proportion="-7.8965516" vertical-offset="4703" max-vertical-offset="7938">
+          <caret line="274" column="6" selection-start-line="274" selection-start-column="3" selection-end-line="274" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/examination/routes/maintain.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="116" max-vertical-offset="756">
-          <caret line="32" column="28" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="116" max-vertical-offset="792">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/examination/controller/maintain.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1944">
-          <caret line="39" column="88" selection-start-line="39" selection-start-column="70" selection-end-line="39" selection-end-column="70" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1998">
+          <caret line="31" column="49" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.25" vertical-offset="986" max-vertical-offset="2430">
+          <caret line="68" column="93" selection-start-line="68" selection-start-column="77" selection-end-line="68" selection-end-column="93" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17110266" vertical-offset="612" max-vertical-offset="4302">
-          <caret line="39" column="64" selection-start-line="39" selection-start-column="64" selection-end-line="39" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.81178707" vertical-offset="1157" max-vertical-offset="4284">
+          <caret line="88" column="28" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding />
         </state>
       </provider>

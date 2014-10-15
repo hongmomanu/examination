@@ -268,6 +268,11 @@
     )
   )
 
+(defn delcheckitem [itemid]
+  (delete checkitem
+    (where {:id itemid})
+    )
+  )
 (defn delrolefucbyid [roleid funcid]
   (delete functorole
     (where {:roleid roleid :funcid funcid} )

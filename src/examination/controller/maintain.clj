@@ -28,6 +28,9 @@
 (defn getitemdetailnums [itemid]
   (:counts (first (db/getitemdetailnums itemid)))
   )
+(defn delitem [itemid]
+  (resp/json {:success true :msg (db/delcheckitem itemid)})
+  )
 (defn gettreeitem [node roleid pid callback]
 
   (if (= node "-1")
