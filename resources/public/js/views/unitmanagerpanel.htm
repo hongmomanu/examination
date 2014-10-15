@@ -25,39 +25,67 @@
             <form id="unitinfoform" method="post">
             <table class="formtable">
                 <tr>
-                    <td>用户名:</td>
+                    <td>单位名称:</td>
                     <td><input class="easyui-validatebox" type="text" name="unitname" data-options="required:true"></td>
                 </tr>
                 <tr>
-                    <td>员工姓名:</td>
-                    <td><input class="easyui-validatebox" type="text" name="displayname" data-options="required:true"></td>
-                </tr>
-                <tr>
-                    <td>员工工号:</td>
+                    <td>单位代码:</td>
                     <td><input class="easyui-validatebox" type="text" name="unitcode" data-options="required:true"></td>
                 </tr>
                 <tr>
-                    <td>用户角色:</td>
+                    <td>负责人:</td>
+                    <td><input class="easyui-validatebox" type="text" name="manager" data-options="required:false"></td>
+                </tr>
+                <tr>
+                    <td>联系人:</td>
+                    <td><input class="easyui-validatebox" type="text" name="contacter" data-options="required:false"></td>
+                </tr>
+                <tr>
+                    <td>联系电话:</td>
+                    <td><input class="easyui-validatebox" type="text" name="telephone" data-options="required:false"></td>
+                </tr>
+                <tr>
+                    <td>联系邮箱:</td>
+                    <td><input class="easyui-validatebox" type="text" name="email" data-options="required:false"></td>
+                </tr>
+                <tr>
+                    <td>联系地址:</td>
+                    <td><input class="easyui-validatebox" type="text" name="address" data-options="required:false"></td>
+                </tr>
+                <tr>
+                    <td>邮政编码:</td>
+                    <td><input class="easyui-validatebox" type="text" name="postcode" data-options="required:false"></td>
+                </tr>
+                <tr>
+                    <td>业务银行:</td>
                     <td><input class="easyui-combobox lazy-combobox" type="text"
-                               name="roleid"
-                               data-options="required:true,valueField: 'id',
-                                         textField: 'rolename',width:140"></td>
+                               name="bank" searchtype="银行"
+                               data-options="required:true,valueField: 'enumeratevalue',
+                                         textField: 'enumeratelabel',width:140"></td>
                 </tr>
                 <tr>
-                    <td>所属科室:</td>
-                    <td><input class="easyui-combobox loaded-combobox" type="text"
-                               name="deptids"
-                               data-options="required:false,valueField: 'id',multiple:true,multiline:true,
-                                         textField: 'deptname',width:140,height:50"></td>
+                    <td>银行账号:</td>
+                    <td><input class="easyui-validatebox" type="text" name="bank_no" data-options="required:false"></td>
                 </tr>
-
+                <tr>
+                    <td>备注:</td>
+                    <td><input class="easyui-validatebox" type="text" name="remark" data-options="required:false"></td>
+                </tr>
+                <tr>
+                    <td>排序:</td>
+                    <td><input class="easyui-validatebox" type="text" name="sortnum" data-options="required:false"></td>
+                </tr>
 
                 <tr>
-                    <td>密码:</td>
-                    <td><input class="easyui-validatebox" type="password" name="password"  ></td>
+                    <td>使用状态:</td>
+                    <td><input class="easyui-combobox lazy-combobox" type="text"
+                               name="useflag" searchtype="单位状态"
+                               data-options="required:true,valueField: 'enumeratevalue',
+                                         textField: 'enumeratelabel',width:140"></td>
                 </tr>
 
-                <tr><td>
+
+                <tr style="display: none;"><td>
                     <input type="text" name="id" style="display: none;">
                 </td></tr>
 

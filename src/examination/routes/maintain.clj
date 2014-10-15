@@ -40,5 +40,15 @@
                                            sortnum  pycode id]
     (maintain/edititemdetail itemid  itemdetailname unit  downlimit uplimit	 std_mess
                         down_mess  up_mess sortnum  pycode id))
+  (POST "/maintain/addnewunit" [unitcode unitname manager   contacter  telephone	 email	address
+                                postcode bank  bank_no  remark  sortnum  useflag]
+    (maintain/addnewunit unitcode unitname manager   contacter  telephone	 email	address
+                         postcode bank  bank_no  remark  sortnum  useflag
+      ))
+  (POST "/maintain/editunit" [unitcode unitname manager   contacter  telephone	 email	address
+                                postcode bank  bank_no  remark  sortnum  useflag id]
+    (maintain/editunit unitcode unitname manager   contacter  telephone	 email	address
+                         postcode bank  bank_no  remark  sortnum  useflag id
+      ))
 
   )

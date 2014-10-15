@@ -72,6 +72,11 @@
   (insert users
     (values user)))
 
+(defn addnewunit [unit]
+  (insert examinationUnit
+    (values unit))
+  )
+
 (defn adddept [dept]
   (insert checkdept
     (values dept)
@@ -236,6 +241,14 @@
     (where {:id id})
     )
   )
+
+(defn editunit [fields id]
+  (update examinationUnit
+    (set-fields fields)
+    (where {:id id})
+    )
+  )
+
 (defn getlognums [keyword bgtime edtime]
 
   (select systemlog

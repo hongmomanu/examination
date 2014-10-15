@@ -82,6 +82,44 @@
                                                   })})
 
 )
+(defn addnewunit [unitcode unitname manager   contacter  telephone	 email	address
+                  postcode bank  bank_no  remark  sortnum  useflag]
+
+  (resp/json {:success true :msg (db/addnewunit {
+                                                  :unitcode unitcode
+                                                  :unitname unitname
+                                                  :manager manager
+                                                  :contacter contacter
+                                                  :telephone telephone
+                                                  :email email
+                                                  :address address
+                                                  :postcode postcode
+                                                  :bank bank
+                                                  :bank_no bank_no
+                                                  :remark remark
+                                                  :sortnum sortnum
+                                                  :useflag useflag
+                                                  })}))
+  (defn editunit [unitcode unitname manager   contacter  telephone	 email	address
+                  postcode bank  bank_no  remark  sortnum  useflag id]
+
+  (resp/json {:success true :msg (db/editunit {
+                                                  :unitcode unitcode
+                                                  :unitname unitname
+                                                  :manager manager
+                                                  :contacter contacter
+                                                  :telephone telephone
+                                                  :email email
+                                                  :address address
+                                                  :postcode postcode
+                                                  :bank bank
+                                                  :bank_no bank_no
+                                                  :remark remark
+                                                  :sortnum sortnum
+                                                  :useflag useflag
+                                                  } id)})
+
+)
 (defn edititemdetail [itemid  itemdetailname unit  downlimit uplimit	 std_mess
                              down_mess  up_mess sortnum  pycode id]
 

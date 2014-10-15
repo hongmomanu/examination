@@ -1,6 +1,15 @@
 define(function () {
 
     function render(parameters) {
+        var combox=$('#unitmanagertable .lazy-combobox');
+        combox.combobox({
+            onShowPanel: function () {
+                var searchtype = $(this).attr('searchtype');
+                var url = 'auth/getenumbytype?type='+searchtype;
+                $(this).combobox('reload', url);
+            }
+
+        });
         /*var combox=$('#unitmanagerlayout .lazy-combobox');
         combox.combobox({
             url:'auth/getroles?start=0&limit=100',
@@ -76,7 +85,7 @@ define(function () {
             });
         });
         $('#unitformbtns .save').click(function(){
-            $.messager.confirm('确定要修改用户么?', '你正在试图修改用户?', function(r){
+            $.messager.confirm('确定要修改单位么?', '你正在试图修改单位?', function(r){
                     if (r){
                         require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                             ,function(easyform,ajaxfrom){
@@ -87,7 +96,7 @@ define(function () {
                             params.iscommon=false;
                             var success=function(res){
                                 if(res.success){
-                                    $.messager.alert('操作成功','修改用户成功!');
+                                    $.messager.alert('操作成功','修改成功!');
                                     $('#unitmanagerpanel').datagrid('reload');
                                 }else{
                                     $.messager.alert('操作失败',res.msg);
@@ -95,9 +104,9 @@ define(function () {
 
                             };
                             var errorfunc=function(){
-                                $.messager.alert('操作失败','修改用户失败!');
+                                $.messager.alert('操作失败','修改单位失败!');
                             }
-                            ajaxfrom.ajaxsend('post','json','auth/editunit',params,success,null,errorfunc)
+                            ajaxfrom.ajaxsend('post','json','maintain/editunit',params,success,null,errorfunc)
 
                         });
                     }
