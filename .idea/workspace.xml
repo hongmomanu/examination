@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ae5813a-5333-4d5a-bc7b-256668f8a93c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sqlite.db3" afterPath="$PROJECT_DIR$/sqlite.db3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/examination/db/core.clj" afterPath="$PROJECT_DIR$/src/examination/db/core.clj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dbdesigner.sql" afterPath="$PROJECT_DIR$/dbdesigner.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/examination/controller/maintain.clj" afterPath="$PROJECT_DIR$/src/examination/controller/maintain.clj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/examination/routes/maintain.clj" afterPath="$PROJECT_DIR$/src/examination/routes/maintain.clj" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/js/views/newunitwin.htm" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/public/js/views/newunitwin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js" afterPath="$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.htm" afterPath="$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.js" afterPath="$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="f07f9af9-74de-4917-9675-757962f88c56" name="Failed commit: Default" comment="jack commit" />
@@ -76,8 +73,8 @@
       <file leaf-file-name="newcheckitemwin.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2214">
-              <caret line="7" column="32" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2196">
+              <caret line="11" column="49" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -86,8 +83,18 @@
       <file leaf-file-name="dbdesigner.sql" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dbdesigner.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2413793" vertical-offset="2340" max-vertical-offset="3294">
-              <caret line="132" column="42" selection-start-line="132" selection-start-column="27" selection-end-line="132" selection-end-column="42" />
+            <state vertical-scroll-proportion="-3.724138" vertical-offset="2340" max-vertical-offset="3294">
+              <caret line="136" column="34" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newcheckitemwin.htm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="810">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,21 +110,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.clj" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/examination/db/core.clj">
+      <file leaf-file-name="itemmanagerpanel.htm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.4827585" vertical-offset="4307" max-vertical-offset="8352">
-              <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
+            <state vertical-scroll-proportion="-2.0" vertical-offset="1350" max-vertical-offset="2430">
+              <caret line="78" column="23" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unitmanagerpanel.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="unitmanagerpanel.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20037106" vertical-offset="396" max-vertical-offset="2394">
-              <caret line="28" column="46" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+            <state vertical-scroll-proportion="-6.793103" vertical-offset="1765" max-vertical-offset="2394">
+              <caret line="109" column="29" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newunitwin.htm" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/public/js/views/newunitwin.htm">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.23863636" vertical-offset="0" max-vertical-offset="810">
+              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newunitwin.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/public/js/views/newunitwin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.413793" vertical-offset="1134" max-vertical-offset="2160">
+              <caret line="74" column="44" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -126,8 +153,8 @@
       <file leaf-file-name="unitmanagerpanel.htm" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9642856" vertical-offset="32" max-vertical-offset="1602">
-              <caret line="11" column="102" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="103" />
+            <state vertical-scroll-proportion="-5.696429" vertical-offset="1103" max-vertical-offset="1602">
+              <caret line="79" column="36" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -144,38 +171,8 @@
       <file leaf-file-name="maintain.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/examination/routes/maintain.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.172414" vertical-offset="289" max-vertical-offset="900">
-              <caret line="26" column="22" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.clj" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/examination/routes/auth.clj">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="807" max-vertical-offset="3384">
-              <caret line="55" column="63" selection-start-line="54" selection-start-column="2" selection-end-line="55" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="maintain.clj" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/examination/controller/maintain.clj">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.6551723" vertical-offset="365" max-vertical-offset="2178">
-              <caret line="31" column="28" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="auth.clj" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/examination/controller/auth.clj">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.75862" vertical-offset="2867" max-vertical-offset="10638">
-              <caret line="175" column="6" selection-start-line="169" selection-start-column="15" selection-end-line="175" selection-end-column="3" />
+            <state vertical-scroll-proportion="-11.75862" vertical-offset="289" max-vertical-offset="900">
+              <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -230,7 +227,6 @@
         <option value="$PROJECT_DIR$/src/examination/controller/auth.clj" />
         <option value="$PROJECT_DIR$/src/examination/routes/auth.clj" />
         <option value="$PROJECT_DIR$/resources/public/js/views/usermanagerpanel.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js" />
         <option value="$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.htm" />
         <option value="$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm" />
         <option value="$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js" />
@@ -238,8 +234,11 @@
         <option value="$PROJECT_DIR$/src/examination/routes/maintain.clj" />
         <option value="$PROJECT_DIR$/src/examination/controller/maintain.clj" />
         <option value="$PROJECT_DIR$/src/examination/db/core.clj" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.htm" />
         <option value="$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.js" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/newunitwin.js" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.htm" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/newunitwin.htm" />
       </list>
     </option>
   </component>
@@ -369,6 +368,72 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -637,7 +702,7 @@
       <workItem from="1412997460200" duration="27884000" />
       <workItem from="1413176952938" duration="17052000" />
       <workItem from="1413252226121" duration="45058000" />
-      <workItem from="1413356227402" duration="8940000" />
+      <workItem from="1413356227402" duration="9917000" />
     </task>
     <task id="LOCAL-00001" summary="jack commit">
       <created>1413004888023</created>
@@ -783,11 +848,15 @@
       <created>1413362900114</created>
       <updated>1413362900114</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="jack commit">
+      <created>1413365191691</created>
+      <updated>1413365191692</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98934000" />
+    <option name="totallyTimeSpent" value="99911000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="30" width="1370" height="740" extended-state="0" />
@@ -843,21 +912,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/examination/db/schema.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="252" max-vertical-offset="1782">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/apihtml.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="568">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/jqueryplugin/jquery.json-2.4.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3690">
@@ -883,6 +937,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.6896553" vertical-offset="4731" max-vertical-offset="6048">
           <caret line="272" column="19" selection-start-line="272" selection-start-column="19" selection-end-line="272" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -914,6 +969,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.4827585" vertical-offset="1836" max-vertical-offset="5922">
           <caret line="110" column="32" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1063,6 +1119,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.0" vertical-offset="414" max-vertical-offset="810">
           <caret line="32" column="65" selection-start-line="29" selection-start-column="20" selection-end-line="32" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1145,22 +1202,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.625" vertical-offset="185" max-vertical-offset="810">
-          <caret line="34" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.3214285" vertical-offset="1922" max-vertical-offset="2430">
-          <caret line="114" column="77" selection-start-line="114" selection-start-column="59" selection-end-line="114" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.1034484" vertical-offset="1544" max-vertical-offset="4626">
@@ -1173,14 +1214,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="807" max-vertical-offset="3384">
           <caret line="55" column="63" selection-start-line="54" selection-start-column="2" selection-end-line="55" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/examination/routes/maintain.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.172414" vertical-offset="289" max-vertical-offset="900">
-          <caret line="26" column="22" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1201,26 +1234,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dbdesigner.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2413793" vertical-offset="2340" max-vertical-offset="3294">
-          <caret line="132" column="42" selection-start-line="132" selection-start-column="27" selection-end-line="132" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/examination/db/core.clj">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.4827585" vertical-offset="4307" max-vertical-offset="8352">
           <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2214">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1233,10 +1250,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/examination/routes/maintain.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.75862" vertical-offset="289" max-vertical-offset="900">
+          <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.793103" vertical-offset="1765" max-vertical-offset="2394">
+          <caret line="109" column="29" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="810">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2196">
+          <caret line="11" column="49" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newunitwin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.413793" vertical-offset="1134" max-vertical-offset="2160">
+          <caret line="74" column="44" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0" vertical-offset="1350" max-vertical-offset="2430">
+          <caret line="78" column="23" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9642856" vertical-offset="32" max-vertical-offset="1602">
-          <caret line="11" column="102" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="103" />
+        <state vertical-scroll-proportion="-5.696429" vertical-offset="1103" max-vertical-offset="1602">
+          <caret line="79" column="36" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -1249,10 +1314,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.js">
+    <entry file="file://$PROJECT_DIR$/dbdesigner.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20037106" vertical-offset="396" max-vertical-offset="2394">
-          <caret line="28" column="46" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        <state vertical-scroll-proportion="-3.724138" vertical-offset="2340" max-vertical-offset="3294">
+          <caret line="136" column="34" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newunitwin.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23863636" vertical-offset="0" max-vertical-offset="810">
+          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding />
         </state>
       </provider>

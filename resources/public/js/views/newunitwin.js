@@ -1,35 +1,33 @@
 define(function () {
 
     function render(parameters) {
-        $('#newcheckitemwin').dialog({
-            title: '新增项目明细窗口',
-            width: 450,
-            height: 230,
+        $('#newunitwin').dialog({
+            title: '新增单位窗口',
+            width: 300,
+            height: 250,
             closed: false,
             cache: false,
             buttons:[{
                 text:'保存',
-                id:'savenewcheckitembtn',
+                id:'savenewunitbtn',
                 disabled:true,
                 handler:function(){
                    //alert(1);
                     require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyform,ajaxfrom){
 
-                            var params=$('#newcheckitemwin form').form("serialize");
+
+                            var params=$('#newunitwin form').form("serialize");
                             params.iscommon=false;
-                            params.itemid=$('#itemmanagerpanel').treegrid('getSelected').itemid;
                             var success=function(){
-                                $.messager.alert('操作成功','新增成功!');
-                                $('#newcheckitemwin').dialog('close');
-                                //$('#itemmanagerpanel').treegrid('reload', params.pid);
-                                $('#itemmanagerpanel').treegrid('reload',$('#itemmanagerpanel').treegrid('getSelected')._parentId)
-                                //$('#checkitemmanagerpanel').datagrid('reload');
+                                $.messager.alert('操作成功','新增单位成功!');
+                                $('#newunitwin').dialog('close');
+                                $('#unitmanagerpanel').datagrid('reload');
                             };
                             var errorfunc=function(){
-                                $.messager.alert('操作失败','新增失败!');
+                                $.messager.alert('操作失败','新增单位失败!');
                             }
-                            ajaxfrom.ajaxsend('post','json','maintain/addnewcheckitemdetail',params,success,null,errorfunc)
+                            ajaxfrom.ajaxsend('post','json','auth/addnewunit',params,success,null,errorfunc)
 
                         });
 
@@ -37,7 +35,7 @@ define(function () {
             },{
                 text:'取消',
                 handler:function(){
-                    $('#newcheckitemwin').dialog('close');
+                    $('#newunitwin').dialog('close');
                 }
             }],
             //href: 'get_content.php',
@@ -52,7 +50,7 @@ define(function () {
                 message: '密码不一致！'
             }
         });
-        var divitiontree=$('#newcheckitemwin .easyui-combotree');
+        var divitiontree=$('#newunitwin .easyui-combotree');
         divitiontree.combotree({
             url:'auth/gettreedivision?node=-1',
             method: 'get',
@@ -76,7 +74,7 @@ define(function () {
         });
 
 
-        $('#newcheckitemwin .lazy-combobox').combobox({
+        $('#newunitwin .lazy-combobox').combobox({
             onShowPanel: function () {
                 var url = 'auth/getroles?start=0&limit=100' ;
                 $(this).combobox('reload', url);
@@ -85,25 +83,25 @@ define(function () {
         });
 
 
-        $.parser.parse($('#newcheckitemwin'));
+        $.parser.parse($('#newunitwin'));
 
-        $('#newcheckitemwin input').on('change',function(){
-            var form=$('#newcheckitemwin form');
+        $('#newunitwin input').on('change',function(){
+            var form=$('#newunitwin form');
             if(form.form('validate')){
-                $('#savenewcheckitembtn').linkbutton('enable');
+                $('#savenewunitbtn').linkbutton('enable');
             }
             else{
-                $('#savenewcheckitembtn').linkbutton('disable');
+                $('#savenewunitbtn').linkbutton('disable');
             }
         });
 
-        $('#newcheckitemwin .easyui-combobox,#newcheckitemwin .easyui-combotree').combobox({
+        $('#newunitwin .easyui-combobox,#newunitwin .easyui-combotree').combobox({
             onHidePanel:function(){
-                var form=$('#newcheckitemwin form');
+                var form=$('#newunitwin form');
                 if(form.form('validate')){
-                    $('#savenewcheckitembtn').linkbutton('enable');
+                    $('#savenewunitbtn').linkbutton('enable');
                 }else{
-                    $('#savenewcheckitembtn').linkbutton('disable');
+                    $('#savenewunitbtn').linkbutton('disable');
                 }
             }
         })
