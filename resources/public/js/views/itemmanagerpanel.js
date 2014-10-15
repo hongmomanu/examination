@@ -91,6 +91,25 @@ define(function () {
                 }
             });
         });
+        $('#itemdetailformbtns .del').click(function () {
+            $.messager.confirm('确定要删除么项目明细?', '你正在试图删除项目明细?', function (r) {
+                if (r) {
+                    require(['js/jqueryplugin/easyui-form.js', 'js/commonfuncs/AjaxForm.js']
+                        , function (easyuifrom, ajaxfrom) {
+                            var params ={id:$('#itemmanagerpanel').treegrid('getSelected').id};
+                            var success = function () {
+                                $.messager.alert('操作成功', '删除成功!');
+                                $('#itemmanagerpanel').treegrid('reload',$('#itemmanagerpanel').treegrid('getSelected')._parentId)
+                            };
+                            var errorfunc = function () {
+                                $.messager.alert('操作失败', '删除功能失败!');
+                            };
+                            ajaxfrom.ajaxsend('post', 'json', 'maintain/delitemdeatail', params, success, null, errorfunc)
+
+                        });
+                }
+            });
+        });
 
         $('#edititemformbtns .save').click(function () {
             $.messager.confirm('确定要修改项目么?', '你正在试图修改项目?', function (r) {

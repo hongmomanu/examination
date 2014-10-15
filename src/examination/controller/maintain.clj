@@ -31,6 +31,9 @@
 (defn delitem [itemid]
   (resp/json {:success true :msg (db/delcheckitem itemid)})
   )
+(defn delitemdeatail [id]
+  (resp/json {:success true :msg (db/delcheckitemdeatil id)})
+  )
 (defn gettreeitem [node roleid pid callback]
 
   (if (= node "-1")
