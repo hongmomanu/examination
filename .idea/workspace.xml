@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ae5813a-5333-4d5a-bc7b-256668f8a93c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="f07f9af9-74de-4917-9675-757962f88c56" name="Failed commit: Default" comment="jack commit">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/examination/controller/maintain.clj" afterPath="$PROJECT_DIR$/src/examination/controller/maintain.clj" />
-    </list>
+    <list id="f07f9af9-74de-4917-9675-757962f88c56" name="Failed commit: Default" comment="jack commit" />
     <ignored path="examination.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,8 +57,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <breakpoint_rules converted="true" />
     <ui_properties converted="true" />
+    <breakpoint_rules converted="true" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -71,7 +69,7 @@
       <file leaf-file-name="itemmanagerpanel.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.551724" vertical-offset="1164" max-vertical-offset="3528">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1164" max-vertical-offset="3528">
               <caret line="72" column="92" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="91" />
               <folding />
             </state>
@@ -81,7 +79,7 @@
       <file leaf-file-name="newcheckitemwin.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.75862" vertical-offset="322" max-vertical-offset="2214">
+            <state vertical-scroll-proportion="0.0" vertical-offset="322" max-vertical-offset="2214">
               <caret line="32" column="91" selection-start-line="32" selection-start-column="70" selection-end-line="32" selection-end-column="91" />
               <folding />
             </state>
@@ -91,7 +89,7 @@
       <file leaf-file-name="newcheckitemwin.htm" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.0588236" vertical-offset="0" max-vertical-offset="810">
+            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="810">
               <caret line="5" column="86" selection-start-line="5" selection-start-column="72" selection-end-line="5" selection-end-column="86" />
               <folding />
             </state>
@@ -111,7 +109,7 @@
       <file leaf-file-name="usermanagerpanel.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/usermanagerpanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.724138" vertical-offset="1807" max-vertical-offset="2376">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1807" max-vertical-offset="2376">
               <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="116" selection-end-column="13" />
               <folding />
             </state>
@@ -121,30 +119,9 @@
       <file leaf-file-name="itemmanagerpanel.htm" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.892857" vertical-offset="1062" max-vertical-offset="2466">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1062" max-vertical-offset="2466">
               <caret line="68" column="93" selection-start-line="68" selection-start-column="77" selection-end-line="68" selection-end-column="93" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#3;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#4;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#0;n#tr#4;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#td#0;n#tr#4;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#2;n#td#0;n#tr#4;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#form#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#3;n#table#0;n#form#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#0;n#tr#4;n#table#0;n#form#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#td#0;n#tr#4;n#table#0;n#form#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,7 +129,7 @@
       <file leaf-file-name="core.clj" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/examination/db/core.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.413793" vertical-offset="6618" max-vertical-offset="7740">
+            <state vertical-scroll-proportion="0.0" vertical-offset="6618" max-vertical-offset="7740">
               <caret line="378" column="14" selection-start-line="378" selection-start-column="3" selection-end-line="378" selection-end-column="3" />
               <folding />
             </state>
@@ -162,11 +139,9 @@
       <file leaf-file-name="usermanagerpanel.htm" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/public/js/views/usermanagerpanel.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.017857" vertical-offset="25" max-vertical-offset="1620">
+            <state vertical-scroll-proportion="0.0" vertical-offset="25" max-vertical-offset="1620">
               <caret line="17" column="74" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -184,7 +159,7 @@
       <file leaf-file-name="maintain.clj" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/examination/controller/maintain.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2857143" vertical-offset="844" max-vertical-offset="1638">
+            <state vertical-scroll-proportion="0.16576576" vertical-offset="844" max-vertical-offset="1638">
               <caret line="52" column="16" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="3" />
               <folding />
             </state>
@@ -285,6 +260,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -293,9 +269,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -558,7 +543,8 @@
       <updated>1412997459108</updated>
       <workItem from="1412997460200" duration="27884000" />
       <workItem from="1413176952938" duration="17052000" />
-      <workItem from="1413252226121" duration="44924000" />
+      <workItem from="1413252226121" duration="45058000" />
+      <workItem from="1413356227402" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="jack commit">
       <created>1413004888023</created>
@@ -672,7 +658,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89860000" />
+    <option name="totallyTimeSpent" value="90004000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="30" width="1370" height="740" extended-state="0" />
@@ -683,7 +669,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -692,17 +677,18 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29307568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -732,7 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.333333" vertical-offset="0" max-vertical-offset="612">
           <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -740,7 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.586207" vertical-offset="554" max-vertical-offset="4464">
           <caret line="43" column="56" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -755,7 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="568">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -763,7 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3690">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -778,7 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="270">
           <caret line="5" column="42" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,7 +767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.6896553" vertical-offset="4731" max-vertical-offset="6048">
           <caret line="272" column="19" selection-start-line="272" selection-start-column="19" selection-end-line="272" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,7 +774,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1764">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -812,7 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.189655" vertical-offset="1345" max-vertical-offset="1638">
           <caret line="85" column="1" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,7 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.4827585" vertical-offset="1836" max-vertical-offset="5922">
           <caret line="110" column="32" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -828,7 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.4827585" vertical-offset="972" max-vertical-offset="1566">
           <caret line="62" column="80" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -836,7 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="864">
           <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -844,7 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.827586" vertical-offset="997" max-vertical-offset="1332">
           <caret line="68" column="69" selection-start-line="68" selection-start-column="3" selection-end-line="68" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -852,7 +826,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1206">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -860,7 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="468">
           <caret line="7" column="37" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -868,7 +840,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="37080">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -876,7 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="385" max-vertical-offset="954">
           <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -884,7 +854,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -892,7 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
           <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -928,7 +896,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.8275862" vertical-offset="303" max-vertical-offset="1242">
           <caret line="23" column="45" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -952,7 +919,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1782">
           <caret line="33" column="35" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -960,7 +926,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="774">
           <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -968,7 +933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="522">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -976,7 +940,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.0" vertical-offset="414" max-vertical-offset="810">
           <caret line="32" column="65" selection-start-line="29" selection-start-column="20" selection-end-line="32" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1000,7 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="540">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,7 +1002,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.8275862" vertical-offset="807" max-vertical-offset="3384">
           <caret line="51" column="81" selection-start-line="51" selection-start-column="55" selection-end-line="51" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,46 +1031,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/usermanagerpanel.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.017857" vertical-offset="25" max-vertical-offset="1620">
+        <state vertical-scroll-proportion="0.0" vertical-offset="25" max-vertical-offset="1620">
           <caret line="17" column="74" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.892857" vertical-offset="1062" max-vertical-offset="2466">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1062" max-vertical-offset="2466">
           <caret line="68" column="93" selection-start-line="68" selection-start-column="77" selection-end-line="68" selection-end-column="93" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#3;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#4;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#4;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#td#0;n#tr#4;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#2;n#td#0;n#tr#4;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#form#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#2;n#table#0;n#form#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#3;n#table#0;n#form#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#4;n#table#0;n#form#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#td#0;n#tr#4;n#table#0;n#form#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/usermanagerpanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.724138" vertical-offset="1807" max-vertical-offset="2376">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1807" max-vertical-offset="2376">
           <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="116" selection-end-column="13" />
           <folding />
         </state>
@@ -1117,7 +1055,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.551724" vertical-offset="1164" max-vertical-offset="3528">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1164" max-vertical-offset="3528">
           <caret line="72" column="92" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="91" />
           <folding />
         </state>
@@ -1125,7 +1063,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.75862" vertical-offset="322" max-vertical-offset="2214">
+        <state vertical-scroll-proportion="0.0" vertical-offset="322" max-vertical-offset="2214">
           <caret line="32" column="91" selection-start-line="32" selection-start-column="70" selection-end-line="32" selection-end-column="91" />
           <folding />
         </state>
@@ -1141,7 +1079,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/examination/db/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.413793" vertical-offset="6618" max-vertical-offset="7740">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6618" max-vertical-offset="7740">
           <caret line="378" column="14" selection-start-line="378" selection-start-column="3" selection-end-line="378" selection-end-column="3" />
           <folding />
         </state>
@@ -1157,7 +1095,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0588236" vertical-offset="0" max-vertical-offset="810">
+        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="810">
           <caret line="5" column="86" selection-start-line="5" selection-start-column="72" selection-end-line="5" selection-end-column="86" />
           <folding />
         </state>
@@ -1165,7 +1103,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/examination/controller/maintain.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2857143" vertical-offset="844" max-vertical-offset="1638">
+        <state vertical-scroll-proportion="0.16576576" vertical-offset="844" max-vertical-offset="1638">
           <caret line="52" column="16" selection-start-line="52" selection-start-column="3" selection-end-line="52" selection-end-column="3" />
           <folding />
         </state>
