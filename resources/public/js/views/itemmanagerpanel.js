@@ -36,7 +36,7 @@ define(function () {
 
                 } else if (rowData._parentId == 0) {
                     //rowData.itemname = rowData.textold;
-                    var item = {deptid: rowData.id, pid: rowData._parentId,
+                    var item = {deptid: rowData.nodeid, pid: rowData._parentId,
                         itemname:"",pycode:"",price:"",sortnum:""};
                     //rowData.label = rowData.value;
                     $('#itemdetailinfodiv').hide();
@@ -171,7 +171,7 @@ define(function () {
             }
 
         );
-        $('#itemformbtns .new').click(function () {
+        $('#newitemformbtns .new').click(function () {
 
                 require(['js/jqueryplugin/easyui-form.js', 'js/commonfuncs/AjaxForm.js']
                     , function (easyform, ajaxfrom) {
