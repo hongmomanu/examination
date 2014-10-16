@@ -1,0 +1,103 @@
+<div id="packagemanagerlayout" class="easyui-layout" style="width:100%;height:100%;" data-options="fit:true">
+
+
+    <div data-options="region:'center',title:'用户列表'">
+        <table id="packagemanagerpanel" >
+            <thead>
+            <tr>
+                <th data-options="field:'unitname',width:100">单位名称</th>
+                <th data-options="field:'unitcode',width:100">单位代码</th>
+                <th data-options="field:'useflag',width:100">状态</th>
+                <th data-options="field:'id',width:100,hidden:true">id</th>
+                <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+
+            </tr>
+            </thead>
+
+
+        </table>
+    </div>
+
+    <div id="packagemanagertable" data-options="region:'east',split:true,collapsed:true" title="详细信息" style="width:70%;height: 100%;">
+                <table id="packagemanagerpaneldetail">
+                    <thead>
+                    <tr>
+                        <th data-options="field:'cardnum',width:100,editor:'text'">卡号</th>
+                        <th data-options="field:'packagename',width:80,editor:'text'">姓名</th>
+                        <th data-options="field:'marry',width:60,
+                        editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'enumeratevalue',
+                                textField:'enumeratelabel',
+                                onShowPanel: function () {
+                                    var url = 'auth/getenumbytype?type=婚姻状态';
+                                    $(this).combobox('reload', url);
+                                }
+                            }
+                        }">婚姻</th>
+                        <th data-options="field:'sex',width:60,align:'center',editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'enumeratevalue',
+                                textField:'enumeratelabel',
+                                onShowPanel: function () {
+                                    var url = 'auth/getenumbytype?type=性别';
+                                    $(this).combobox('reload', url);
+                                }
+                            }
+                        }">性别</th>
+                        <th data-options="field:'birthday',width:80,align:'center',editor:'text'">出生日期</th>
+                        <th data-options="field:'duty',width:100,editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'enumeratevalue',
+                                textField:'enumeratelabel',
+                                onShowPanel: function () {
+                                    var url = 'auth/getenumbytype?type=职务';
+                                    $(this).combobox('reload', url);
+                                }
+                            }
+                        }">职务</th>
+                        <th data-options="field:'title',width:100,editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'enumeratevalue',
+                                textField:'enumeratelabel',
+                                onShowPanel: function () {
+                                    var url = 'auth/getenumbytype?type=职称';
+                                    $(this).combobox('reload', url);
+                                }
+                            }
+                        }">职称</th>
+                        <th data-options="field:'address',width:150,editor:'text'">地址</th>
+                        <th data-options="field:'telephone',width:100,editor:'text'">电话</th>
+                        <th data-options="field:'ischeck',width:60,align:'center',editor:{type:'checkbox',options:{on:'是',off:'否'}}">是否体检</th>
+                    </tr>
+                    </thead>
+                </table>
+            <div style="text-align:center;padding:5px" id="packageformbtns">
+                <a  class="easyui-linkbutton save" data-options="disabled:true" >保存</a>
+                <a  class="easyui-linkbutton del" data-options="disabled:true" >删除</a>
+            </div>
+
+
+
+
+    </div>
+    <div id="packagepaneltb" style="padding:5px;height:auto;vertical-align: middle;">
+        <a>快速搜索: <input class="keyword" type="keyword" style="width:120px"></a>
+
+        <!--<a class="easyui-linkbutton newpackage" data-options="iconCls:'icon-new'">新增单位</a>-->
+
+    </div>
+
+    <div id="packagepaneldetailtb" style="height:auto">
+        <a href="javascript:void(0)" class="easyui-linkbutton add" data-options="iconCls:'icon-add',plain:true" >添加</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton del" data-options="iconCls:'icon-remove',plain:true">删除</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton undo" data-options="iconCls:'icon-undo',plain:true">恢复</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton save" data-options="iconCls:'icon-save',plain:true" >保存</a>
+    </div>
+
+
+</div>

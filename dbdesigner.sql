@@ -170,6 +170,29 @@ CREATE TABLE IF NOT EXISTS examinationMember
 
 );
 
+--体检套餐
+CREATE TABLE IF NOT EXISTS examinationPackage
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  packagename    VARCHAR(100), --  套餐名称
+  pycode     VARCHAR(100), --  拼音代码
+  sortnum     int, -- 顺序号
+  type   VARCHAR(100), --  适用范围 0: 通用 1: 团体，2: 个人
+  useflag		 VARCHAR(100) --  是否有效
+
+);
+--套餐与明细对应
+CREATE TABLE IF NOT EXISTS packageWithItem
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  proportion    DECIMAL(9,2), --  套餐名称
+  itemcode     VARCHAR(100) --  项目代码
+
+);
+
+
 
 
 

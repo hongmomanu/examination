@@ -46,6 +46,15 @@
 
   (database sqlitedb)
   )
+(defentity examinationPackage
+
+  (database sqlitedb)
+  )
+(defentity packageWithItem
+
+  (database sqlitedb)
+  )
+
 (defentity examinationMember
 
   (database sqlitedb)
