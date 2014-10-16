@@ -26,11 +26,16 @@
     (maintain/delunitmember id))
   (POST "/maintain/delunitmembers" [members]
     (maintain/delunitmembers members))
+  (POST "/maintain/delpackages" [packages]
+    (maintain/delpackages packages))
   (POST "/maintain/delitemdeatail" [id]
     (maintain/delitemdeatail id))
 
   (POST "/maintain/getunits" [start limit  totalname rowsname keyword]
     (maintain/getunits start limit  totalname rowsname keyword))
+
+  (POST "/maintain/getpackages" [start limit  totalname rowsname keyword]
+    (maintain/getpackages start limit  totalname rowsname keyword))
 
   (POST "/maintain/getunitmembers" [id start limit  totalname rowsname keyword]
     (maintain/getunitmembers id start limit  totalname rowsname keyword))
@@ -48,6 +53,9 @@
     )
   (POST "/maintain/editunitmembers" [members ]
     (maintain/editunitmembers members)
+    )
+  (POST "/maintain/editpackages" [packages ]
+    (maintain/editpackages packages)
     )
   (POST "/maintain/addnewunitmember" [unitid  membername  marry
                                       cardnum   sex  birthday		 duty
@@ -77,6 +85,11 @@
     (maintain/addnewunit unitcode unitname manager   contacter  telephone	 email	address
                          postcode bank  bank_no  remark  sortnum  useflag
       ))
+
+  (POST "/maintain/addnewunitpackages" [packages]
+    (maintain/addnewunitpackages packages
+      ))
+
   (POST "/maintain/editunit" [unitcode unitname manager   contacter  telephone	 email	address
                                 postcode bank  bank_no  remark  sortnum  useflag id]
     (maintain/editunit unitcode unitname manager   contacter  telephone	 email	address

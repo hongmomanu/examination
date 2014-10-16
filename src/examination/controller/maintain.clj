@@ -35,6 +35,13 @@
     (resp/json (assoc {} rowsname results totalname nums))
     )
   )
+(defn getpackages [start limit  totalname rowsname keyword]
+  (let [results (db/getpackages start limit keyword )
+        nums  (:counts (first (db/getpackagenums keyword)))
+        ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+  )
 (defn getunitmembers [id start limit  totalname rowsname keyword]
   (let [results (db/getunitmembers id start limit keyword )
         nums  (:counts (first (db/getunitmembernums id keyword)))
@@ -51,6 +58,12 @@
 (defn delunitmembers [members]
   (let [items (json/read-str members :key-fn keyword)]
     (dorun (map #(db/delunitmember (:id %)) items))
+    (resp/json {:success true})
+    )
+  )
+(defn delpackages [members]
+  (let [items (json/read-str members :key-fn keyword)]
+    (dorun (map #(db/delpackage (:id %)) items))
     (resp/json {:success true})
     )
   )
@@ -108,6 +121,15 @@
     )
 
   )
+
+(defn addnewunitpackages [members]
+  (let [items (json/read-str members :key-fn keyword)]
+    (dorun (map #(db/addnewunitpackage %) items))
+    (resp/json {:success true})
+    )
+
+  )
+
 (defn addnewunitmember [unitid  membername  marry
                         cardnum   sex  birthday		 duty
                         address   telephone		 ischeck   title ]
@@ -129,6 +151,13 @@
 (defn editunitmembers [members]
   (let [items (json/read-str members :key-fn keyword)]
     (dorun (map #(do (println % (:id %))(db/editunitmember % (:id %))) items))
+    (resp/json {:success true})
+    )
+
+  )
+(defn editpackages [packages]
+  (let [items (json/read-str packages :key-fn keyword)]
+    (dorun (map #(do (println % (:id %))(db/editpackage % (:id %))) items))
     (resp/json {:success true})
     )
 

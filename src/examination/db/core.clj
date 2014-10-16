@@ -132,6 +132,12 @@
     (limit limits)
     (offset start))
   )
+(defn getpackages [start limits keyword]
+  (select examinationPackage
+    (where {:packagename [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (limit limits)
+    (offset start))
+  )
 (defn getunitmembers [id start limits keyword]
   (select examinationMember
     (where (and {:membername [like (str "%" (if (nil? keyword)"" keyword) "%")]}
@@ -271,6 +277,12 @@
     (where {:id id})
     )
   )
+(defn editpackage [fields id]
+  (update examinationPackage
+    (set-fields fields)
+    (where {:id id})
+    )
+  )
 (defn editunitmember [fields id]
   (update examinationMember
     (set-fields fields)
@@ -292,6 +304,12 @@
 (defn getusernums [keyword]
   (select users
     (where {:username [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (aggregate (count :id) :counts)
+    )
+  )
+(defn getpackagenums [keyword]
+  (select examinationPackage
+    (where {:packagename [like (str "%" (if (nil? keyword)"" keyword) "%")]})
     (aggregate (count :id) :counts)
     )
   )
@@ -339,6 +357,11 @@
 (defn delcheckitem [itemid]
   (delete checkitem
     (where {:id itemid})
+    )
+  )
+(defn delpackage [pid]
+  (delete examinationPackage
+    (where {:id pid})
     )
   )
 (defn delunitmember [memberid]
@@ -467,6 +490,11 @@
   )
 (defn addnewunitmember [fields]
   (insert examinationMember
+    (values fields)
+    )
+  )
+(defn addnewunitpackage [fields]
+  (insert examinationPackage
     (values fields)
     )
   )

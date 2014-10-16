@@ -3,47 +3,53 @@ define(function () {
     var editIndex = undefined;
     var endEditing=function (){
         if (editIndex == undefined){return true}
-        if ($('#packagemanagerpaneldetail').datagrid('validateRow', editIndex)){
+        if ($('#packagemanagerpanel').datagrid('validateRow', editIndex)){
            /* var ed = $('#packagemanagerpaneldetail').datagrid('getEditor', {index:editIndex,field:'productid'});
             var productname = $(ed.target).combobox('getText');
             $('#packagemanagerpaneldetail').datagrid('getRows')[editIndex]['productname'] = productname;*/
-            $('#packagemanagerpaneldetail').datagrid('endEdit', editIndex);
+            $('#packagemanagerpanel').datagrid('endEdit', editIndex);
             //editIndex = undefined;
             return true;
         } else {
             return false;
         }
     }
-    var onClickRow=function (index){
+    var onClickRow=function (index,rowData){
+        //console.log(rowData);
+        //var packageid=rowData.id;
+        //$('#packagemanagerpaneldetail').datagrid('load',{id:rowData.id});
+
+
+        $('#packagemanagerlayout').layout('expand','east');
         if (editIndex != index){
             if (endEditing()){
-                $('#packagemanagerpaneldetail').datagrid('selectRow', index)
+                $('#packagemanagerpanel').datagrid('selectRow', index)
                     .datagrid('beginEdit', index);
                 editIndex = index;
             } else {
-                $('#packagemanagerpaneldetail').datagrid('selectRow', editIndex);
+                $('#packagemanagerpanel').datagrid('selectRow', editIndex);
             }
         }
     }
     var append =function (){
         if (endEditing()){
-            $('#packagemanagerpaneldetail').datagrid('appendRow',{ischeck:'是'});
-            editIndex = $('#packagemanagerpaneldetail').datagrid('getRows').length-1;
-            $('#packagemanagerpaneldetail').datagrid('selectRow', editIndex)
+            $('#packagemanagerpanel').datagrid('appendRow',{useflag:'是'});
+            editIndex = $('#packagemanagerpanel').datagrid('getRows').length-1;
+            $('#packagemanagerpanel').datagrid('selectRow', editIndex)
                 .datagrid('beginEdit', editIndex);
         }
     }
     var removeit=function (){
         if (editIndex == undefined){return}
-        $('#packagemanagerpaneldetail').datagrid('cancelEdit', editIndex)
+        $('#packagemanagerpanel').datagrid('cancelEdit', editIndex)
             .datagrid('deleteRow', editIndex);
         editIndex = undefined;
     }
     var accept=function (){
         if (endEditing()){
-            var inserted=$('#packagemanagerpaneldetail').datagrid('getChanges','inserted');
-            var deleted=$('#packagemanagerpaneldetail').datagrid('getChanges','deleted');
-            var updated=$('#packagemanagerpaneldetail').datagrid('getChanges','updated');
+            var inserted=$('#packagemanagerpanel').datagrid('getChanges','inserted');
+            var deleted=$('#packagemanagerpanel').datagrid('getChanges','deleted');
+            var updated=$('#packagemanagerpanel').datagrid('getChanges','updated');
             if(inserted.length>0){
                 require(['js/commonfuncs/AjaxForm.js']
                     ,function(ajaxfrom){
@@ -52,9 +58,9 @@ define(function () {
                         }
                         var success=function(){
                             $.messager.alert('操作成功','成功!');
-                            $('#packagemanagerpaneldetail').datagrid('acceptChanges');
+                            $('#packagemanagerpanel').datagrid('acceptChanges');
                             editIndex=undefined;
-                            $('#packagemanagerpaneldetail').datagrid('reload');
+                            $('#packagemanagerpanel').datagrid('reload');
                         };
                         var errorfunc=function(){
                             $.messager.alert('操作失败','失败!');
@@ -71,15 +77,15 @@ define(function () {
 
                         var success=function(){
                             $.messager.alert('操作成功','成功!');
-                            $('#packagemanagerpaneldetail').datagrid('acceptChanges');
+                            $('#packagemanagerpanel').datagrid('acceptChanges');
                             editIndex=undefined;
-                            $('#packagemanagerpaneldetail').datagrid('reload');
+                            $('#packagemanagerpanel').datagrid('reload');
                         };
                         var errorfunc=function(){
                             $.messager.alert('操作失败','失败!');
                         };
                         var params= {packages:$.toJSON(updated)};
-                        ajaxfrom.ajaxsend('post','json','maintain/editunitpackages',params,success,null,errorfunc);
+                        ajaxfrom.ajaxsend('post','json','maintain/editpackages',params,success,null,errorfunc);
 
                     });
 
@@ -91,15 +97,15 @@ define(function () {
 
                         var success=function(){
                             $.messager.alert('操作成功','成功!');
-                            $('#packagemanagerpaneldetail').datagrid('acceptChanges');
+                            $('#packagemanagerpanel').datagrid('acceptChanges');
                             editIndex=undefined;
-                            $('#packagemanagerpaneldetail').datagrid('reload');
+                            $('#packagemanagerpanel').datagrid('reload');
                         };
                         var errorfunc=function(){
                             $.messager.alert('操作失败','失败!');
                         };
                         var params= {packages:$.toJSON(deleted)};
-                        ajaxfrom.ajaxsend('post','json','maintain/delunitpackages',params,success,null,errorfunc);
+                        ajaxfrom.ajaxsend('post','json','maintain/delpackages',params,success,null,errorfunc);
 
                     });
 
@@ -114,11 +120,11 @@ define(function () {
         }
     }
     var reject =function (){
-        $('#packagemanagerpaneldetail').datagrid('rejectChanges');
+        $('#packagemanagerpanel').datagrid('rejectChanges');
         editIndex = undefined;
     }
     function getChanges(){
-        var rows = $('#packagemanagerpaneldetail').datagrid('getChanges');
+        var rows = $('#packagemanagerpanel').datagrid('getChanges');
         alert(rows.length+' rows are changed!');
     }
 
@@ -146,27 +152,30 @@ define(function () {
             url:'auth/getdepts?start=0&limit=100'
         });  */
 
-        $('#packagepaneltb .keyword').bind('click keypress',function(e){
-            var keycode = (event.keyCode ? event.keyCode : event.which);
-            if($(this).attr("type")==='keyword'&&keycode!=13)return;
-
-                $('#packagemanagerpanel').datagrid('load',{keyword:$('#packagepaneltb .keyword').val()});
-            }
-        );
+//        $('#packagepaneltb .keyword').bind('click keypress',function(e){
+//            var keycode = (event.keyCode ? event.keyCode : event.which);
+//            if($(this).attr("type")==='keyword'&&keycode!=13)return;
+//
+//                $('#packagemanagerpanel').datagrid('load',{keyword:$('#packagepaneltb .keyword').val()});
+//            }
+//        );
         $('#packagemanagerpanel').datagrid({
             singleSelect: true,
             collapsible: true,
             rownumbers: true,
             method:'post',
             fitColumns:true,
-            url:'maintain/getunits',
+            url:'maintain/getpackages',
             remoteSort: false,
             /*sortName:'time',
             sortOrder:'desc',*/
             fit:true,
-            toolbar:'#packagepaneltb',
+            //toolbar:'#packagepaneltb',
             pagination:true,
             pageSize:10,
+
+
+            toolbar:'#packagepaneldetailtb',
             onBeforeLoad: function (params) {
                 //alert(1);
                 var options = $('#packagemanagerpanel').datagrid('options');
@@ -175,16 +184,7 @@ define(function () {
                 params.totalname = "total";
                 params.rowsname = "rows";
             },
-            onClickRow:function(index, rowData){
-                //console.log(rowData);
-                var unitid=rowData.id;
-                $('#packagemanagerpaneldetail').datagrid('load',{id:unitid});
-                //$('#packageinfoform').form('load',rowData);
-                //$('#packageformbtns .save,#packageformbtns .del').linkbutton('enable');
-
-                $('#packagemanagerlayout').layout('expand','east');
-
-            }
+            onClickRow:onClickRow
 
         });
 
@@ -199,7 +199,7 @@ define(function () {
             /*sortName:'time',
             sortOrder:'desc',*/
             fit:true,
-            toolbar:'#packagepaneldetailtb',
+
             pagination:true,
             pageSize:10,
             onBeforeLoad: function (params) {
@@ -219,68 +219,7 @@ define(function () {
         $('#packagepaneldetailtb .save').click(accept);
         $('#packagepaneldetailtb .undo').click(reject);
 
-        $('#packageformbtns .del').click(function(){
-            $.messager.confirm('确定要删除用户么?', '你正在试图删除用户?', function(r){
-                if (r){
-                    require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
-                        ,function(easyuifrom,ajaxfrom){
-                            var params=$('#packageinfoform').form("serialize");
-                            var success=function(){
-                                $.messager.alert('操作成功','删除用户成功!');
-                                $('#packagemanagerpanel').datagrid('reload');
-                            };
-                            var errorfunc=function(){
-                                $.messager.alert('操作失败','删除用户失败!');
-                            }
-                            ajaxfrom.ajaxsend('post','json','maintain/delpackage',params,success,null,errorfunc)
 
-                        });
-                }
-            });
-        });
-        $('#packageformbtns .save').click(function(){
-            $.messager.confirm('确定要修改单位么?', '你正在试图修改单位?', function(r){
-                    if (r){
-                        require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
-                            ,function(easyform,ajaxfrom){
-
-
-                            var params=$('#packageinfoform').form("serialize");
-                            //params.password=CryptoJS.enc.Base64.stringify(CryptoJS.MD5(params.password));
-                            params.iscommon=false;
-                            var success=function(res){
-                                if(res.success){
-                                    $.messager.alert('操作成功','修改成功!');
-                                    $('#packagemanagerpanel').datagrid('reload');
-                                }else{
-                                    $.messager.alert('操作失败',res.msg);
-                                }
-
-                            };
-                            var errorfunc=function(){
-                                $.messager.alert('操作失败','修改单位失败!');
-                            }
-                            ajaxfrom.ajaxsend('post','json','maintain/editpackage',params,success,null,errorfunc)
-
-                        });
-                    }
-                }
-            );
-
-        });
-
-        $('#packagepaneltb .newpackage').click(function(){
-            if($('#newpackagewin').length>0){
-                $('#newpackagewin').dialog('open');
-            }else{
-                require(['text!views/newpackagewin.htm','views/newpackagewin'],
-                    function(div,newpackagejs){
-                        $('body').append(div);
-                        newpackagejs.render();
-                    });
-            }
-
-        });
 
     }
 
