@@ -22,11 +22,16 @@
     (maintain/delitem itemid))
   (POST "/maintain/delunit" [id]
     (maintain/delunit id))
+  (POST "/maintain/delunitmember" [id]
+    (maintain/delunitmember id))
   (POST "/maintain/delitemdeatail" [id]
     (maintain/delitemdeatail id))
 
   (POST "/maintain/getunits" [start limit  totalname rowsname keyword]
     (maintain/getunits start limit  totalname rowsname keyword))
+
+  (POST "/maintain/getunitmembers" [id start limit  totalname rowsname keyword]
+    (maintain/getunitmembers id start limit  totalname rowsname keyword))
 
   (POST "/maintain/addnewcheckitemdetail" [itemid  itemdetailname
                                            unit  downlimit
@@ -35,6 +40,22 @@
                                            sortnum  pycode ]
     (maintain/addnewcheckitemdetail itemid  itemdetailname unit  downlimit uplimit	 std_mess
                         down_mess  up_mess sortnum  pycode))
+  (POST "/maintain/addnewunitmember" [unitid  membername  marry
+                                      cardnum   sex  birthday		 duty
+                                      address   telephone		 ischeck   title ]
+    (maintain/addnewunitmember unitid  membername  marry
+                              cardnum   sex  birthday		 duty
+                              address   telephone		 ischeck   title ))
+
+  (POST "/maintain/editunitmember" [unitid  membername  marry
+                                      cardnum   sex  birthday		 duty
+                                      address   telephone		 ischeck   title id]
+    (maintain/editunitmember unitid  membername  marry
+                              cardnum   sex  birthday		 duty
+                              address   telephone		 ischeck   title id))
+
+
+
   (POST "/maintain/edititemdetail" [itemid  itemdetailname
                                            unit  downlimit
                                            uplimit	 std_mess

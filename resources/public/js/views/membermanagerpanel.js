@@ -1,5 +1,67 @@
 define(function () {
 
+    var editIndex = undefined;
+    var endEditing=function (){
+        if (editIndex == undefined){return true}
+        if ($('#membermanagerpaneldetail').datagrid('validateRow', editIndex)){
+           /* var ed = $('#membermanagerpaneldetail').datagrid('getEditor', {index:editIndex,field:'productid'});
+            var productname = $(ed.target).combobox('getText');
+            $('#membermanagerpaneldetail').datagrid('getRows')[editIndex]['productname'] = productname;*/
+            $('#membermanagerpaneldetail').datagrid('endEdit', editIndex);
+            //editIndex = undefined;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    var onClickRow=function (index){
+        if (editIndex != index){
+            if (endEditing()){
+                $('#membermanagerpaneldetail').datagrid('selectRow', index)
+                    .datagrid('beginEdit', index);
+                editIndex = index;
+            } else {
+                $('#membermanagerpaneldetail').datagrid('selectRow', editIndex);
+            }
+        }
+    }
+    var append =function (){
+        if (endEditing()){
+            $('#membermanagerpaneldetail').datagrid('appendRow',{status:'是'});
+            editIndex = $('#membermanagerpaneldetail').datagrid('getRows').length-1;
+            $('#membermanagerpaneldetail').datagrid('selectRow', editIndex)
+                .datagrid('beginEdit', editIndex);
+        }
+    }
+    var removeit=function (){
+        if (editIndex == undefined){return}
+        $('#membermanagerpaneldetail').datagrid('cancelEdit', editIndex)
+            .datagrid('deleteRow', editIndex);
+        editIndex = undefined;
+    }
+    var accept=function (){
+        if (endEditing()){
+            var inserted=$('#membermanagerpaneldetail').datagrid('getChanges','inserted');
+            var deleted=$('#membermanagerpaneldetail').datagrid('getChanges','deleted');
+            var updated=$('#membermanagerpaneldetail').datagrid('getChanges','updated');
+
+            console.log(inserted);
+            console.log(deleted);
+            console.log(updated);
+
+            $('#membermanagerpaneldetail').datagrid('acceptChanges');
+        }
+    }
+    var reject =function (){
+        $('#membermanagerpaneldetail').datagrid('rejectChanges');
+        editIndex = undefined;
+    }
+    function getChanges(){
+        var rows = $('#membermanagerpaneldetail').datagrid('getChanges');
+        alert(rows.length+' rows are changed!');
+    }
+
+
     function render(parameters) {
         var combox=$('#membermanagertable .lazy-combobox');
         combox.combobox({
@@ -53,11 +115,11 @@ define(function () {
                 params.rowsname = "rows";
             },
             onClickRow:function(index, rowData){
-                var deptids=rowData.deptids;
-                deptids=deptids?deptids.split(","):[];
-                rowData.deptids=deptids;
-                $('#memberinfoform').form('load',rowData);
-                $('#memberformbtns .save,#memberformbtns .del').linkbutton('enable');
+                //console.log(rowData);
+                var unitid=rowData.id;
+                $('#membermanagerpaneldetail').datagrid('load',{id:unitid});
+                //$('#memberinfoform').form('load',rowData);
+                //$('#memberformbtns .save,#memberformbtns .del').linkbutton('enable');
 
                 $('#membermanagerlayout').layout('expand','east');
 
@@ -76,7 +138,7 @@ define(function () {
             /*sortName:'time',
             sortOrder:'desc',*/
             fit:true,
-            //toolbar:'#memberpaneltb',
+            toolbar:'#memberpaneldetailtb',
             pagination:true,
             pageSize:10,
             onBeforeLoad: function (params) {
@@ -87,12 +149,14 @@ define(function () {
                 params.totalname = "total";
                 params.rowsname = "rows";
             },
-            onClickRow:function(index, rowData){
-
-
-            }
+            onClickRow:onClickRow
 
         });
+
+        $('#memberpaneldetailtb .add').click(append);
+        $('#memberpaneldetailtb .del').click(removeit);
+        $('#memberpaneldetailtb .save').click(accept);
+        $('#memberpaneldetailtb .undo').click(reject);
 
         $('#memberformbtns .del').click(function(){
             $.messager.confirm('确定要删除用户么?', '你正在试图删除用户?', function(r){

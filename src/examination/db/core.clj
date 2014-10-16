@@ -123,6 +123,16 @@
     (limit limits)
     (offset start))
   )
+(defn getunitmembers [id start limits keyword]
+  (select examinationMember
+    (where (and {:membername [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             {:unitid id}
+             )
+
+      )
+    (limit limits)
+    (offset start))
+  )
 (defn getdepts [start limits keyword]
   (select checkdept
 
@@ -252,6 +262,12 @@
     (where {:id id})
     )
   )
+(defn editunitmember [fields id]
+  (update examinationMember
+    (set-fields fields)
+    (where {:id id})
+    )
+  )
 
 (defn getlognums [keyword bgtime edtime]
 
@@ -273,6 +289,14 @@
 (defn getunitnums [keyword]
   (select examinationUnit
     (where {:unitname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (aggregate (count :id) :counts)
+    )
+  )
+(defn getunitmembernums [id keyword ]
+  (select examinationMember
+    (where (and {:membername [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             {:unitid id}
+             ))
     (aggregate (count :id) :counts)
     )
   )
@@ -306,6 +330,11 @@
 (defn delcheckitem [itemid]
   (delete checkitem
     (where {:id itemid})
+    )
+  )
+(defn delunitmember [memberid]
+  (delete examinationMember
+    (where {:id memberid})
     )
   )
 (defn delunit [unitid]
@@ -424,6 +453,11 @@
   )
 (defn addnewitem [fields]
   (insert checkitem
+    (values fields)
+    )
+  )
+(defn addnewunitmember [fields]
+  (insert examinationMember
     (values fields)
     )
   )

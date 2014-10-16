@@ -35,8 +35,18 @@
     (resp/json (assoc {} rowsname results totalname nums))
     )
   )
+(defn getunitmembers [id start limit  totalname rowsname keyword]
+  (let [results (db/getunitmembers id start limit keyword )
+        nums  (:counts (first (db/getunitmembernums id keyword)))
+        ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+  )
 (defn delitem [itemid]
   (resp/json {:success true :msg (db/delcheckitem itemid)})
+  )
+(defn delunitmember [memberid]
+  (resp/json {:success true :msg (db/delunitmember memberid)})
   )
 (defn delunit [id]
   (resp/json {:success true :msg (db/delunit id)})
@@ -83,6 +93,42 @@
                                                   :sortnum sortnum
                                                   :pycode pycode
                                                   })})
+
+)
+(defn addnewunitmember [unitid  membername  marry
+                        cardnum   sex  birthday		 duty
+                        address   telephone		 ischeck   title ]
+
+  (resp/json {:success true :msg (db/addnewunitmember {
+                                                  :unitid unitid
+                                                  :membername membername
+                                                  :marry marry
+                                                  :cardnum cardnum
+                                                  :sex sex
+                                                  :duty duty
+                                                  :address address
+                                                  :telephone telephone
+                                                  :ischeck ischeck
+                                                  :title title
+                                                  })})
+
+)
+(defn editunitmember [unitid  membername  marry
+                        cardnum   sex  birthday		 duty
+                        address   telephone		 ischeck   title id]
+
+  (resp/json {:success true :msg (db/editunitmember {
+                                                  :unitid unitid
+                                                  :membername membername
+                                                  :marry marry
+                                                  :cardnum cardnum
+                                                  :sex sex
+                                                  :duty duty
+                                                  :address address
+                                                  :telephone telephone
+                                                  :ischeck ischeck
+                                                  :title title
+                                                  } id)})
 
 )
 (defn addnewunit [unitcode unitname manager   contacter  telephone	 email	address

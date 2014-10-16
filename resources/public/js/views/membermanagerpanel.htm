@@ -24,24 +24,23 @@
                     <tr>
                         <th data-options="field:'cardnum',width:100,editor:'text'">卡号</th>
                         <th data-options="field:'membername',width:80,editor:'text'">姓名</th>
-                        <th data-options="field:'membername',width:80,editor:'text'">婚姻</th>
                         <th data-options="field:'marry',width:60,
                         editor:{
                             type:'combobox',
                             options:{
                                 valueField:'enumeratevalue',
-                                textField:'enumeratename',
+                                textField:'enumeratelabel',
                                 onShowPanel: function () {
                                     var url = 'auth/getenumbytype?type=婚姻状态';
                                     $(this).combobox('reload', url);
                                 }
                             }
-                        }">marry</th>
+                        }">婚姻</th>
                         <th data-options="field:'sex',width:60,align:'center',editor:{
                             type:'combobox',
                             options:{
                                 valueField:'enumeratevalue',
-                                textField:'enumeratename',
+                                textField:'enumeratelabel',
                                 onShowPanel: function () {
                                     var url = 'auth/getenumbytype?type=性别';
                                     $(this).combobox('reload', url);
@@ -53,7 +52,7 @@
                             type:'combobox',
                             options:{
                                 valueField:'enumeratevalue',
-                                textField:'enumeratename',
+                                textField:'enumeratelabel',
                                 onShowPanel: function () {
                                     var url = 'auth/getenumbytype?type=职务';
                                     $(this).combobox('reload', url);
@@ -64,7 +63,7 @@
                             type:'combobox',
                             options:{
                                 valueField:'enumeratevalue',
-                                textField:'enumeratename',
+                                textField:'enumeratelabel',
                                 onShowPanel: function () {
                                     var url = 'auth/getenumbytype?type=职称';
                                     $(this).combobox('reload', url);
@@ -91,6 +90,13 @@
 
         <!--<a class="easyui-linkbutton newmember" data-options="iconCls:'icon-new'">新增单位</a>-->
 
+    </div>
+
+    <div id="memberpaneldetailtb" style="height:auto">
+        <a href="javascript:void(0)" class="easyui-linkbutton add" data-options="iconCls:'icon-add',plain:true" >添加</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton del" data-options="iconCls:'icon-remove',plain:true">删除</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton undo" data-options="iconCls:'icon-undo',plain:true">恢复</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton save" data-options="iconCls:'icon-save',plain:true" >保存</a>
     </div>
 
 

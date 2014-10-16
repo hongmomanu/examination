@@ -77,28 +77,30 @@ body {
     background:url('img/form_show.png') no-repeat;
 }
 .icon-excel{
-    background:url('img/xls.png') no-repeat;
+    background:url('../img/xls.png') no-repeat;
 }
 .icon-processbtn{
-    background:url('img/process.png') no-repeat;
+    background:url('../img/process.png') no-repeat;
 }.icon-alterbtn{
-     background:url('img/change.png') no-repeat;
+     background:url('../img/change.png') no-repeat;
  }.icon-submitbtn{
-      background:url('img/busiapproval.png') no-repeat;
+      background:url('../img/busiapproval.png') no-repeat;
   }.icon-delbtn{
-       background:url('img/del.gif') no-repeat;
+       background:url('../img/del.gif') no-repeat;
    }.icon-search{
-        background:url('img/busiquery.gif') no-repeat;
+        background:url('../img/busiquery.gif') no-repeat;
     }.icon-new{
-         background:url('img/edit_add.png') no-repeat;
+         background:url('../img/edit_add.png') no-repeat;
      }.icon-add{
-          background:url('img/edit_add.png') no-repeat;
+          background:url('../img/edit_add.png') no-repeat;
+      }.icon-undo{
+          background:url('../img/undo.png') no-repeat;
       }.icon-save{
-           background:url('img/head/3.png') no-repeat;
+           background:url('../img/head/3.png') no-repeat;
        }.icon-remove{
-            background:url('img/del.gif') no-repeat;
+            background:url('../img/del.gif') no-repeat;
         }.icon-cancelsteptwobtn,.icon-cancelstepthreebtn{
-             background:url('img/icon16_error.png') no-repeat;
+             background:url('../img/icon16_error.png') no-repeat;
          }
 .layout-split-proxy-h{
     position:absolute;
