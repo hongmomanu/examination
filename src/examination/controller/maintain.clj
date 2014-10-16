@@ -48,6 +48,12 @@
 (defn delunitmember [memberid]
   (resp/json {:success true :msg (db/delunitmember memberid)})
   )
+(defn delunitmembers [members]
+  (let [items (json/read-str members :key-fn keyword)]
+    (dorun (map #(db/delunitmember (:id %)) items))
+    (resp/json {:success true})
+    )
+  )
 (defn delunit [id]
   (resp/json {:success true :msg (db/delunit id)})
   )
@@ -95,6 +101,13 @@
                                                   })})
 
 )
+(defn addnewunitmembers [members]
+  (let [items (json/read-str members :key-fn keyword)]
+    (dorun (map #(db/addnewunitmember %) items))
+    (resp/json {:success true})
+    )
+
+  )
 (defn addnewunitmember [unitid  membername  marry
                         cardnum   sex  birthday		 duty
                         address   telephone		 ischeck   title ]
@@ -113,6 +126,13 @@
                                                   })})
 
 )
+(defn editunitmembers [members]
+  (let [items (json/read-str members :key-fn keyword)]
+    (dorun (map #(do (println % (:id %))(db/editunitmember % (:id %))) items))
+    (resp/json {:success true})
+    )
+
+  )
 (defn editunitmember [unitid  membername  marry
                         cardnum   sex  birthday		 duty
                         address   telephone		 ischeck   title id]

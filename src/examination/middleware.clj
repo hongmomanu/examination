@@ -13,7 +13,9 @@
 
 (def development-middleware
   [wrap-error-page
-   wrap-exceptions])
+   wrap-exceptions
+   log-request
+   ])
 
 (def production-middleware
   [#(wrap-internal-error % :log (fn [e] (timbre/error e)))])

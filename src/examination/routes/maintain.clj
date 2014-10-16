@@ -24,6 +24,8 @@
     (maintain/delunit id))
   (POST "/maintain/delunitmember" [id]
     (maintain/delunitmember id))
+  (POST "/maintain/delunitmembers" [members]
+    (maintain/delunitmembers members))
   (POST "/maintain/delitemdeatail" [id]
     (maintain/delitemdeatail id))
 
@@ -40,6 +42,13 @@
                                            sortnum  pycode ]
     (maintain/addnewcheckitemdetail itemid  itemdetailname unit  downlimit uplimit	 std_mess
                         down_mess  up_mess sortnum  pycode))
+
+  (POST "/maintain/addnewunitmembers" [members ]
+    (maintain/addnewunitmembers members)
+    )
+  (POST "/maintain/editunitmembers" [members ]
+    (maintain/editunitmembers members)
+    )
   (POST "/maintain/addnewunitmember" [unitid  membername  marry
                                       cardnum   sex  birthday		 duty
                                       address   telephone		 ischeck   title ]

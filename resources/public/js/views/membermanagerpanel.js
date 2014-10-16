@@ -27,7 +27,7 @@ define(function () {
     }
     var append =function (){
         if (endEditing()){
-            $('#membermanagerpaneldetail').datagrid('appendRow',{status:'是'});
+            $('#membermanagerpaneldetail').datagrid('appendRow',{ischeck:'是'});
             editIndex = $('#membermanagerpaneldetail').datagrid('getRows').length-1;
             $('#membermanagerpaneldetail').datagrid('selectRow', editIndex)
                 .datagrid('beginEdit', editIndex);
@@ -44,12 +44,73 @@ define(function () {
             var inserted=$('#membermanagerpaneldetail').datagrid('getChanges','inserted');
             var deleted=$('#membermanagerpaneldetail').datagrid('getChanges','deleted');
             var updated=$('#membermanagerpaneldetail').datagrid('getChanges','updated');
+            if(inserted.length>0){
+                require(['js/commonfuncs/AjaxForm.js']
+                    ,function(ajaxfrom){
+                        for(var i=0;i<inserted.length;i++){
+                            inserted[i].unitid=$('#membermanagerpanel').datagrid('getSelected').id;
+                        }
+                        var success=function(){
+                            $.messager.alert('操作成功','成功!');
+                            $('#membermanagerpaneldetail').datagrid('acceptChanges');
+                            editIndex=undefined;
+                            $('#membermanagerpaneldetail').datagrid('reload');
+                        };
+                        var errorfunc=function(){
+                            $.messager.alert('操作失败','失败!');
+                        };
+                        var params= {members:$.toJSON(inserted)};
+                        ajaxfrom.ajaxsend('post','json','maintain/addnewunitmembers',params,success,null,errorfunc)
 
-            console.log(inserted);
-            console.log(deleted);
-            console.log(updated);
+                    });
+            }
 
-            $('#membermanagerpaneldetail').datagrid('acceptChanges');
+            if(updated.length>0){
+                require(['js/commonfuncs/AjaxForm.js']
+                    ,function(ajaxfrom){
+
+                        var success=function(){
+                            $.messager.alert('操作成功','成功!');
+                            $('#membermanagerpaneldetail').datagrid('acceptChanges');
+                            editIndex=undefined;
+                            $('#membermanagerpaneldetail').datagrid('reload');
+                        };
+                        var errorfunc=function(){
+                            $.messager.alert('操作失败','失败!');
+                        };
+                        var params= {members:$.toJSON(updated)};
+                        ajaxfrom.ajaxsend('post','json','maintain/editunitmembers',params,success,null,errorfunc);
+
+                    });
+
+            }
+
+            if(deleted.length>0){
+                require(['js/commonfuncs/AjaxForm.js']
+                    ,function(ajaxfrom){
+
+                        var success=function(){
+                            $.messager.alert('操作成功','成功!');
+                            $('#membermanagerpaneldetail').datagrid('acceptChanges');
+                            editIndex=undefined;
+                            $('#membermanagerpaneldetail').datagrid('reload');
+                        };
+                        var errorfunc=function(){
+                            $.messager.alert('操作失败','失败!');
+                        };
+                        var params= {members:$.toJSON(deleted)};
+                        ajaxfrom.ajaxsend('post','json','maintain/delunitmembers',params,success,null,errorfunc);
+
+                    });
+
+            }
+
+
+            //console.log(inserted);
+            //console.log(deleted);
+            //console.log(updated);
+
+
         }
     }
     var reject =function (){
