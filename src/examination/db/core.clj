@@ -46,6 +46,10 @@
 
   (database sqlitedb)
   )
+(defentity examinationMember
+
+  (database sqlitedb)
+  )
 
 (defentity examinationUnit
   (database sqlitedb)

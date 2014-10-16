@@ -151,6 +151,26 @@ CREATE TABLE IF NOT EXISTS examinationUnit
 );
 
 
+--体检会员单位员工
+CREATE TABLE IF NOT EXISTS examinationMember
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  unitid     integer,
+  membername    VARCHAR(100), --  员工姓名
+  marry     VARCHAR(100), --  婚姻状况
+  cardnum     VARCHAR(100), -- 卡号
+  sex   VARCHAR(100), --  性别
+  birthday		 datetime, --  出生日期
+  duty		    VARCHAR(100), --  职务
+  address     VARCHAR(100), --  联系地址
+  telephone		 VARCHAR(100), --  联系电话
+  ischeck      VARCHAR(100), --是否体检
+  title     VARCHAR(100) --  职称
+
+);
+
+
 
 
 --init
