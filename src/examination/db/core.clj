@@ -137,6 +137,18 @@
     (where {:packageid pid})
     )
   )
+(defn delitembypid [packageid itemid]
+  (delete packageWithItem
+    (where (and {:packageid packageid }
+             {:itemcode itemid}
+             ))
+    )
+  )
+(defn insertitembypid  [packageid itemid]
+  (insert packageWithItem
+    (values {:packageid packageid :itemcode itemid})
+    )
+  )
 (defn getpackages [start limits keyword]
   (select examinationPackage
     (where {:packagename [like (str "%" (if (nil? keyword)"" keyword) "%")]})

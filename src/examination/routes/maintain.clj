@@ -30,6 +30,8 @@
     (maintain/delpackages packages))
   (POST "/maintain/delitemdeatail" [id]
     (maintain/delitemdeatail id))
+(POST "/maintain/makepackageitems" [deleteid itemid packageid]
+    (maintain/makepackageitems deleteid itemid packageid))
 
   (POST "/maintain/getunits" [start limit  totalname rowsname keyword]
     (maintain/getunits start limit  totalname rowsname keyword))

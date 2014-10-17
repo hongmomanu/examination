@@ -197,7 +197,7 @@ define(function () {
             idField: 'id',
             onBeforeLoad: function (row, params) {
 
-                var select=$('#packagemanagerpanel').datagrid('getSelected')
+                var select=$('#packagemanagerpanel').datagrid('getSelected');
                 //params.packageid=select?select.id:null;
                 if(select)params.packageid=select.id;
                 if (!row)params.node = -1;
@@ -229,6 +229,50 @@ define(function () {
         $('#packagepaneldetailtb .del').click(removeit);
         $('#packagepaneldetailtb .save').click(accept);
         $('#packagepaneldetailtb .undo').click(reject);
+        $('#packageitemmanagebtns .save').click(function(){
+
+
+            $.messager.confirm('确定要修改角色配置么?', '你正在试图角色配置?', function(r){
+                if (r){
+                    require(['js/commonfuncs/AjaxForm.js']
+                        ,function(ajaxfrom){
+                            var selectItems=$('#packageitemmanagerpanel').tree('getChecked');
+                            var unselectItems=$('#packageitemmanagerpanel').tree('getChecked','unchecked');
+                            if(selectItems.length==0&&unselectItems.length==0){
+                                $.messager.alert('提示','未设置项目!');
+                                return;
+                            }
+                            var itemid_arr=[];
+                            var delete_arr=[];
+                            $.each(selectItems,function(index,item){
+                                itemid_arr.push(item.nodeid);
+                            });
+                            $.each(unselectItems,function(index,item){
+                                delete_arr.push(item.nodeid);
+                            });
+                            var params={};
+                            params.deleteid=$.toJSON(delete_arr);
+                            params.itemid=$.toJSON(itemid_arr);
+                            params.packageid=$('#packagemanagerpanel').datagrid('getSelected').id;
+
+
+
+
+                            var success=function(){
+                                $.messager.alert('操作成功','配置成功!');
+                                $('#packagemanagerpanel').datagrid('reload');
+                            };
+                            var errorfunc=function(){
+                                $.messager.alert('操作失败','配置失败!');
+                            };
+                            ajaxfrom.ajaxsend('post','json','maintain/makepackageitems',params,success,null,errorfunc);
+
+                        })
+                }
+            });
+
+
+        });
 
 
 

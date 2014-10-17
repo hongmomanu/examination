@@ -104,6 +104,18 @@
 
 
   )
+(defn makepackageitems [deleteid itemid packageid]
+  (let[
+        delids (read-string deleteid)
+        itemids (read-string itemid)
+        ]
+    (dorun (map #(db/delitembypid packageid %) delids))
+    (dorun (map #(db/insertitembypid packageid %) itemids))
+    (resp/json {:success true})
+
+    )
+
+  )
 (defn addnewitem [pycode itemname price sortnum deptid]
   (resp/json {:success true :msg (db/addnewitem {
                                                  :pycode pycode
