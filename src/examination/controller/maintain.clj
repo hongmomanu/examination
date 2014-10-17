@@ -152,6 +152,20 @@
                                                   })})
   )
 
+(defn editunitgroup [unitid  groupname marry  sex
+                    downage	 upage duty  title id]
+  (resp/json {:success true :msg (db/editunitgroup {
+                                                 :unitid unitid
+                                                 :groupname groupname
+                                                 :marry marry
+                                                 :sex sex
+                                                 :downage downage
+                                                 :upage upage
+                                                 :duty duty
+                                                 :title title
+                                                  } id)})
+  )
+
 (defn addnewcheckitemdetail [itemid  itemdetailname unit  downlimit uplimit	 std_mess
                              down_mess  up_mess sortnum  pycode]
 

@@ -309,6 +309,12 @@
     (where {:id id})
     )
   )
+(defn editunitgroup [fields id]
+  (update unitWithGroup
+    (set-fields fields)
+    (where {:id id})
+    )
+  )
 (defn editpackage [fields id]
   (update examinationPackage
     (set-fields fields)

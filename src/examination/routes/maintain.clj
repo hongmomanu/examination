@@ -60,6 +60,10 @@
                                   downage	 upage duty  title ]
     (maintain/addunitgroup unitid  groupname marry  sex
                            downage	 upage duty  title))
+(POST "/maintain/editunitgroup" [unitid  groupname marry  sex
+                                  downage	 upage duty  title id]
+    (maintain/editunitgroup unitid  groupname marry  sex
+                           downage	 upage duty  title id))
 
   (POST "/maintain/addnewunitmembers" [members ]
     (maintain/addnewunitmembers members)

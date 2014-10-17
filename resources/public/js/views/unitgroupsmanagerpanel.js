@@ -42,7 +42,6 @@ define(function () {
 
             },
             onClick: function (node) {
-                console.log(node);
                 if(node.id>0){
                     var pid=$('#unitgroupsmanagerpanel').tree('getParent',node.target).id;
                     $('#unitgroupsmanagerlayout').layout('expand','east');
@@ -52,6 +51,7 @@ define(function () {
                         $('#unitgroupsitemmanagebtns .save').show();
                         $('#unitgroupsitemmanagebtns .new').hide();
                     }else{
+                        $('#unitgroupform').form('reset');
                         $('#unitgroupsitemmanagebtns .save').hide();
                         $('#unitgroupsitemmanagebtns .del').hide();
                         $('#unitgroupsitemmanagebtns .new').show();
@@ -96,40 +96,22 @@ define(function () {
         $('#unitgroupsitemmanagebtns .save').click(function(){
 
 
-            $.messager.confirm('确定要修改角色配置么?', '你正在试图角色配置?', function(r){
+            $.messager.confirm('确定要修改分组么?', '你正在试图修改分组?', function(r){
                 if (r){
-                    require(['js/commonfuncs/AjaxForm.js']
-                        ,function(ajaxfrom){
-                            var selectItems=$('#unitgroupsitemmanagerpanel').tree('getChecked');
-                            var unselectItems=$('#unitgroupsitemmanagerpanel').tree('getChecked','unchecked');
-                            if(selectItems.length==0&&unselectItems.length==0){
-                                $.messager.alert('提示','未设置项目!');
-                                return;
-                            }
-                            var itemid_arr=[];
-                            var delete_arr=[];
-                            $.each(selectItems,function(index,item){
-                                itemid_arr.push(item.nodeid);
-                            });
-                            $.each(unselectItems,function(index,item){
-                                delete_arr.push(item.nodeid);
-                            });
-                            var params={};
-                            params.deleteid=$.toJSON(delete_arr);
-                            params.itemid=$.toJSON(itemid_arr);
-                            params.unitgroupsid=$('#unitgroupsmanagerpanel').datagrid('getSelected').id;
-
-
-
-
+                    require(['jqueryplugin/easyui-form','js/commonfuncs/AjaxForm.js']
+                        ,function(easyform,ajaxfrom){
+                            var params=$('#unitgroupform').form("serialize");
                             var success=function(){
-                                $.messager.alert('操作成功','配置成功!');
-                                $('#unitgroupsmanagerpanel').datagrid('reload');
+                                $.messager.alert('操作成功','修改成功!');
+                                $('#unitgroupsmanagerpanel').tree('reload',
+                                    $('#unitgroupsmanagerpanel').tree('getParent',
+                                    $('#unitgroupsmanagerpanel').tree('getSelected').target).target);
                             };
                             var errorfunc=function(){
-                                $.messager.alert('操作失败','配置失败!');
+                                $.messager.alert('操作失败','修改失败!');
                             };
-                            ajaxfrom.ajaxsend('post','json','maintain/makeunitgroupsitems',params,success,null,errorfunc);
+                            //params.unitid= $('#unitgroupsmanagerpanel').tree('getSelected').id;
+                            ajaxfrom.ajaxsend('post','json','maintain/editunitgroup',params,success,null,errorfunc);
 
                         })
                 }
