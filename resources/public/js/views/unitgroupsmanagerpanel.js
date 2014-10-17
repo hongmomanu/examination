@@ -47,6 +47,7 @@ define(function () {
                     var pid=$('#unitgroupsmanagerpanel').tree('getParent',node.target).id;
                     $('#unitgroupsmanagerlayout').layout('expand','east');
                     if(pid>0){
+                        $('#unitgroupform').form('load',node);
                         $('#unitgroupsitemmanagebtns .del').show();
                         $('#unitgroupsitemmanagebtns .save').show();
                         $('#unitgroupsitemmanagebtns .new').hide();
