@@ -17,8 +17,7 @@ define(function () {
     var onClickRow=function (index,rowData){
         //console.log(rowData);
         //var packageid=rowData.id;
-        //$('#packagemanagerpaneldetail').datagrid('load',{id:rowData.id});
-
+        $('#packageitemmanagerpanel').tree('reload');
 
         $('#packagemanagerlayout').layout('expand','east');
         if (editIndex != index){
@@ -188,30 +187,42 @@ define(function () {
 
         });
 
-        $('#packagemanagerpaneldetail').datagrid({
-            singleSelect: true,
-            collapsible: true,
-            rownumbers: true,
-            method:'post',
-            fitColumns:true,
-            url:'maintain/getunitpackages',
-            remoteSort: false,
-            /*sortName:'time',
-            sortOrder:'desc',*/
-            fit:true,
+        $('#packageitemmanagerpanel').tree({
+            //rownumbers: true,
+            checkbox:true,
+            onlyLeafCheck:true,
+            method: 'post',
+            url: 'maintain/gettreeitem',
+            treeField: 'text',
+            idField: 'id',
+            onBeforeLoad: function (row, params) {
 
-            pagination:true,
-            pageSize:10,
-            onBeforeLoad: function (params) {
-                //alert(1);
-                var options = $('#packagemanagerpaneldetail').datagrid('options');
-                params.start = (options.pageNumber - 1) * options.pageSize;
-                params.limit = options.pageSize;
-                params.totalname = "total";
-                params.rowsname = "rows";
+                var select=$('#packagemanagerpanel').datagrid('getSelected')
+                //params.packageid=select?select.id:null;
+                if(select)params.packageid=select.id;
+                if (!row)params.node = -1;
+                else {
+                    var parent =$('#packageitemmanagerpanel').tree('getParent',row.target);
+                    params.node = row.nodeid;
+                    params.pid=parent.id;
+                }
+
             },
-            onClickRow:onClickRow
+            /*onContextMenu: function(e,node){
+             e.preventDefault();
+             $(this).tree('select',node.target);
+             $('#mm').menu('show',{
+             left: e.pageX,
+             top: e.pageY
+             });
+             },*/
+            onLoadSuccess: function (row, data) {
 
+            },
+            onClickRow: function (rowData) {
+
+
+            }
         });
 
         $('#packagepaneldetailtb .add').click(append);

@@ -49,6 +49,16 @@
     (resp/json (assoc {} rowsname results totalname nums))
     )
   )
+
+(defn getpackageitems [id start limit  totalname rowsname keyword]
+  #_(let [results (db/getunitmembers id start limit keyword )
+        nums  (:counts (first (db/getunitmembernums id keyword)))
+        ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+  (resp/json (assoc {} rowsname [{:itemname 1111 :ck true :id 1}] totalname 1))
+  )
+
 (defn delitem [itemid]
   (resp/json {:success true :msg (db/delcheckitem itemid)})
   )
@@ -73,18 +83,25 @@
 (defn delitemdeatail [id]
   (resp/json {:success true :msg (db/delcheckitemdeatil id)})
   )
-(defn gettreeitem [node roleid pid callback]
+(defn isitemcheck [item ids]
+  (if (nil? (some #(= (:id item) %) ids)) false true)
+  )
+(defn gettreeitem [node roleid pid packageid callback]
+  (let [
+         itemids (into [](map #(:itemcode %) (db/getitemidbypackage packageid)))
+         ]
+    (if (= node "-1")
+      (resp/json [{:id 0 :text "体检科室" :value "体检科室"
+                   :children (map #(conj % {:state "closed" :value (:deptname %) :id (str "dept" (:id %)) :nodeid (:id %)
+                                            :text (str (:deptname %) "(" (getitemnums (:id %)) ")")})
+                               (db/getdepts 0 100 nil)) }])
+      (if (= pid "0")(resp/json (map #(conj % {:state (if (nil? packageid) "closed" "open") :value (:itemname %) :checked (isitemcheck % itemids) :id (str "item" (:id %)) :nodeid (:id %)
+                                               :text (str (:itemname %) "(" (getitemdetailnums (:id %)) ")")}) (db/getcheckitem node)))
+        (resp/json (map #(conj % {:value (:itemdetailname %) :id (:id %)
+                                  :text (:itemdetailname %)}) (db/getcheckitemdetail node)))
+        ))
+    )
 
-  (if (= node "-1")
-    (resp/json [{:id 0 :text "体检科室" :value "体检科室"
-                 :children (map #(conj % {:state "closed" :value (:deptname %) :id (str "dept" (:id %)) :nodeid (:id %)
-                                          :text (str (:deptname %) "(" (getitemnums (:id %)) ")")})
-                             (db/getdepts 0 100 nil)) }])
-    (if (= pid "0")(resp/json (map #(conj % {:state "closed" :value (:itemname %) :id (str "item" (:id %)) :nodeid (:id %)
-                                             :text (str (:itemname %) "(" (getitemdetailnums (:id %)) ")")}) (db/getcheckitem node)))
-      (resp/json (map #(conj % {:value (:itemdetailname %) :id (:id %)
-                                           :text (:itemdetailname %)}) (db/getcheckitemdetail node)))
-      ))
 
   )
 (defn addnewitem [pycode itemname price sortnum deptid]

@@ -132,6 +132,11 @@
     (limit limits)
     (offset start))
   )
+(defn getitemidbypackage [pid]
+  (select packageWithItem
+    (where {:packageid pid})
+    )
+  )
 (defn getpackages [start limits keyword]
   (select examinationPackage
     (where {:packagename [like (str "%" (if (nil? keyword)"" keyword) "%")]})

@@ -187,8 +187,9 @@ CREATE TABLE IF NOT EXISTS packageWithItem
 (
   id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
   DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  packageid     integer   --  套餐代码
   proportion    DECIMAL(9,2), --  套餐名称
-  itemcode     VARCHAR(100) --  项目代码
+  itemcode     integer --  项目代码
 
 );
 

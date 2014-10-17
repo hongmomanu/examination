@@ -12,8 +12,8 @@
 
 (defroutes maintain-routes
 
-  (POST "/maintain/gettreeitem" [node roleid pid callback]
-    (maintain/gettreeitem node roleid pid callback))
+  (POST "/maintain/gettreeitem" [node roleid pid packageid callback]
+    (maintain/gettreeitem node roleid pid packageid callback))
   (POST "/maintain/addnewitem" [pycode itemname price sortnum deptid]
     (maintain/addnewitem pycode itemname price sortnum deptid))
   (POST "/maintain/edititem" [pycode itemname price sortnum itemid]
@@ -39,6 +39,9 @@
 
   (POST "/maintain/getunitmembers" [id start limit  totalname rowsname keyword]
     (maintain/getunitmembers id start limit  totalname rowsname keyword))
+
+  (POST "/maintain/getpackageitems" [id start limit  totalname rowsname keyword]
+    (maintain/getpackageitems id start limit  totalname rowsname keyword))
 
   (POST "/maintain/addnewcheckitemdetail" [itemid  itemdetailname
                                            unit  downlimit
