@@ -141,6 +141,11 @@
     (where {:packageid pid})
     )
   )
+(defn getgroupsbyunit [unitid]
+  (select unitWithGroup
+    (where {:unitid unitid})
+    )
+  )
 (defn delitembypid [packageid itemid]
   (delete packageWithItem
     (where (and {:packageid packageid }

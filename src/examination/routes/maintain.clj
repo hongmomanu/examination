@@ -14,6 +14,9 @@
 
   (POST "/maintain/gettreeitem" [node roleid pid packageid callback]
     (maintain/gettreeitem node roleid pid packageid callback))
+
+  (POST "/maintain/getunitgroup" [node  pid  callback]
+    (maintain/getunitgroup node  pid  callback))
   (POST "/maintain/addnewitem" [pycode itemname price sortnum deptid]
     (maintain/addnewitem pycode itemname price sortnum deptid))
   (POST "/maintain/edititem" [pycode itemname price sortnum itemid]

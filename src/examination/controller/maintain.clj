@@ -86,6 +86,18 @@
 (defn isitemcheck [item ids]
   (if (nil? (some #(= (:id item) %) ids)) false true)
   )
+(defn getunitgroup [node pid callback]
+  (let [
+
+         ])
+  (if(= node "-1")(resp/json [{:id 0 :text "单位分组" :value "单位分组"
+                               :children (map #(conj % {:state "closed" :value (:unitname %)
+                               :text (str (:unitname %) "(" (count (db/getgroupsbyunit (:id %))) ")")})
+                               (db/getunits 0 1000000 ""))}])
+    (resp/json (map #(conj {:text (:groupname %)}) (db/getgroupsbyunit node)))
+
+    )
+  )
 (defn gettreeitem [node roleid pid packageid callback]
   (let [
          itemids (into [](map #(:itemcode %) (db/getitemidbypackage packageid)))
