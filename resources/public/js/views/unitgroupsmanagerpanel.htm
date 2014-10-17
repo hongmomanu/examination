@@ -8,13 +8,64 @@
         </ul>
     </div>
 
-    <div id="unitgroupsmanagertable" data-options="region:'east',split:true,collapsed:true" title="详细信息" style="width:70%;height: 100%;">
-        <div data-options="region:'center',title:'项目维护'">
+    <div id="unitgroupsmanagertable" data-options="region:'east',split:true,collapsed:true" title="详细信息" style="width:60%;height: 100%;">
+        <div data-options="region:'center'">
 
-            <div style="text-align:center;padding:5px" id="unitgroupsitemmanagebtns">
-                <a  class="easyui-linkbutton save" data-options="disabled:false" >保存</a>
+            <form id="unitgroupform" method="post">
+                <table class="formtable">
+                    <tr>
+                        <td>分组名称:</td>
+                        <td><input class="easyui-validatebox" type="text" name="groupname" data-options="required:true"></td>
+                        <td>婚姻:</td>
+                        <td><input class="easyui-combobox lazy-combobox" type="text"
+                                   name="marry" searchtype="婚姻限制"
+                                   data-options="required:true,valueField: 'enumeratevalue',
+                                         textField: 'enumeratelabel',width:135"></td>
+                    </tr>
+                    <tr>
+                        <td>性别:</td>
+                        <td><input class="easyui-combobox lazy-combobox" type="text"
+                                   name="sex" searchtype="性别限制"
+                                   data-options="required:true,valueField: 'enumeratevalue',
+                                         textField: 'enumeratelabel',width:135"></td>
+                        <td>年龄下线:</td>
+                        <td><input class="easyui-numberspinner" name="downage" data-options="min:0,max:100,required:true" style="width:135px;"></td>
 
-            </div>
+                    </tr>
+                    <tr>
+                        <td>年龄上线:</td>
+                        <td><input class="easyui-numberspinner" name="upage" data-options="min:0,max:100,required:true" style="width:135px;"></td>
+                        <td>职务:</td>
+                        <td><input class="easyui-combobox lazy-combobox" type="text"
+                                   name="duty" searchtype="职务限制"
+                                   data-options="required:true,valueField: 'enumeratevalue',
+                                         textField: 'enumeratelabel',width:135"></td>
+                    </tr>
+
+                    <tr>
+                        <td>职称:</td>
+                        <td colspan="3"><input class="easyui-combobox lazy-combobox" type="text"
+                                   name="title" searchtype="职称限制"
+                                   data-options="required:true,valueField: 'enumeratevalue',
+                                         textField: 'enumeratelabel',width:135"></td>
+
+                    </tr>
+
+                    <tr style="display: none;"><td>
+                        <input type="text" name="unitid" >
+                    </td></tr>
+
+
+                </table>
+                <div style="text-align:center;padding:5px" id="unitgroupsitemmanagebtns">
+                    <a  class="easyui-linkbutton save" data-options="disabled:false" >保存</a>
+                    <a  class="easyui-linkbutton new" data-options="disabled:false" >新增</a>
+                    <a  class="easyui-linkbutton del" data-options="disabled:false" >删除</a>
+
+                </div>
+            </form>
+
+
         </div>
 
 

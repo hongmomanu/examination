@@ -41,11 +41,55 @@ define(function () {
             onLoadSuccess: function (row, data) {
 
             },
-            onClickRow: function (rowData) {
+            onClick: function (node) {
+                console.log(node);
+                if(node.id>0){
+                    var pid=$('#unitgroupsmanagerpanel').tree('getParent',node.target).id;
+                    $('#unitgroupsmanagerlayout').layout('expand','east');
+                    if(pid>0){
+                        $('#unitgroupsitemmanagebtns .del').show();
+                        $('#unitgroupsitemmanagebtns .save').show();
+                        $('#unitgroupsitemmanagebtns .new').hide();
+                    }else{
+                        $('#unitgroupsitemmanagebtns .save').hide();
+                        $('#unitgroupsitemmanagebtns .del').hide();
+                        $('#unitgroupsitemmanagebtns .new').show();
+                    }
 
+                }else{
+                    $('#unitgroupsmanagerlayout').layout('collapse','east');
+                }
 
             }
         });
+
+
+        $('#unitgroupsitemmanagebtns .new').click(function(){
+
+
+            $.messager.confirm('确定要新增分组么?', '你正在试图新增分组', function(r){
+                if (r){
+                    require(['jqueryplugin/easyui-form','js/commonfuncs/AjaxForm.js']
+                        ,function(easyform,ajaxfrom){
+
+                            var params=$('#unitgroupform').form("serialize");
+                            var success=function(){
+                                $.messager.alert('操作成功','配置成功!');
+                                $('#unitgroupsmanagerpanel').tree('reload', $('#unitgroupsmanagerpanel').tree('getSelected'));
+                            };
+                            var errorfunc=function(){
+                                $.messager.alert('操作失败','配置失败!');
+                            };
+                            params.unitid= $('#unitgroupsmanagerpanel').tree('getSelected').id;
+                            ajaxfrom.ajaxsend('post','json','maintain/addunitgroup',params,success,null,errorfunc);
+
+                        })
+                }
+            });
+
+
+        });
+
 
         $('#unitgroupsitemmanagebtns .save').click(function(){
 
