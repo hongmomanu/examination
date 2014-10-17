@@ -315,6 +315,11 @@
     (where {:id id})
     )
   )
+(defn delunitgroup [id]
+  (delete unitWithGroup
+    (where {:id id})
+    )
+  )
 (defn editpackage [fields id]
   (update examinationPackage
     (set-fields fields)

@@ -166,6 +166,10 @@
                                                   } id)})
   )
 
+(defn delunitgroup [id]
+  (resp/json {:success true :msg (db/delunitgroup id)})
+  )
+
 (defn addnewcheckitemdetail [itemid  itemdetailname unit  downlimit uplimit	 std_mess
                              down_mess  up_mess sortnum  pycode]
 
