@@ -24,7 +24,7 @@ define(function () {
 
                 if (!row)params.node = -1;
                 else {
-
+                     params.node=params.id;
                     /*params.node = row.nodeid;
                     params.pid=parent.id;*/
                 }
@@ -75,7 +75,8 @@ define(function () {
                             var params=$('#unitgroupform').form("serialize");
                             var success=function(){
                                 $.messager.alert('操作成功','配置成功!');
-                                $('#unitgroupsmanagerpanel').tree('reload', $('#unitgroupsmanagerpanel').tree('getSelected'));
+                                $('#unitgroupsmanagerpanel').tree('reload',
+                                    $('#unitgroupsmanagerpanel').tree('getSelected').target);
                             };
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','配置失败!');

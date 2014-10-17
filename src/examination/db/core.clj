@@ -278,6 +278,12 @@
     )
 
   )
+(defn addnewunitgroup [fields]
+  (insert unitWithGroup
+    (values fields)
+    )
+
+  )
 (defn savedivision [fields divisionid]
   (update divisions
     (set-fields fields)

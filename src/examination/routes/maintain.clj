@@ -56,6 +56,11 @@
     (maintain/addnewcheckitemdetail itemid  itemdetailname unit  downlimit uplimit	 std_mess
                         down_mess  up_mess sortnum  pycode))
 
+  (POST "/maintain/addunitgroup" [unitid  groupname marry  sex
+                                  downage	 upage duty  title ]
+    (maintain/addunitgroup unitid  groupname marry  sex
+                           downage	 upage duty  title))
+
   (POST "/maintain/addnewunitmembers" [members ]
     (maintain/addnewunitmembers members)
     )

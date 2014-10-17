@@ -94,7 +94,7 @@
                                :children (map #(conj % {:state "closed" :value (:unitname %)
                                :text (str (:unitname %) "(" (count (db/getgroupsbyunit (:id %))) ")")})
                                (db/getunits 0 1000000 ""))}])
-    (resp/json (map #(conj {:text (:groupname %)}) (db/getgroupsbyunit node)))
+    (resp/json (map #(conj {:text (:groupname %)} %) (db/getgroupsbyunit node)))
 
     )
   )
@@ -128,6 +128,7 @@
     )
 
   )
+
 (defn addnewitem [pycode itemname price sortnum deptid]
   (resp/json {:success true :msg (db/addnewitem {
                                                  :pycode pycode
@@ -135,6 +136,19 @@
                                                  :price price
                                                  :sortnum sortnum
                                                  :deptid deptid
+                                                  })})
+  )
+(defn addunitgroup [unitid  groupname marry  sex
+                    downage	 upage duty  title]
+  (resp/json {:success true :msg (db/addnewunitgroup {
+                                                 :unitid unitid
+                                                 :groupname groupname
+                                                 :marry marry
+                                                 :sex sex
+                                                 :downage downage
+                                                 :upage upage
+                                                 :duty duty
+                                                 :title title
                                                   })})
   )
 
