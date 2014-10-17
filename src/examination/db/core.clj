@@ -46,6 +46,10 @@
 
   (database sqlitedb)
   )
+(defentity unitWithGroupAndItem
+
+  (database sqlitedb)
+  )
 (defentity unitWithGroup
 
   (database sqlitedb)
@@ -139,6 +143,14 @@
 (defn getitemidbypackage [pid]
   (select packageWithItem
     (where {:packageid pid})
+    )
+  )
+(defn getitemidbyunitgroup [unitid groupid]
+  (select unitWithGroupAndItem
+    (where (and
+             {:unitid unitid}
+             {:groupid groupid}
+             ))
     )
   )
 (defn getgroupsbyunit [unitid]

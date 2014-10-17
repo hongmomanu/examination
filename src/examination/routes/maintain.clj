@@ -12,8 +12,8 @@
 
 (defroutes maintain-routes
 
-  (POST "/maintain/gettreeitem" [node roleid pid packageid callback]
-    (maintain/gettreeitem node roleid pid packageid callback))
+  (POST "/maintain/gettreeitem" [node roleid pid packageid unitid groupid callback]
+    (maintain/gettreeitem node roleid pid packageid unitid groupid callback))
 
   (POST "/maintain/getunitgroup" [node  pid  callback]
     (maintain/getunitgroup node  pid  callback))

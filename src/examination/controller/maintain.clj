@@ -98,9 +98,10 @@
 
     )
   )
-(defn gettreeitem [node roleid pid packageid callback]
+(defn gettreeitem [node roleid pid packageid unitid groupid callback]
   (let [
-         itemids (into [](map #(:itemcode %) (db/getitemidbypackage packageid)))
+         itemids (into [](map #(:itemcode %) (if (nil? groupid) (db/getitemidbypackage packageid)
+                                               (db/getitemidbyunitgroup unitid groupid) )))
          ]
     (if (= node "-1")
       (resp/json [{:id 0 :text "体检科室" :value "体检科室"
