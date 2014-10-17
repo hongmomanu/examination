@@ -46,6 +46,10 @@
 
   (database sqlitedb)
   )
+(defentity unitWithGroup
+
+  (database sqlitedb)
+  )
 (defentity examinationPackage
 
   (database sqlitedb)

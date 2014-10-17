@@ -193,9 +193,32 @@ CREATE TABLE IF NOT EXISTS packageWithItem
 
 );
 
+--单位分组
+CREATE TABLE IF NOT EXISTS unitWithGroup
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  unitid     integer,   --  单位代码
+  groupname     varchar(20),    --  分组名称
+  marry     varchar(20) , --  未婚,已婚，no limit
+  sex     varchar(20) , --  男，女，no limit
+  downage     int , --  男，女，no limit
+  upage     int , --
+  duty     varchar(20) , -- 职务  高层，中层，普通，no limit
+  title     varchar(20)  -- 职称  高层，中层，普通高级，中级，初级，no limit
 
+);
 
-
+--单位分组与细目对照
+CREATE TABLE IF NOT EXISTS unitWithGroupAndItem
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  unitid     integer,   --  单位代码
+  groupid     integer,    --  组编码
+  packageid   integer , --  套餐代码
+  itemcode     integer --  细目代码
+);
 
 --init
 
