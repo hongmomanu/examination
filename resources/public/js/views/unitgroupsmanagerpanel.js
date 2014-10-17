@@ -49,9 +49,12 @@ define(function () {
                         $('#unitgroupform').form('load',node);
                         $('#unitgroupsitemmanagebtns .del').show();
                         $('#unitgroupsitemmanagebtns .save').show();
+                        $('#unitgroupcheckitemtree').show();
+                        $('#unitgroupcheckitemtree').tree('reload');
                         $('#unitgroupsitemmanagebtns .new').hide();
                     }else{
                         $('#unitgroupform').form('reset');
+                        $('#unitgroupcheckitemtree').hide();
                         $('#unitgroupsitemmanagebtns .save').hide();
                         $('#unitgroupsitemmanagebtns .del').hide();
                         $('#unitgroupsitemmanagebtns .new').show();
@@ -123,6 +126,50 @@ define(function () {
 
 
         });
+
+        $('#unitgroupcheckitemtree').tree({
+            //rownumbers: true,
+            checkbox:true,
+            onlyLeafCheck:true,
+            method: 'post',
+            url: 'maintain/gettreeitem',
+            treeField: 'text',
+            idField: 'id',
+            onBeforeLoad: function (row, params) {
+
+                var select=$('#unitgroupsmanagerpanel').tree('getSelected');
+                //params.packageid=select?select.id:null;
+                if(select){
+                    params.groupid=select.id;
+                    params.unitid=select.unitid;
+                }
+                if (!row)params.node = -1;
+                else {
+                    var parent =$('#unitgroupcheckitemtree').tree('getParent',row.target);
+                    params.node = row.nodeid;
+                    params.pid=parent.id;
+                }
+
+            },
+            /*onContextMenu: function(e,node){
+             e.preventDefault();
+             $(this).tree('select',node.target);
+             $('#mm').menu('show',{
+             left: e.pageX,
+             top: e.pageY
+             });
+             },*/
+            onLoadSuccess: function (row, data) {
+
+            },
+            onClickRow: function (rowData) {
+
+
+            }
+        });
+
+
+
         $('#unitgroupsitemmanagebtns .del').click(function(){
 
 
