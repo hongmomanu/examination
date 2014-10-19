@@ -18,8 +18,10 @@ define(function () {
         //console.log(rowData);
         //var packageid=rowData.id;
         //$('#packageitemmanagerpanel').tree('reload');
+        //console.log(rowData);
+        $('#suggestinfoform').form('load',rowData);
+        //$('#suggestmanagerlayout').layout('expand','east');
 
-        $('#suggestmanagerlayout').layout('expand','east');
         if (editIndex != index){
             if (endEditing()){
                 $('#suggestmanagerpaneltable').datagrid('selectRow', index)
@@ -32,7 +34,7 @@ define(function () {
     }
     var append =function (){
         if (endEditing()){
-            $('#suggestmanagerpaneltable').datagrid('appendRow',{useflag:'是'});
+            $('#suggestmanagerpaneltable').datagrid('appendRow',{status:'是'});
             editIndex = $('#suggestmanagerpaneltable').datagrid('getRows').length-1;
             $('#suggestmanagerpaneltable').datagrid('selectRow', editIndex)
                 .datagrid('beginEdit', editIndex);
@@ -50,10 +52,12 @@ define(function () {
             var deleted=$('#suggestmanagerpaneltable').datagrid('getChanges','deleted');
             var updated=$('#suggestmanagerpaneltable').datagrid('getChanges','updated');
             if(inserted.length>0){
-                require(['js/commonfuncs/AjaxForm.js']
-                    ,function(ajaxfrom){
+                require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
+                    ,function(easyform,ajaxfrom){
+//                        var params=$('#suggestinfoform form').form("serialize");
+//                        var deptid=params.deptid;
                         for(var i=0;i<inserted.length;i++){
-                            inserted[i].unitid=$('#suggestmanagerpaneltable').datagrid('getSelected').id;
+                            inserted[i].deptid=$('#suggestmanagerpanel').datagrid('getSelected').id;
                         }
                         var success=function(){
                             $.messager.alert('操作成功','成功!');
@@ -64,7 +68,7 @@ define(function () {
                         var errorfunc=function(){
                             $.messager.alert('操作失败','失败!');
                         };
-                        var params= {packages:$.toJSON(inserted)};
+                        var params= {suggets:$.toJSON(inserted)};
                         ajaxfrom.ajaxsend('post','json','maintain/addnewsuggests',params,success,null,errorfunc)
 
                     });
@@ -147,6 +151,20 @@ define(function () {
             }
         );
 
+        $('#suggestinfoformcontent').textbox(
+            {
+                onChange:function(newValue,oldValue){
+                    endEditing();
+                    var data=$('#suggestmanagerpaneltable').datagrid('getSelected');
+                    var index=$('#suggestmanagerpaneltable').datagrid('getRowIndex',data);
+                    data.content=newValue;
+                    //console.log(data);
+                    $('#suggestmanagerpaneltable').datagrid('updateRow',{
+                        index:index,
+                        row:data
+                    });
+
+        }});
 
         $('#suggestmanagerpaneltable').datagrid({
             singleSelect: true,
@@ -201,62 +219,24 @@ define(function () {
                 params.rowsname = "rows";
             },
             onClickRow:function(index, rowData){
-                $('#suggestinfoform').form('load',rowData);
+                var deptid=rowData.id;
+                $('#suggestinfoform').form('load',{deptid:deptid});
+
                 $('#suggestformbtns .save,#suggestformbtns .del').linkbutton('enable');
                 $('#suggestmanagerlayout').layout('expand','east');
+                $('#suggestmanagerpaneltable').datagrid('loadData',[]);
+
+                $('#suggestmanagerpaneltable').datagrid('reload',{deptid: deptid});
             }
 
         });
 
-        $('#suggestformbtns .del').click(function(){
-            $.messager.confirm('确定要删除科室么?', '你正在试图删除科室?', function(r){
-                if (r){
-                    require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
-                        ,function(easyuifrom,ajaxfrom){
-                            var params=$('#suggestinfoform').form("serialize");
-                            var success=function(){
-                                $.messager.alert('操作成功','删除科室成功!');
-                                $('#suggestmanagerpanel').datagrid('reload');
-                            };
-                            var errorfunc=function(){
-                                $.messager.alert('操作失败','删除科室失败!');
-                            }
-                            ajaxfrom.ajaxsend('post','json','auth/delsuggest',params,success,null,errorfunc)
-
-                        });
-                }
-            });
-        });
-        $('#suggestformbtns .save').click(function(){
-            $.messager.confirm('确定要修改科室么?', '你正在试图修改科室?', function(r){
-                    if (r){
-                        require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
-                            ,function(easyform,ajaxfrom){
+        $('#suggestpaneldetailtb .add').click(append);
+        $('#suggestpaneldetailtb .del').click(removeit);
+        $('#suggestpaneldetailtb .save').click(accept);
+        $('#suggestpaneldetailtb .undo').click(reject);
 
 
-                                var params=$('#suggestinfoform').form("serialize");
-                                //params.password=CryptoJS.enc.Base64.stringify(CryptoJS.MD5(params.password));
-                                params.iscommon=false;
-                                var success=function(res){
-                                    if(res.success){
-                                        $.messager.alert('操作成功','修改科室成功!');
-                                        $('#suggestmanagerpanel').datagrid('reload');
-                                    }else{
-                                        $.messager.alert('操作失败',res.msg);
-                                    }
-
-                                };
-                                var errorfunc=function(){
-                                    $.messager.alert('操作失败','修改科室失败!');
-                                }
-                                ajaxfrom.ajaxsend('post','json','auth/editsuggest',params,success,null,errorfunc)
-
-                            });
-                    }
-                }
-            );
-
-        });
 
 
 

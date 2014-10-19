@@ -42,6 +42,10 @@
 
   (database sqlitedb)
   )
+(defentity deptCustomDescript
+
+  (database sqlitedb)
+  )
 (defentity checkItemDetail
 
   (database sqlitedb)
@@ -137,6 +141,15 @@
 (defn getunits [start limits keyword]
   (select examinationUnit
     (where {:unitname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (limit limits)
+    (offset start))
+  )
+(defn getsuggests [start limits deptid keyword]
+  (select deptCustomDescript
+    (where (and
+             {:name [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             {:deptid deptid}
+             ))
     (limit limits)
     (offset start))
   )
@@ -374,6 +387,17 @@
     (aggregate (count :id) :counts)
     )
   )
+(defn getsuggestnums [deptid keyword]
+  (select deptCustomDescript
+    (where (and
+             {:name [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             {:deptid deptid}
+             )
+      )
+    (aggregate (count :id) :counts)
+
+  ))
+
 (defn getunitmembernums [id keyword ]
   (select examinationMember
     (where (and {:membername [like (str "%" (if (nil? keyword)"" keyword) "%")]}
@@ -555,6 +579,11 @@
   )
 (defn addnewunitmember [fields]
   (insert examinationMember
+    (values fields)
+    )
+  )
+(defn addnewsuggest [fields]
+  (insert deptCustomDescript
     (values fields)
     )
   )

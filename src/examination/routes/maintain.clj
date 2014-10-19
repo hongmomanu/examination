@@ -36,6 +36,8 @@
 (POST "/maintain/makepackageitems" [deleteid itemid packageid]
     (maintain/makepackageitems deleteid itemid packageid))
 
+  (POST "/maintain/getsuggests" [start limit  totalname rowsname deptid keyword]
+    (maintain/getsuggests start limit  totalname rowsname deptid keyword))
   (POST "/maintain/getunits" [start limit  totalname rowsname keyword]
     (maintain/getunits start limit  totalname rowsname keyword))
 
@@ -55,6 +57,9 @@
                                            sortnum  pycode ]
     (maintain/addnewcheckitemdetail itemid  itemdetailname unit  downlimit uplimit	 std_mess
                         down_mess  up_mess sortnum  pycode))
+
+  (POST "/maintain/addnewsuggests" [suggets]
+    (maintain/addnewsuggests suggets))
 
   (POST "/maintain/addunitgroup" [unitid  groupname marry  sex
                                   downage	 upage duty  title ]

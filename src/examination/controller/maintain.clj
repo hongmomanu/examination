@@ -35,6 +35,14 @@
     (resp/json (assoc {} rowsname results totalname nums))
     )
   )
+(defn getsuggests [start limit  totalname rowsname deptid keyword]
+  (let [results (db/getsuggests start limit deptid keyword)
+        nums  (:counts (first (db/getsuggestnums deptid keyword)))
+        ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+  )
+
 (defn getpackages [start limit  totalname rowsname keyword]
   (let [results (db/getpackages start limit keyword )
         nums  (:counts (first (db/getpackagenums keyword)))
@@ -206,6 +214,13 @@
 (defn addnewunitmembers [members]
   (let [items (json/read-str members :key-fn keyword)]
     (dorun (map #(db/addnewunitmember %) items))
+    (resp/json {:success true})
+    )
+
+  )
+(defn addnewsuggests [suggets]
+  (let [items (json/read-str suggets :key-fn keyword)]
+    (dorun (map #(db/addnewsuggest %) items))
     (resp/json {:success true})
     )
 
