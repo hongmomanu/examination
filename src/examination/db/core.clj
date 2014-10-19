@@ -419,6 +419,16 @@
     (where {:id pid})
     )
   )
+(defn delgroupitembyid [unitid groupid itemid]
+  (delete unitWithGroupAndItem
+    (where (and {:unitid unitid} {:groupid groupid} {:itemcode itemid}))
+    )
+  )
+(defn insertgroupitembyid [unitid groupid itemid]
+  (insert unitWithGroupAndItem
+    (values {:unitid unitid :groupid groupid :itemcode itemid})
+    )
+  )
 (defn delunitmember [memberid]
   (delete examinationMember
     (where {:id memberid})

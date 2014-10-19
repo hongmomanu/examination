@@ -108,7 +108,7 @@
                    :children (map #(conj % {:state "closed" :value (:deptname %) :id (str "dept" (:id %)) :nodeid (:id %)
                                             :text (str (:deptname %) "(" (getitemnums (:id %)) ")")})
                                (db/getdepts 0 100 nil)) }])
-      (if (= pid "0")(resp/json (map #(conj % {:state (if (nil? packageid) "closed" "open") :value (:itemname %) :checked (isitemcheck % itemids) :id (str "item" (:id %)) :nodeid (:id %)
+      (if (= pid "0")(resp/json (map #(conj % {:state (if (and (nil? packageid) (nil? groupid)) "closed" "open") :value (:itemname %) :checked (isitemcheck % itemids) :id (str "item" (:id %)) :nodeid (:id %)
                                                :text (str (:itemname %) "(" (getitemdetailnums (:id %)) ")")}) (db/getcheckitem node)))
         (resp/json (map #(conj % {:value (:itemdetailname %) :id (:id %)
                                   :text (:itemdetailname %)}) (db/getcheckitemdetail node)))
@@ -152,19 +152,34 @@
                                                  :title title
                                                   })})
   )
+(defn saveunitgroupitem [unitid groupid itemid deleteid]
+  (let[
+        delids (read-string deleteid)
+        itemids (read-string itemid)
+        ]
+    (dorun (map #(db/delgroupitembyid unitid groupid %) delids))
+    (dorun (map #(db/insertgroupitembyid unitid groupid %) itemids))
+    (resp/json {:success true})
 
+    )
+
+  )
 (defn editunitgroup [unitid  groupname marry  sex
-                    downage	 upage duty  title id]
-  (resp/json {:success true :msg (db/editunitgroup {
-                                                 :unitid unitid
-                                                 :groupname groupname
-                                                 :marry marry
-                                                 :sex sex
-                                                 :downage downage
-                                                 :upage upage
-                                                 :duty duty
-                                                 :title title
-                                                  } id)})
+                    downage	 upage duty  title itemid deleteid id]
+  (db/editunitgroup {
+                      :unitid unitid
+                      :groupname groupname
+                      :marry marry
+                      :sex sex
+                      :downage downage
+                      :upage upage
+                      :duty duty
+                      :title title
+                      } id)
+
+  (saveunitgroupitem unitid id itemid deleteid)
+
+  (resp/json {:success true})
   )
 
 (defn delunitgroup [id]
@@ -229,6 +244,7 @@
     )
 
   )
+
 (defn editpackages [packages]
   (let [items (json/read-str packages :key-fn keyword)]
     (dorun (map #(do (println % (:id %))(db/editpackage % (:id %))) items))

@@ -220,6 +220,21 @@ CREATE TABLE IF NOT EXISTS unitWithGroupAndItem
   itemcode     integer --  细目代码
 );
 
+--科室常见描述维护
+CREATE TABLE IF NOT EXISTS deptCustomDescript
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  deptid     integer,   --  科室代码
+  status     varchar(20) ,    --  使用状态
+  pycode    varchar(20) , --  拼音代码
+  content    varchar(100) , --  建议内容
+  name     varchar(20), --  诊断名称
+  sortnum     int       --  排序号
+);
+
+
+
 --init
 
 insert into functions (pid,funcname,label)values(-1,"绍兴市人民医院体检系统","绍兴市人民医院体检系统");

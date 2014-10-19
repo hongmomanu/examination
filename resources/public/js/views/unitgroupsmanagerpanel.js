@@ -105,7 +105,7 @@ define(function () {
 
             $.messager.confirm('确定要修改分组么?', '你正在试图修改分组?', function(r){
                 if (r){
-                    require(['jqueryplugin/easyui-form','js/commonfuncs/AjaxForm.js']
+                    require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyform,ajaxfrom){
                             var params=$('#unitgroupform').form("serialize");
                             var success=function(){
@@ -117,7 +117,19 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','修改失败!');
                             };
-                            //params.unitid= $('#unitgroupsmanagerpanel').tree('getSelected').id;
+
+                            var itemid_arr=[];
+                            var delete_arr=[];
+                            $.each($('#unitgroupcheckitemtree').tree('getChecked'),function(index,item){
+                                itemid_arr.push(item.nodeid);
+                            });
+                            $.each($('#unitgroupcheckitemtree').tree('getChecked','unchecked'),function(index,item){
+                                delete_arr.push(item.nodeid);
+                            });
+
+                            params.deleteid=$.toJSON(delete_arr);
+                            params.itemid=$.toJSON(itemid_arr);
+
                             ajaxfrom.ajaxsend('post','json','maintain/editunitgroup',params,success,null,errorfunc);
 
                         })

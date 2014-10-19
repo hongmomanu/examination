@@ -61,9 +61,9 @@
     (maintain/addunitgroup unitid  groupname marry  sex
                            downage	 upage duty  title))
 (POST "/maintain/editunitgroup" [unitid  groupname marry  sex
-                                  downage	 upage duty  title id]
+                                  downage	 upage duty  title itemid deleteid id]
     (maintain/editunitgroup unitid  groupname marry  sex
-                           downage	 upage duty  title id))
+                           downage	 upage duty  title itemid deleteid id))
 (POST "/maintain/delunitgroup" [id]
     (maintain/delunitgroup id))
 
@@ -107,6 +107,10 @@
 
   (POST "/maintain/addnewunitpackages" [packages]
     (maintain/addnewunitpackages packages
+      ))
+
+  (POST "/maintain/saveunitgroupitem" [unitid groupid itemid deleteid ]
+    (maintain/saveunitgroupitem unitid groupid itemid deleteid
       ))
 
   (POST "/maintain/editunit" [unitcode unitname manager   contacter  telephone	 email	address
