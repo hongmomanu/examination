@@ -266,6 +266,7 @@ CREATE TABLE IF NOT EXISTS patientMainIndex
 
 );
 
+先在select item 中注册 然后再 进入到 chargeDetail 监控室表   ，进入之后也可撤销，但是登记信息还在select——item中，删除永久删除
 --(体检收费信息)
 CREATE TABLE IF NOT EXISTS chargeDetail
 (
