@@ -47,6 +47,7 @@ define(function () {
             singleSelect: true,
             collapsible: true,
             rownumbers: true,
+            fitColumns:true,
             method:'post',
             url:'auth/getroles',
             remoteSort: false,
