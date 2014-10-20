@@ -166,7 +166,7 @@
     (offset start))
   )
 (defn getegistedpersonnums [ keyword now]
-  (println now)
+
   (select chargeDetail
     (where (and
              {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
