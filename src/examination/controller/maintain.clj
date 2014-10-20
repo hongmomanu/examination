@@ -18,6 +18,8 @@
             [clj-http.client :as client]
             [clojure.data.json :as json]
             [examination.layout :as layout]
+            [clj-time.local :as l]
+            [clj-time.format :as f]
 
             )
   )
@@ -35,6 +37,18 @@
     (resp/json (assoc {} rowsname results totalname nums))
     )
   )
+
+(defn getregistedperson [start limit  totalname rowsname keyword]
+  (let [
+         custom-formatter (f/formatter "yyyy-MM-dd")
+         now (f/unparse custom-formatter (l/local-now))
+         results (db/getegistedperson start limit keyword now)
+         nums  (:counts (first (db/getegistedpersonnums keyword now)))
+        ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+  )
+
 (defn getsuggests [start limit  totalname rowsname deptid keyword]
   (let [results (db/getsuggests start limit deptid keyword)
         nums  (:counts (first (db/getsuggestnums deptid keyword)))

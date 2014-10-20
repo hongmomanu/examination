@@ -47,6 +47,9 @@
   (POST "/maintain/getpackages" [start limit  totalname rowsname keyword]
     (maintain/getpackages start limit  totalname rowsname keyword))
 
+  (POST "/maintain/getregistedperson" [start limit  totalname rowsname keyword]
+    (maintain/getregistedperson start limit  totalname rowsname keyword))
+
   (POST "/maintain/getunitmembers" [id start limit  totalname rowsname keyword]
     (maintain/getunitmembers id start limit  totalname rowsname keyword))
 

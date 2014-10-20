@@ -14,6 +14,7 @@
    [prone "0.6.0"]
 
    [org.clojure/data.json "0.2.5"]
+   [clj-time "0.8.0"]
 
    [org.apache.lucene/lucene-core "4.3.1"]
    [org.apache.lucene/lucene-highlighter "4.2.0"]

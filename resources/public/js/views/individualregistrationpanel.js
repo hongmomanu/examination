@@ -8,7 +8,7 @@ define(function () {
             collapsible: true,
             rownumbers: true,
             method:'post',
-            url:'auth/getregistedperson',
+            url:'maintain/getregistedperson',
             remoteSort: false,
             fitColumns:true,
             fit:true,
@@ -16,7 +16,7 @@ define(function () {
             pagination:true,
             pageSize:10,
             onBeforeLoad: function (params) {
-                var options = $('#enummanagerpanel').datagrid('options');
+                var options = $('#registedperson').datagrid('options');
                 params.start = (options.pageNumber - 1) * options.pageSize;
                 params.limit = options.pageSize;
                 params.totalname = "total";

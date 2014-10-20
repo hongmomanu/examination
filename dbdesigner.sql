@@ -266,6 +266,31 @@ CREATE TABLE IF NOT EXISTS patientMainIndex
 
 );
 
+--(体检收费信息)
+CREATE TABLE IF NOT EXISTS chargeDetail
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键 病人内码
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  times     int ,    --  检查次数
+  itemcode  int,   -- 检查项目
+  itemname    varchar(20) , --  检查项目名称
+  packagename    varchar(20),  --  病人所选套餐
+  bl    DECIMAL(9,2) DEFAULT (1), -- 打折比例
+  price  DECIMAL(9,2) DEFAULT (1), -- 当前价格
+  deptid    varchar(40),  --  体检系统端科室代码
+  em_code    varchar(20),  --  检查人员
+  blh_no    varchar(20),  --  条形码号
+  inspect_mark    varchar(20),  --  是否检查完成  是否检查完成. 1: 完成, 0: 未完成.
+  inspect_date    DATETIME,  --  检查日期
+  valid_date    DATETIME  --  有效日期(起)
+
+);
+
+
+
+
+
+
 
 
 

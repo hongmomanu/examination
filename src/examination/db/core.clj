@@ -84,6 +84,9 @@
 (defentity examinationUnit
   (database sqlitedb)
   )
+(defentity chargeDetail
+  (database sqlitedb)
+  )
 
 (defentity checkitem
 
@@ -152,6 +155,25 @@
     (where {:unitname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
     (limit limits)
     (offset start))
+  )
+(defn getegistedperson [start limits keyword now]
+  (select chargeDetail
+    (where (and
+             {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             {:inspect_date now}
+             ))
+    (limit limits)
+    (offset start))
+  )
+(defn getegistedpersonnums [ keyword now]
+  (println now)
+  (select chargeDetail
+    (where (and
+             {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             {:inspect_date now}
+             ))
+    (aggregate (count :id) :counts)
+    )
   )
 (defn getsuggests [start limits deptid keyword]
   (select deptCustomDescript
