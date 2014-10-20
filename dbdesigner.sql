@@ -245,6 +245,28 @@ CREATE TABLE IF NOT EXISTS controlItemDescript
 );
 
 
+--病人信息主索引
+CREATE TABLE IF NOT EXISTS patientMainIndex
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键 病人内码
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  times     int ,    --  检查次数
+  name    varchar(20) , --  病人姓名
+  sex    varchar(5),  --  性别
+  address    varchar(80),  --  联系地址
+  telephone    varchar(40),  --  手机号码
+  email    varchar(20),  --  email
+  blh_no    varchar(20),  --  条形码号
+  birthday    DATETIME,  --  出生日期
+  marry    varchar(5),  --  婚姻状况
+  unitname    varchar(40),  --  单位名称
+  isunit    varchar(5),  --  是否团体
+  duty    varchar(10),  --  职务
+  title    varchar(10)  -- 职称
+
+);
+
+
 
 
 

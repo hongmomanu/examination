@@ -50,6 +50,10 @@
 
   (database sqlitedb)
   )
+(defentity patientMainIndex
+
+  (database sqlitedb)
+  )
 (defentity unitWithGroupAndItem
 
   (database sqlitedb)
