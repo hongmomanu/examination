@@ -245,6 +245,13 @@ CREATE TABLE IF NOT EXISTS controlItemDescript
 );
 
 
+
+
+
+
+
+
+
 --init
 
 insert into functions (pid,funcname,label)values(-1,"绍兴市人民医院体检系统","绍兴市人民医院体检系统");
