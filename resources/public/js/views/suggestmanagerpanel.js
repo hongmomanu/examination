@@ -220,7 +220,7 @@ define(function () {
             },
             onClickRow:function(index, rowData){
                 var deptid=rowData.id;
-                $('#suggestinfoform').form('load',{deptid:deptid});
+                $('#suggestinfoform').form('load',{deptid:deptid,content:""});
 
                 $('#suggestformbtns .save,#suggestformbtns .del').linkbutton('enable');
                 $('#suggestmanagerlayout').layout('expand','east');
