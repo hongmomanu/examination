@@ -17,6 +17,9 @@
 
   (POST "/maintain/getunitgroup" [node  pid  callback]
     (maintain/getunitgroup node  pid  callback))
+
+  (POST "/maintain/getcontroltree" [node  value  callback]
+    (maintain/getcontroltree node  value  callback))
   (POST "/maintain/addnewitem" [pycode itemname price sortnum deptid]
     (maintain/addnewitem pycode itemname price sortnum deptid))
   (POST "/maintain/edititem" [pycode itemname price sortnum itemid]
@@ -65,7 +68,14 @@
                                   downage	 upage duty  title ]
     (maintain/addunitgroup unitid  groupname marry  sex
                            downage	 upage duty  title))
-(POST "/maintain/editunitgroup" [unitid  groupname marry  sex
+
+  (POST "/maintain/addnewcontrolitem" [type  title content]
+    (maintain/addnewcontrolitem type  title content))
+
+  (POST "/maintain/editcontrolitem" [type  title content id]
+    (maintain/editcontrolitem type  title content id))
+
+  (POST "/maintain/editunitgroup" [unitid  groupname marry  sex
                                   downage	 upage duty  title itemid deleteid id]
     (maintain/editunitgroup unitid  groupname marry  sex
                            downage	 upage duty  title itemid deleteid id))

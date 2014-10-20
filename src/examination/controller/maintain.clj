@@ -106,6 +106,19 @@
 
     )
   )
+(defn getcontroltree [node value callback]
+  (let [
+         types (db/getenumeratebytype "总控室类别")
+
+         ]
+
+    (if(= node "-1")(resp/json (map #(conj % {:text (str (:enumeratelabel %) "(" (count (db/getitemsbycontroltype (:enumeratevalue %))) ")") :value (:enumeratevalue %) :state "closed"}) types))
+      (resp/json (map #(conj {:text (:title %)} %) (db/getitemsbycontroltype value)))
+
+      )
+    )
+
+  )
 (defn gettreeitem [node roleid pid packageid unitid groupid callback]
   (let [
          itemids (into [](map #(:itemcode %) (if (nil? groupid) (db/getitemidbypackage packageid)
@@ -147,6 +160,13 @@
                                                  :deptid deptid
                                                   })})
   )
+(defn addnewcontrolitem  [type  title content]
+  (resp/json {:success true :msg (db/addnewcontrolitem {
+                                                 :type type
+                                                 :title title
+                                                 :content content
+                                                  })})
+  )
 (defn addunitgroup [unitid  groupname marry  sex
                     downage	 upage duty  title]
   (resp/json {:success true :msg (db/addnewunitgroup {
@@ -170,6 +190,14 @@
     (resp/json {:success true})
 
     )
+
+  )
+(defn editcontrolitem [type  title content id]
+  (resp/json {:success true :msg (db/editcontrolitem {
+                                                       :type type
+                                                       :title title
+                                                       :content content
+                                                       } id)})
 
   )
 (defn editunitgroup [unitid  groupname marry  sex

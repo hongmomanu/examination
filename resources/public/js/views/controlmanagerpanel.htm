@@ -1,0 +1,76 @@
+<div id="controlmanagerlayout" class="easyui-layout" style="width:100%;height:100%;" data-options="fit:true">
+
+
+    <div data-options="region:'center',title:''">
+        <ul id="controlmanagerpanel" >
+
+
+        </ul>
+    </div>
+
+    <div id="controlmanagertable" data-options="region:'east',split:true,collapsed:true" title="详细信息" style="width:60%;height: 100%;">
+        <div data-options="region:'center'">
+
+            <form id="controlitemform" method="post">
+                <table class="formtable">
+                    <tr>
+                        <td>标题:</td>
+                        <td><input class="easyui-validatebox" type="text" style="width: 100%" name="title" data-options="required:true"></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>类别:</td>
+                        <td>
+                            <input class="easyui-combobox lazy-combobox" type="text"
+                                   name="type" searchtype="总控室类别"
+                                   data-options="required:true,valueField: 'enumeratevalue',
+                                                 textField: 'enumeratelabel',width: '100%'">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>内容:</td>
+                        <td><input  class="easyui-textbox" type="text" name="content" data-options="multiline:true"
+                                    style="height:80px;width: 100%"></td>
+
+                    </tr>
+
+
+                    <tr style="display: none;"><td>
+                        <input type="text" name="id" >
+                    </td></tr>
+
+
+                </table>
+
+
+                <div style="text-align:center;padding:5px" id="controlitemmanagebtns">
+                    <a  class="easyui-linkbutton save" data-options="disabled:false" >保存</a>
+                    <a  class="easyui-linkbutton del" data-options="disabled:false" >删除</a>
+
+                </div>
+            </form>
+
+
+        </div>
+
+
+
+
+    </div>
+    <div id="controlmenu" class="easyui-menu" style="width:120px;">
+        <div  data-options="iconCls:'icon-add'" class="add">新增</div>
+
+    </div>
+    <!--<div id="controlpaneltb" style="padding:5px;height:auto;vertical-align: middle;">-->
+        <!--<a>快速搜索: <input class="keyword" type="keyword" style="width:120px"></a>-->
+
+        <!--&lt;!&ndash;<a class="easyui-linkbutton newcontrol" data-options="iconCls:'icon-new'">新增单位</a>&ndash;&gt;-->
+
+    <!--</div>-->
+
+
+
+
+</div>

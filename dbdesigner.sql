@@ -233,6 +233,16 @@ CREATE TABLE IF NOT EXISTS deptCustomDescript
   sortnum     int       --  排序号
 );
 
+--总控室维护
+CREATE TABLE IF NOT EXISTS controlItemDescript
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  title     varchar(20) ,    --  标题
+  type    varchar(20) , --  类别
+  content    varchar(100)  --  建议内容
+
+);
 
 
 --init

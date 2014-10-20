@@ -67,6 +67,11 @@
   (database sqlitedb)
   )
 
+(defentity controlItemDescript
+
+  (database sqlitedb)
+  )
+
 (defentity examinationMember
 
   (database sqlitedb)
@@ -156,6 +161,11 @@
 (defn getitemidbypackage [pid]
   (select packageWithItem
     (where {:packageid pid})
+    )
+  )
+(defn getitemsbycontroltype [type]
+  (select controlItemDescript
+    (where {:type type})
     )
   )
 (defn getitemidbyunitgroup [unitid groupid]
@@ -323,6 +333,13 @@
   )
 (defn editcheckitemdetail [fields id]
   (update checkItemDetail
+    (set-fields fields)
+    (where {:id id})
+    )
+  )
+
+(defn editcontrolitem [fields id]
+  (update controlItemDescript
     (set-fields fields)
     (where {:id id})
     )
@@ -574,6 +591,11 @@
   )
 (defn addnewitem [fields]
   (insert checkitem
+    (values fields)
+    )
+  )
+(defn addnewcontrolitem [fields]
+  (insert controlItemDescript
     (values fields)
     )
   )
