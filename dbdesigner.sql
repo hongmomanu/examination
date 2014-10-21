@@ -369,6 +369,7 @@ insert into functorole(funcid,roleid)values(6,1);
 update users set roleid =1;
 
 insert into patientMainIndex (name,sex,blh_no)values("jack","男","222222");
+insert into registRelation (pation_no)values(2)
 insert into afterRegist (pation_no,itemcode,itemname)values(1,1,"ceshi1");
 insert into afterRegist (pation_no,itemcode,itemname)values(1,2,"ceshi2");
 

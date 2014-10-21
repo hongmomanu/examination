@@ -53,6 +53,8 @@
   )
 
 (defentity afterRegist
+  (pk :relationid)
+  (belongs-to registRelation {:fk :id} )
   (database sqlitedb)
   )
 (defentity beforeRegist
@@ -62,6 +64,7 @@
 (defentity registRelation
   (pk :pation_no)
   (has-one patientMainIndex {:fk :id})
+  (has-many afterRegist {:fk :relationid})
   (database sqlitedb)
   )
 
@@ -175,6 +178,9 @@
 
   (select registRelation
     (fields [:id :relationid])
+    (with afterRegist
+       (aggregate (count :id) :counts)
+      )
     (with patientMainIndex
       (fields :id :blh_no :name :sex)
       (where (and
