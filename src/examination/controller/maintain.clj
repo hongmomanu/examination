@@ -42,8 +42,8 @@
   (let [
          custom-formatter (f/formatter "yyyy-MM-dd")
          now (f/unparse custom-formatter (l/local-now))
-         results (db/getegistedperson start limit keyword now)
-         nums  (:counts (first (db/getegistedpersonnums keyword now)))
+         results (db/getregistedperson start limit keyword now)
+         nums  (:counts (first (db/getregistedpersonnums keyword now)))
         ]
     (resp/json (assoc {} rowsname results totalname nums))
     )

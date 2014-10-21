@@ -14,7 +14,8 @@
 
 (defdb dboracle schema/db-oracle)
 
-(declare users roles functorole functions enumerate divisions systemlog)
+(declare users roles functorole functions enumerate divisions
+         systemlog registRelation patientMainIndex)
 
 (defentity t_doorplate
   (database dboracle)
@@ -50,8 +51,24 @@
 
   (database sqlitedb)
   )
-(defentity patientMainIndex
 
+(defentity afterRegist
+  (database sqlitedb)
+  )
+(defentity beforeRegist
+  (database sqlitedb)
+  )
+
+(defentity registRelation
+  (pk :pation_no)
+  (has-one patientMainIndex {:fk :id})
+  (database sqlitedb)
+  )
+
+(defentity patientMainIndex
+  ;;(pk :id)
+  ;;(has-many afterRegist {:fk :pation_no})
+  ;;(has-many beforeRegist {:fk :pation_no})
   (database sqlitedb)
   )
 (defentity unitWithGroupAndItem
@@ -87,9 +104,7 @@
 (defentity chargeDetail
   (database sqlitedb)
   )
-
 (defentity checkitem
-
   (database sqlitedb)
   )
 (defentity enumerate
@@ -156,23 +171,35 @@
     (limit limits)
     (offset start))
   )
-(defn getegistedperson [start limits keyword now]
-  (select chargeDetail
-    (where (and
-             {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
-             {:inspect_date now}
-             ))
-    (limit limits)
-    (offset start))
-  )
-(defn getegistedpersonnums [ keyword now]
+(defn getregistedperson [start limits keyword now]
 
-  (select chargeDetail
-    (where (and
-             {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
-             {:inspect_date now}
-             ))
+  (select registRelation
+    (fields [:id :relationid])
+    (with patientMainIndex
+      (fields :id :blh_no :name :sex)
+      (where (and
+               {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+               ))
+      )
+    (where {:check_date now} )
+    (limit limits)
+    (offset start)
+    )
+
+
+
+  )
+(defn getregistedpersonnums [ keyword now]
+
+  (select registRelation
+    (with patientMainIndex
+      (where (and
+               {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+               ))
+      )
+    (where {:check_date now} )
     (aggregate (count :id) :counts)
+
     )
   )
 (defn getsuggests [start limits deptid keyword]

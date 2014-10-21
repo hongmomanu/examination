@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS roles
 
 --功能表
 CREATE TABLE IF NOT EXISTS functions
-(
+(                                https://www.archlinux.org/
 
   id       INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
   pid       int ,                             --  父节点
@@ -266,12 +266,12 @@ CREATE TABLE IF NOT EXISTS patientMainIndex
 
 );
 
-先在select item 中注册 然后再 进入到 chargeDetail 监控室表   ，进入之后也可撤销，但是登记信息还在select——item中，删除永久删除
+---先在select item 中注册 然后再 进入到 chargeDetail 监控室表   ，进入之后也可撤销，但是登记信息还在select——item中，删除永久删除
 --(体检收费信息)
 CREATE TABLE IF NOT EXISTS chargeDetail
 (
   id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键 病人内码
-  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间chargeDetail
   times     int ,    --  检查次数
   itemcode  int,   -- 检查项目
   itemname    varchar(20) , --  检查项目名称
@@ -286,6 +286,56 @@ CREATE TABLE IF NOT EXISTS chargeDetail
   valid_date    DATETIME  --  有效日期(起)
 
 );
+
+
+
+
+
+--(注册之后)
+CREATE TABLE IF NOT EXISTS afterRegist
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  --pation_no  integer ,        ---病人内码
+  relationid  integer ,        ---relationid
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  times     int ,    --  检查次数
+  itemcode  int,   -- 检查项目
+  itemname    varchar(20) , --  检查项目名称
+  packagecode    varchar(20),  --  套餐项目
+  finish   varchar(1)  default('0'),
+  remark    varchar(80)  --备注
+  --select_date    DEFAULT (date('now', 'localtime'))  --   选择日期
+
+);
+
+-- (relation table)
+CREATE TABLE IF NOT EXISTS registRelation
+(
+  id              INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  pation_no       integer ,        ---病人内码
+  DATETIME        DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  check_date     DEFAULT (date('now', 'localtime'))  --   选择日期
+
+);
+
+
+
+--(注册之前)
+CREATE TABLE IF NOT EXISTS beforeRegist
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键 病人内码
+  DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  pation_no  integer ,        ---病人内码
+  deptcode     int ,    --  科室代码
+  itemcode  int,   -- 检查项目
+  itemname    varchar(20) , --  检查项目名称
+  packagecode    varchar(20),  --  套餐项目
+  packagename    varchar(20)  --  套餐名称
+
+);
+
+
+
 
 
 
@@ -317,6 +367,10 @@ insert into functorole(funcid,roleid)values(4,1);
 insert into functorole(funcid,roleid)values(5,1);
 insert into functorole(funcid,roleid)values(6,1);
 update users set roleid =1;
+
+insert into patientMainIndex (name,sex,blh_no)values("jack","男","222222");
+insert into afterRegist (pation_no,itemcode,itemname)values(1,1,"ceshi1");
+insert into afterRegist (pation_no,itemcode,itemname)values(1,2,"ceshi2");
 
 
 --ALTER TABLE 'users' ADD 'usercode' nvarchar(100) ;
