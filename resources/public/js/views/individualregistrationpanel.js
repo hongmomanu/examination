@@ -10,7 +10,7 @@ define(function () {
             method:'post',
             url:'maintain/getregistedperson',
             remoteSort: false,
-            fitColumns:true,
+            //fitColumns:true,
             fit:true,
             //toolbar:'#enumpaneltb',
             pagination:true,

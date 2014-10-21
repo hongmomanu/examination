@@ -104,13 +104,22 @@
     <div data-options="region:'center',title:'已注册病人',iconCls:'icon-ok'" style="padding:10px;width: 30%;">
 
         <table id="registedperson" class="formtable">
-            <thead>
+            <thead data-options="frozen:true">
             <tr>
                 <th data-options="field:'name',width:100">姓名</th>
+
+            </tr>
+            </thead>
+            <thead>
+            <tr>
                 <th data-options="field:'blh_no',width:100">条形码号</th>
                 <th data-options="field:'sex',width:100">性别</th>
                 <th data-options="field:'marry',width:100">婚姻状况</th>
                 <th data-options="field:'telephone',width:100">手机号码</th>
+                <th data-options="field:'birthday',width:100">出生日期</th>
+                <th data-options="field:'telephone',width:100">手机号码</th>
+                <th data-options="field:'email',width:100">email</th>
+                <th data-options="field:'address',width:100">联系地址</th>
                 <th data-options="field:'id',width:100,hidden:true">id</th>
                 <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
 
