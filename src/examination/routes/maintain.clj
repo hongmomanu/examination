@@ -75,6 +75,9 @@
   (POST "/maintain/addnewcontrolitem" [type  title content]
     (maintain/addnewcontrolitem type  title content))
 
+  (POST "/maintain/getpation" [keyword]
+    (maintain/getpation keyword))
+
   (POST "/maintain/editcontrolitem" [type  title content id]
     (maintain/editcontrolitem type  title content id))
 

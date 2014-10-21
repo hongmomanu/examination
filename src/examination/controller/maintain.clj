@@ -82,6 +82,10 @@
   (resp/json (assoc {} rowsname [{:itemname 1111 :ck true :id 1}] totalname 1))
   )
 
+(defn getpation [keyword]
+  (resp/json (db/getpation keyword))
+  )
+
 (defn delitem [itemid]
   (resp/json {:success true :msg (db/delcheckitem itemid)})
   )

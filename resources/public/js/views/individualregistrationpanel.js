@@ -32,28 +32,22 @@ define(function () {
         var myloader = function(param,success,error){
             var q = param.q || '';
             if (q.length < 1){return false}
-            $.ajax({
-                url: 'http://ws.geonames.org/searchJSON',
-                dataType: 'jsonp',
-                data: {
-                    featureClass: "P",
-                    style: "full",
-                    maxRows: 20,
-                    name_startsWith: q
-                },
-                success: function(data){
-                    var items = $.map(data.geonames, function(item){
-                        return {
-                            blh_no: item.geonameId
 
-                        };
-                    });
-                    success(items);
-                },
-                error: function(){
-                    error.apply(this, arguments);
-                }
-            });
+            require(['js/commonfuncs/AjaxForm.js']
+                ,function(ajaxfrom){
+                    var params={keyword:q};
+                    var succ=function(data){
+                        console.log(data);
+                        success(data);
+                    };
+                    var errorfunc=function(){
+                        error.apply(this, arguments);
+                    };
+
+                    ajaxfrom.ajaxsend('post','json','maintain/getpation',params,succ,null,errorfunc,true);
+
+                });
+
         }
 
 

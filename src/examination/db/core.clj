@@ -156,6 +156,13 @@
     )
   )
 
+(defn getpation [keyword]
+  (select patientMainIndex
+    (where {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    )
+
+  )
+
 (defn getafterRegistnums [id]
   (select afterRegist
     (where {:relationid id} )
