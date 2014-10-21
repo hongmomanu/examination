@@ -43,9 +43,10 @@
          custom-formatter (f/formatter "yyyy-MM-dd")
          now (f/unparse custom-formatter (l/local-now))
          results (db/getregistedperson start limit keyword now)
+         res (map #(conj {:itemnums (:counts (first (db/getafterRegistnums (:relationid %))))} %) results)
          nums  (:counts (first (db/getregistedpersonnums keyword now)))
         ]
-    (resp/json (assoc {} rowsname results totalname nums))
+    (resp/json (assoc {} rowsname res totalname nums))
     )
   )
 

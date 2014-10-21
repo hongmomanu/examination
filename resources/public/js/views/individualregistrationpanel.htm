@@ -5,7 +5,7 @@
             <table class="formtable">
                 <tr>
                     <td>条形码:</td>
-                    <td colspan="3" style="width: 80%"><input class="easyui-combobox"  name="blh_no" data-options="required:true"
+                    <td colspan="3" style="width: 80%"><input id="pationblhno"  name="blh_no"
                                style="width: 100%"></td>
                 </tr>
                 <tr>
@@ -80,7 +80,14 @@
 
             </table>
 
+
         </form>
+
+        <div id="pationformtb"  style="text-align:center;padding:5px">
+            <a href="javascript:void(0)" class="easyui-linkbutton add" data-options="iconCls:'icon-add',plain:true" >增加</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton del" data-options="iconCls:'icon-remove',plain:true">删除</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton save" data-options="iconCls:'icon-save',plain:true" >保存</a>
+        </div>
 
     </div>
     <div data-options="region:'east',split:true,title:'检查项目',collapsible:false" style="width:30%;">
@@ -114,6 +121,7 @@
             <tr>
                 <th data-options="field:'blh_no',width:100">条形码号</th>
                 <th data-options="field:'sex',width:100">性别</th>
+                <th data-options="field:'itemnums',width:100">登记相</th>
                 <th data-options="field:'marry',width:100">婚姻状况</th>
                 <th data-options="field:'telephone',width:100">手机号码</th>
                 <th data-options="field:'birthday',width:100">出生日期</th>
