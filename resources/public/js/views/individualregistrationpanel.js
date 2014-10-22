@@ -163,13 +163,11 @@ define(function () {
         });
 
         $('#checkitemmenu .selectpackage').click(function(e){
-
             alert(1);
         });
 
         $('#checkitemmenu .selectitem').click(function(e){
             alert(2);
-
         });
 
     }
