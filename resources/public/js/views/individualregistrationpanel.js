@@ -28,7 +28,9 @@ define(function () {
 
         });
 
-
+        var blhselect=function(record){
+            $('#registration').form('load',record);
+        };
         var myloader = function(param,success,error){
             var q = param.q || '';
             if (q.length < 1){return false}
@@ -55,6 +57,7 @@ define(function () {
             required:true,
             hasDownArrow:false,
             loader: myloader,
+            onSelect:blhselect,
             mode: 'remote',
             valueField: 'blh_no',
             textField: 'blh_no'
