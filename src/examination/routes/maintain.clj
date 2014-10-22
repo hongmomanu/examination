@@ -18,6 +18,10 @@
   (POST "/maintain/getunitgroup" [node  pid  callback]
     (maintain/getunitgroup node  pid  callback))
 
+  (POST "/maintain/getcheckitemsbypid" [id]
+    (maintain/getcheckitemsbypid id)
+    )
+
   (POST "/maintain/getcontroltree" [node  value  callback]
     (maintain/getcontroltree node  value  callback))
   (POST "/maintain/addnewitem" [pycode itemname price sortnum deptid]

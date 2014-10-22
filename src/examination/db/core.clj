@@ -15,7 +15,7 @@
 (defdb dboracle schema/db-oracle)
 
 (declare users roles functorole functions enumerate divisions
-         systemlog registRelation patientMainIndex)
+         systemlog registRelation patientMainIndex checkitem)
 
 (defentity t_doorplate
   (database dboracle)
@@ -86,7 +86,7 @@
   (database sqlitedb)
   )
 (defentity packageWithItem
-
+  (belongs-to checkitem {:fk :itemcode})
   (database sqlitedb)
   )
 
@@ -107,6 +107,8 @@
   (database sqlitedb)
   )
 (defentity checkitem
+  ;(pk :id)
+  (belongs-to checkdept {:fk :deptid})
   (database sqlitedb)
   )
 (defentity enumerate
@@ -274,6 +276,12 @@
   )
 (defn getitemidbypackage [pid]
   (select packageWithItem
+    (with checkitem
+      (with checkdept
+        (fields :deptname)
+        )
+      )
+
     (where {:packageid pid})
     )
   )

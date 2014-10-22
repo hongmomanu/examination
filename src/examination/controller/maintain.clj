@@ -48,6 +48,9 @@
 
   )
 
+(defn getcheckitemsbypid [id]
+  (resp/json (db/getitemidbypackage id))
+  )
 (defn addrelationitems [relationid items]
    (let [
           checkitems (json/read-str items :key-fn keyword)

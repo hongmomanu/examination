@@ -68,8 +68,6 @@ define(function () {
                 params.limit = options.pageSize;
                 params.totalname = "total";
                 params.rowsname = "rows";
-                console.log(selected);
-                console.log(params);
             },
             onClickRow:function(index, rowData){
 
@@ -163,7 +161,16 @@ define(function () {
         });
 
         $('#checkitemmenu .selectpackage').click(function(e){
-            alert(1);
+            if($('#packagechoosewin').length>0){
+                $('#packagechoosewin').dialog('open');
+            }else{
+                require(['text!views/packagechoose.htm','views/packagechoose'],
+                    function(div,packagechoosewin){
+                        $('body').append(div);
+                        $.parser.parse('#packagechoosewin');
+                        packagechoosewin.render();
+                    });
+            }
         });
 
         $('#checkitemmenu .selectitem').click(function(e){

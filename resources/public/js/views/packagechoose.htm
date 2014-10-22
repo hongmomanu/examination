@@ -1,0 +1,74 @@
+<div id="packagechoosewin">
+    <div id="packagechooselayout" class="easyui-layout" style="width:100%;height:100%;" data-options="fit:true">
+
+
+        <div data-options="region:'center',title:''" style="width: 50%;">
+
+            <div  class="easyui-layout" style="width:100%;height:100%;" data-options="fit:true">
+                <div data-options="region:'north',title:''" style="height: 50%;">
+                    <table id="packagechoosepanelitems">
+                        <thead>
+                        <tr>
+                            <th data-options="field:'ck',checkbox:true"></th>
+                            <th data-options="field:'itemname',width:100,editor:'text'">项目名称</th>
+                            <th data-options="field:'price',width:100,editor:'text'">价格</th>
+                            <th data-options="field:'id',width:100,hidden:true">id</th>
+                            <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+                        </tr>
+                        </thead>
+
+                    </table>
+
+                </div>
+
+
+                <div data-options="region:'south',split:true,title:'已选项目'" style="height: 50%;">
+                    <table id="packagechoosepanelselecteditems">
+                        <thead>
+                        <tr>
+                            <th data-options="field:'ck',checkbox:true"></th>
+                            <th data-options="field:'packagename',width:100,editor:'text'">套餐名称</th>
+                            <th data-options="field:'itemname',width:100,editor:'text'">项目名称</th>
+                            <th data-options="field:'deptname',width:100,editor:'text'">科室</th>
+                            <th data-options="field:'price',width:100,editor:'text'">价格</th>
+                            <th data-options="field:'id',width:100,hidden:true">id</th>
+                        </tr>
+                        </thead>
+                    </table>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+        <div id="packagechoosetable" data-options="region:'west',split:true,collapsed:false" title="" style="width:50%;height: 100%;">
+
+            <table id="packagechoosepanel">
+                <thead>
+                <tr>
+                    <th data-options="field:'packagename',width:100,editor:'text'">套餐名称</th>
+                    <th data-options="field:'id',width:100,hidden:true">id</th>
+                    <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+
+                </tr>
+                </thead>
+
+
+            </table>
+
+
+        </div>
+        <!--<div id="unitpaneltb" style="padding:5px;height:auto;vertical-align: middle;">
+            <a>快速搜索: <input class="keyword" type="keyword" style="width:120px"></a>
+
+            <a class="easyui-linkbutton newunit" data-options="iconCls:'icon-new'">新增单位</a>
+
+        </div>-->
+
+
+    </div>
+</div>
