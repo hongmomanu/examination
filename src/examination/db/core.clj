@@ -162,6 +162,17 @@
     )
 
   )
+(defn getpationbyblh [blh]
+  (select patientMainIndex
+    (where {:blh_no  blh})
+    )
+  )
+
+(defn addnewpation [fields]
+  (insert patientMainIndex
+    (values fields)
+    )
+ )
 
 (defn getafterRegistnums [id]
   (select afterRegist
@@ -187,6 +198,19 @@
     (limit limits)
     (offset start))
   )
+
+(defn getregistedcheckitems [start limits keyword relationid]
+  (select afterRegist
+    (where (and {:relationid relationid}
+             {:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             ))
+    (limit limits)
+    (offset start)
+    )
+
+  )
+
+
 (defn getregistedperson [start limits keyword now]
 
 
@@ -207,6 +231,25 @@
 
 
   )
+(defn addRegistRelation [pationid check_date]
+  (insert registRelation
+    (values {:pation_no pationid :check_date check_date})
+    )
+  )
+(defn getrelationbypationid [pationid]
+  (select registRelation
+    (where {:pation_no pationid})
+    )
+  )
+(defn getregistedcheckitemnums [keyword relationid]
+  (select afterRegist
+    (where (and {:relationid relationid}
+             {:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             ))
+    (aggregate (count :id) :counts)
+    )
+  )
+
 (defn getregistedpersonnums [ keyword now]
 
   (select registRelation

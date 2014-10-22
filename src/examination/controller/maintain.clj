@@ -38,6 +38,16 @@
     )
   )
 
+(defn getregistedcheckitems [start limit  totalname rowsname keyword relationid]
+  (let [
+         results (db/getregistedcheckitems start limit keyword relationid)
+         nums    (:counts (first (db/getregistedcheckitemnums keyword relationid)))
+         ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+
+  )
+
 (defn getregistedperson [start limit  totalname rowsname keyword]
   (let [
          custom-formatter (f/formatter "yyyy-MM-dd")
@@ -48,6 +58,32 @@
         ]
     (resp/json (assoc {} rowsname res totalname nums))
     )
+  )
+
+(defn addpation [blh_no name sex marry address telephone
+                 email birthday unitname duty title checkday]
+
+  (let [
+         pation (first (db/getpationbyblh blh_no))
+         isexists (> (count pation) 0)
+         newid (when-not isexists (db/addnewpation {:blh_no blh_no :name name
+                                              :sex sex :marry marry
+                                              :address address :telephone telephone
+                                              :email email :birthday birthday
+                                              :unitname unitname :duty duty :title title
+                                              }))
+         pationid (if (nil? newid) (:id pation) (first (vals newid)))
+         registered (db/getrelationbypationid pationid)
+         ]
+
+    (when (= (count registered) 0) (db/addRegistRelation pationid checkday))
+
+    (resp/json {:success true :msg "新增病人信息成功" })
+
+
+    )
+
+
   )
 
 (defn getsuggests [start limit  totalname rowsname deptid keyword]

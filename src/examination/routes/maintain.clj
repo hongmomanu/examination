@@ -50,6 +50,9 @@
   (POST "/maintain/getregistedperson" [start limit  totalname rowsname keyword]
     (maintain/getregistedperson start limit  totalname rowsname keyword))
 
+  (POST "/maintain/getregistedcheckitems" [start limit  totalname rowsname keyword relationid]
+    (maintain/getregistedcheckitems start limit  totalname rowsname keyword relationid))
+
   (POST "/maintain/getunitmembers" [id start limit  totalname rowsname keyword]
     (maintain/getunitmembers id start limit  totalname rowsname keyword))
 
@@ -77,6 +80,10 @@
 
   (POST "/maintain/getpation" [keyword]
     (maintain/getpation keyword))
+(POST "/maintain/addpation" [blh_no name sex marry address telephone
+                             email birthday unitname duty title checkday]
+    (maintain/addpation blh_no name sex marry address telephone
+      email birthday unitname duty title checkday))
 
   (POST "/maintain/editcontrolitem" [type  title content id]
     (maintain/editcontrolitem type  title content id))
