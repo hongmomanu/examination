@@ -46,6 +46,21 @@ define(function () {
                 params.totalname = "total";
                 params.rowsname = "rows";
             },
+            onLoadSuccess:function(data){
+              console.log(data);
+                var selected=$('#packagechoosepanelselecteditems').datagrid('getRows');
+                var rows=$('#packagechoosepanel').datagrid('getRows');
+                console.log(rows);
+                $.each(selected,function(index,item)
+                    {
+                        var isexist=isitemexist(rows,item);
+                        console.log(isexist);
+                        if(isexist.flag)$('#packagechoosepanel').datagrid('selectRow',isexist.index);
+                    }
+                )
+
+
+            },
             onClickRow:function(index, rowData){
                 require(['js/commonfuncs/AjaxForm.js']
                     ,function(ajaxfrom){
@@ -81,15 +96,11 @@ define(function () {
 
         });
 
-        var isitemexist=function(data){
-            console.log(data);
-             var rows=$('#packagechoosepanelselecteditems').datagrid('getRows');
-            console.log(rows);
+        var isitemexist=function(rows,data){
             var flag=false;
             var index=null;
             for(var i=0;i<rows.length;i++){
                 if(data.itemcode==rows[i].itemcode){
-                    console.log("wwwww");
                     flag=true;
                     index=$('#packagechoosepanelselecteditems').datagrid('getRowIndex',rows[i]);
                     break;
@@ -100,11 +111,12 @@ define(function () {
         };
         var addselectitem=function(data){
             data.packagename= $('#packagechoosepanel').datagrid('getSelected').packagename;
-            if(!isitemexist(data).flag)$('#packagechoosepanelselecteditems').datagrid('appendRow',data);
+            if(!isitemexist($('#packagechoosepanelselecteditems').datagrid('getRows'),data).flag)$('#packagechoosepanelselecteditems').datagrid('appendRow',data);
         };
         var delselectitem=function(data){
-            var flag=isitemexist(data).flag;
-            var index=isitemexist(data).index;
+            var isexist=isitemexist($('#packagechoosepanelselecteditems').datagrid('getRows'),data);
+            var flag=isexist.flag;
+            var index=isexist.index;
             if(flag)$('#packagechoosepanelselecteditems').datagrid('deleteRow',index);
         };
         $('#packagechoosepanelitems').datagrid({
