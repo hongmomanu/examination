@@ -23,6 +23,14 @@ define(function () {
             remoteSort: false,
             //fitColumns:true,
             fit:true,
+            onRowContextMenu:function(e, rowIndex, rowData){
+                e.preventDefault();
+                $(this).datagrid('selectRow',rowIndex);
+                $('#checkitemmenu').menu('show',{
+                    left: e.pageX,
+                    top: e.pageY
+                })
+            },
             //toolbar:'#enumpaneltb',
             pagination:true,
             pageSize:10,
@@ -151,6 +159,16 @@ define(function () {
                 }
             );
 
+
+        });
+
+        $('#checkitemmenu .selectpackage').click(function(e){
+
+            alert(1);
+        });
+
+        $('#checkitemmenu .selectitem').click(function(e){
+            alert(2);
 
         });
 

@@ -98,8 +98,8 @@
             <tr>
                 <th data-options="field:'packagename',width:100">套餐名称</th>
                 <th data-options="field:'itemname',width:100">项目名称</th>
-                <th data-options="field:'price',width:100">价格</th>
-                <th data-options="field:'deptname',width:100">科室</th>
+                <th data-options="field:'price',width:60">价格</th>
+                <th data-options="field:'deptname',width:80">科室</th>
 
                 <th data-options="field:'id',width:100,hidden:true">id</th>
                 <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
@@ -142,5 +142,9 @@
     </div>
 
 
+    <div id="checkitemmenu" class="easyui-menu" style="width:120px;">
+        <div  data-options="iconCls:'icon-add'" class="selectpackage">选择套餐</div>
+        <div  data-options="iconCls:'icon-add'" class="selectitem">选择项目</div>
+    </div>
 
 </div>

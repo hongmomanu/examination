@@ -48,6 +48,13 @@
 
   )
 
+(defn addrelationitems [relationid items]
+   (let [
+          checkitems (json/read-str items :key-fn keyword)
+          ]
+     (resp/json {:success true})
+     )
+  )
 (defn getregistedperson [start limit  totalname rowsname keyword]
   (let [
          custom-formatter (f/formatter "yyyy-MM-dd")
