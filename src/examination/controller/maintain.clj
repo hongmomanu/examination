@@ -40,6 +40,7 @@
 (defn getregistedcheckitems [start limit  totalname rowsname keyword relationid]
   (let [
          results (db/getregistedcheckitems start limit keyword relationid)
+
          nums    (:counts (first (db/getregistedcheckitemnums keyword relationid)))
          ]
     (resp/json (assoc {} rowsname results totalname nums))
@@ -67,7 +68,8 @@
          custom-formatter (f/formatter "yyyy-MM-dd")
          now (f/unparse custom-formatter (l/local-now))
          results (db/getregistedperson start limit keyword now)
-         res (map #(conj {:itemnums (:counts (first (db/getafterRegistnums (:relationid %))))} %) results)
+         res (map #(conj {:itemnums (:counts (first (db/getafterRegistnums (:relationid %))))
+                          :isinto (count (db/getchargeDetailbyblhno now (:blh_no %)))} %) results)
          nums  (:counts (first (db/getregistedpersonnums keyword now)))
         ]
     (resp/json (assoc {} rowsname res totalname nums))

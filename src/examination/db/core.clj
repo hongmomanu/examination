@@ -161,7 +161,15 @@
     (where {:id id})
     )
   )
+(defn getchargeDetailbyblhno [blhno date]
+  (select chargeDetail
+    (where (and
+             {:blh_no blhno}
+             {:inspect_date date}
+             ))
+    )
 
+  )
 (defn getpation [keyword]
   (select patientMainIndex
     (where {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]})
