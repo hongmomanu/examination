@@ -36,6 +36,7 @@ define(function () {
                                 var success=function(data){
                                     $('#packagechoosewin').dialog('close');
                                     $('#checkeditems').datagrid('reload');
+                                    $('#registedperson').datagrid('reload');
                                 };
                                 var errorfunc=function(){
 
