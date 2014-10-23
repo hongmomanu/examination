@@ -57,9 +57,11 @@
   (POST "/maintain/getregistedcheckitems" [start limit  totalname rowsname keyword relationid]
     (maintain/getregistedcheckitems start limit  totalname rowsname keyword relationid))
 
-  (POST "/maintain/addrelationitems" [relationid items]
+  (POST "/maintain/addcheckitemsbyrid" [relationid items]
     (maintain/addrelationitems relationid items)
     )
+
+
 
   (POST "/maintain/getunitmembers" [id start limit  totalname rowsname keyword]
     (maintain/getunitmembers id start limit  totalname rowsname keyword))

@@ -15,7 +15,9 @@
 (defdb dboracle schema/db-oracle)
 
 (declare users roles functorole functions enumerate divisions
-         systemlog registRelation patientMainIndex checkitem)
+         systemlog registRelation patientMainIndex checkitem
+        examinationPackage
+  )
 
 (defentity t_doorplate
   (database dboracle)
@@ -54,6 +56,8 @@
 
 (defentity afterRegist
   (pk :relationid)
+  (belongs-to checkitem {:fk :itemcode})
+  (belongs-to examinationPackage {:fk :packagecode})
 
   (database sqlitedb)
   )
@@ -201,10 +205,32 @@
     (offset start))
   )
 
+(defn addregistedcheckitem [fields]
+  (insert afterRegist
+    (values fields)
+    )
+
+  )
+(defn delregistedcheckitem  [relationid]
+
+  (delete afterRegist
+    (where {:relationid relationid})
+    )
+  )
+
 (defn getregistedcheckitems [start limits keyword relationid]
   (select afterRegist
+    (with checkitem
+      (fields :itemname :price)
+      (with checkdept
+        (fields :deptname)
+        )
+      )
+    (with examinationPackage
+      (fields :packagename)
+      )
     (where (and {:relationid relationid}
-             {:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             ;;{:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
              ))
     (limit limits)
     (offset start)
@@ -238,15 +264,18 @@
     (values {:pation_no pationid :check_date check_date})
     )
   )
-(defn getrelationbypationid [pationid]
+(defn getrelationbypationid [pationid check_date]
   (select registRelation
-    (where {:pation_no pationid})
+    (where (and
+             {:pation_no pationid}
+             {:check_date check_date}
+             ))
     )
   )
 (defn getregistedcheckitemnums [keyword relationid]
   (select afterRegist
     (where (and {:relationid relationid}
-             {:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             ;{:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
              ))
     (aggregate (count :id) :counts)
     )

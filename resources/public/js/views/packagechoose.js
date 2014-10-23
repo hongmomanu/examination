@@ -5,15 +5,52 @@ define(function () {
             title: '套餐选择窗口',
             width: '100%',
             height: '100%',
+            //resizable:true,
+            //fit:true,
             closed: false,
             draggable:false,
+            /*onResize:function(){
+                $(this).dialog('center');
+            },*/
             cache: false,
             buttons:[{
                 text:'确定',
                 id:'confirmselectitems',
                 disabled:false,
                 handler:function(){
+
+                    require(['js/commonfuncs/AjaxForm.js']
+                        ,function(ajaxfrom){
+                            var params={relationid:$('#registedperson').datagrid('getSelected').relationid};
+                            var items=$('#packagechoosepanelselecteditems').datagrid('getRows');
+                            if(items.length>0){
+                                var members=[];
+                                $.each(items,function(index,item){
+                                    var obj={
+                                        itemcode:item.itemcode,
+                                        relationid:params.relationid,
+                                        packagecode:item.packageid};
+                                    members.push(obj);
+                                });
+                                var success=function(data){
+                                    $('#packagechoosewin').dialog('close');
+                                    $('#checkeditems').datagrid('reload');
+                                };
+                                var errorfunc=function(){
+
+                                    $.messager.alert('操作失败','失败!');
+                                }
+                                params.items=$.toJSON(members);
+                                ajaxfrom.ajaxsend('post','json','maintain/addcheckitemsbyrid',params,success,null,errorfunc)
+
+                            }else{
+                                $('#packagechoosewin').dialog('close');
+                            }
+
+                        });
+
                     //alert(1);
+                    //$('#checkeditems').datagrid('loadData',$('#packagechoosepanelselecteditems').datagrid('getRows'));
 
                 }
             },{
@@ -46,21 +83,7 @@ define(function () {
                 params.totalname = "total";
                 params.rowsname = "rows";
             },
-            onLoadSuccess:function(data){
-              console.log(data);
-                var selected=$('#packagechoosepanelselecteditems').datagrid('getRows');
-                var rows=$('#packagechoosepanel').datagrid('getRows');
-                console.log(rows);
-                $.each(selected,function(index,item)
-                    {
-                        var isexist=isitemexist(rows,item);
-                        console.log(isexist);
-                        if(isexist.flag)$('#packagechoosepanel').datagrid('selectRow',isexist.index);
-                    }
-                )
 
-
-            },
             onClickRow:function(index, rowData){
                 require(['js/commonfuncs/AjaxForm.js']
                     ,function(ajaxfrom){
@@ -96,13 +119,15 @@ define(function () {
 
         });
 
-        var isitemexist=function(rows,data){
+        $('#packagechoosepanelselecteditems').datagrid('loadData',$('#checkeditems').datagrid('getRows'));
+
+        var isitemexist=function(rows,data,div){
             var flag=false;
             var index=null;
             for(var i=0;i<rows.length;i++){
                 if(data.itemcode==rows[i].itemcode){
                     flag=true;
-                    index=$('#packagechoosepanelselecteditems').datagrid('getRowIndex',rows[i]);
+                    index=div.datagrid('getRowIndex',rows[i]);
                     break;
                 }
             }
@@ -111,10 +136,10 @@ define(function () {
         };
         var addselectitem=function(data){
             data.packagename= $('#packagechoosepanel').datagrid('getSelected').packagename;
-            if(!isitemexist($('#packagechoosepanelselecteditems').datagrid('getRows'),data).flag)$('#packagechoosepanelselecteditems').datagrid('appendRow',data);
+            if(!isitemexist($('#packagechoosepanelselecteditems').datagrid('getRows'),data,$('#packagechoosepanelselecteditems')).flag)$('#packagechoosepanelselecteditems').datagrid('appendRow',data);
         };
         var delselectitem=function(data){
-            var isexist=isitemexist($('#packagechoosepanelselecteditems').datagrid('getRows'),data);
+            var isexist=isitemexist($('#packagechoosepanelselecteditems').datagrid('getRows'),data,$('#packagechoosepanelselecteditems'));
             var flag=isexist.flag;
             var index=isexist.index;
             if(flag)$('#packagechoosepanelselecteditems').datagrid('deleteRow',index);
@@ -139,6 +164,20 @@ define(function () {
             },
             onUnselect:function(rowIndex, rowData){
                 delselectitem(rowData);
+            },
+
+            onLoadSuccess:function(data){
+                var selected=$('#packagechoosepanelselecteditems').datagrid('getRows');
+                var rows=$('#packagechoosepanelitems').datagrid('getRows');
+                $.each(selected,function(index,item)
+                    {
+                        var isexist=isitemexist(rows,item,$('#packagechoosepanelitems'));
+                        console.log(isexist);
+                        if(isexist.flag)$('#packagechoosepanelitems').datagrid('selectRow',isexist.index);
+                    }
+                )
+
+
             },
 
             //fitColumns:true,

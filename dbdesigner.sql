@@ -300,7 +300,7 @@ CREATE TABLE IF NOT EXISTS afterRegist
   DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
   times     int ,    --  检查次数
   itemcode  int,   -- 检查项目
-  itemname    varchar(20) , --  检查项目名称
+  --itemname    varchar(20) , --  检查项目名称
   packagecode    varchar(20),  --  套餐项目
   finish   varchar(1)  default('0'),
   remark    varchar(80)  --备注

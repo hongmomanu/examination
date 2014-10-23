@@ -57,8 +57,8 @@ define(function () {
             //fitColumns:true,
             fit:true,
             //toolbar:'#enumpaneltb',
-            pagination:true,
-            pageSize:10,
+            pagination:false,
+            pageSize:300,
             onBeforeLoad: function (params) {
                 var options = $('#checkeditems').datagrid('options');
                 var selected=$('#registedperson').datagrid('getSelected');
@@ -175,6 +175,10 @@ define(function () {
 
         $('#checkitemmenu .selectitem').click(function(e){
             alert(2);
+        });
+
+        $('#checkitemmenu .checkeditems').click(function(e){
+            alert(33);
         });
 
     }

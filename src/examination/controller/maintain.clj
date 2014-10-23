@@ -6,8 +6,7 @@
 
     )
   (:use compojure.core)
-  (:use korma.core
-        [korma.db :only [oracle]])
+
 
 
   (:require [examination.db.core :as db]
@@ -53,8 +52,13 @@
   )
 (defn addrelationitems [relationid items]
    (let [
+
           checkitems (json/read-str items :key-fn keyword)
+
           ]
+       (db/delregistedcheckitem relationid)
+       (db/addregistedcheckitem checkitems)
+
      (resp/json {:success true})
      )
   )
@@ -83,7 +87,7 @@
                                               :unitname unitname :duty duty :title title
                                               }))
          pationid (if (nil? newid) (:id pation) (first (vals newid)))
-         registered (db/getrelationbypationid pationid)
+         registered (db/getrelationbypationid pationid checkday)
          ]
 
     (when (= (count registered) 0) (db/addRegistRelation pationid checkday))
