@@ -29,7 +29,8 @@ define(function () {
                                     var obj={
                                         itemcode:item.itemcode,
                                         relationid:params.relationid,
-                                        packagecode:item.packageid};
+                                        packagecode:(item.packageid?item.packageid:item.packagecode)
+                                    };
                                     members.push(obj);
                                 });
                                 var success=function(data){
@@ -118,8 +119,9 @@ define(function () {
             }
 
         });
+        var rows=$('#checkeditems').datagrid('getRows');
 
-        $('#packagechoosepanelselecteditems').datagrid('loadData',$('#checkeditems').datagrid('getRows'));
+        $('#packagechoosepanelselecteditems').datagrid('loadData',rows);
 
         var isitemexist=function(rows,data,div){
             var flag=false;

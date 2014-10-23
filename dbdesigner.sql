@@ -250,7 +250,7 @@ CREATE TABLE IF NOT EXISTS patientMainIndex
 (
   id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键 病人内码
   DATETIME    DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
-  times     int ,    --  检查次数
+  times     int DEFAULT(0),    --  检查次数
   name    varchar(20) , --  病人姓名
   sex    varchar(5),  --  性别
   address    varchar(80),  --  联系地址

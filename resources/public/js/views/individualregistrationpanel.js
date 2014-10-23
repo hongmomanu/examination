@@ -21,11 +21,34 @@ define(function () {
             method:'post',
             url:'maintain/getregistedperson',
             remoteSort: false,
+            rowStyler: function(index,row){
+                if (row.isinto == 0){
+                    return 'color:#857E7E;font-weight:bold;';
+                }else{
+                    return 'color:green;font-weight:bold;';
+                }
+            },
             //fitColumns:true,
             fit:true,
             onRowContextMenu:function(e, rowIndex, rowData){
                 e.preventDefault();
                 $(this).datagrid('selectRow',rowIndex);
+                if(rowData.isinto>0){
+                    $('#checkitemmenu .outcheck').show();
+                    $('#checkitemmenu .intocheck').hide();
+                    $('#checkitemmenu .selectpackage').hide();
+                    $('#checkitemmenu .selectitem').hide();
+                }else{
+                    $('#checkitemmenu .outcheck').hide();
+                    if(rowData.itemnums>0){
+                        $('#checkitemmenu .intocheck').show();
+                    }else{
+                        $('#checkitemmenu .intocheck').hide();
+                    }
+                    $('#checkitemmenu .selectpackage').show();
+                    $('#checkitemmenu .selectitem').show();
+
+                }
                 $('#checkitemmenu').menu('show',{
                     left: e.pageX,
                     top: e.pageY
@@ -41,7 +64,7 @@ define(function () {
                 params.totalname = "total";
                 params.rowsname = "rows";
             },
-            onClickRow:function(index, rowData){
+            onSelect:function(index, rowData){
                 $('#checkeditems').datagrid('reload');
             }
 
@@ -86,7 +109,6 @@ define(function () {
                 ,function(ajaxfrom){
                     var params={keyword:q};
                     var succ=function(data){
-                        console.log(data);
                         success(data);
                     };
                     var errorfunc=function(){
@@ -177,8 +199,37 @@ define(function () {
             alert(2);
         });
 
-        $('#checkitemmenu .checkeditems').click(function(e){
-            alert(33);
+        $('#checkitemmenu .intocheck').click(function(e){
+            require(['js/commonfuncs/AjaxForm.js']
+                ,function(ajaxfrom){
+                    var params={relationid:$('#registedperson').datagrid('getSelected').relationid};
+                    var succ=function(data){
+                        $.messager.alert('操作成功','已进入体检室');
+                        $('#registedperson').datagrid('reload');
+                    };
+                    var errorfunc=function(){
+                    };
+
+                    ajaxfrom.ajaxsend('post','json','maintain/intocheck',params,succ,null,errorfunc,false);
+
+                });
+
+        });
+        $('#checkitemmenu .outcheck').click(function(e){
+            require(['js/commonfuncs/AjaxForm.js']
+                ,function(ajaxfrom){
+                    var params={relationid:$('#registedperson').datagrid('getSelected').relationid};
+                    var succ=function(data){
+                        $.messager.alert('操作成功','已从体检室撤销');
+                        $('#registedperson').datagrid('reload');
+                    };
+                    var errorfunc=function(){
+                    };
+
+                    ajaxfrom.ajaxsend('post','json','maintain/outcheck',params,succ,null,errorfunc,false);
+
+                });
+
         });
 
     }

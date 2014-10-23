@@ -161,7 +161,17 @@
     (where {:id id})
     )
   )
-(defn getchargeDetailbyblhno [blhno date]
+
+(defn outcheck [date blhno]
+  (delete chargeDetail
+    (where (and
+             {:blh_no blhno}
+             {:inspect_date date}
+             ))
+    )
+  )
+(defn getchargeDetailbyblhno [date blhno]
+
   (select chargeDetail
     (where (and
              {:blh_no blhno}
@@ -229,9 +239,9 @@
 (defn getregistedcheckitems [start limits keyword relationid]
   (select afterRegist
     (with checkitem
-      (fields :itemname :price)
+      (fields :itemname :price [:id :itemcode])
       (with checkdept
-        (fields :deptname)
+        (fields :deptname [:id :deptid])
         )
       )
     (with examinationPackage
@@ -247,9 +257,28 @@
   )
 
 
+(defn getregistedpersonbyid [relationid]
+  (select registRelation
+    (fields [:id :relationid] :check_date)
+    (with patientMainIndex
+      (fields :id :blh_no :name :sex :times)
+      )
+    (where {:id relationid} )
+    )
+  )
+(defn updatepation [fileds id]
+  (println fileds id)
+  (update patientMainIndex
+    (set-fields fileds)
+    (where {:id id})
+    )
+  )
+(defn addnewintocheck [fields]
+  (insert chargeDetail
+    (values fields)
+    )
+  )
 (defn getregistedperson [start limits keyword now]
-
-
 
   (select registRelation
     (fields [:id :relationid])
@@ -263,8 +292,6 @@
     (limit limits)
     (offset start)
     )
-
-
 
   )
 (defn addRegistRelation [pationid check_date]

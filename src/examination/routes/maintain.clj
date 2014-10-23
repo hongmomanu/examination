@@ -54,6 +54,13 @@
   (POST "/maintain/getregistedperson" [start limit  totalname rowsname keyword]
     (maintain/getregistedperson start limit  totalname rowsname keyword))
 
+  (POST "/maintain/intocheck" [relationid]
+    (maintain/intocheck relationid)
+    )
+  (POST "/maintain/outcheck" [relationid]
+    (maintain/outcheck relationid)
+    )
+
   (POST "/maintain/getregistedcheckitems" [start limit  totalname rowsname keyword relationid]
     (maintain/getregistedcheckitems start limit  totalname rowsname keyword relationid))
 

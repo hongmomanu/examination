@@ -75,6 +75,42 @@
     (resp/json (assoc {} rowsname res totalname nums))
     )
   )
+(defn outcheck [relationid]
+  (let [
+         pation (first (db/getregistedpersonbyid relationid))
+         timenow (if (nil?(:times pation)) 0 (:times pation))
+         items (db/getregistedcheckitems 0 10000 nil relationid)
+         ]
+    (db/updatepation {:times (- timenow 1)} (:id  pation))
+    (db/outcheck (:check_date pation) (:blh_no pation))
+    (resp/json {:success true})
+    )
+
+
+)
+(defn intocheck [relationid]
+
+  (let [
+         pation (first (db/getregistedpersonbyid relationid))
+         timenow (if(nil?(:times pation)) 0 (:times pation))
+         items (db/getregistedcheckitems 0 10000 nil relationid)
+         ]
+      (db/updatepation {:times (+ timenow 1)} (:id  pation))
+    (dorun (map #(db/addnewintocheck {
+                                 :times  (+ timenow 1)
+                                 :itemcode (:itemcode %)
+                                 :itemname  (:itemname %)
+                                 :packagename  (:packagename %)
+                                 :price (:price %)
+                                 :deptid (:deptid %)
+                                 :blh_no   (:blh_no pation)
+                                 :inspect_mark  0
+                                 :inspect_date (:check_date pation)
+                                  }) items) )
+      (resp/json {:success true})
+    )
+
+  )
 
 (defn addpation [blh_no name sex marry address telephone
                  email birthday unitname duty title checkday]
