@@ -102,6 +102,11 @@
     (maintain/addpation blh_no name sex marry address telephone
       email birthday unitname duty title checkday))
 
+  (POST "/maintain/savepation" [blh_no name sex marry address telephone
+                             email birthday unitname duty title checkday]
+    (maintain/savepation blh_no name sex marry address telephone
+      email birthday unitname duty title checkday))
+
   (POST "/maintain/editcontrolitem" [type  title content id]
     (maintain/editcontrolitem type  title content id))
 
