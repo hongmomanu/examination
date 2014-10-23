@@ -112,6 +112,17 @@
 
   )
 
+(defn savepation [blh_no name sex marry address telephone
+                  email birthday unitname duty title checkday]
+  (db/savepation {:blh_no blh_no :name name
+                  :sex sex :marry marry
+                  :address address :telephone telephone
+                  :email email :birthday birthday
+                  :unitname unitname :duty duty :title title
+                  } blh_no)
+  (resp/json {:success true :msg "保存病人信息成功" })
+
+  )
 (defn addpation [blh_no name sex marry address telephone
                  email birthday unitname duty title checkday]
 

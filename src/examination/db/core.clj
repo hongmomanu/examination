@@ -198,6 +198,13 @@
     )
  )
 
+(defn savepation [fields blh_no]
+  (update patientMainIndex
+    (set-fields fields)
+      (where {:blh_no blh_no})
+    )
+  )
+
 (defn getafterRegistnums [id]
   (select afterRegist
     (where {:relationid id} )
@@ -267,7 +274,6 @@
     )
   )
 (defn updatepation [fileds id]
-  (println fileds id)
   (update patientMainIndex
     (set-fields fileds)
     (where {:id id})

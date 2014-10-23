@@ -105,7 +105,7 @@ define(function () {
                             };
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','修改单位失败!');
-                            }
+                            };
                             ajaxfrom.ajaxsend('post','json','maintain/editunit',params,success,null,errorfunc)
 
                         });

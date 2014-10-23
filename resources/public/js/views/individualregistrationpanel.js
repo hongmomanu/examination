@@ -160,9 +160,19 @@ define(function () {
         $('#pationformtb .save').click(function(e){
             require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                 ,function(easyform,ajaxfrom){
-                    var params=$('#registration').form("serialize");
-                    if(params.blh_no) {
-                        alert(3);
+                    var form=$('#registration');
+                    var params=form.form("serialize");
+                    if(form.form("validate")&&params.blh_no) {
+                        var succ=function(data){
+                            $.messager.alert('操作成功',data.msg);
+                            $('#registedperson').datagrid('reload');
+
+                        };
+                        var errorfunc=function(){
+
+                        };
+                        ajaxfrom.ajaxsend('post','json','maintain/savepation',params,succ,null,errorfunc,true);
+                        //alert(222);
                     }
                 }
             );
@@ -200,6 +210,7 @@ define(function () {
         });
 
         $('#checkitemmenu .intocheck').click(function(e){
+
             require(['js/commonfuncs/AjaxForm.js']
                 ,function(ajaxfrom){
                     var params={relationid:$('#registedperson').datagrid('getSelected').relationid};
