@@ -282,6 +282,7 @@ CREATE TABLE IF NOT EXISTS chargeDetail
   em_code    varchar(20),  --  检查人员
   blh_no    varchar(20),  --  条形码号
   inspect_mark    varchar(20),  --  是否检查完成  是否检查完成. 1: 完成, 0: 未完成.
+  remark    varchar(80),  --备注
   inspect_date    DATETIME,  --  检查日期
   valid_date    DATETIME  --  有效日期(起)
 
@@ -320,7 +321,7 @@ CREATE TABLE IF NOT EXISTS registRelation
 
 
 
---(注册之前)
+--(注册之前 废弃表结构)
 CREATE TABLE IF NOT EXISTS beforeRegist
 (
   id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键 病人内码

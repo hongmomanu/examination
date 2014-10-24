@@ -322,6 +322,7 @@ define(function () {
                         $('#groupsregistedperson').datagrid('reload');
                     };
                     var errorfunc=function(){
+
                     };
 
                     ajaxfrom.ajaxsend('post','json','maintain/outcheck',params,succ,null,errorfunc,false);
