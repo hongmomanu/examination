@@ -62,6 +62,7 @@ define(function () {
                 params.start = (options.pageNumber - 1) * options.pageSize;
                 params.limit = options.pageSize;
                 params.totalname = "total";
+                params.isunit=0;
                 params.rowsname = "rows";
             },
             onSelect:function(index, rowData){
@@ -140,6 +141,7 @@ define(function () {
                 require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                     ,function(easyform,ajaxfrom){
                         var params=$('#registration').form("serialize");
+                        params.isunit=0;
 
                         var succ=function(data){
                             $.messager.alert('操作成功',data.msg);

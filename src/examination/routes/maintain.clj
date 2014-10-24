@@ -54,8 +54,8 @@
   (POST "/maintain/getpackages" [start limit  totalname rowsname keyword]
     (maintain/getpackages start limit  totalname rowsname keyword))
 
-  (POST "/maintain/getregistedperson" [start limit  totalname rowsname keyword]
-    (maintain/getregistedperson start limit  totalname rowsname keyword))
+  (POST "/maintain/getregistedperson" [start limit  totalname rowsname isunit keyword]
+    (maintain/getregistedperson start limit  totalname rowsname isunit keyword))
 
   (POST "/maintain/intocheck" [relationid]
     (maintain/intocheck relationid)
@@ -101,9 +101,9 @@
   (POST "/maintain/getpation" [keyword]
     (maintain/getpation keyword))
 (POST "/maintain/addpation" [blh_no name sex marry address telephone
-                             email birthday unitname duty title checkday]
+                             email birthday unitname duty title checkday isunit unitid groupid]
     (maintain/addpation blh_no name sex marry address telephone
-      email birthday unitname duty title checkday))
+      email birthday unitname duty title checkday isunit unitid groupid))
 
   (POST "/maintain/savepation" [blh_no name sex marry address telephone
                              email birthday unitname duty title checkday]

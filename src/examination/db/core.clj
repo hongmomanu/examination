@@ -308,7 +308,7 @@
     (values fields)
     )
   )
-(defn getregistedperson [start limits keyword now]
+(defn getregistedperson [start limits keyword now isunit]
 
   (select registRelation
     (fields [:id :relationid])
@@ -316,6 +316,7 @@
       (fields :id :blh_no :name :sex)
       (where (and
                {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+               {:isunit isunit}
                ))
       )
     (where {:check_date now} )
@@ -346,12 +347,13 @@
     )
   )
 
-(defn getregistedpersonnums [ keyword now]
+(defn getregistedpersonnums [ keyword now isunit]
 
   (select registRelation
     (with patientMainIndex
       (where (and
                {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+               {:isunit isunit}
                ))
       )
     (where {:check_date now} )

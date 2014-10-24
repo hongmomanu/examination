@@ -79,14 +79,15 @@
      (resp/json {:success true})
      )
   )
-(defn getregistedperson [start limit  totalname rowsname keyword]
+(defn getregistedperson [start limit  totalname rowsname  isunit keyword]
   (let [
          custom-formatter (f/formatter "yyyy-MM-dd")
          now (f/unparse custom-formatter (l/local-now))
-         results (db/getregistedperson start limit keyword now)
+         results (db/getregistedperson start limit keyword now isunit)
+         test (println results)
          res (map #(conj {:itemnums (:counts (first (db/getafterRegistnums (:relationid %))))
                           :isinto (count (db/getchargeDetailbyblhno now (:blh_no %)))} %) results)
-         nums  (:counts (first (db/getregistedpersonnums keyword now)))
+         nums  (:counts (first (db/getregistedpersonnums keyword now isunit)))
         ]
     (resp/json (assoc {} rowsname res totalname nums))
     )
@@ -140,7 +141,7 @@
 
   )
 (defn addpation [blh_no name sex marry address telephone
-                 email birthday unitname duty title checkday]
+                 email birthday unitname duty title checkday isunit  unitid groupid]
 
   (let [
          pation (first (db/getpationbyblh blh_no))
@@ -148,14 +149,29 @@
          newid (when-not isexists (db/addnewpation {:blh_no blh_no :name name
                                               :sex sex :marry marry
                                               :address address :telephone telephone
-                                              :email email :birthday birthday
+                                              :email email :birthday birthday   :isunit isunit
                                               :unitname unitname :duty duty :title title
                                               }))
          pationid (if (nil? newid) (:id pation) (first (vals newid)))
          registered (db/getrelationbypationid pationid checkday)
          ]
 
-    (when (= (count registered) 0) (db/addRegistRelation pationid checkday))
+    (when (= (count registered) 0) (let [newid (db/addRegistRelation pationid checkday)
+                                         relationid (first (vals newid))
+                                         ]
+                                     (when-not (nil? groupid)
+                                       (let [
+                                              items (db/getitemidbyunitgroup unitid groupid)
+                                              filteritmes (map #(conj {} {:itemcode (:itemcode %)
+                                                                          :packagecode (:packageid %)
+                                                                          :relationid relationid
+                                                                          }) items)
+                                             ]
+                                         (db/delregistedcheckitem relationid)
+                                         (db/addregistedcheckitem filteritmes)
+
+                                                                ))
+                                     ))
 
     (resp/json {:success true :msg "新增病人信息成功" })
 

@@ -11,7 +11,7 @@ define(function () {
             collapsible: true,
             rownumbers: true,
             method:'post',
-            url:'maintain/getgroupsregistedperson',
+            url:'maintain/getregistedperson',
             remoteSort: false,
             rowStyler: function(index,row){
                 if (row.isinto == 0){
@@ -52,6 +52,7 @@ define(function () {
             onBeforeLoad: function (params) {
                 var options = $('#groupsregistedperson').datagrid('options');
                 params.start = (options.pageNumber - 1) * options.pageSize;
+                params.isunit=1;
                 params.limit = options.pageSize;
                 params.totalname = "total";
                 params.rowsname = "rows";
@@ -102,6 +103,14 @@ define(function () {
             //toolbar:'#enumpaneltb',
             pagination:true,
             pageSize:10,
+            onRowContextMenu:function(e, rowIndex, rowData){
+                e.preventDefault();
+                $(this).datagrid('selectRow',rowIndex);
+                $('#groupspersonmenu').menu('show',{
+                    left: e.pageX,
+                    top: e.pageY
+                })
+            },
             onBeforeLoad: function (params) {
                 var options = $(this).datagrid('options');
                 params.start = (options.pageNumber - 1) * options.pageSize;
@@ -120,7 +129,7 @@ define(function () {
         };
 
         var date=new Date();
-        $('#checkday').datebox('setValue', date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
+        $('#groupcheckday').datebox('setValue', date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
 
 
 
@@ -173,6 +182,8 @@ define(function () {
 
             }
         });
+
+
 
 
 
@@ -234,14 +245,48 @@ define(function () {
 
         });*/
 
+
+
+
+        $('#groupspersonmenu .addpation').click(function(e){
+
+            require(['js/commonfuncs/AjaxForm.js']
+                ,function(ajaxfrom){
+                    var data=$('#unitgroupsperson').datagrid('getSelected');
+                    data.name=data.membername;
+                    data.blh_no=data.cardnum;
+                    data.isunit=1;
+                    data.checkday=$('#groupcheckday').datebox('getValue');
+                    data.unitname=($('#unitwithgrouptree').tree('getParent',
+                        $('#unitwithgrouptree').tree('getSelected').target)).unitname;
+                    data.unitid=$('#unitwithgrouptree').tree('getSelected').unitid;
+                    data.groupid=$('#unitwithgrouptree').tree('getSelected').id;
+                    /*var params=$('#registration').form("serialize"); */
+
+                    var succ=function(data){
+                        $.messager.alert('操作成功',data.msg);
+                        $('#groupsregistedperson').datagrid('reload');
+
+                    };
+                    var errorfunc=function(){
+
+                    };
+                    ajaxfrom.ajaxsend('post','json','maintain/addpation',data,succ,null,errorfunc);
+
+
+                }
+            );
+
+        });
+
         $('#groupscheckitemmenu .selectpackage').click(function(e){
-            if($('#packagechoosewin').length>0){
-                $('#packagechoosewin').dialog('open');
+            if($('#grouppackagechoosewin').length>0){
+                $('#grouppackagechoosewin').dialog('open');
             }else{
-                require(['text!views/packagechoose.htm','views/packagechoose'],
+                require(['text!views/grouppackagechoose.htm','views/grouppackagechoose'],
                     function(div,packagechoosewin){
                         $('body').append(div);
-                        $.parser.parse('#packagechoosewin');
+                        $.parser.parse('#grouppackagechoosewin');
                         packagechoosewin.render();
                     });
             }
@@ -268,7 +313,7 @@ define(function () {
                 });
 
         });
-        $('#checkitemmenu .outcheck').click(function(e){
+        $('#groupscheckitemmenu .outcheck').click(function(e){
             require(['js/commonfuncs/AjaxForm.js']
                 ,function(ajaxfrom){
                     var params={relationid:$('#groupsregistedperson').datagrid('getSelected').relationid};

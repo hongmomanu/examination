@@ -260,7 +260,7 @@ CREATE TABLE IF NOT EXISTS patientMainIndex
   birthday    DATETIME,  --  出生日期
   marry    varchar(5),  --  婚姻状况
   unitname    varchar(40),  --  单位名称
-  isunit    varchar(5),  --  是否团体
+  isunit    varchar(5) default(0) ,  --  是否团体
   duty    varchar(10),  --  职务
   title    varchar(10)  -- 职称
 
