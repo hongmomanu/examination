@@ -37,6 +37,17 @@
     )
   )
 
+(defn getunitgroupperson [start limit  totalname rowsname keywords fields downbirth upbirth]
+  (let [
+         searchfields (json/read-str fields :key-fn keyword)
+
+         results (db/getunitgroupperson start limit  keywords searchfields downbirth upbirth)
+        nums  (:counts (first (db/getunitgrouppersonnums keywords searchfields downbirth upbirth)))
+        ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+  )
+
 (defn getregistedcheckitems [start limit  totalname rowsname keyword relationid]
   (let [
          results (db/getregistedcheckitems start limit keyword relationid)
@@ -212,11 +223,13 @@
 (defn isitemcheck [item ids]
   (if (nil? (some #(= (:id item) %) ids)) false true)
   )
-(defn getunitgroup [node pid callback]
+
+
+(defn getunitgroup [node pid rootname callback]
   (let [
 
          ])
-  (if(= node "-1")(resp/json [{:id 0 :text "单位分组" :value "单位分组"
+  (if(= node "-1")(resp/json [{:id 0 :text rootname :value rootname
                                :children (map #(conj % {:state "closed" :value (:unitname %)
                                :text (str (:unitname %) "(" (count (db/getgroupsbyunit (:id %))) ")")})
                                (db/getunits 0 1000000 ""))}])

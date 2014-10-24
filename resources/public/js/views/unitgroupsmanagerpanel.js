@@ -21,7 +21,7 @@ define(function () {
             treeField: 'text',
             idField: 'id',
             onBeforeLoad: function (row, params) {
-
+                params.rootname="单位分组";
                 if (!row)params.node = -1;
                 else {
                      params.node=params.id;

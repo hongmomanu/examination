@@ -230,6 +230,30 @@
     (offset start))
   )
 
+
+(defn getunitgroupperson [ start limits  keyword fields downbirth upbirth]
+  (select examinationMember
+    (where (and {:cardnum [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+                fields
+             {:birthday [>= downbirth]}
+             {:birthday [<= upbirth]}
+             ))
+    (limit limits)
+    (offset start))
+  )
+
+(defn getunitgrouppersonnums [keyword fields downbirth upbirth]
+
+  (select examinationMember
+    (where (and {:cardnum [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             fields
+             {:birthday [>= downbirth]}
+             {:birthday [<= upbirth]}
+             ))
+    (aggregate (count :id) :counts)
+    )
+  )
+
 (defn addregistedcheckitem [fields]
   (insert afterRegist
     (values fields)

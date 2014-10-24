@@ -1,0 +1,105 @@
+<div id="groupsmanagerlayout" class="easyui-layout" style="width:100%;height:100%;" data-options="fit:true">
+
+    <div data-options="region:'west',title:'团体信息登记',split:true,collapsible:false" style="height:50px;width:40%">
+
+        <div  class="easyui-layout" style="width:100%;height:100%;" data-options="fit:true">
+            <div data-options="region:'west',split:true,collapsible:false" style="width: 40%">
+                <ul id="unitwithgrouptree"></ul>
+
+            </div>
+
+            <div data-options="region:'center',split:true,collapsible:false" style="width: 60%">
+                <table id="unitgroupsperson">
+                    <thead data-options="frozen:true">
+                    <tr>
+                        <th data-options="field:'membername',width:80">姓名</th>
+                    </tr>
+                    </thead>
+
+                    <thead>
+                    <tr>
+
+                        <th data-options="field:'cardnum',width:80">条形码</th>
+                        <th data-options="field:'marry',width:60">婚否</th>
+                        <th data-options="field:'sex',width:80">性别</th>
+                        <th data-options="field:'birthday',width:100">出生年月</th>
+                        <th data-options="field:'id',width:100,hidden:true">id</th>
+                        <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+
+                    </tr>
+                    </thead>
+
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!--<div id="groupspationformtb"  style="text-align:center;padding:5px">
+            <a href="javascript:void(0)" class="easyui-linkbutton add" data-options="iconCls:'icon-add',plain:true" >增加</a>
+            &lt;!&ndash;<a href="javascript:void(0)" class="easyui-linkbutton del" data-options="iconCls:'icon-remove',plain:true">删除</a>&ndash;&gt;
+            <a href="javascript:void(0)" class="easyui-linkbutton save" data-options="iconCls:'icon-save',plain:true" >保存</a>
+        </div>-->
+
+    </div>
+    <div data-options="region:'east',split:true,title:'检查项目',collapsible:false" style="width:30%;">
+        <table id="groupscheckeditems" class="formtable">
+            <thead>
+            <tr>
+                <th data-options="field:'packagename',width:100">套餐名称</th>
+                <th data-options="field:'itemname',width:100">项目名称</th>
+                <th data-options="field:'price',width:60">价格</th>
+                <th data-options="field:'deptname',width:80">科室</th>
+
+                <th data-options="field:'id',width:100,hidden:true">id</th>
+                <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+
+            </tr>
+            </thead>
+
+
+        </table>
+
+    </div>
+    <div data-options="region:'center',title:'已注册病人',iconCls:'icon-ok'" style="padding:10px;width: 30%;">
+
+        <table id="groupsregistedperson" class="formtable">
+            <thead data-options="frozen:true">
+            <tr>
+                <th data-options="field:'name',width:100">姓名</th>
+
+            </tr>
+            </thead>
+            <thead>
+            <tr>
+                <th data-options="field:'blh_no',width:100">条形码号</th>
+                <th data-options="field:'sex',width:100">性别</th>
+                <th data-options="field:'itemnums',width:100">登记相</th>
+                <th data-options="field:'marry',width:100">婚姻状况</th>
+                <th data-options="field:'telephone',width:100">手机号码</th>
+                <th data-options="field:'birthday',width:100">出生日期</th>
+                <th data-options="field:'telephone',width:100">手机号码</th>
+                <th data-options="field:'email',width:100">email</th>
+                <th data-options="field:'address',width:100">联系地址</th>
+                <th data-options="field:'id',width:100,hidden:true">id</th>
+                <th data-options="field:'isinto',width:100,hidden:true"></th>
+                <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+
+            </tr>
+            </thead>
+
+
+        </table>
+    </div>
+
+
+    <div id="groupscheckitemmenu" class="easyui-menu" style="width:120px;">
+        <div  data-options="iconCls:'icon-add'" class="selectpackage">选择套餐</div>
+        <div  data-options="iconCls:'icon-add'" class="selectitem">选择项目</div>
+        <div  data-options="iconCls:'icon-add'" class="intocheck">进入体检室</div>
+        <div  data-options="iconCls:'icon-add'" class="outcheck">撤销</div>
+    </div>
+
+</div>

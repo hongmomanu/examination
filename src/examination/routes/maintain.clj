@@ -15,11 +15,14 @@
   (POST "/maintain/gettreeitem" [node roleid pid packageid unitid groupid callback]
     (maintain/gettreeitem node roleid pid packageid unitid groupid callback))
 
-  (POST "/maintain/getunitgroup" [node  pid  callback]
-    (maintain/getunitgroup node  pid  callback))
+  (POST "/maintain/getunitgroup" [node  pid rootname callback]
+    (maintain/getunitgroup node  pid rootname callback))
 
   (POST "/maintain/getcheckitemsbypid" [id]
     (maintain/getcheckitemsbypid id)
+    )
+  (POST "/maintain/getunitgroupperson" [start limit  totalname rowsname keyword fields downbirth upbirth]
+    (maintain/getunitgroupperson start limit  totalname rowsname keyword fields downbirth upbirth)
     )
 
   (POST "/maintain/getcontroltree" [node  value  callback]
