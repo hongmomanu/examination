@@ -108,6 +108,7 @@
   (database sqlitedb)
   )
 (defentity chargeDetail
+  (belongs-to checkitem {:fk :itemcode})
   (database sqlitedb)
   )
 (defentity checkitem
@@ -283,6 +284,32 @@
              ))
     (limit limits)
     (offset start)
+    )
+
+  )
+
+(defn getcheckingitems [start limits keyword blh_no]
+  (select chargeDetail
+    (with checkitem
+      (fields :itemname :price )
+      (with checkdept
+        (fields :deptname )
+        )
+      )
+    (where (and {:blh_no blh_no}
+             ;;{:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             ))
+    (limit limits)
+    (offset start)
+    )
+
+  )
+(defn getcheckingitemnums [start limits keyword blh_no]
+  (select chargeDetail
+    (where (and {:blh_no blh_no}
+             ;{:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             ))
+    (aggregate (count :id) :counts)
     )
 
   )

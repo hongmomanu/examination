@@ -10,7 +10,7 @@ define(function () {
             collapsible: true,
             rownumbers: true,
             method:'post',
-            url:'maintain/getregistedcheckitems',
+            url:'maintain/getcheckingitems',
             remoteSort: false,
             //fitColumns:true,
             fit:true,
