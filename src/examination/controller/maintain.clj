@@ -38,14 +38,19 @@
   )
 
 (defn getunitgroupperson [start limit  totalname rowsname keywords fields downbirth upbirth]
-  (let [
-         searchfields (json/read-str fields :key-fn keyword)
+  (if (nil? fields) (resp/json (assoc {} rowsname [] totalname 0))
 
-         results (db/getunitgroupperson start limit  keywords searchfields downbirth upbirth)
-        nums  (:counts (first (db/getunitgrouppersonnums keywords searchfields downbirth upbirth)))
-        ]
-    (resp/json (assoc {} rowsname results totalname nums))
+    (let [
+           searchfields (json/read-str fields :key-fn keyword)
+
+           results (db/getunitgroupperson start limit  keywords searchfields downbirth upbirth)
+           nums  (:counts (first (db/getunitgrouppersonnums keywords searchfields downbirth upbirth)))
+           ]
+      (resp/json (assoc {} rowsname results totalname nums))
+      )
     )
+
+
   )
 
 (defn getregistedcheckitems [start limit  totalname rowsname keyword relationid]

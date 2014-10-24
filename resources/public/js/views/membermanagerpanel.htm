@@ -22,8 +22,18 @@
                 <table id="membermanagerpaneldetail">
                     <thead>
                     <tr>
-                        <th data-options="field:'cardnum',width:100,editor:'text'">卡号</th>
-                        <th data-options="field:'membername',width:80,editor:'text'">姓名</th>
+                        <th data-options="field:'cardnum',width:100,editor:{
+                         type:'validatebox',
+                          options:{
+                            required:true
+                         }
+                        }">卡号</th>
+                        <th data-options="field:'membername',width:80,editor:{
+                          type:'validatebox',
+                          options:{
+                            required:true
+                         }
+                        }">姓名</th>
                         <th data-options="field:'marry',width:60,
                         editor:{
                             type:'combobox',
@@ -47,7 +57,13 @@
                                 }
                             }
                         }">性别</th>
-                        <th data-options="field:'birthday',width:80,align:'center',editor:'text'">出生日期</th>
+                        <th data-options="field:'birthday',width:80,align:'center',editor:{
+                        type:'datebox',
+                         options:{
+                            required:true
+                         }
+
+                        }">出生日期</th>
                         <th data-options="field:'duty',width:100,editor:{
                             type:'combobox',
                             options:{
