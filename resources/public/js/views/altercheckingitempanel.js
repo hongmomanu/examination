@@ -39,7 +39,7 @@ define(function () {
 
             require(['js/commonfuncs/AjaxForm.js']
                 ,function(ajaxfrom){
-                    var params={keyword:q};
+                    var params={keyword: q,time:$('#checkingday').datebox('getValue')};
                     var succ=function(data){
                         success(data);
                     };

@@ -14,7 +14,7 @@ define(function () {
             url:'maintain/getregistedperson',
             remoteSort: false,
             rowStyler: function(index,row){
-                if (row.isinto == 0){
+                if (row.status == 0){
                     return 'color:#857E7E;font-weight:bold;';
                 }else{
                     return 'color:green;font-weight:bold;';
@@ -25,7 +25,7 @@ define(function () {
             onRowContextMenu:function(e, rowIndex, rowData){
                 e.preventDefault();
                 $(this).datagrid('selectRow',rowIndex);
-                if(rowData.isinto>0){
+                if(rowData.status>0){
                     $('#groupscheckitemmenu .outcheck').show();
                     $('#groupscheckitemmenu .intocheck').hide();
                     $('#groupscheckitemmenu .selectpackage').hide();
@@ -79,6 +79,8 @@ define(function () {
                 var options = $('#groupscheckeditems').datagrid('options');
                 var selected=$('#groupsregistedperson').datagrid('getSelected');
                 if(selected)params.relationid=selected.relationid;
+                console.log(options);
+                console.log(selected);
 
                 params.start = (options.pageNumber - 1) * options.pageSize;
                 params.limit = options.pageSize;

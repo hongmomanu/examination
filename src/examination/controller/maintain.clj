@@ -64,6 +64,17 @@
 
   )
 
+(defn getcheckingitems [start limit  totalname rowsname blh_no keyword ]
+  (let [
+         results (db/getcheckingitemnums start limit  keyword blh_no )
+
+         nums    (:counts (first (db/getcheckingitemnums keyword blh_no )))
+         ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+
+  )
+
 (defn getcheckitemsbypid [id]
   (resp/json (db/getitemidbypackage id))
   )
@@ -86,7 +97,7 @@
          results (db/getregistedperson start limit keyword now isunit)
          test (println results)
          res (map #(conj {:itemnums (:counts (first (db/getafterRegistnums (:relationid %))))
-                          :isinto (count (db/getchargeDetailbyblhno now (:blh_no %)))} %) results)
+                          } %) results)
          nums  (:counts (first (db/getregistedpersonnums keyword now isunit)))
         ]
     (resp/json (assoc {} rowsname res totalname nums))
@@ -99,7 +110,8 @@
          items (db/getregistedcheckitems 0 10000 nil relationid)
          ]
     (db/updatepation {:times (- timenow 1)} (:id  pation))
-    (db/outcheck (:check_date pation) (:blh_no pation))
+    ;(db/outcheck (:check_date pation) (:blh_no pation))
+    (db/updateregistRelation {:status 0} relationid)
     (resp/json {:success true})
     )
 
@@ -110,10 +122,11 @@
   (let [
          pation (first (db/getregistedpersonbyid relationid))
          timenow (if(nil?(:times pation)) 0 (:times pation))
-         items (db/getregistedcheckitems 0 10000 nil relationid)
+         ;items (db/getregistedcheckitems 0 10000 nil relationid)
          ]
+    (db/updateregistRelation {:status 1} relationid)
       (db/updatepation {:times (+ timenow 1)} (:id  pation))
-    (dorun (map #(db/addnewintocheck {
+    #_(dorun (map #(db/addnewintocheck {
                                  :times  (+ timenow 1)
                                  :itemcode (:itemcode %)
                                  :itemname  (:itemname %)
@@ -213,8 +226,8 @@
   (resp/json (assoc {} rowsname [{:itemname 1111 :ck true :id 1}] totalname 1))
   )
 
-(defn getpation [keyword]
-  (resp/json (db/getpation keyword))
+(defn getpation [keyword isunit]
+  (resp/json (db/getpation keyword (json/read-str isunit)))
   )
 
 (defn delitem [itemid]

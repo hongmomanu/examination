@@ -67,6 +67,9 @@
   (POST "/maintain/getregistedcheckitems" [start limit  totalname rowsname keyword relationid]
     (maintain/getregistedcheckitems start limit  totalname rowsname keyword relationid))
 
+  (POST "/maintain/getcheckingitems" [start limit  totalname rowsname blh_no keyword ]
+    (maintain/getcheckingitems start limit  totalname rowsname blh_no keyword ))
+
   (POST "/maintain/addcheckitemsbyrid" [relationid items]
     (maintain/addrelationitems relationid items)
     )
@@ -98,8 +101,8 @@
   (POST "/maintain/addnewcontrolitem" [type  title content]
     (maintain/addnewcontrolitem type  title content))
 
-  (POST "/maintain/getpation" [keyword]
-    (maintain/getpation keyword))
+  (POST "/maintain/getpation" [keyword isunit ]
+    (maintain/getpation keyword isunit ))
 (POST "/maintain/addpation" [blh_no name sex marry address telephone
                              email birthday unitname duty title checkday isunit unitid groupid]
     (maintain/addpation blh_no name sex marry address telephone

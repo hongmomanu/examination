@@ -22,7 +22,7 @@ define(function () {
             url:'maintain/getregistedperson',
             remoteSort: false,
             rowStyler: function(index,row){
-                if (row.isinto == 0){
+                if (row.status == 0){
                     return 'color:#857E7E;font-weight:bold;';
                 }else{
                     return 'color:green;font-weight:bold;';
@@ -33,7 +33,7 @@ define(function () {
             onRowContextMenu:function(e, rowIndex, rowData){
                 e.preventDefault();
                 $(this).datagrid('selectRow',rowIndex);
-                if(rowData.isinto>0){
+                if(rowData.status>0){
                     $('#checkitemmenu .outcheck').show();
                     $('#checkitemmenu .intocheck').hide();
                     $('#checkitemmenu .selectpackage').hide();
@@ -109,6 +109,7 @@ define(function () {
             require(['js/commonfuncs/AjaxForm.js']
                 ,function(ajaxfrom){
                     var params={keyword:q};
+                    params.isunit= $.toJSON([0]);
                     var succ=function(data){
                         success(data);
                     };

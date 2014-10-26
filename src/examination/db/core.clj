@@ -181,9 +181,11 @@
     )
 
   )
-(defn getpation [keyword]
+(defn getpation [keyword isunit]
   (select patientMainIndex
-    (where {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where (and {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             {:isunit [in is]}
+             ))
     )
 
   )
@@ -288,7 +290,7 @@
 
   )
 
-(defn getcheckingitems [start limits keyword blh_no]
+(defn getcheckingitems [start limits chec blh_no]
   (select chargeDetail
     (with checkitem
       (fields :itemname :price )
@@ -304,7 +306,7 @@
     )
 
   )
-(defn getcheckingitemnums [start limits keyword blh_no]
+(defn getcheckingitemnums [keyword blh_no]
   (select chargeDetail
     (where (and {:blh_no blh_no}
              ;{:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
@@ -338,9 +340,9 @@
 (defn getregistedperson [start limits keyword now isunit]
 
   (select registRelation
-    (fields [:id :relationid])
+    (fields [:id :relationid] :status)
     (with patientMainIndex
-      (fields :id :blh_no :name :sex)
+      (fields :id :blh_no :name :sex :address)
       (where (and
                {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
                {:isunit isunit}
@@ -355,6 +357,12 @@
 (defn addRegistRelation [pationid check_date]
   (insert registRelation
     (values {:pation_no pationid :check_date check_date})
+    )
+  )
+(defn updateregistRelation [fields relationid]
+  (update registRelation
+    (set-fields fields)
+    (where {:id relationid})
     )
   )
 (defn getrelationbypationid [pationid check_date]

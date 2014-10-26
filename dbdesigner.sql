@@ -314,6 +314,7 @@ CREATE TABLE IF NOT EXISTS registRelation
 (
   id              INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
   pation_no       integer ,        ---病人内码
+  status          int default(0),  --  是否进进入体检室 . 1: 是, 0: 否.
   DATETIME        DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
   check_date     DEFAULT (date('now', 'localtime'))  --   选择日期
 
@@ -337,7 +338,7 @@ CREATE TABLE IF NOT EXISTS beforeRegist
 
 
 
-
+--alter table registRelation add column status  int default(0);
 
 
 
