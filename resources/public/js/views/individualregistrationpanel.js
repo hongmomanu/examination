@@ -63,6 +63,7 @@ define(function () {
                 params.limit = options.pageSize;
                 params.totalname = "total";
                 params.isunit=0;
+                params.isinto=$.toJSON([0,1]);
                 params.rowsname = "rows";
             },
             onSelect:function(index, rowData){

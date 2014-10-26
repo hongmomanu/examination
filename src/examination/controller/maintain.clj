@@ -29,9 +29,9 @@
 (defn getitemdetailnums [itemid]
   (:counts (first (db/getitemdetailnums itemid)))
   )
-(defn getunits [start limit  totalname rowsname keyword]
-  (let [results (db/getunits start limit keyword )
-        nums  (:counts (first (db/getunitnums keyword)))
+(defn getunits [start limit  totalname rowsname keywords]
+  (let [results (db/getunits start limit keywords )
+        nums  (:counts (first (db/getunitnums keywords)))
         ]
     (resp/json (assoc {} rowsname results totalname nums))
     )
@@ -53,22 +53,22 @@
 
   )
 
-(defn getregistedcheckitems [start limit  totalname rowsname keyword relationid]
+(defn getregistedcheckitems [start limit  totalname rowsname keywords relationid]
   (let [
-         results (db/getregistedcheckitems start limit keyword relationid)
+         results (db/getregistedcheckitems start limit keywords relationid)
 
-         nums    (:counts (first (db/getregistedcheckitemnums keyword relationid)))
+         nums    (:counts (first (db/getregistedcheckitemnums keywords relationid)))
          ]
     (resp/json (assoc {} rowsname results totalname nums))
     )
 
   )
 
-(defn getcheckingitems [start limit  totalname rowsname blh_no keyword ]
+(defn getcheckingitems [start limit  totalname rowsname blh_no keywords ]
   (let [
-         results (db/getcheckingitemnums start limit  keyword blh_no )
+         results (db/getcheckingitemnums start limit  keywords blh_no )
 
-         nums    (:counts (first (db/getcheckingitemnums keyword blh_no )))
+         nums    (:counts (first (db/getcheckingitemnums keywords blh_no )))
          ]
     (resp/json (assoc {} rowsname results totalname nums))
     )
@@ -90,15 +90,16 @@
      (resp/json {:success true})
      )
   )
-(defn getregistedperson [start limit  totalname rowsname  isunit keyword]
+(defn getregistedperson [start limit  totalname rowsname  isunit  isinto keywords]
   (let [
          custom-formatter (f/formatter "yyyy-MM-dd")
          now (f/unparse custom-formatter (l/local-now))
-         results (db/getregistedperson start limit keyword now isunit)
+         isinto (json/read-str isinto)
+         results (db/getregistedperson start limit keywords now isunit isinto)
          test (println results)
          res (map #(conj {:itemnums (:counts (first (db/getafterRegistnums (:relationid %))))
                           } %) results)
-         nums  (:counts (first (db/getregistedpersonnums keyword now isunit)))
+         nums  (:counts (first (db/getregistedpersonnums keywords now isunit isinto)))
         ]
     (resp/json (assoc {} rowsname res totalname nums))
     )
@@ -194,40 +195,40 @@
 
   )
 
-(defn getsuggests [start limit  totalname rowsname deptid keyword]
-  (let [results (db/getsuggests start limit deptid keyword)
-        nums  (:counts (first (db/getsuggestnums deptid keyword)))
+(defn getsuggests [start limit  totalname rowsname deptid keywords]
+  (let [results (db/getsuggests start limit deptid keywords)
+        nums  (:counts (first (db/getsuggestnums deptid keywords)))
         ]
     (resp/json (assoc {} rowsname results totalname nums))
     )
   )
 
-(defn getpackages [start limit  totalname rowsname keyword]
-  (let [results (db/getpackages start limit keyword )
-        nums  (:counts (first (db/getpackagenums keyword)))
+(defn getpackages [start limit  totalname rowsname keywords]
+  (let [results (db/getpackages start limit keywords )
+        nums  (:counts (first (db/getpackagenums keywords)))
         ]
     (resp/json (assoc {} rowsname results totalname nums))
     )
   )
-(defn getunitmembers [id start limit  totalname rowsname keyword]
-  (let [results (db/getunitmembers id start limit keyword )
-        nums  (:counts (first (db/getunitmembernums id keyword)))
+(defn getunitmembers [id start limit  totalname rowsname keywords]
+  (let [results (db/getunitmembers id start limit keywords )
+        nums  (:counts (first (db/getunitmembernums id keywords)))
         ]
     (resp/json (assoc {} rowsname results totalname nums))
     )
   )
 
-(defn getpackageitems [id start limit  totalname rowsname keyword]
-  #_(let [results (db/getunitmembers id start limit keyword )
-        nums  (:counts (first (db/getunitmembernums id keyword)))
+(defn getpackageitems [id start limit  totalname rowsname keywords]
+  #_(let [results (db/getunitmembers id start limit keywords )
+        nums  (:counts (first (db/getunitmembernums id keywords)))
         ]
     (resp/json (assoc {} rowsname results totalname nums))
     )
   (resp/json (assoc {} rowsname [{:itemname 1111 :ck true :id 1}] totalname 1))
   )
 
-(defn getpation [keyword isunit]
-  (resp/json (db/getpation keyword (json/read-str isunit)))
+(defn getpation [keywords isunit]
+  (resp/json (db/getpation keywords (json/read-str isunit)))
   )
 
 (defn delitem [itemid]

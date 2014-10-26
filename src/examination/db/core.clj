@@ -181,10 +181,11 @@
     )
 
   )
-(defn getpation [keyword isunit]
+(defn getpation [keywords isunit]
+  (println isunit keywords)
   (select patientMainIndex
-    (where (and {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
-             {:isunit [in is]}
+    (where (and {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
+             {:isunit [in isunit]}
              ))
     )
 
@@ -215,28 +216,28 @@
     )
   )
 
-(defn getusers [start limits keyword]
+(defn getusers [start limits keywords]
   (select users
 
     (fields :username :password :id :roleid :time :displayname :usercode :deptids)
     (with roles
       (fields :rolename )
       )
-    (where {:username [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:username [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (limit limits)
     (offset start))
   )
-(defn getunits [start limits keyword]
+(defn getunits [start limits keywords]
   (select examinationUnit
-    (where {:unitname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:unitname [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (limit limits)
     (offset start))
   )
 
 
-(defn getunitgroupperson [ start limits  keyword fields downbirth upbirth]
+(defn getunitgroupperson [ start limits  keywords fields downbirth upbirth]
   (select examinationMember
-    (where (and {:cardnum [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+    (where (and {:cardnum [like (str "%" (if (nil? keywords)"" keywords) "%")]}
                 fields
              {:birthday [<= downbirth]}
              {:birthday [>= upbirth]}
@@ -245,10 +246,10 @@
     (offset start))
   )
 
-(defn getunitgrouppersonnums [keyword fields downbirth upbirth]
+(defn getunitgrouppersonnums [keywords fields downbirth upbirth]
 
   (select examinationMember
-    (where (and {:cardnum [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+    (where (and {:cardnum [like (str "%" (if (nil? keywords)"" keywords) "%")]}
              fields
              {:birthday [<= downbirth]}
              {:birthday [>= upbirth]}
@@ -270,7 +271,7 @@
     )
   )
 
-(defn getregistedcheckitems [start limits keyword relationid]
+(defn getregistedcheckitems [start limits keywords relationid]
   (select afterRegist
     (with checkitem
       (fields :itemname :price [:id :itemcode])
@@ -282,7 +283,7 @@
       (fields :packagename)
       )
     (where (and {:relationid relationid}
-             ;;{:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             ;;{:itemname [like (str "%" (if (nil? keywords)"" keywords) "%")]}
              ))
     (limit limits)
     (offset start)
@@ -299,17 +300,17 @@
         )
       )
     (where (and {:blh_no blh_no}
-             ;;{:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             ;;{:itemname [like (str "%" (if (nil? keywords)"" keywords) "%")]}
              ))
     (limit limits)
     (offset start)
     )
 
   )
-(defn getcheckingitemnums [keyword blh_no]
+(defn getcheckingitemnums [keywords blh_no]
   (select chargeDetail
     (where (and {:blh_no blh_no}
-             ;{:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             ;{:itemname [like (str "%" (if (nil? keywordss)"" keywords) "%")]}
              ))
     (aggregate (count :id) :counts)
     )
@@ -337,18 +338,25 @@
     (values fields)
     )
   )
-(defn getregistedperson [start limits keyword now isunit]
+(defn getregistedperson [start limits keywords now isunit isinto]
 
   (select registRelation
     (fields [:id :relationid] :status)
     (with patientMainIndex
-      (fields :id :blh_no :name :sex :address)
+      (fields :id :blh_no :name :sex :address :birthday)
       (where (and
-               {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+               {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
                {:isunit isunit}
+               
                ))
       )
-    (where {:check_date now} )
+    (where (and {:check_date now}
+              {:status [in isinto]}
+
+      ) 
+          
+
+      )
     (limit limits)
     (offset start)
     )
@@ -373,33 +381,38 @@
              ))
     )
   )
-(defn getregistedcheckitemnums [keyword relationid]
+(defn getregistedcheckitemnums [keywords relationid]
   (select afterRegist
     (where (and {:relationid relationid}
-             ;{:itemname [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             ;{:itemname [like (str "%" (if (nil? keywords)"" keywords) "%")]}
              ))
     (aggregate (count :id) :counts)
     )
   )
 
-(defn getregistedpersonnums [ keyword now isunit]
+(defn getregistedpersonnums [ keywords now isunit isinto]
 
   (select registRelation
     (with patientMainIndex
       (where (and
-               {:blh_no [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+               {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
                {:isunit isunit}
+               
                ))
       )
-    (where {:check_date now} )
+    (where (and 
+          {:check_date now} 
+          {:status [in isinto]}
+
+      ))
     (aggregate (count :id) :counts)
 
     )
   )
-(defn getsuggests [start limits deptid keyword]
+(defn getsuggests [start limits deptid keywords]
   (select deptCustomDescript
     (where (and
-             {:name [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             {:name [like (str "%" (if (nil? keywords)"" keywords) "%")]}
              {:deptid deptid}
              ))
     (limit limits)
@@ -446,15 +459,15 @@
     (values {:packageid packageid :itemcode itemid})
     )
   )
-(defn getpackages [start limits keyword]
+(defn getpackages [start limits keywords]
   (select examinationPackage
-    (where {:packagename [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:packagename [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (limit limits)
     (offset start))
   )
-(defn getunitmembers [id start limits keyword]
+(defn getunitmembers [id start limits keywords]
   (select examinationMember
-    (where (and {:membername [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+    (where (and {:membername [like (str "%" (if (nil? keywords)"" keywords) "%")]}
              {:unitid id}
              )
 
@@ -462,12 +475,12 @@
     (limit limits)
     (offset start))
   )
-(defn getdepts [start limits keyword]
+(defn getdepts [start limits keywords]
   (select checkdept
 
     (fields :deptname :depttype :id :pycode  )
 
-    (where {:deptname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:deptname [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (limit limits)
     (offset start))
   )
@@ -498,32 +511,32 @@
     )
   )
 
-(defn getenumskey [keyword ]
+(defn getenumskey [keywords ]
   (select enumerate
-    (where {:enumeratetype [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:enumeratetype [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     )
   )
-(defn getenums [keyword start limits]
+(defn getenums [keywords start limits]
   (select enumerate
-    (where {:enumeratetype [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:enumeratetype [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (limit limits)
     (offset start))
   )
-(defn getroles [keyword start limits]
+(defn getroles [keywords start limits]
 
   (select roles
-    (where {:rolename [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:rolename [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (limit limits)
     (offset start))
 
   )
-(defn getlogs [keyword start limits bgtime edtime]
+(defn getlogs [keywords start limits bgtime edtime]
 
   (select systemlog
     (with users
       (fields :username )
       )
-    (where (and {:logcontent [like (str "%" (if (nil? keyword)"" keyword) "%")]
+    (where (and {:logcontent [like (str "%" (if (nil? keywords)"" keywords) "%")]
                  }
              {:time [>= (sqlfn timestamp bgtime)]}
              {:time [<= (sqlfn timestamp edtime)]}
@@ -546,17 +559,17 @@
     )
 
   )
-(defn getenumnums [keyword]
+(defn getenumnums [keywords]
 
   (select enumerate
-    (where {:enumeratetype [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:enumeratetype [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (aggregate (count :id) :counts)
     )
   )
-(defn getrolenums [keyword]
+(defn getrolenums [keywords]
 
   (select roles
-    (where {:rolename [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:rolename [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (aggregate (count :id) :counts)
     )
   )
@@ -628,10 +641,10 @@
     )
   )
 
-(defn getlognums [keyword bgtime edtime]
+(defn getlognums [keywords bgtime edtime]
 
   (select systemlog
-    (where (and {:logcontent [like (str "%" (if (nil? keyword)"" keyword) "%")]
+    (where (and {:logcontent [like (str "%" (if (nil? keywords)"" keywords) "%")]
                  }
              {:time [>= (sqlfn timestamp bgtime)]}
              {:time [<= (sqlfn timestamp edtime)]}
@@ -639,28 +652,28 @@
     (aggregate (count :id) :counts)
     )
   )
-(defn getusernums [keyword]
+(defn getusernums [keywords]
   (select users
-    (where {:username [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:username [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (aggregate (count :id) :counts)
     )
   )
-(defn getpackagenums [keyword]
+(defn getpackagenums [keywords]
   (select examinationPackage
-    (where {:packagename [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:packagename [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (aggregate (count :id) :counts)
     )
   )
-(defn getunitnums [keyword]
+(defn getunitnums [keywords]
   (select examinationUnit
-    (where {:unitname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:unitname [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (aggregate (count :id) :counts)
     )
   )
-(defn getsuggestnums [deptid keyword]
+(defn getsuggestnums [deptid keywords]
   (select deptCustomDescript
     (where (and
-             {:name [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+             {:name [like (str "%" (if (nil? keywords)"" keywords) "%")]}
              {:deptid deptid}
              )
       )
@@ -668,18 +681,18 @@
 
   ))
 
-(defn getunitmembernums [id keyword ]
+(defn getunitmembernums [id keywords ]
   (select examinationMember
-    (where (and {:membername [like (str "%" (if (nil? keyword)"" keyword) "%")]}
+    (where (and {:membername [like (str "%" (if (nil? keywords)"" keywords) "%")]}
              {:unitid id}
              ))
     (aggregate (count :id) :counts)
     )
   )
 
-(defn getdeptnums [keyword]
+(defn getdeptnums [keywords]
   (select checkdept
-    (where {:deptname [like (str "%" (if (nil? keyword)"" keyword) "%")]})
+    (where {:deptname [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (aggregate (count :id) :counts)
     )
   )

@@ -31,7 +31,7 @@ define(function () {
 
             },
             onClickRow: function (rowData) {
-                console.log(rowData);
+                //console.log(rowData);
                 if (rowData._parentId == undefined) {
 
                 } else if (rowData._parentId == 0) {
