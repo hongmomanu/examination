@@ -73,6 +73,9 @@
   (POST "/maintain/addcheckitemsbyrid" [relationid items]
     (maintain/addrelationitems relationid items)
     )
+  (POST "/maintain/addcheckingitemsbyrid" [relationid items]
+    (maintain/addrelationnewtems relationid items)
+    )
 
 
 

@@ -35,6 +35,8 @@ define(function () {
                         ,function(ajaxfrom){
                             for(var i=0;i<inserted.length;i++){
                                 inserted[i].relationid=isblh_select;
+                               delete inserted[i].deptname;
+                               delete inserted[i].itemname;
                             }
                             var success=function(){
                                 $.messager.alert('操作成功','成功!');
@@ -46,8 +48,8 @@ define(function () {
                                 $.messager.alert('操作失败','失败!');
                             };
                             console.log(inserted);
-                            var params= {packages:$.toJSON(inserted)};
-                            ajaxfrom.ajaxsend('post','json','maintain/addcheckitemsbyrid',params,success,null,errorfunc)
+                            var params= {items:$.toJSON(inserted),relationid:isblh_select};
+                            ajaxfrom.ajaxsend('post','json','maintain/addcheckingitemsbyrid',params,success,null,errorfunc)
 
                         });
                 }

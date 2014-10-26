@@ -6,6 +6,8 @@
 
     )
   (:use compojure.core)
+  (:use korma.core
+        [korma.db :only [transaction with-db]])
 
 
 
@@ -84,8 +86,28 @@
           checkitems (json/read-str items :key-fn keyword)
 
           ]
-       (db/delregistedcheckitem relationid)
-       (db/addregistedcheckitem checkitems)
+     (with-db db/sqlitedb (transaction
+
+         (db/delregistedcheckitem relationid)
+           (db/addregistedcheckitem checkitems)
+
+       )
+       )
+
+
+
+     (resp/json {:success true})
+     )
+  )
+
+(defn addrelationnewtems [relationid items]
+   (let [
+
+          checkitems (json/read-str items :key-fn keyword)
+
+          ]
+
+           (db/addregistedcheckitem checkitems)
 
      (resp/json {:success true})
      )
