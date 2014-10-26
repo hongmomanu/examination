@@ -3,6 +3,117 @@ define(function () {
 
 
     function render(parameters) {
+        var editIndex = undefined;
+        var endEditing=function (){
+            if (editIndex == undefined){return true}
+            if ($('#checkingitems').datagrid('validateRow', editIndex)){
+                /* var ed = $('#packagemanagerpaneldetail').datagrid('getEditor', {index:editIndex,field:'productid'});
+                 var productname = $(ed.target).combobox('getText');
+                 $('#packagemanagerpaneldetail').datagrid('getRows')[editIndex]['productname'] = productname;*/
+                $('#checkingitems').datagrid('endEdit', editIndex);
+                //editIndex = undefined;
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+        var removeit=function (){
+            if (editIndex == undefined){return}
+            $('#checkingitems').datagrid('cancelEdit', editIndex)
+                .datagrid('deleteRow', editIndex);
+            editIndex = undefined;
+        }
+        var accept=function (){
+            if (endEditing()){
+                var inserted=$('#checkingitems').datagrid('getChanges','inserted');
+                var deleted=$('#checkingitems').datagrid('getChanges','deleted');
+                var updated=$('#checkingitems').datagrid('getChanges','updated');
+                if(inserted.length>0){
+                    require(['js/commonfuncs/AjaxForm.js']
+                        ,function(ajaxfrom){
+                            for(var i=0;i<inserted.length;i++){
+                                inserted[i].relationid=isblh_select;
+                            }
+                            var success=function(){
+                                $.messager.alert('操作成功','成功!');
+                                $('#checkingitems').datagrid('acceptChanges');
+                                editIndex=undefined;
+                                $('#checkingitems').datagrid('reload');
+                            };
+                            var errorfunc=function(){
+                                $.messager.alert('操作失败','失败!');
+                            };
+                            console.log(inserted);
+                            var params= {packages:$.toJSON(inserted)};
+                            ajaxfrom.ajaxsend('post','json','maintain/addcheckingitems',params,success,null,errorfunc)
+
+                        });
+                }
+
+                if(updated.length>0){
+                    require(['js/commonfuncs/AjaxForm.js']
+                        ,function(ajaxfrom){
+
+                            var success=function(){
+                                $.messager.alert('操作成功','成功!');
+                                $('#checkingitems').datagrid('acceptChanges');
+                                editIndex=undefined;
+                                $('#checkingitems').datagrid('reload');
+                            };
+                            var errorfunc=function(){
+                                $.messager.alert('操作失败','失败!');
+                            };
+                            var params= {packages:$.toJSON(updated)};
+                            ajaxfrom.ajaxsend('post','json','maintain/editcheckingitems',params,success,null,errorfunc);
+
+                        });
+
+                }
+
+                if(deleted.length>0){
+                    require(['js/commonfuncs/AjaxForm.js']
+                        ,function(ajaxfrom){
+
+                            var success=function(){
+                                $.messager.alert('操作成功','成功!');
+                                $('#checkingitems').datagrid('acceptChanges');
+                                editIndex=undefined;
+                                $('#checkingitems').datagrid('reload');
+                            };
+                            var errorfunc=function(){
+                                $.messager.alert('操作失败','失败!');
+                            };
+                            var params= {packages:$.toJSON(deleted)};
+                            ajaxfrom.ajaxsend('post','json','maintain/delcheckingitems',params,success,null,errorfunc);
+
+                        });
+
+                }
+
+
+                //console.log(inserted);
+                //console.log(deleted);
+                //console.log(updated);
+
+
+            }
+        }
+        var reject =function (){
+            $('#checkingitems').datagrid('rejectChanges');
+            editIndex = undefined;
+        }
+        function getChanges(){
+            var rows = $('#checkingitems').datagrid('getChanges');
+            alert(rows.length+' rows are changed!');
+        }
+
+
+
+        $('#altercheckingitempanel .tabletoolbar').find('.del').click(removeit);
+        $('#altercheckingitempanel .tabletoolbar').find('.save').click(accept);
+        $('#altercheckingitempanel .tabletoolbar').find('.undo').click(reject);
 
       var isblh_select=false;  
 
@@ -38,11 +149,17 @@ define(function () {
             },
             onClick: function (node) {
                 if(isblh_select&&$(this).tree('isLeaf',node.target)){
-                    console.log(node);
+
                     if(!isexsits(node,$('#checkingitems').datagrid('getRows'))){
-                        node.deptname=$(this).tree('getParent',node.target).value;
-                        node.itemcode=node.nodeid;
-                       $('#checkingitems').datagrid('appendRow',{})     
+                        var rowdata={
+                            deptname:$(this).tree('getParent',node.target).value,
+                            itemcode:node.nodeid,
+                            itemname:node.value,
+                            status:node.finish
+
+                        }
+
+                       $('#checkingitems').datagrid('appendRow',rowdata) ;
                     }
                 }
                 
@@ -56,7 +173,7 @@ define(function () {
 
             var flag=false;
             for(var i=0;i<rowdata.length;i++){
-                if(node.nodeid==rowdata.itemcode){
+                if(node.nodeid==rowdata[i].itemcode){
                     flag=true;
                     break;
                 }
@@ -95,7 +212,7 @@ define(function () {
         var blhselect=function(record){
             $('#altercheckingration').form('load',record);
             $('#checkingitems').datagrid('load',{relationid:record.relationid});
-            isblh_select=true;
+            isblh_select=record.relationid;
         };
         var myloader = function(param,success,error){
             var q = param.q || '';
