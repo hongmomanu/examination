@@ -47,7 +47,7 @@ define(function () {
                             };
                             console.log(inserted);
                             var params= {packages:$.toJSON(inserted)};
-                            ajaxfrom.ajaxsend('post','json','maintain/addcheckingitems',params,success,null,errorfunc)
+                            ajaxfrom.ajaxsend('post','json','maintain/addcheckitemsbyrid',params,success,null,errorfunc)
 
                         });
                 }
