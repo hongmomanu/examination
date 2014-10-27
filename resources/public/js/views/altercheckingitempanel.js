@@ -251,40 +251,9 @@ define(function () {
             var value=b.find('.search').val();
             $('#altercheckingitempanel .itemgrid').datagrid('load',{keywords:value});
         });
-        /*$('#altercheckingitempanel .itemgrid').datagrid({
-            onClickRow:function(index,rowData){
-                console.log(index);
-            }
-        });*/
-
-        /* $('#altercheckingitempanel .itemgrid').datagrid({
-             singleSelect: true,
-             collapsible: true,
-             rownumbers: true,
-             method:'post',
-             url:'maintain/getallcheckitems',
-             remoteSort: false,
-             fitColumns:true,
-             fit:true,
-             //toolbar:'#enumpaneltb',
-             pagination:true,
-             pageSize:10,
-             onBeforeLoad: function (params) {
-                 var options =$(this).datagrid('options');
-                 params.start = (options.pageNumber - 1) * options.pageSize;
-                 params.limit = options.pageSize;
-                 params.totalname = "total";
-                 params.rowsname = "rows";
-             },
-             onClickRow:function(index, rowData){
-                   alert(1);
-             }
-
-         });*/
-
 
         var blhselect=function(record){
-            $('#altercheckingration').form('load',record);
+            $('#altercheckingitempanel .altercheckingration').form('load',record);
             $('#altercheckingitempanel .checkingitems').datagrid('load',{relationid:record.relationid});
             isblh_select=record.relationid;
         };
@@ -296,7 +265,7 @@ define(function () {
                 ,function(ajaxfrom){
                     var params={
                         keyword: q,
-                        time:$('#checkingday').datebox('getValue'),
+                        time:$('#altercheckingitempanel .checkingday').datebox('getValue'),
                         start:0,
                         limit:20,
                         isunit:0,
@@ -317,9 +286,9 @@ define(function () {
 
         }
         var date=new Date();
-        $('#checkingday').datebox('setValue', date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
+        $('#altercheckingitempanel .checkingday').datebox('setValue', date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
 
-        $('#checkingpationblhno').combobox({
+        $('#altercheckingitempanel .checkingpationblhno').combobox({
             required:true,
             hasDownArrow:false,
             loader: myloader,
@@ -331,18 +300,7 @@ define(function () {
         });
 
 
-        $('#checkitemmenu .selectpackage').click(function(e){
-            if($('#packagechoosewin').length>0){
-                $('#packagechoosewin').dialog('open');
-            }else{
-                require(['text!views/packagechoose.htm','views/packagechoose'],
-                    function(div,packagechoosewin){
-                        $('body').append(div);
-                        $.parser.parse('#packagechoosewin');
-                        packagechoosewin.render();
-                    });
-            }
-        });
+
 
 
     }
