@@ -89,7 +89,7 @@
             <div data-options="region:'south',split:true,collapsible:false" style="height: 40%">
 
 
-                    <table id="checkingitems" class="formtable">
+                    <table class="checkingitems">
                         <thead>
                         <tr>
                             <th data-options="field:'itemname',width:100">项目名称</th>
@@ -126,12 +126,32 @@
     </div>
 
     
-    <div data-options="region:'center',title:'项目选择',iconCls:'icon-ok'" style="padding:10px;width: 30%;" class="easyui-tabs" style="width:30%;">
-        <div title="按科室选择" style="width:100%;height:100%">
+    <div data-options="region:'center',title:'项目选择',iconCls:'icon-ok',fit:true" style="padding:10px;width: 30%;height: 100%;" class="easyui-tabs"  style="width:30%;">
+        <div title="按科室选择">
             <ul class="itemtree" style="width: 100%" ></ul>
         </div>
-        <div title="按项目选择" style="width:100%;height:100%">
-            <table class="itemgrid">
+        <div title="按项目选择">
+            <table class="easyui-datagrid "  data-options="singleSelect: true,
+            collapsible: true,
+            rownumbers: true,
+            method:'post',
+            url:'maintain/getallcheckitems',
+            remoteSort: false,
+            fitColumns:true,
+            //fit:true,
+            //toolbar:'#enumpaneltb',
+            pagination:true,
+            pageSize:10,
+            onBeforeLoad: function (params) {
+                var options =$(this).datagrid('options');
+                params.start = (options.pageNumber - 1) * options.pageSize;
+                params.limit = options.pageSize;
+                params.totalname = 'total';
+            params.rowsname = 'rows';
+            },
+            onClickRow:function(index, rowData){
+
+            }">
                 <thead>
                 <tr>
                     <th data-options="field:'deptname',width:80">科室</th>

@@ -21,6 +21,10 @@
   (POST "/maintain/getcheckitemsbypid" [id]
     (maintain/getcheckitemsbypid id)
     )
+
+  (POST "/maintain/getallcheckitems" [start limit  totalname rowsname keywords]
+    (maintain/getallcheckitems start limit  totalname rowsname keywords)
+    )
   (POST "/maintain/getunitgroupperson" [start limit  totalname rowsname keyword fields downbirth upbirth]
     (maintain/getunitgroupperson start limit  totalname rowsname keyword fields downbirth upbirth)
     )
@@ -75,6 +79,10 @@
     )
   (POST "/maintain/addcheckingitemsbyrid" [relationid items]
     (maintain/addrelationnewtems relationid items)
+    )
+
+  (POST "/maintain/delcheckingitemsbyrid" [ids]
+    (maintain/delcheckingitemsbyrid ids)
     )
 
 

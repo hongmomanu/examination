@@ -217,6 +217,15 @@
 
   )
 
+(defn getallcheckitems [start limit  totalname rowsname keywords]
+  (let [results (db/getallcheckitems start limit  keywords)
+        nums  (:counts (first (db/getallcheckitemnums keywords)))
+        ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+
+  )
+
 (defn getsuggests [start limit  totalname rowsname deptid keywords]
   (let [results (db/getsuggests start limit deptid keywords)
         nums  (:counts (first (db/getsuggestnums deptid keywords)))
@@ -262,6 +271,12 @@
 (defn delunitmembers [members]
   (let [items (json/read-str members :key-fn keyword)]
     (dorun (map #(db/delunitmember (:id %)) items))
+    (resp/json {:success true})
+    )
+  )
+(defn delcheckingitemsbyrid [ids]
+  (let [items (json/read-str ids :key-fn keyword)]
+    (dorun (map #(db/delrelationitems (:id %)) items))
     (resp/json {:success true})
     )
   )

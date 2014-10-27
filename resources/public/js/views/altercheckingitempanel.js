@@ -6,11 +6,11 @@ define(function () {
         var editIndex = undefined;
         var endEditing=function (){
             if (editIndex == undefined){return true}
-            if ($('#checkingitems').datagrid('validateRow', editIndex)){
+            if ($('#altercheckingitempanel .checkingitems').datagrid('validateRow', editIndex)){
                 /* var ed = $('#packagemanagerpaneldetail').datagrid('getEditor', {index:editIndex,field:'productid'});
                  var productname = $(ed.target).combobox('getText');
                  $('#packagemanagerpaneldetail').datagrid('getRows')[editIndex]['productname'] = productname;*/
-                $('#checkingitems').datagrid('endEdit', editIndex);
+                $('#altercheckingitempanel .checkingitems').datagrid('endEdit', editIndex);
                 //editIndex = undefined;
                 return true;
             } else {
@@ -20,16 +20,17 @@ define(function () {
 
 
         var removeit=function (){
-            if (editIndex == undefined){return}
-            $('#checkingitems').datagrid('cancelEdit', editIndex)
+            console.log(editIndex);
+            if (editIndex == undefined){return;}
+            $('#altercheckingitempanel .checkingitems').datagrid('cancelEdit', editIndex)
                 .datagrid('deleteRow', editIndex);
             editIndex = undefined;
         }
         var accept=function (){
             if (endEditing()){
-                var inserted=$('#checkingitems').datagrid('getChanges','inserted');
-                var deleted=$('#checkingitems').datagrid('getChanges','deleted');
-                var updated=$('#checkingitems').datagrid('getChanges','updated');
+                var inserted=$('#altercheckingitempanel .checkingitems').datagrid('getChanges','inserted');
+                var deleted=$('#altercheckingitempanel .checkingitems').datagrid('getChanges','deleted');
+                var updated=$('#altercheckingitempanel .checkingitems').datagrid('getChanges','updated');
                 if(inserted.length>0){
                     require(['js/commonfuncs/AjaxForm.js']
                         ,function(ajaxfrom){
@@ -40,9 +41,9 @@ define(function () {
                             }
                             var success=function(){
                                 $.messager.alert('操作成功','成功!');
-                                $('#checkingitems').datagrid('acceptChanges');
+                                $('#altercheckingitempanel .checkingitems').datagrid('acceptChanges');
                                 editIndex=undefined;
-                                $('#checkingitems').datagrid('reload');
+                                $('#altercheckingitempanel .checkingitems').datagrid('reload');
                             };
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','失败!');
@@ -60,9 +61,9 @@ define(function () {
 
                             var success=function(){
                                 $.messager.alert('操作成功','成功!');
-                                $('#checkingitems').datagrid('acceptChanges');
+                                $('#altercheckingitempanel .checkingitems').datagrid('acceptChanges');
                                 editIndex=undefined;
-                                $('#checkingitems').datagrid('reload');
+                                $('#altercheckingitempanel .checkingitems').datagrid('reload');
                             };
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','失败!');
@@ -80,15 +81,15 @@ define(function () {
 
                             var success=function(){
                                 $.messager.alert('操作成功','成功!');
-                                $('#checkingitems').datagrid('acceptChanges');
+                                $('#altercheckingitempanel .checkingitems').datagrid('acceptChanges');
                                 editIndex=undefined;
-                                $('#checkingitems').datagrid('reload');
+                                $('#altercheckingitempanel .checkingitems').datagrid('reload');
                             };
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','失败!');
                             };
-                            var params= {packages:$.toJSON(deleted)};
-                            ajaxfrom.ajaxsend('post','json','maintain/delcheckingitems',params,success,null,errorfunc);
+                            var params= {ids:$.toJSON(deleted)};
+                            ajaxfrom.ajaxsend('post','json','maintain/delcheckingitemsbyrid',params,success,null,errorfunc);
 
                         });
 
@@ -103,11 +104,11 @@ define(function () {
             }
         }
         var reject =function (){
-            $('#checkingitems').datagrid('rejectChanges');
+            $('#altercheckingitempanel .checkingitems').datagrid('rejectChanges');
             editIndex = undefined;
         }
         function getChanges(){
-            var rows = $('#checkingitems').datagrid('getChanges');
+            var rows = $('#altercheckingitempanel .checkingitems').datagrid('getChanges');
             alert(rows.length+' rows are changed!');
         }
 
@@ -152,7 +153,7 @@ define(function () {
             onClick: function (node) {
                 if(isblh_select&&$(this).tree('isLeaf',node.target)){
 
-                    if(!isexsits(node,$('#checkingitems').datagrid('getRows'))){
+                    if(!isexsits(node,$('#altercheckingitempanel .checkingitems').datagrid('getRows'))){
                         var rowdata={
                             deptname:$(this).tree('getParent',node.target).value,
                             itemcode:node.nodeid,
@@ -161,7 +162,7 @@ define(function () {
 
                         }
 
-                       $('#checkingitems').datagrid('appendRow',rowdata) ;
+                       $('#altercheckingitempanel .checkingitems').datagrid('appendRow',rowdata) ;
                     }
                 }
                 
@@ -185,7 +186,7 @@ define(function () {
         }
 
 
-        $('#checkingitems').datagrid({
+        $('#altercheckingitempanel .checkingitems').datagrid({
             singleSelect: true,
             collapsible: true,
             rownumbers: true,
@@ -199,21 +200,47 @@ define(function () {
             pagination:false,
             pageSize:300,
             onBeforeLoad: function (params) {
-                var options = $('#checkingitems').datagrid('options');
+                var options = $('#altercheckingitempanel .checkingitems').datagrid('options');
                 params.start = (options.pageNumber - 1) * options.pageSize;
                 params.limit = options.pageSize;
                 params.totalname = "total";
                 params.rowsname = "rows";
             },
             onClickRow:function(index, rowData){
-
+                editIndex=index;
             }
 
         });
 
+       /* $('#altercheckingitempanel .itemgrid').datagrid({
+            singleSelect: true,
+            collapsible: true,
+            rownumbers: true,
+            method:'post',
+            url:'maintain/getallcheckitems',
+            remoteSort: false,
+            fitColumns:true,
+            fit:true,
+            //toolbar:'#enumpaneltb',
+            pagination:true,
+            pageSize:10,
+            onBeforeLoad: function (params) {
+                var options =$(this).datagrid('options');
+                params.start = (options.pageNumber - 1) * options.pageSize;
+                params.limit = options.pageSize;
+                params.totalname = "total";
+                params.rowsname = "rows";
+            },
+            onClickRow:function(index, rowData){
+                  alert(1);
+            }
+
+        });*/
+
+
         var blhselect=function(record){
             $('#altercheckingration').form('load',record);
-            $('#checkingitems').datagrid('load',{relationid:record.relationid});
+            $('#altercheckingitempanel .checkingitems').datagrid('load',{relationid:record.relationid});
             isblh_select=record.relationid;
         };
         var myloader = function(param,success,error){

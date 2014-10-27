@@ -264,6 +264,11 @@
     )
 
   )
+(defn delrelationitems [id]
+  (delete afterRegist
+    (where {:id id})
+    )
+  )
 (defn delregistedcheckitem  [relationid]
 
   (delete afterRegist
@@ -483,6 +488,29 @@
     (where {:deptname [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (limit limits)
     (offset start))
+  )
+(defn getallcheckitems [start limits keywords]
+  (select checkitem
+    (fields :itemname :id :pycode :price )
+    (with checkdept
+      (fields :deptname)
+      )
+    (where (or {:pycode [like (str "%" (if (nil? keywords)"" keywords) "%")]}
+             {:itemname [like (str "%" (if (nil? keywords)"" keywords) "%")]}
+             )
+      )
+    (limit limits)
+    (offset start))
+  )
+
+(defn getallcheckitemnums [keywords]
+  (select checkitem
+    (where (or {:pycode [like (str "%" (if (nil? keywords)"" keywords) "%")]}
+             {:itemname [like (str "%" (if (nil? keywords)"" keywords) "%")]}
+             )
+      )
+    (aggregate (count :id) :counts)
+    )
   )
 
 (defn getcheckitem [deptid]
