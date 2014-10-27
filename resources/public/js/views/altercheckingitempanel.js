@@ -158,15 +158,11 @@ define(function () {
                             deptname:$(this).tree('getParent',node.target).value,
                             itemcode:node.nodeid,
                             itemname:node.value
-
                         }
 
                        $('#altercheckingitempanel .checkingitems').datagrid('appendRow',rowdata) ;
                     }
                 }
-                
-
-
             }
         });
 
