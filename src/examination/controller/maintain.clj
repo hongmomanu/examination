@@ -57,9 +57,9 @@
 
 (defn getregistedcheckitems [start limit  totalname rowsname keywords relationid]
   (let [
-         results (db/getregistedcheckitems start limit keywords relationid)
+         results (if(nil? relationid)[](db/getregistedcheckitems start limit keywords relationid))
 
-         nums    (:counts (first (db/getregistedcheckitemnums keywords relationid)))
+         nums    (if(nil? relationid)[](:counts (first (db/getregistedcheckitemnums keywords relationid))))
          ]
     (resp/json (assoc {} rowsname results totalname nums))
     )
