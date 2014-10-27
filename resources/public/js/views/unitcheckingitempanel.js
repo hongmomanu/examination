@@ -6,11 +6,11 @@ define(function () {
         var editIndex = undefined;
         var endEditing=function (){
             if (editIndex == undefined){return true}
-            if ($('#altercheckingitempanel .checkingitems').datagrid('validateRow', editIndex)){
+            if ($('#unitcheckingitempanel .checkingitems').datagrid('validateRow', editIndex)){
                 /* var ed = $('#packagemanagerpaneldetail').datagrid('getEditor', {index:editIndex,field:'productid'});
                  var productname = $(ed.target).combobox('getText');
                  $('#packagemanagerpaneldetail').datagrid('getRows')[editIndex]['productname'] = productname;*/
-                $('#altercheckingitempanel .checkingitems').datagrid('endEdit', editIndex);
+                $('#unitcheckingitempanel .checkingitems').datagrid('endEdit', editIndex);
                 //editIndex = undefined;
                 return true;
             } else {
@@ -22,35 +22,39 @@ define(function () {
         var removeit=function (){
             console.log(editIndex);
             if (editIndex == undefined){return;}
-            $('#altercheckingitempanel .checkingitems').datagrid('cancelEdit', editIndex)
+            $('#unitcheckingitempanel .checkingitems').datagrid('cancelEdit', editIndex)
                 .datagrid('deleteRow', editIndex);
             editIndex = undefined;
         }
         var accept=function (){
             if (endEditing()){
-                var inserted=$('#altercheckingitempanel .checkingitems').datagrid('getChanges','inserted');
-                var deleted=$('#altercheckingitempanel .checkingitems').datagrid('getChanges','deleted');
-                var updated=$('#altercheckingitempanel .checkingitems').datagrid('getChanges','updated');
+                var inserted=$('#unitcheckingitempanel .checkingitems').datagrid('getChanges','inserted');
+                var deleted=$('#unitcheckingitempanel .checkingitems').datagrid('getChanges','deleted');
+                var updated=$('#unitcheckingitempanel .checkingitems').datagrid('getChanges','updated');
                 if(inserted.length>0){
                     require(['js/commonfuncs/AjaxForm.js']
                         ,function(ajaxfrom){
+                            var rids=[];
+                            var rowdata=$('#unitcheckingitempanel .unitmembers').datagrid('getRows');
+                            for(var i=0;i<rowdata.length;i++){
+                                rids.push(rowdata[i].relationid);
+                            }
+
                             for(var i=0;i<inserted.length;i++){
-                                inserted[i].relationid=isblh_select;
                                delete inserted[i].deptname;
                                delete inserted[i].itemname;
                             }
                             var success=function(){
                                 $.messager.alert('操作成功','成功!');
-                                $('#altercheckingitempanel .checkingitems').datagrid('acceptChanges');
+                                $('#unitcheckingitempanel .checkingitems').datagrid('acceptChanges');
                                 editIndex=undefined;
-                                $('#altercheckingitempanel .checkingitems').datagrid('reload');
+                                $('#unitcheckingitempanel .checkingitems').datagrid('reload');
                             };
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','失败!');
                             };
-                            console.log(inserted);
-                            var params= {items:$.toJSON(inserted),relationid:isblh_select};
-                            ajaxfrom.ajaxsend('post','json','maintain/addcheckingitemsbyrid',params,success,null,errorfunc)
+                            var params= {items:$.toJSON(inserted),rids:$.toJSON(rids)};
+                            ajaxfrom.ajaxsend('post','json','maintain/addcheckingitemsbyrids',params,success,null,errorfunc)
 
                         });
                 }
@@ -61,9 +65,9 @@ define(function () {
 
                             var success=function(){
                                 $.messager.alert('操作成功','成功!');
-                                $('#altercheckingitempanel .checkingitems').datagrid('acceptChanges');
+                                $('#unitcheckingitempanel .checkingitems').datagrid('acceptChanges');
                                 editIndex=undefined;
-                                $('#altercheckingitempanel .checkingitems').datagrid('reload');
+                                $('#unitcheckingitempanel .checkingitems').datagrid('reload');
                             };
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','失败!');
@@ -81,15 +85,24 @@ define(function () {
 
                             var success=function(){
                                 $.messager.alert('操作成功','成功!');
-                                $('#altercheckingitempanel .checkingitems').datagrid('acceptChanges');
+                                $('#unitcheckingitempanel .checkingitems').datagrid('acceptChanges');
                                 editIndex=undefined;
-                                $('#altercheckingitempanel .checkingitems').datagrid('reload');
+                                $('#unitcheckingitempanel .checkingitems').datagrid('reload');
                             };
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','失败!');
                             };
-                            var params= {ids:$.toJSON(deleted)};
-                            ajaxfrom.ajaxsend('post','json','maintain/delcheckingitemsbyrid',params,success,null,errorfunc);
+                            var rids=[];
+                            var rowdata=$('#unitcheckingitempanel .unitmembers').datagrid('getRows');
+                            for(var i=0;i<rowdata.length;i++){
+                                rids.push(rowdata[i].relationid);
+                            }
+                            var itemcodes=[];
+                            for(var i=0;i<deleted.length;i++){
+                                itemcodes.push(deleted[i].itemcode);
+                            }
+                            var params= {rids: $.toJSON(rids),itemcodes: $.toJSON(itemcodes)};
+                            ajaxfrom.ajaxsend('post','json','maintain/delcheckingitemsbyrids',params,success,null,errorfunc);
 
                         });
 
@@ -104,23 +117,23 @@ define(function () {
             }
         }
         var reject =function (){
-            $('#altercheckingitempanel .checkingitems').datagrid('rejectChanges');
+            $('#unitcheckingitempanel .checkingitems').datagrid('rejectChanges');
             editIndex = undefined;
         }
         function getChanges(){
-            var rows = $('#altercheckingitempanel .checkingitems').datagrid('getChanges');
+            var rows = $('#unitcheckingitempanel .checkingitems').datagrid('getChanges');
             alert(rows.length+' rows are changed!');
         }
 
 
 
-        $('#altercheckingitempanel .tabletoolbar').find('.del').click(removeit);
-        $('#altercheckingitempanel .tabletoolbar').find('.save').click(accept);
-        $('#altercheckingitempanel .tabletoolbar').find('.undo').click(reject);
+        $('#unitcheckingitempanel .tabletoolbar').find('.del').click(removeit);
+        $('#unitcheckingitempanel .tabletoolbar').find('.save').click(accept);
+        $('#unitcheckingitempanel .tabletoolbar').find('.undo').click(reject);
 
       var isblh_select=false;  
 
-      $('#altercheckingitempanel .itemtree').tree({
+      $('#unitcheckingitempanel .itemtree').tree({
             //rownumbers: true,
             checkbox:false,
             //onlyLeafCheck:true,
@@ -151,9 +164,9 @@ define(function () {
 
             },
             onClick: function (node) {
-                if(isblh_select&&$(this).tree('isLeaf',node.target)){
+                if($(this).tree('isLeaf',node.target)){
 
-                    if(!isexsits(node,$('#altercheckingitempanel .checkingitems').datagrid('getRows'))){
+                    if(!isexsits(node,$('#unitcheckingitempanel .checkingitems').datagrid('getRows'))){
                         var rowdata={
                             deptname:$(this).tree('getParent',node.target).value,
                             itemcode:node.nodeid,
@@ -161,7 +174,7 @@ define(function () {
 
                         }
 
-                       $('#altercheckingitempanel .checkingitems').datagrid('appendRow',rowdata) ;
+                       $('#unitcheckingitempanel .checkingitems').datagrid('appendRow',rowdata) ;
                     }
                 }
                 
@@ -185,11 +198,11 @@ define(function () {
         }
 
 
-        $('#altercheckingitempanel .checkingitems').datagrid({
+        $('#unitcheckingitempanel .checkingitems').datagrid({
             singleSelect: true,
             collapsible: true,
             rownumbers: true,
-            toolbar:'#altercheckingitempanel .tabletoolbar',
+            toolbar:'#unitcheckingitempanel .tabletoolbar',
             method:'post',
             url:'maintain/getregistedcheckitems',
             remoteSort: false,
@@ -199,7 +212,7 @@ define(function () {
             pagination:false,
             pageSize:300,
             onBeforeLoad: function (params) {
-                var options = $('#altercheckingitempanel .checkingitems').datagrid('options');
+                var options = $('#unitcheckingitempanel .checkingitems').datagrid('options');
                 params.start = (options.pageNumber - 1) * options.pageSize;
                 params.limit = options.pageSize;
                 params.totalname = "total";
@@ -210,8 +223,43 @@ define(function () {
             }
 
         });
+        $('#unitcheckingitempanel .addmembers').click(function(){
 
-        var datagrid=$('#altercheckingitempanel .itemgrid').datagrid();
+            $('#unitcheckingitempanel .unitmembers').datagrid('load',{
+               bgno:$('#unitcheckingitempanel .bgno').val(),
+               endno:$('#unitcheckingitempanel .endno').val()
+
+            });
+        });
+        $('#unitcheckingitempanel .unitmembers').datagrid({
+            singleSelect: true,
+            collapsible: true,
+            rownumbers: true,
+            method:'post',
+            url:'maintain/getregistedpersonbyrange',
+            remoteSort: false,
+            //fitColumns:true,
+            fit:true,
+            toolbar:'#unitcheckingitempanel .searchtoolbar',
+            pagination:false,
+            pageSize:30000,
+            onBeforeLoad: function (params) {
+                var options = $(this).datagrid('options');
+                params.isunit=1;
+                params.isinto= $.toJSON([1]);
+                params.start = (options.pageNumber - 1) * options.pageSize;
+                params.limit = options.pageSize;
+                params.totalname = "total";
+                params.rowsname = "rows";
+            },
+            onClickRow:function(index, rowData){
+
+                $('#unitcheckingitempanel .checkingitems').datagrid('load',{relationid:rowData.relationid});
+            }
+
+        });
+
+        var datagrid=$('#unitcheckingitempanel .itemgrid').datagrid();
 
         datagrid.datagrid({
             singleSelect: true,
@@ -240,7 +288,7 @@ define(function () {
                     itemname:rowData.itemname
 
                 };
-                $('#altercheckingitempanel .checkingitems').datagrid('appendRow',item) ;
+                $('#unitcheckingitempanel .checkingitems').datagrid('appendRow',item) ;
             }
         });
 
@@ -248,55 +296,12 @@ define(function () {
         var b=pager.find('table').find('tr').append('<td><input class="search" type="text" style="width: 100"></td>');
         $(b).keyup(function() {
             var value=b.find('.search').val();
-            $('#altercheckingitempanel .itemgrid').datagrid('load',{keywords:value});
+            $('#unitcheckingitempanel .itemgrid').datagrid('load',{keywords:value});
         });
 
-        var blhselect=function(record){
-            $('#altercheckingitempanel .altercheckingration').form('load',record);
-            $('#altercheckingitempanel .checkingitems').datagrid('load',{relationid:record.relationid});
-            isblh_select=record.relationid;
-        };
-        var myloader = function(param,success,error){
-            var q = param.q || '';
-            if (q.length < 1){return false}
-
-            require(['js/commonfuncs/AjaxForm.js']
-                ,function(ajaxfrom){
-                    var params={
-                        keyword: q,
-                        time:$('#altercheckingitempanel .checkingday').datebox('getValue'),
-                        start:0,
-                        limit:20,
-                        isunit:0,
-                        isinto:$.toJSON([1]),
-                        totalname: "total",
-                        rowsname : "rows"
-                };
-                    var succ=function(data){
-                        success(data.rows);
-                    };
-                    var errorfunc=function(){
-                        error.apply(this, arguments);
-                    };
-
-                    ajaxfrom.ajaxsend('post','json','maintain/getregistedperson',params,succ,null,errorfunc,true);
-
-                });
-
-        }
         var date=new Date();
-        $('#altercheckingitempanel .checkingday').datebox('setValue', date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
+        $('#unitcheckingitempanel .checkingday').datebox('setValue', date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
 
-        $('#altercheckingitempanel .checkingpationblhno').combobox({
-            required:true,
-            hasDownArrow:false,
-            loader: myloader,
-            onSelect:blhselect,
-            mode: 'remote',
-            valueField: 'blh_no',
-            textField: 'blh_no'
-
-        });
 
 
 

@@ -264,9 +264,18 @@
     )
 
   )
+
 (defn delrelationitems [id]
   (delete afterRegist
     (where {:id id})
+    )
+  )
+(defn delrelationitemsbyrid [rid codes]
+  (delete afterRegist
+    (where (and {:relationid rid}
+             {:itemcode [in codes]}
+             )
+      )
     )
   )
 (defn delregistedcheckitem  [relationid]
@@ -348,7 +357,7 @@
   (select registRelation
     (fields [:id :relationid] :status)
     (with patientMainIndex
-      (fields :id :blh_no :name :sex :address :birthday)
+      (fields :id :blh_no :name :sex :address :birthday )
       (where (and
                {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
                {:isunit isunit}
@@ -360,6 +369,33 @@
 
       ) 
           
+
+      )
+    (limit limits)
+    (offset start)
+    )
+
+  )
+
+
+(defn getregistedpersonbyrange [start limits bgno endno now isunit isinto]
+
+  (select registRelation
+    (fields [:id :relationid] :status)
+    (with patientMainIndex
+      (fields :id :blh_no :name :sex :address :birthday :unitname)
+      (where (and
+               {:blh_no [>= bgno]}
+               {:blh_no [<= endno]}
+               {:isunit isunit}
+
+               ))
+      )
+    (where (and {:check_date now}
+              {:status [in isinto]}
+
+      )
+
 
       )
     (limit limits)
@@ -402,13 +438,31 @@
       (where (and
                {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
                {:isunit isunit}
-               
+
                ))
       )
     (where (and 
           {:check_date now} 
           {:status [in isinto]}
 
+      ))
+    (aggregate (count :id) :counts)
+
+    )
+  )
+(defn getregistedpersonbyrangenums [ bgno endno now isunit isinto]
+
+  (select registRelation
+    (with patientMainIndex
+      (where (and
+               {:blh_no [>= bgno]}
+               {:blh_no [<= endno]}
+               {:isunit isunit}
+               ))
+      )
+    (where (and
+          {:check_date now}
+          {:status [in isinto]}
       ))
     (aggregate (count :id) :counts)
 

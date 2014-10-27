@@ -112,16 +112,47 @@
      (resp/json {:success true})
      )
   )
-(defn getregistedperson [start limit  totalname rowsname  isunit  isinto keywords]
+
+(defn itemsaddrid [items rid]
+  (map #(conj {:relationid rid} %) items)
+  )
+(defn addrelationnewtemsbyrids [rids items]
+   (let [
+
+          checkitems (json/read-str items :key-fn keyword)
+          rids (json/read-str rids)
+          ]
+     (dorun (map #(db/addregistedcheckitem (itemsaddrid checkitems %)) rids))
+     (resp/json {:success true})
+     )
+  )
+
+
+(defn getregistedperson [start limit  totalname rowsname  isunit  isinto keywords date]
   (let [
          custom-formatter (f/formatter "yyyy-MM-dd")
-         now (f/unparse custom-formatter (l/local-now))
+         now (if (nil? date) (f/unparse custom-formatter (l/local-now)) date)
          isinto (json/read-str isinto)
          results (db/getregistedperson start limit keywords now isunit isinto)
          test (println results)
          res (map #(conj {:itemnums (:counts (first (db/getafterRegistnums (:relationid %))))
                           } %) results)
          nums  (:counts (first (db/getregistedpersonnums keywords now isunit isinto)))
+        ]
+    (resp/json (assoc {} rowsname res totalname nums))
+    )
+  )
+
+(defn getregistedpersonbyrange [start limit  totalname rowsname  isunit  isinto bgno endno date]
+  (let [
+         custom-formatter (f/formatter "yyyy-MM-dd")
+         now (if (nil? date) (f/unparse custom-formatter (l/local-now)) date)
+         isinto (json/read-str isinto)
+         results (db/getregistedpersonbyrange start limit bgno endno now isunit isinto)
+         test (println results)
+         res (map #(conj {:itemnums (:counts (first (db/getafterRegistnums (:relationid %))))
+                          } %) results)
+         nums  (:counts (first (db/getregistedpersonbyrangenums bgno endno now isunit isinto)))
         ]
     (resp/json (assoc {} rowsname res totalname nums))
     )
@@ -280,6 +311,16 @@
     (resp/json {:success true})
     )
   )
+
+(defn delcheckingitemsbyrids [rids itemcodes]
+  (let [ids (json/read-str rids)
+        codes (json/read-str itemcodes)
+        ]
+    (dorun (map #(db/delrelationitemsbyrid  % codes) ids))
+    (resp/json {:success true})
+    )
+  )
+
 (defn delpackages [members]
   (let [items (json/read-str members :key-fn keyword)]
     (dorun (map #(db/delpackage (:id %)) items))

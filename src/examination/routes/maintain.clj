@@ -58,8 +58,12 @@
   (POST "/maintain/getpackages" [start limit  totalname rowsname keyword]
     (maintain/getpackages start limit  totalname rowsname keyword))
 
-  (POST "/maintain/getregistedperson" [start limit  totalname rowsname isunit isinto keyword ]
-    (maintain/getregistedperson start limit  totalname rowsname isunit  isinto keyword))
+  (POST "/maintain/getregistedperson" [start limit  totalname rowsname isunit isinto keyword date]
+    (maintain/getregistedperson start limit  totalname rowsname isunit  isinto keyword date))
+
+  (POST "/maintain/getregistedpersonbyrange" [start limit  totalname rowsname isunit isinto bgno endno date]
+    (maintain/getregistedpersonbyrange start limit  totalname rowsname isunit  isinto bgno endno date))
+
 
   (POST "/maintain/intocheck" [relationid]
     (maintain/intocheck relationid)
@@ -80,9 +84,15 @@
   (POST "/maintain/addcheckingitemsbyrid" [relationid items]
     (maintain/addrelationnewtems relationid items)
     )
+  (POST "/maintain/addcheckingitemsbyrids" [rids items]
+    (maintain/addrelationnewtemsbyrids rids items)
+    )
 
   (POST "/maintain/delcheckingitemsbyrid" [ids]
     (maintain/delcheckingitemsbyrid ids)
+    )
+  (POST "/maintain/delcheckingitemsbyrids" [rids itemcodes]
+    (maintain/delcheckingitemsbyrids rids itemcodes)
     )
 
 
