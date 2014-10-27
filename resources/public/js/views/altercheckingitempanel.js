@@ -166,7 +166,6 @@ define(function () {
             }
         });
 
-
         var isexsits=function(node,rowdata){
 
             var flag=false;
@@ -175,11 +174,9 @@ define(function () {
                     flag=true;
                     break;
                 }
-
             }
             return flag;
         }
-
 
         $('#altercheckingitempanel .checkingitems').datagrid({
             singleSelect: true,
