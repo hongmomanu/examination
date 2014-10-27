@@ -158,7 +158,7 @@ define(function () {
                             deptname:$(this).tree('getParent',node.target).value,
                             itemcode:node.nodeid,
                             itemname:node.value,
-                            status:node.finish
+                            finish:0
 
                         }
 
@@ -235,7 +235,13 @@ define(function () {
             },
 
             onClickRow:function(index,rowData){
-                console.log(index);
+                var item={
+                    deptname:rowData.deptname,
+                    itemcode:rowData.id,
+                    itemname:rowData.itemname
+
+                };
+                $('#altercheckingitempanel .checkingitems').datagrid('appendRow',item) ;
             }
         });
 
