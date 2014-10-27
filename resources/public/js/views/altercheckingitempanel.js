@@ -212,13 +212,44 @@ define(function () {
 
         });
 
+        var datagrid=$('#altercheckingitempanel .itemgrid').datagrid();
 
-        var pager = $('#altercheckingitempanel .itemgrid').datagrid().datagrid('getPager');	// get the pager of datagrid
+        datagrid.datagrid({
+            singleSelect: true,
+            collapsible: true,
+            rownumbers: true,
+            method:'post',
+            url:'maintain/getallcheckitems',
+            remoteSort: false,
+            fitColumns:true,
+            //fit:true,
+            //toolbar:'#enumpaneltb',
+            pagination:true,
+            pageSize:10,
+            onBeforeLoad: function (params) {
+                var options =$(this).datagrid('options');
+                params.start = (options.pageNumber - 1) * options.pageSize;
+                params.limit = options.pageSize;
+                params.totalname = 'total';
+                params.rowsname = 'rows';
+            },
+
+            onClickRow:function(index,rowData){
+                console.log(index);
+            }
+        });
+
+        var pager = datagrid.datagrid('getPager');	// get the pager of datagrid
         var b=pager.find('table').find('tr').append('<td><input class="search" type="text" style="width: 100"></td>');
         $(b).keyup(function() {
             var value=b.find('.search').val();
             $('#altercheckingitempanel .itemgrid').datagrid('load',{keywords:value});
-        })
+        });
+        /*$('#altercheckingitempanel .itemgrid').datagrid({
+            onClickRow:function(index,rowData){
+                console.log(index);
+            }
+        });*/
 
         /* $('#altercheckingitempanel .itemgrid').datagrid({
              singleSelect: true,

@@ -131,27 +131,7 @@
             <ul class="itemtree" style="width: 100%" ></ul>
         </div>
         <div title="按项目选择">
-            <table class="easyui-datagrid itemgrid"  data-options="singleSelect: true,
-            collapsible: true,
-            rownumbers: true,
-            method:'post',
-            url:'maintain/getallcheckitems',
-            remoteSort: false,
-            fitColumns:true,
-            //fit:true,
-            //toolbar:'#enumpaneltb',
-            pagination:true,
-            pageSize:10,
-            onBeforeLoad: function (params) {
-                var options =$(this).datagrid('options');
-                params.start = (options.pageNumber - 1) * options.pageSize;
-                params.limit = options.pageSize;
-                params.totalname = 'total';
-            params.rowsname = 'rows';
-            },
-            onClickRow:function(index, rowData){
-
-            }">
+            <table class="easyui-datagrid itemgrid" >
                 <thead>
                 <tr>
                     <th data-options="field:'deptname',width:80">科室</th>
