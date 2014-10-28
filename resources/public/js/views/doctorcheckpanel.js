@@ -65,9 +65,9 @@ $('#doctorcheckpanel .finishitem').click(function(){
         ,function(easyuifrom){
             var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
             if(params.relationid){
-                $.messager.alert('success','yes');
+                $.messager.alert('提示信息','yes');
             }else{
-                $.messager.alert('success','no');
+                $.messager.alert('提示信息','尚未选中病人');
             }
 
         });
@@ -116,6 +116,8 @@ $('#doctorcheckpanel .checkedpations').datagrid({
             pagination:false,
             pageSize:300,
             onSelect:function(rowIndex, rowData){
+                $('#doctorcheckpanel .pationinfoform').form("reset");
+                $('#doctorcheckpanel .checkingitems').datagrid('load',{relationid:null});
                 $('#doctorcheckpanel .uncheckingpations').datagrid('load',{deptid:rowData.id});
                 $('#doctorcheckpanel .checkedpations').datagrid('load',{deptid:rowData.id});
             },
