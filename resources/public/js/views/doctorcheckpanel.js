@@ -65,7 +65,15 @@ $('#doctorcheckpanel .finishitem').click(function(){
         ,function(easyuifrom){
             var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
             if(params.relationid){
-                $.messager.alert('提示信息','yes');
+                if($('#checkpationwithitemwin').length>0){
+                    $('#checkpationwithitemwin').dialog('open');
+                }else{
+                    require(['text!views/checkpationwithitem.htm','views/checkpationwithitem'],
+                        function(div,js){
+                            $('body').append(div);
+                            js.render();
+                        });
+                }
             }else{
                 $.messager.alert('提示信息','尚未选中病人');
             }
