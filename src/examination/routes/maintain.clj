@@ -29,6 +29,10 @@
     (maintain/getunitgroupperson start limit  totalname rowsname keyword fields downbirth upbirth)
     )
 
+  (POST "/maintain/getdeptsbyuser" [ rowsname totalname]
+    (maintain/getdeptsbyuser rowsname totalname)
+    )
+
   (POST "/maintain/getcontroltree" [node  value  callback]
     (maintain/getcontroltree node  value  callback))
   (POST "/maintain/addnewitem" [pycode itemname price sortnum deptid]
@@ -60,6 +64,11 @@
 
   (POST "/maintain/getregistedperson" [start limit  totalname rowsname isunit isinto keyword date]
     (maintain/getregistedperson start limit  totalname rowsname isunit  isinto keyword date))
+
+  (POST "/maintain/getcheckornopation" [start limit  totalname rowsname keyword deptid ischecked]
+    (maintain/getcheckornopation start limit  totalname rowsname keyword deptid ischecked))
+
+
 
   (POST "/maintain/getregistedpersonbyrange" [start limit  totalname rowsname isunit isinto bgno endno date]
     (maintain/getregistedpersonbyrange start limit  totalname rowsname isunit  isinto bgno endno date))

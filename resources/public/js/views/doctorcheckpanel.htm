@@ -2,7 +2,18 @@
 
     <div data-options="region:'west',title:'信息登记',split:true,collapsible:false" style="width:20%">
 
+        <table  class="depttable">
+            <thead>
+            <tr>
+                <th data-options="field:'deptname',width:100">当前科室</th>
+                <th data-options="field:'id',width:100,hidden:true">id</th>
+                <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
 
+            </tr>
+            </thead>
+
+
+        </table>
 
 
 
@@ -20,11 +31,69 @@
                 <div class="easyui-layout" data-options="fit:true" style="width:100%;height:100%">
                     <div data-options="region:'west',split:true,collapsible:false"
                          style="width: 40%;">
+                        <form>
+                            <table class="formtable">
+                                <tr>
+                                    <td>条形码:</td>
+                                    <td style="width: 80%"><input class="easyui-textbox"  name="blh_no"
+                                                                              data-options="readonly:true"
+                                                                              style="width: 100%"></td>
+                                </tr>
+                                <tr>
+                                    <td>姓名:</td>
+                                    <td  style="width: 80%"><input class="easyui-textbox"  name="name"
+                                                                              data-options="readonly:true"
+                                                                              style="width: 100%"></td>
+                                </tr>
+                                <tr>
+                                    <td>性别:</td>
+                                    <td ><input class="easyui-textbox" type="text"
+                                                name="sex" data-options="readonly:true" style="width: 100%"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>出生年月:</td>
+                                    <td  style="width: 80%">
+                                        <input class="easyui-textbox"  name="birthday" data-options="readonly:true"
+                                               style="width: 100%"></td>
+                                </tr>
+
+                            </table>
+
+
+                        </form>
 
                     </div>
 
                     <div data-options="region:'center',split:true,collapsible:false"
                          style="width: 60%;">
+
+                        <table  class="checkingitems">
+                            <thead>
+                            <tr>
+                                <th data-options="field:'packagename',width:100">套餐名称</th>
+                                <th data-options="field:'itemname',width:100">项目名称</th>
+                                <th data-options="field:'finish',width:60,formatter:function(val,row){
+            if (val == 0){
+                return '<span style=&quot;color:red;&quot;>未完成</span>';
+            } else if(val ==1) {
+                return '<span style=&quot;color:green;&quot;>已完成</span>';
+            }else  {
+                return '<span style=&quot;color:blue;&quot;>新添加</span>';
+            }
+        }">状态</th>
+                                <th data-options="field:'deptname',width:80">科室</th>
+
+                                <th data-options="field:'id',width:100,hidden:true">id</th>
+                                <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+
+                            </tr>
+                            </thead>
+
+
+                        </table>
+
+
 
                     </div>
 
@@ -39,10 +108,46 @@
 
                 <div class="easyui-tabs" data-options="fit:true,tabPosition:'bottom'">
                     <div title="未检查" >
-                        12121
+                        <table  class="uncheckingpations">
+                            <thead>
+                            <tr>
+                                <th data-options="field:'blh_no',width:100">病历号</th>
+                                <th data-options="field:'name',width:100">姓名</th>
+                                <th data-options="field:'sex',width:100">性别</th>
+                                <th data-options="field:'unitname',width:100">单位</th>
+                                <th data-options="field:'check_date',width:80">检查日期</th>
+                                <th data-options="field:'id',width:100,hidden:true">id</th>
+                                <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+
+                            </tr>
+                            </thead>
+
+
+                        </table>
+
+
+
+
+
                     </div>
                     <div title="已检查">
-                        21212
+                        <table  class="checkedpations">
+                            <thead>
+                            <tr>
+                                <th data-options="field:'blh_no',width:100">病历号</th>
+                                <th data-options="field:'name',width:100">姓名</th>
+                                <th data-options="field:'sex',width:100">性别</th>
+                                <th data-options="field:'unitname',width:100">单位</th>
+                                <th data-options="field:'check_date',width:80">检查日期</th>
+                                <th data-options="field:'id',width:100,hidden:true">id</th>
+                                <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+
+                            </tr>
+                            </thead>
+
+
+                        </table>
+
                     </div>
                 </div>
 

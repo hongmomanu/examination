@@ -68,6 +68,7 @@
 (defentity registRelation
   (pk :pation_no)
   (has-one patientMainIndex {:fk :id})
+  (belongs-to afterRegist {:fk :id})
   (database sqlitedb)
   )
 
@@ -216,6 +217,13 @@
     )
   )
 
+(defn getuserbyid [userid]
+  (select users
+    (where {:id userid})
+    )
+  )
+
+
 (defn getusers [start limits keywords]
   (select users
 
@@ -351,6 +359,55 @@
   (insert chargeDetail
     (values fields)
     )
+  )
+(defn getcheckornopation [start limits keywords deptid ischecked]
+  (select registRelation
+    (fields [:id :relationid] :status :check_date)
+
+    (with patientMainIndex
+      (fields :id :blh_no :name :sex :address :birthday :unitname)
+      (where (and
+               {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
+               ))
+      )
+    (where (and {:status 1}
+             {:id  [in
+                    (subselect afterRegist (fields :relationid)
+                      (where {:itemcode [in (subselect checkitem (fields :id)
+                                              (where {:deptid deptid}))]
+                              :finish ischecked})
+                      )
+
+                    ]}
+             )
+      )
+    (limit limits)
+    (offset start)
+    )
+
+  )
+(defn getcheckornopationnums [keywords deptid ischecked]
+  (select registRelation
+
+    (with patientMainIndex
+      (where (and
+               {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
+               ))
+      )
+    (where (and {:status 1}
+             {:id  [in
+                    (subselect afterRegist (fields :relationid)
+                      (where {:itemcode [in (subselect checkitem (fields :id)
+                                              (where {:deptid deptid}))]
+                              :finish ischecked})
+                      )
+
+                    ]}
+             )
+      )
+    (aggregate (count :id) :counts)
+    )
+
   )
 (defn getregistedperson [start limits keywords now isunit isinto]
 
@@ -542,6 +599,12 @@
     (where {:deptname [like (str "%" (if (nil? keywords)"" keywords) "%")]})
     (limit limits)
     (offset start))
+  )
+(defn getdeptsbuids [ids]
+  (select checkdept
+    (fields :deptname :depttype :id :pycode  )
+    (where {:id [in ids]})
+    )
   )
 (defn getallcheckitems [start limits keywords]
   (select checkitem

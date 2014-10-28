@@ -19,6 +19,7 @@
             [clj-http.client :as client]
             [clojure.data.json :as json]
             [examination.layout :as layout]
+            [noir.session :as session]
             [clj-time.local :as l]
             [clj-time.format :as f]
 
@@ -52,6 +53,19 @@
       )
     )
 
+
+  )
+
+(defn getdeptsbyuser [rowsname totalname]
+  (let [
+         userid (session/get :userid)
+         deptids (:deptids (first(db/getuserbyid userid)))
+         results (db/getdeptsbuids (clojure.string/split deptids #","))
+         nums (count results)
+         ]
+    (resp/json (assoc {} rowsname results totalname nums))
+
+    )
 
   )
 
@@ -141,6 +155,19 @@
         ]
     (resp/json (assoc {} rowsname res totalname nums))
     )
+  )
+
+(defn getcheckornopation [start limit  totalname rowsname keywords deptid ischecked]
+  (if (nil? deptid)(resp/json (assoc {} rowsname [] totalname 0))
+    (let [
+           results (db/getcheckornopation start limit keywords deptid ischecked)
+           test (println results)
+           nums  (:counts (first (db/getcheckornopationnums keywords deptid ischecked)))
+           ]
+      (resp/json (assoc {} rowsname results totalname nums))
+      )
+    )
+
   )
 
 (defn getregistedpersonbyrange [start limit  totalname rowsname  isunit  isinto bgno endno date]
