@@ -59,6 +59,21 @@ var showpationinfo=function(data){
     $('#doctorcheckpanel .checkingitems').datagrid('load',{relationid:data.relationid});
 
 };
+$('#doctorcheckpanel .finishitem').click(function(){
+
+    require(['js/jqueryplugin/easyui-form.js']
+        ,function(easyuifrom){
+            var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
+            if(params.relationid){
+                $.messager.alert('success','yes');
+            }else{
+                $.messager.alert('success','no');
+            }
+
+        });
+
+
+})
 $('#doctorcheckpanel .checkedpations').datagrid({
             singleSelect: true,
             collapsible: true,
