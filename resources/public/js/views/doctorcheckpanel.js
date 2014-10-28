@@ -49,11 +49,16 @@ define(function () {
             },
             onClickRow:function(index, rowData){
 
+                showpationinfo(rowData);
             }
 
         });
 
+var showpationinfo=function(data){
+    $('#doctorcheckpanel .pationinfoform').form('load',data);
+    $('#doctorcheckpanel .checkingitems').datagrid('load',{relationid:data.relationid});
 
+};
 $('#doctorcheckpanel .checkedpations').datagrid({
             singleSelect: true,
             collapsible: true,
@@ -75,7 +80,7 @@ $('#doctorcheckpanel .checkedpations').datagrid({
                 params.rowsname = "rows";
             },
             onClickRow:function(index, rowData){
-
+                showpationinfo(rowData);
             }
 
         });
