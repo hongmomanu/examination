@@ -23,6 +23,7 @@ define(function () {
             }],
             modal: true
         });
+        $.parser.parse('#checkpationwithitemwin');
 
 
 

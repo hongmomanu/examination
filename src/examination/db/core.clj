@@ -381,6 +381,7 @@
                     ]}
              )
       )
+    (order :check_date :DESC)
     (limit limits)
     (offset start)
     )

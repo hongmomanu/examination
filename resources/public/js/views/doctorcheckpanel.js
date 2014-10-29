@@ -71,6 +71,7 @@ $('#doctorcheckpanel .finishitem').click(function(){
                     require(['text!views/checkpationwithitem.htm','views/checkpationwithitem'],
                         function(div,js){
                             $('body').append(div);
+
                             js.render();
                         });
                 }
