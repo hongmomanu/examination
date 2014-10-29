@@ -1,6 +1,165 @@
 define(function () {
 
+    var editIndex = undefined;
+    var endEditing=function (){
+        if (editIndex == undefined){return true}
+        if ($('#itemmanagerlayout .detailtip').datagrid('validateRow', editIndex)){
+            /* var ed = $('#suggestmanagerpaneltabledetail').datagrid('getEditor', {index:editIndex,field:'productid'});
+             var productname = $(ed.target).combobox('getText');
+             $('#suggestmanagerpaneltabledetail').datagrid('getRows')[editIndex]['productname'] = productname;*/
+            $('#itemmanagerlayout .detailtip').datagrid('endEdit', editIndex);
+            //editIndex = undefined;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    var onClickRow=function (index,rowData){
+        //console.log(rowData);
+        //var packageid=rowData.id;
+        //$('#packageitemmanagerpanel').tree('reload');
+        //console.log(rowData);
+        $('#suggestinfoform').form('load',rowData);
+        //$('#suggestmanagerlayout').layout('expand','east');
+
+        if (editIndex != index){
+            if (endEditing()){
+                $('#itemmanagerlayout .detailtip').datagrid('selectRow', index)
+                    .datagrid('beginEdit', index);
+                editIndex = index;
+            } else {
+                $('#itemmanagerlayout .detailtip').datagrid('selectRow', editIndex);
+            }
+        }
+    }
+    var append =function (){
+        if (endEditing()){
+            $('#itemmanagerlayout .detailtip').datagrid('appendRow',{status:'是'});
+            editIndex = $('#itemmanagerlayout .detailtip').datagrid('getRows').length-1;
+            $('#itemmanagerlayout .detailtip').datagrid('selectRow', editIndex)
+                .datagrid('beginEdit', editIndex);
+        }
+    }
+    var removeit=function (){
+        if (editIndex == undefined){return}
+        $('#itemmanagerlayout .detailtip').datagrid('cancelEdit', editIndex)
+            .datagrid('deleteRow', editIndex);
+        editIndex = undefined;
+    }
+    var accept=function (){
+        if (endEditing()){
+            var inserted=$('#itemmanagerlayout .detailtip').datagrid('getChanges','inserted');
+            var deleted=$('#itemmanagerlayout .detailtip').datagrid('getChanges','deleted');
+            var updated=$('#itemmanagerlayout .detailtip').datagrid('getChanges','updated');
+            if(inserted.length>0){
+                require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
+                    ,function(easyform,ajaxfrom){
+//                        var params=$('#suggestinfoform form').form("serialize");
+//                        var deptid=params.deptid;
+                        for(var i=0;i<inserted.length;i++){
+                            inserted[i].deptid=$('#suggestmanagerpanel').datagrid('getSelected').id;
+                        }
+                        var success=function(){
+                            $.messager.alert('操作成功','成功!');
+                            $('#itemmanagerlayout .detailtip').datagrid('acceptChanges');
+                            editIndex=undefined;
+                            $('#itemmanagerlayout .detailtip').datagrid('reload');
+                        };
+                        var errorfunc=function(){
+                            $.messager.alert('操作失败','失败!');
+                        };
+                        var params= {suggets:$.toJSON(inserted)};
+                        ajaxfrom.ajaxsend('post','json','maintain/addnewsuggests',params,success,null,errorfunc)
+
+                    });
+            }
+
+            if(updated.length>0){
+                require(['js/commonfuncs/AjaxForm.js']
+                    ,function(ajaxfrom){
+
+                        var success=function(){
+                            $.messager.alert('操作成功','成功!');
+                            $('#itemmanagerlayout .detailtip').datagrid('acceptChanges');
+                            editIndex=undefined;
+                            $('#itemmanagerlayout .detailtip').datagrid('reload');
+                        };
+                        var errorfunc=function(){
+                            $.messager.alert('操作失败','失败!');
+                        };
+                        var params= {packages:$.toJSON(updated)};
+                        ajaxfrom.ajaxsend('post','json','maintain/editsuggests',params,success,null,errorfunc);
+
+                    });
+
+            }
+
+            if(deleted.length>0){
+                require(['js/commonfuncs/AjaxForm.js']
+                    ,function(ajaxfrom){
+
+                        var success=function(){
+                            $.messager.alert('操作成功','成功!');
+                            $('#itemmanagerlayout .detailtip').datagrid('acceptChanges');
+                            editIndex=undefined;
+                            $('#itemmanagerlayout .detailtip').datagrid('reload');
+                        };
+                        var errorfunc=function(){
+                            $.messager.alert('操作失败','失败!');
+                        };
+                        var params= {packages:$.toJSON(deleted)};
+                        ajaxfrom.ajaxsend('post','json','maintain/delsuggests',params,success,null,errorfunc);
+
+                    });
+
+            }
+
+
+            //console.log(inserted);
+            //console.log(deleted);
+            //console.log(updated);
+
+
+        }
+    }
+    var reject =function (){
+        $('#itemmanagerlayout .detailtip').datagrid('rejectChanges');
+        editIndex = undefined;
+    }
+
+
+
+
     function render(parameters) {
+
+        $('#itemmanagerlayout .detailtip').datagrid({
+            singleSelect: true,
+            collapsible: true,
+            rownumbers: true,
+            method:'post',
+            fitColumns:true,
+            url:'maintain/getdetailstip',
+            remoteSort: false,
+            fit:false,
+            pagination:true,
+            pageSize:10,
+            toolbar:'#itemmanagerlayout .detailtiptb',
+            onBeforeLoad: function (params) {
+                //alert(1);
+                var options = $(this).datagrid('options');
+                params.start = (options.pageNumber - 1) * options.pageSize;
+                params.limit = options.pageSize;
+                params.totalname = "total";
+                params.rowsname = "rows";
+            },
+            onClickRow:onClickRow
+
+        });
+
+
+
+
+
         $('#itemmanagerpanel').treegrid({
             rownumbers: true,
             method: 'post',

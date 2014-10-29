@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS checkItemDetailTip
   id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
   DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
   itemdetailcode	     INTEGER, -- 项目明细代码
-  tipname  VARCHAR(100), --  明细名称
+  tipname  VARCHAR(100), --  提示名称
   useflag     VARCHAR(10),  --是否有效
   pycode  VARCHAR(100)   --拼音代码
 

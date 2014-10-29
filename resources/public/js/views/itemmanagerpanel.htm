@@ -112,6 +112,19 @@
 
                 </table>
             </form>
+
+            <table class="detailtip">
+                <thead>
+                <tr>
+                    <th data-options="field:'tipname',width:100,editor:'text'">提示名称</th>
+                    <th data-options="field:'pycode',width:100,editor:'text'">拼音代码</th>
+                    <th data-options="field:'id',width:100,hidden:true">id</th>
+                    <th data-options="field:'useflag',width:100,editor:{type:'checkbox',options:{on:'是',off:'否'}}">是否使用</th>
+                    <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+                </tr>
+                </thead>
+            </table>
+
             <div style="text-align:center;padding:5px" id="itemdetailformbtns">
                 <a  class="easyui-linkbutton save"  >保存</a>
                 <a  class="easyui-linkbutton del"  >删除</a>
@@ -126,5 +139,11 @@
     </div>
 
 
+    <div class="detailtiptb" style="height:auto">
+        <a href="javascript:void(0)" class="easyui-linkbutton add" data-options="iconCls:'icon-add',plain:true" >添加</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton del" data-options="iconCls:'icon-remove',plain:true">删除</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton undo" data-options="iconCls:'icon-undo',plain:true">恢复</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton save" data-options="iconCls:'icon-save',plain:true" >保存</a>
+    </div>
 
 </div>
