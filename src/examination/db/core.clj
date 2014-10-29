@@ -16,12 +16,9 @@
 
 (declare users roles functorole functions enumerate divisions
          systemlog registRelation patientMainIndex checkitem
-        examinationPackage
+        examinationPackage reportDetail
   )
 
-(defentity t_doorplate
-  (database dboracle)
-  )
 
 (defentity users
   (pk :roleid)
@@ -50,6 +47,10 @@
   (database sqlitedb)
   )
 (defentity checkItemDetail
+
+  (database sqlitedb)
+  )
+(defentity reportDetail
 
   (database sqlitedb)
   )
