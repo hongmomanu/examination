@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS reportDetail
   downlimit VARCHAR(100), --  参考下限
   unit VARCHAR(100), --  单位
   result   VARCHAR(100), --  值
-  rssult_mess   VARCHAR(100), --  提示
+  result_mess   VARCHAR(100), --  提示
   true_or   VARCHAR(10), --  是否正常1：正常， 2： 异常 0: 未知
   deptid int,        --检查科室
   userid int

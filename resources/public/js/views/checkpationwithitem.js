@@ -25,6 +25,29 @@ define(function () {
         });
         $.parser.parse('#checkpationwithitemwin');
 
+        $('#checkpationwithitemwin .itemdetailtable').datagrid({
+            singleSelect: true,
+            collapsible: true,
+            rownumbers: true,
+            method:'post',
+            fitColumns:true,
+            url:'maintain/getitemdetaibydeptid',
+            remoteSort: false,
+            fit:true,
+            //toolbar:'#packagepaneltb',
+            pagination:true,
+            pageSize:10,
+            toolbar:'#suggestpaneldetailtb',
+            onBeforeLoad: function (params) {
+                var options = $(this).datagrid('options');
+                params.start = (options.pageNumber - 1) * options.pageSize;
+                params.limit = options.pageSize;
+                params.totalname = "total";
+                params.rowsname = "rows";
+            }
+
+        })
+
 
 
     }
