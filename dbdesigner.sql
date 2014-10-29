@@ -133,8 +133,9 @@ CREATE TABLE IF NOT EXISTS reportDetail
 (
   id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
   DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
-  pation_no     INTEGER, -- 病人内码
-  times     int       , --检查次数
+  --pation_no     INTEGER, -- 病人内码
+  --times     int       , --检查次数
+  relationid integer,--内码
   itemcode  int, --  项目代码
   itemname VARCHAR(100), --  项目名称
   mx_code int, --  检查细项代码
@@ -146,12 +147,26 @@ CREATE TABLE IF NOT EXISTS reportDetail
   rssult_mess   VARCHAR(100), --  提示
   true_or   VARCHAR(10), --  是否正常1：正常， 2： 异常 0: 未知
   deptid int,        --检查科室
-  userid int,        --检查科室
-  inspect_date datetime        --检查科室
+  userid int
+  --inspect_date datetime        --检查科室
 
 
 );
 
+
+-- 科室建议
+CREATE TABLE IF NOT EXISTS deptSuggestion
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  --pation_no     INTEGER, -- 病人内码
+  --times     int       , --检查次数
+  relationid integer,--内码
+  deptid  int, --  检查科室
+  suggestion VARCHAR(100), --  科室建议
+  reason VARCHAR(100) --  病因
+
+);
 
 --体检单位
 CREATE TABLE IF NOT EXISTS examinationUnit
