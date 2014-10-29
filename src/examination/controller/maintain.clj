@@ -291,6 +291,13 @@
     (resp/json (assoc {} rowsname results totalname nums))
     )
   )
+(defn getdetailtips [start limit  totalname rowsname detailid]
+  (let [results (db/getdetailtips start limit detailid)
+        nums  (:counts (first (db/getdetailtipnums detailid )))
+        ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+  )
 
 (defn getpackages [start limit  totalname rowsname keywords]
   (let [results (db/getpackages start limit keywords )
@@ -329,6 +336,18 @@
 (defn delunitmembers [members]
   (let [items (json/read-str members :key-fn keyword)]
     (dorun (map #(db/delunitmember (:id %)) items))
+    (resp/json {:success true})
+    )
+  )
+(defn deldetailtips [tips]
+  (let [items (json/read-str tips :key-fn keyword)]
+    (dorun (map #(db/deldetailtip (:id %)) items))
+    (resp/json {:success true})
+    )
+  )
+(defn delsuggests [suggets]
+  (let [items (json/read-str suggets :key-fn keyword)]
+    (dorun (map #(db/delsuggest (:id %)) items))
     (resp/json {:success true})
     )
   )
@@ -524,6 +543,14 @@
     )
 
   )
+(defn adddetailtips [tips]
+  (let [items (json/read-str tips :key-fn keyword)]
+    (println items)
+    (db/adddetailtip  items)
+    (resp/json {:success true})
+    )
+
+  )
 
 (defn addnewunitpackages [members]
   (let [items (json/read-str members :key-fn keyword)]
@@ -554,6 +581,20 @@
 (defn editunitmembers [members]
   (let [items (json/read-str members :key-fn keyword)]
     (dorun (map #(do (println % (:id %))(db/editunitmember % (:id %))) items))
+    (resp/json {:success true})
+    )
+
+  )
+(defn editsuggests [suggets]
+  (let [items (json/read-str suggets :key-fn keyword)]
+    (dorun (map #(do (println % (:id %))(db/editsuggest % (:id %))) items))
+    (resp/json {:success true})
+    )
+
+  )
+(defn editdetailtips [tips]
+  (let [items (json/read-str tips :key-fn keyword)]
+    (dorun (map #(db/editdetailtip % (:id %)) items))
     (resp/json {:success true})
     )
 

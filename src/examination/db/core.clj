@@ -16,7 +16,7 @@
 
 (declare users roles functorole functions enumerate divisions
          systemlog registRelation patientMainIndex checkitem
-        examinationPackage reportDetail
+        examinationPackage reportDetail  checkItemDetailTip
   )
 
 
@@ -51,6 +51,10 @@
   (database sqlitedb)
   )
 (defentity reportDetail
+
+  (database sqlitedb)
+  )
+(defentity checkItemDetailTip
 
   (database sqlitedb)
   )
@@ -116,6 +120,7 @@
 (defentity checkitem
   ;(pk :id)
   (belongs-to checkdept {:fk :deptid})
+  (has-many checkItemDetail {:fk :itemid})
   (database sqlitedb)
   )
 (defentity enumerate
@@ -536,6 +541,14 @@
     (limit limits)
     (offset start))
   )
+(defn getdetailtips [start limits detailid]
+  (select checkItemDetailTip
+    (where (and
+             {:itemdetailcode detailid}
+             ))
+    (limit limits)
+    (offset start))
+  )
 (defn getitemidbypackage [pid]
   (select packageWithItem
     (with checkitem
@@ -764,12 +777,36 @@
     (where {:id id})
     )
   )
+(defn editsuggest [fields id]
+  (update deptCustomDescript
+    (set-fields fields)
+    (where {:id id})
+    )
+  )
+(defn delsuggest [id]
+  (delete deptCustomDescript
+    (where {:id id})
+    )
+  )
 (defn editunitgroup [fields id]
   (update unitWithGroup
     (set-fields fields)
     (where {:id id})
     )
   )
+(defn editdetailtip [fields id]
+  (update checkItemDetailTip
+    (set-fields fields)
+    (where {:id id})
+    )
+  )
+
+(defn deldetailtip [id]
+  (delete checkItemDetailTip
+    (where {:id id})
+    )
+  )
+
 (defn delunitgroup [id]
   (delete unitWithGroup
     (where {:id id})
@@ -822,6 +859,16 @@
     (where (and
              {:name [like (str "%" (if (nil? keywords)"" keywords) "%")]}
              {:deptid deptid}
+             )
+      )
+    (aggregate (count :id) :counts)
+
+  ))
+
+(defn getdetailtipnums [detailid]
+  (select checkItemDetailTip
+    (where (and
+             {:itemdetailcode detailid}
              )
       )
     (aggregate (count :id) :counts)
@@ -1020,6 +1067,12 @@
 (defn addnewsuggest [fields]
   (insert deptCustomDescript
     (values fields)
+    )
+  )
+
+(defn adddetailtip [tip]
+  (insert checkItemDetailTip
+    (values tip)
     )
   )
 (defn addnewunitpackage [fields]

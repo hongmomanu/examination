@@ -39,6 +39,9 @@
     (maintain/addnewitem pycode itemname price sortnum deptid))
   (POST "/maintain/edititem" [pycode itemname price sortnum itemid]
     (maintain/edititem pycode itemname price sortnum itemid))
+
+
+
   (POST "/maintain/delitem" [itemid]
     (maintain/delitem itemid))
   (POST "/maintain/delunit" [id]
@@ -47,6 +50,10 @@
     (maintain/delunitmember id))
   (POST "/maintain/delunitmembers" [members]
     (maintain/delunitmembers members))
+  (POST "/maintain/deldetailtips" [tips]
+    (maintain/deldetailtips tips))
+  (POST "/maintain/delsuggests" [suggets]
+    (maintain/delsuggests suggets))
   (POST "/maintain/delpackages" [packages]
     (maintain/delpackages packages))
   (POST "/maintain/delitemdeatail" [id]
@@ -56,6 +63,10 @@
 
   (POST "/maintain/getsuggests" [start limit  totalname rowsname deptid keyword]
     (maintain/getsuggests start limit  totalname rowsname deptid keyword))
+
+  (POST "/maintain/getdetailtips" [start limit  totalname rowsname detaiid]
+    (maintain/getdetailtips start limit  totalname rowsname detaiid))
+
   (POST "/maintain/getunits" [start limit  totalname rowsname keyword]
     (maintain/getunits start limit  totalname rowsname keyword))
 
@@ -123,6 +134,11 @@
   (POST "/maintain/addnewsuggests" [suggets]
     (maintain/addnewsuggests suggets))
 
+
+  (POST "/maintain/adddetailtips" [tips]
+    (maintain/adddetailtips tips))
+
+
   (POST "/maintain/addunitgroup" [unitid  groupname marry  sex
                                   downage	 upage duty  title ]
     (maintain/addunitgroup unitid  groupname marry  sex
@@ -156,9 +172,17 @@
   (POST "/maintain/addnewunitmembers" [members ]
     (maintain/addnewunitmembers members)
     )
+  (POST "/maintain/editdetailtips" [tips ]
+    (maintain/editdetailtips tips)
+    )
+(POST "/maintain/editsuggests" [suggets ]
+    (maintain/editsuggests suggets)
+    )
+
   (POST "/maintain/editunitmembers" [members ]
     (maintain/editunitmembers members)
     )
+
   (POST "/maintain/editpackages" [packages ]
     (maintain/editpackages packages)
     )

@@ -87,7 +87,7 @@ define(function () {
                         var errorfunc=function(){
                             $.messager.alert('操作失败','失败!');
                         };
-                        var params= {packages:$.toJSON(updated)};
+                        var params= {suggets:$.toJSON(updated)};
                         ajaxfrom.ajaxsend('post','json','maintain/editsuggests',params,success,null,errorfunc);
 
                     });
@@ -107,7 +107,7 @@ define(function () {
                         var errorfunc=function(){
                             $.messager.alert('操作失败','失败!');
                         };
-                        var params= {packages:$.toJSON(deleted)};
+                        var params= {suggets:$.toJSON(deleted)};
                         ajaxfrom.ajaxsend('post','json','maintain/delsuggests',params,success,null,errorfunc);
 
                     });

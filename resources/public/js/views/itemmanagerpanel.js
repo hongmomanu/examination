@@ -34,7 +34,7 @@ define(function () {
     }
     var append =function (){
         if (endEditing()){
-            $('#itemmanagerlayout .detailtip').datagrid('appendRow',{status:'是'});
+            $('#itemmanagerlayout .detailtip').datagrid('appendRow',{useflag:'是'});
             editIndex = $('#itemmanagerlayout .detailtip').datagrid('getRows').length-1;
             $('#itemmanagerlayout .detailtip').datagrid('selectRow', editIndex)
                 .datagrid('beginEdit', editIndex);
@@ -54,10 +54,9 @@ define(function () {
             if(inserted.length>0){
                 require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                     ,function(easyform,ajaxfrom){
-//                        var params=$('#suggestinfoform form').form("serialize");
-//                        var deptid=params.deptid;
+
                         for(var i=0;i<inserted.length;i++){
-                            inserted[i].deptid=$('#suggestmanagerpanel').datagrid('getSelected').id;
+                            inserted[i].itemdetailcode=$('#itemmanagerpanel').treegrid('getSelected').id;
                         }
                         var success=function(){
                             $.messager.alert('操作成功','成功!');
@@ -68,8 +67,8 @@ define(function () {
                         var errorfunc=function(){
                             $.messager.alert('操作失败','失败!');
                         };
-                        var params= {suggets:$.toJSON(inserted)};
-                        ajaxfrom.ajaxsend('post','json','maintain/addnewsuggests',params,success,null,errorfunc)
+                        var params= {tips:$.toJSON(inserted)};
+                        ajaxfrom.ajaxsend('post','json','maintain/adddetailtips',params,success,null,errorfunc)
 
                     });
             }
@@ -87,8 +86,8 @@ define(function () {
                         var errorfunc=function(){
                             $.messager.alert('操作失败','失败!');
                         };
-                        var params= {packages:$.toJSON(updated)};
-                        ajaxfrom.ajaxsend('post','json','maintain/editsuggests',params,success,null,errorfunc);
+                        var params= {tips:$.toJSON(updated)};
+                        ajaxfrom.ajaxsend('post','json','maintain/editdetailtips',params,success,null,errorfunc);
 
                     });
 
@@ -107,8 +106,8 @@ define(function () {
                         var errorfunc=function(){
                             $.messager.alert('操作失败','失败!');
                         };
-                        var params= {packages:$.toJSON(deleted)};
-                        ajaxfrom.ajaxsend('post','json','maintain/delsuggests',params,success,null,errorfunc);
+                        var params= {tips:$.toJSON(deleted)};
+                        ajaxfrom.ajaxsend('post','json','maintain/deldetailtips',params,success,null,errorfunc);
 
                     });
 
@@ -138,7 +137,7 @@ define(function () {
             rownumbers: true,
             method:'post',
             fitColumns:true,
-            url:'maintain/getdetailstip',
+            url:'maintain/getdetailtips',
             remoteSort: false,
             fit:false,
             pagination:true,
@@ -221,6 +220,7 @@ define(function () {
                     //rowData.itemid=rowData.nodeid;
                     rowData.pid= rowData._parentId;
                     $('#itemdetailinfodiv').form('load', rowData);
+                    $('#itemmanagerlayout .detailtip').datagrid('load',{detaiid:rowData.id});
                     //$('#itemdetailformbtns .save,#itemformbtns .del').linkbutton('enable');
                     //$('#newitemformbtns').hide();
                     //$('#edititemformbtns').show();
@@ -401,6 +401,13 @@ define(function () {
             }
 
         });
+
+
+        $('#itemmanagerlayout .detailtiptb').find('.add').click(append);
+        $('#itemmanagerlayout .detailtiptb').find('.del').click(removeit);
+        $('#itemmanagerlayout .detailtiptb').find('.save').click(accept);
+        $('#itemmanagerlayout .detailtiptb').find('.undo').click(reject);
+
 
     }
 
