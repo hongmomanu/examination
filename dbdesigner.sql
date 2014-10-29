@@ -128,6 +128,18 @@ CREATE TABLE IF NOT EXISTS checkItemDetail
   pycode  VARCHAR(100)   --拼音代码
 
 );
+
+--细项目表提示
+CREATE TABLE IF NOT EXISTS checkItemDetailTip
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  itemdetailcode	     INTEGER, -- 项目明细代码
+  tipname  VARCHAR(100), --  明细名称
+  useflag     VARCHAR(10),  --是否有效
+  pycode  VARCHAR(100)   --拼音代码
+
+);
 -- 报告单明细
 CREATE TABLE IF NOT EXISTS reportDetail
 (
@@ -138,8 +150,8 @@ CREATE TABLE IF NOT EXISTS reportDetail
   relationid integer,--内码
   itemcode  int, --  项目代码
   itemname VARCHAR(100), --  项目名称
-  mx_code int, --  检查细项代码
-  mx_name		 VARCHAR(100), --  检查细项名称
+  detailcode int, --  检查细项代码
+  detailname		 VARCHAR(100), --  检查细项名称
   pycode  VARCHAR(100),   --拼音代码
   downlimit VARCHAR(100), --  参考下限
   unit VARCHAR(100), --  单位

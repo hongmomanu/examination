@@ -1070,7 +1070,7 @@
 
 
 
-(defn oracltest [pageids]
+#_(defn oracltest [pageids]
   (with-db dboracle
     (select t_doorplate (where {:id [in pageids]})))
   )
