@@ -98,6 +98,9 @@
   (POST "/maintain/getcheckingitems" [start limit  totalname rowsname blh_no keyword ]
     (maintain/getcheckingitems start limit  totalname rowsname blh_no keyword ))
 
+  (POST "/maintain/getitemdetaibydeptid" [start limit  totalname rowsname deptid]
+    (maintain/getitemdetaibydeptid start limit  totalname rowsname deptid))
+
   (POST "/maintain/addcheckitemsbyrid" [relationid items]
     (maintain/addrelationitems relationid items)
     )

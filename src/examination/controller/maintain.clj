@@ -82,13 +82,21 @@
 
 (defn getcheckingitems [start limit  totalname rowsname blh_no keywords ]
   (let [
-         results (db/getcheckingitemnums start limit  keywords blh_no )
+         results (db/getcheckingitems start limit  keywords blh_no )
 
          nums    (:counts (first (db/getcheckingitemnums keywords blh_no )))
          ]
     (resp/json (assoc {} rowsname results totalname nums))
     )
 
+  )
+(defn getitemdetaibydeptid [start limit  totalname rowsname deptid]
+  (let [
+         results (db/getitemdetaibydeptid start limit  deptid)
+         nums    (:counts (first (db/getitemdetaibydeptidnums deptid)))
+         ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
   )
 
 (defn getcheckitemsbypid [id]

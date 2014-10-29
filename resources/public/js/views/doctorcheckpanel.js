@@ -67,12 +67,15 @@ $('#doctorcheckpanel .finishitem').click(function(){
             if(params.relationid){
                 if($('#checkpationwithitemwin').length>0){
                     $('#checkpationwithitemwin').dialog('open');
+                    var deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
+                    $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{deptid:deptid});
                 }else{
                     require(['text!views/checkpationwithitem.htm','views/checkpationwithitem'],
                         function(div,js){
                             $('body').append(div);
-
                             js.render();
+                            var deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
+                            $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{deptid:deptid});
                         });
                 }
             }else{

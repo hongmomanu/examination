@@ -34,10 +34,9 @@ define(function () {
             url:'maintain/getitemdetaibydeptid',
             remoteSort: false,
             fit:true,
-            //toolbar:'#packagepaneltb',
-            pagination:true,
-            pageSize:10,
-            toolbar:'#suggestpaneldetailtb',
+            pagination:false,
+            pageSize:1000,
+            //toolbar:'#suggestpaneldetailtb',
             onBeforeLoad: function (params) {
                 var options = $(this).datagrid('options');
                 params.start = (options.pageNumber - 1) * options.pageSize;

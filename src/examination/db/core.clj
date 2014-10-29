@@ -120,7 +120,7 @@
 (defentity checkitem
   ;(pk :id)
   (belongs-to checkdept {:fk :deptid})
-  (has-many checkItemDetail {:fk :itemid})
+  (belongs-to checkItemDetail {:fk :id})
   (database sqlitedb)
   )
 (defentity enumerate
@@ -319,6 +319,29 @@
 
   )
 
+(defn getitemdetaibydeptid [start limits  deptid]
+  (select checkitem
+    (with checkItemDetail
+      (fields :itemdetailname [:id :detailid])
+      )
+    (where (and {:deptid deptid}
+             ))
+    (limit limits)
+    (offset start)
+    )
+
+  )
+(defn getitemdetaibydeptidnums [deptid]
+  (select checkitem
+    (with checkItemDetail
+      (fields :itemdetailname [:id :detailid])
+      )
+    (where (and {:deptid deptid}
+             ))
+    (aggregate (count :id) :counts)
+    )
+
+  )
 (defn getcheckingitems [start limits chec blh_no]
   (select chargeDetail
     (with checkitem
