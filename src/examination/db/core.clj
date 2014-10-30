@@ -321,9 +321,9 @@
 
 (defn getitemdetaibydeptid [start limits  deptid ids]
   (select checkitem
-    (fields :id)
+    (fields :id :itemname :deptid)
     (with checkItemDetail
-      (fields :itemdetailname [:id :detailid])
+      (fields :itemdetailname [:id :detailid] :unit :downlimit :uplimit :pycode)
       )
     (where (and {:deptid deptid}
              {:id [in ids]}

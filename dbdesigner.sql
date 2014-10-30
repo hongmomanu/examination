@@ -154,6 +154,7 @@ CREATE TABLE IF NOT EXISTS reportDetail
   detailname		 VARCHAR(100), --  检查细项名称
   pycode  VARCHAR(100),   --拼音代码
   downlimit VARCHAR(100), --  参考下限
+  uplimit VARCHAR(100), --  参考上限
   unit VARCHAR(100), --  单位
   result   VARCHAR(100), --  值
   result_mess   VARCHAR(100), --  提示

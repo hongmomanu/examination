@@ -70,10 +70,11 @@ define(function () {
                         });
                 }
 
-                if(updated.length>0){
-                    require(['js/commonfuncs/AjaxForm.js']
-                        ,function(ajaxfrom){
 
+                if(updated.length>0){
+                    require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
+                        ,function(seriform,ajaxfrom){
+                            var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
                             var success=function(){
                                 $.messager.alert('操作成功','成功!');
                                 $('#checkpationwithitemwin .itemdetailtable').datagrid('acceptChanges');
@@ -83,7 +84,21 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','失败!');
                             };
-                            var params= {packages:$.toJSON(updated)};
+                            var relationid=params.relationid;
+                            var details=[];
+                            for(var i=0;i<updated.length;i++){
+                                var item={relationid:relationid,itemcode:updated[i].id,
+                                    itemname: updated[i].itemname,deptid:updated[i].deptid,
+                                    downlimit:updated[i].downlimit,uplimit:updated[i]. uplimit,
+                                    unit:updated[i].unit,result: updated[i].result,
+
+                                    result_mess:updated[i].result_mess,
+                                    detailcode:updated[i].detailid,detailname:updated[i].itemdetailname,
+                                    pycode:updated[i].pycode
+                                };
+                                details.push(item);
+                            }
+                            var params= {details:$.toJSON(details)};
                             ajaxfrom.ajaxsend('post','json','maintain/edititemdetailtable',params,success,null,errorfunc);
 
                         });
