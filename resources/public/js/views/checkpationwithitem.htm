@@ -29,16 +29,38 @@
         </div>
         <div title="科室小结">
 
-            <table class="deptconclusion">
-                <thead>
-                <tr>
-                    <th data-options="field:'reason',width:100">病种</th>
-                    <th data-options="field:'suggestion',width:100">建议</th>
-                    <th data-options="field:'id',width:100,hidden:true">id</th>
-                </tr>
-                </thead>
+            <div class="easyui-layout" style="width:100%;height:100%;" data-options="fit:true">
+                <div data-options="region:'north'" style="height: 40%">
+                    <table class="deptconclusion" >
+                        <thead>
+                        <tr>
+                            <th data-options="field:'reason',width:100">病种</th>
+                            <th data-options="field:'suggestion',width:100">建议</th>
+                            <th data-options="field:'id',width:100,hidden:true">id</th>
+                        </tr>
+                        </thead>
 
-            </table>
+                    </table>
+
+                </div>
+                <div data-options="region:'center'" style="height: 60%">
+                    <table class="deptconclusiontips" >
+                        <thead>
+                        <tr>
+                            <th data-options="field:'name',width:100">病种</th>
+                            <th data-options="field:'content',width:100">建议</th>
+                            <th data-options="field:'id',width:100,hidden:true">id</th>
+                        </tr>
+                        </thead>
+
+                    </table>
+
+
+                </div>
+
+            </div>
+
+
 
         </div>
         <div title="体检报告">

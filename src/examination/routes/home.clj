@@ -9,7 +9,7 @@
 (defn home-page []
   (layout/render
     "home.html" {:content (util/md->html "/md/docs.md")}))
-(defn main-page []
+(defn main-page [name]
   (let [
          content (auth/getapps)
          userid   (:userid content)
@@ -19,7 +19,7 @@
     (if (nil? userid)
       (layout/render
         "login.html" {:login-error  (session/get :login-error)})
-      (layout/render "main.html"
+      (layout/render name
         {:userid userid :roleid roleid :displayname displayname}
          ) )
     )
@@ -32,6 +32,7 @@
   (layout/render "about.html"))
 
 (defroutes home-routes
-  (GET "/" [] (main-page))
+  (GET "/" [] (main-page "main.html"))
+  (GET "/maintab" [] (main-page "maintab.html"))
   (GET "/login" [] (login-page))
   (GET "/about" [] (about-page)))

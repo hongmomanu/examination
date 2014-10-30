@@ -589,6 +589,7 @@
     (limit limits)
     (offset start))
   )
+
 (defn getdetailtips [start limits detailid]
   (select checkItemDetailTip
     (where (and

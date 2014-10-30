@@ -299,6 +299,32 @@ define(function () {
 
                 })
 
+            $('#checkpationwithitemwin .deptconclusiontips').datagrid({
+                    singleSelect: true,
+                    collapsible: true,
+                    rownumbers: true,
+                    method:'post',
+                    fitColumns:true,
+                    url:'maintain/getsuggests',
+                    remoteSort: false,
+                    fit:true,
+                    pagination:false,
+                    pageSize:1000,
+                    onBeforeLoad: function (params) {
+                        var options = $(this).datagrid('options');
+                        params.start = (options.pageNumber - 1) * options.pageSize;
+                        params.limit = options.pageSize;
+                        params.totalname = "total";
+                        params.rowsname = "rows";
+                        params.deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
+
+                    },
+                    onClickRow:function(index,rowData){
+                        console.log(rowData);
+                    }
+
+                })
+
 
 
             })
