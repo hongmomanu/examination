@@ -3,14 +3,14 @@ define(function () {
     function render(parameters) {
         require(['js/jqueryplugin/easyui-form.js']
             ,function(seriform){
-                var onClickRow=function (index){
+                var onClickRow=function (index,table){
                     if (editIndex != index){
                         if (endEditing()){
-                            $('#checkpationwithitemwin .itemdetailtable').datagrid('selectRow', index)
+                            table.datagrid('selectRow', index)
                                 .datagrid('beginEdit', index);
                             editIndex = index;
                         } else {
-                            $('#checkpationwithitemwin .itemdetailtable').datagrid('selectRow', editIndex);
+                            table.datagrid('selectRow', editIndex);
                         }
                     }
                 }
@@ -31,18 +31,17 @@ define(function () {
                 }
 
 
-                var removeit=function (){
-                    console.log(editIndex);
+                var removeit=function (table){
                     if (editIndex == undefined){return;}
-                    $('#checkpationwithitemwin .itemdetailtable').datagrid('cancelEdit', editIndex)
+                   table.datagrid('cancelEdit', editIndex)
                         .datagrid('deleteRow', editIndex);
                     editIndex = undefined;
                 }
-                var accept=function (){
+                var accept=function (table,addurl,editurl,delurl){
                     if (endEditing()){
-                        var inserted=$('#checkpationwithitemwin .itemdetailtable').datagrid('getChanges','inserted');
-                        var deleted=$('#checkpationwithitemwin .itemdetailtable').datagrid('getChanges','deleted');
-                        var updated=$('#checkpationwithitemwin .itemdetailtable').datagrid('getChanges','updated');
+                        var inserted=table.datagrid('getChanges','inserted');
+                        var deleted=table.datagrid('getChanges','deleted');
+                        var updated=table.datagrid('getChanges','updated');
                         if(inserted.length>0){
                             require(['js/commonfuncs/AjaxForm.js']
                                 ,function(ajaxfrom){
@@ -58,15 +57,15 @@ define(function () {
                                     }
                                     var success=function(){
                                         $.messager.alert('操作成功','成功!');
-                                        $('#checkpationwithitemwin .itemdetailtable').datagrid('acceptChanges');
+                                        table.datagrid('acceptChanges');
                                         editIndex=undefined;
-                                        $('#checkpationwithitemwin .itemdetailtable').datagrid('reload');
+                                        table.datagrid('reload');
                                     };
                                     var errorfunc=function(){
                                         $.messager.alert('操作失败','失败!');
                                     };
                                     var params= {items:$.toJSON(inserted),rids:$.toJSON(rids)};
-                                    ajaxfrom.ajaxsend('post','json','maintain/additemdetailtablebyrids',params,success,null,errorfunc)
+                                    ajaxfrom.ajaxsend('post','json',addurl,params,success,null,errorfunc)
 
                                 });
                         }
@@ -78,9 +77,9 @@ define(function () {
                                     var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
                                     var success=function(){
                                         $.messager.alert('操作成功','成功!');
-                                        $('#checkpationwithitemwin .itemdetailtable').datagrid('acceptChanges');
+                                        table.datagrid('acceptChanges');
                                         editIndex=undefined;
-                                        $('#checkpationwithitemwin .itemdetailtable').datagrid('reload');
+                                        table.datagrid('reload');
                                     };
                                     var errorfunc=function(){
                                         $.messager.alert('操作失败','失败!');
@@ -100,7 +99,7 @@ define(function () {
                                         details.push(item);
                                     }
                                     var params= {details:$.toJSON(details)};
-                                    ajaxfrom.ajaxsend('post','json','maintain/additemdetailtable',params,success,null,errorfunc);
+                                    ajaxfrom.ajaxsend('post','json',editurl,params,success,null,errorfunc);
 
                                 });
 
@@ -112,15 +111,15 @@ define(function () {
 
                                     var success=function(){
                                         $.messager.alert('操作成功','成功!');
-                                        $('#checkpationwithitemwin .itemdetailtable').datagrid('acceptChanges');
+                                        table.datagrid('acceptChanges');
                                         editIndex=undefined;
-                                        $('#checkpationwithitemwin .itemdetailtable').datagrid('reload');
+                                        table.datagrid('reload');
                                     };
                                     var errorfunc=function(){
                                         $.messager.alert('操作失败','失败!');
                                     };
                                     var rids=[];
-                                    var rowdata=$('#checkpationwithitemwin .unitmembers').datagrid('getRows');
+                                    var rowdata=table.datagrid('getRows');
                                     for(var i=0;i<rowdata.length;i++){
                                         rids.push(rowdata[i].relationid);
                                     }
@@ -129,7 +128,7 @@ define(function () {
                                         itemcodes.push(deleted[i].itemcode);
                                     }
                                     var params= {rids: $.toJSON(rids),itemcodes: $.toJSON(itemcodes)};
-                                    ajaxfrom.ajaxsend('post','json','maintain/delitemdetailtablebyrids',params,success,null,errorfunc);
+                                    ajaxfrom.ajaxsend('post','json',delurl,params,success,null,errorfunc);
 
                                 });
 
@@ -143,20 +142,32 @@ define(function () {
 
                     }
                 }
-                var reject =function (){
-                    $('#checkpationwithitemwin .itemdetailtable').datagrid('rejectChanges');
+                var reject =function (table){
+                    table.datagrid('rejectChanges');
                     editIndex = undefined;
                 }
-                function getChanges(){
-                    var rows = $('#checkpationwithitemwin .itemdetailtable').datagrid('getChanges');
-                    alert(rows.length+' rows are changed!');
+                function getChanges(table){
+                    /*var rows = $('#checkpationwithitemwin .itemdetailtable').datagrid('getChanges');
+                    alert(rows.length+' rows are changed!');*/
                 }
 
 
 
-                /* $('#checkpationwithitemwin .tabletoolbar').find('.del').click(removeit);*/
-                $('#checkpationwithitemwin .tabletoolbar').find('.save').click(accept);
-                $('#checkpationwithitemwin .tabletoolbar').find('.undo').click(reject);
+                /*$('#checkpationwithitemwin .tabletoolbar').find('.del').click(function(){
+                    removeit ($('#checkpationwithitemwin .itemdetailtable'));
+                });*/
+                $('#checkpationwithitemwin .tabletoolbar').find('.save').click(function(){
+                    var addurl="";
+                    var editurl='maintain/additemdetailtable';
+                    var delurl="";
+                    accept($('#checkpationwithitemwin .itemdetailtable'),addurl,editurl,delurl);
+                });
+                $('#checkpationwithitemwin .tabletoolbar').find('.undo').click(
+                    function(){
+                        return reject($('#checkpationwithitemwin .itemdetailtable'))
+                    }
+
+                );
 
 
 
@@ -218,7 +229,43 @@ define(function () {
 
                         }
                     },
-                    onClickRow:onClickRow
+                    onClickRow:function(index){
+                        onClickRow(index,$('#checkpationwithitemwin .itemdetailtable'));
+                    }
+
+                });
+
+                $('#checkpationwithitemwin .deptconclusion').datagrid({
+                    singleSelect: true,
+                    collapsible: true,
+                    rownumbers: true,
+                    method:'post',
+                    fitColumns:true,
+                    url:'maintain/getdeptconclusionbyrid',
+                    remoteSort: false,
+                    fit:true,
+                    pagination:false,
+                    pageSize:1000,
+                    toolbar:'#checkpationwithitemwin .conclusiontabletoolbar',
+                    onBeforeLoad: function (params) {
+                        var options = $(this).datagrid('options');
+                        params.start = (options.pageNumber - 1) * options.pageSize;
+                        params.limit = options.pageSize;
+                        params.totalname = "total";
+                        params.rowsname = "rows";
+
+                        if(!params.deptid){
+                            var relationid=$('#doctorcheckpanel .pationinfoform').form("serialize").relationid;
+                            var deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
+
+                            params.deptid=deptid;
+                            params.relationid=relationid;
+
+                        }
+                    },
+                    onClickRow:function(index){
+                        onClickRow(index,$('#checkpationwithitemwin .deptconclusion'))
+                    }
 
                 })
 

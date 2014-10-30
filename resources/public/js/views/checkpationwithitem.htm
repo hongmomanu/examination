@@ -29,6 +29,17 @@
         </div>
         <div title="科室小结">
 
+            <table class="deptconclusion">
+                <thead>
+                <tr>
+                    <th data-options="field:'reason',width:100">病种</th>
+                    <th data-options="field:'suggestion',width:100">建议</th>
+                    <th data-options="field:'id',width:100,hidden:true">id</th>
+                </tr>
+                </thead>
+
+            </table>
+
         </div>
         <div title="体检报告">
 
@@ -40,6 +51,12 @@
     <div class="tabletoolbar" >
         <!--<a href="javascript:void(0)" class="easyui-linkbutton add" data-options="iconCls:'icon-add',plain:true" >添加</a>-->
         <!--<a href="javascript:void(0)" class="easyui-linkbutton del" data-options="iconCls:'icon-remove',plain:true">删除</a>-->
+        <a href="javascript:void(0)" class="easyui-linkbutton undo" data-options="iconCls:'icon-undo',plain:true">恢复</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton save" data-options="iconCls:'icon-save',plain:true" >保存</a>
+    </div>
+    <div class="conclusiontabletoolbar" >
+        <a href="javascript:void(0)" class="easyui-linkbutton add" data-options="iconCls:'icon-add',plain:true" >添加</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton del" data-options="iconCls:'icon-remove',plain:true">删除</a>
         <a href="javascript:void(0)" class="easyui-linkbutton undo" data-options="iconCls:'icon-undo',plain:true">恢复</a>
         <a href="javascript:void(0)" class="easyui-linkbutton save" data-options="iconCls:'icon-save',plain:true" >保存</a>
     </div>

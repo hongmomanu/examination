@@ -355,7 +355,7 @@
 (defn additemdetailtable [details]
   (let [
         items (json/read-str details :key-fn keyword)
-        relationid (:relatioid (first items))
+        relationid (:relationid (first items))
         detailids (map #(:detailcode %) items)
         userid (session/get :userid)
         items (map #(conj {:userid userid} %) items)
