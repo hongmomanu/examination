@@ -90,13 +90,14 @@
     )
 
   )
-(defn getitemdetaibydeptid [start limit  totalname rowsname deptid itemcodes]
+(defn getitemdetaibydeptid [start limit  totalname rowsname deptid itemcodes relationid]
   (let [
          ids    (json/read-str itemcodes)
          results (db/getitemdetaibydeptid start limit  deptid ids)
+         result (map #(conj   % (first (db/getdetaireportbyid relationid (:detailid %)))) results)
          nums    (:counts (first (db/getitemdetaibydeptidnums deptid ids)))
          ]
-    (resp/json (assoc {} rowsname results totalname nums))
+    (resp/json (assoc {} rowsname result totalname nums))
     )
   )
 
@@ -347,6 +348,24 @@
 (defn delunitmembers [members]
   (let [items (json/read-str members :key-fn keyword)]
     (dorun (map #(db/delunitmember (:id %)) items))
+    (resp/json {:success true})
+    )
+  )
+
+(defn additemdetailtable [details]
+  (let [
+        items (json/read-str details :key-fn keyword)
+        relationid (:relatioid (first items))
+        detailids (map #(:detailcode %) items)
+        userid (session/get :userid)
+        items (map #(conj {:userid userid} %) items)
+        ]
+    (with-db db/sqlitedb (transaction
+                           (db/delitemdetailtable relationid detailids)
+                           (db/additemdetailtable  items)
+                           )
+      )
+
     (resp/json {:success true})
     )
   )

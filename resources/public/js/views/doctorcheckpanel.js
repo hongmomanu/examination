@@ -70,6 +70,7 @@ $('#doctorcheckpanel .finishitem').click(function(){
             if(params.relationid){
                 var deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
                 var data=$('#doctorcheckpanel .checkingitems').datagrid('getRows');
+                var relationid=$('#doctorcheckpanel .pationinfoform').form("serialize").relationid;
                 var deptids=[];
                 for(var i=0;i<data.length;i++){
                     if(data[i].deptid==deptid)deptids.push(data[i].itemcode);
@@ -78,6 +79,7 @@ $('#doctorcheckpanel .finishitem').click(function(){
                 if($('#checkpationwithitemwin').length>0){
                     $('#checkpationwithitemwin').dialog('open');
                     $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{deptid:deptid,
+                        relationid:relationid,
                         itemcodes: $.toJSON(deptids)});
                 }else{
                     require(['text!views/checkpationwithitem.htm','views/checkpationwithitem'],
@@ -87,6 +89,7 @@ $('#doctorcheckpanel .finishitem').click(function(){
 
                             $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{
                                 deptid:deptid,
+                                relationid:relationid,
                                 itemcodes: $.toJSON(deptids)
                             });
                         });

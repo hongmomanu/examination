@@ -98,8 +98,8 @@
   (POST "/maintain/getcheckingitems" [start limit  totalname rowsname blh_no keyword ]
     (maintain/getcheckingitems start limit  totalname rowsname blh_no keyword ))
 
-  (POST "/maintain/getitemdetaibydeptid" [start limit  totalname rowsname deptid itemcodes]
-    (maintain/getitemdetaibydeptid start limit  totalname rowsname deptid itemcodes))
+  (POST "/maintain/getitemdetaibydeptid" [start limit  totalname rowsname deptid itemcodes relationid]
+    (maintain/getitemdetaibydeptid start limit  totalname rowsname deptid itemcodes relationid))
 
   (POST "/maintain/addcheckitemsbyrid" [relationid items]
     (maintain/addrelationitems relationid items)
@@ -172,12 +172,15 @@
 (POST "/maintain/delunitgroup" [id]
     (maintain/delunitgroup id))
 
-  (POST "/maintain/addnewunitmembers" [members ]
-    (maintain/addnewunitmembers members)
-    )
-  (POST "/maintain/editdetailtips" [tips ]
-    (maintain/editdetailtips tips)
-    )
+(POST "/maintain/addnewunitmembers" [members ]
+  (maintain/addnewunitmembers members)
+  )
+(POST "/maintain/additemdetailtable" [details]
+  (maintain/additemdetailtable details)
+  )
+(POST "/maintain/editdetailtips" [tips ]
+  (maintain/editdetailtips tips)
+  )
 (POST "/maintain/editsuggests" [suggets ]
     (maintain/editsuggests suggets)
     )

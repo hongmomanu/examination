@@ -22,7 +22,7 @@ define(function () {
         $('#suggestinfoform').form('load',rowData);
         //$('#suggestmanagerlayout').layout('expand','east');
 
-        if (editIndex != index){
+        //if (editIndex != index){
             if (endEditing()){
                 $('#suggestmanagerpaneltable').datagrid('selectRow', index)
                     .datagrid('beginEdit', index);
@@ -30,7 +30,7 @@ define(function () {
             } else {
                 $('#suggestmanagerpaneltable').datagrid('selectRow', editIndex);
             }
-        }
+        //}
     }
     var append =function (){
         if (endEditing()){
@@ -154,15 +154,17 @@ define(function () {
         $('#suggestinfoformcontent').textbox(
             {
                 onChange:function(newValue,oldValue){
-                    endEditing();
+
                     var data=$('#suggestmanagerpaneltable').datagrid('getSelected');
                     var index=$('#suggestmanagerpaneltable').datagrid('getRowIndex',data);
                     data.content=newValue;
+
                     //console.log(data);
                     $('#suggestmanagerpaneltable').datagrid('updateRow',{
                         index:index,
                         row:data
                     });
+                    endEditing();
 
         }});
 
@@ -170,6 +172,7 @@ define(function () {
             singleSelect: true,
             collapsible: true,
             rownumbers: true,
+            autoRowHeight:true,
             method:'post',
             fitColumns:true,
             url:'maintain/getsuggests',

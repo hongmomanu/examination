@@ -391,6 +391,29 @@
     (values fields)
     )
   )
+(defn additemdetailtable [fields]
+  (insert reportDetail
+    (values fields)
+    )
+  )
+(defn getdetaireportbyid [relationid detaiid]
+  (select reportDetail
+    (fields :result :result_mess)
+    (where (and {:relationid relationid}
+             {:detailcode detaiid}
+             ))
+
+    )
+
+  )
+(defn delitemdetailtable [relationid detailids]
+  (delete reportDetail
+    (where (and
+             {:relationid relationid}
+             {:detailcode [in detailids]}
+             ))
+    )
+  )
 (defn getcheckornopation [start limits keywords deptid ischecked]
   (select registRelation
     (fields [:id :relationid] :status :check_date)
