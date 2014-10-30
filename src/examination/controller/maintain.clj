@@ -90,10 +90,11 @@
     )
 
   )
-(defn getitemdetaibydeptid [start limit  totalname rowsname deptid]
+(defn getitemdetaibydeptid [start limit  totalname rowsname deptid itemcodes]
   (let [
-         results (db/getitemdetaibydeptid start limit  deptid)
-         nums    (:counts (first (db/getitemdetaibydeptidnums deptid)))
+         ids    (json/read-str itemcodes)
+         results (db/getitemdetaibydeptid start limit  deptid ids)
+         nums    (:counts (first (db/getitemdetaibydeptidnums deptid ids)))
          ]
     (resp/json (assoc {} rowsname results totalname nums))
     )
@@ -300,10 +301,12 @@
     )
   )
 (defn getdetailtips [start limit  totalname rowsname detailid]
+
   (let [results (db/getdetailtips start limit detailid)
         nums  (:counts (first (db/getdetailtipnums detailid )))
         ]
-    (resp/json (assoc {} rowsname results totalname nums))
+    (println results)
+    (if (nil? rowsname)(resp/json results) (resp/json (assoc {} rowsname results totalname nums)))
     )
   )
 

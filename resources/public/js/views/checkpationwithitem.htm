@@ -6,8 +6,19 @@
             <table class="itemdetailtable">
                 <thead>
                 <tr>
-                    <th data-options="field:'itemdetailname',width:100,editor:'text'">名称</th>
-                    <th data-options="field:'result',width:100,editor:'text'">结果</th>
+                    <th data-options="field:'itemdetailname',width:100">名称</th>
+                    <th data-options="field:'result',width:100,editor:{
+                            type:'combobox',
+                            options:{
+                                valueField:'tipname',
+                                textField:'tipname',
+                                onShowPanel: function () {
+                                    var detailid=$('#checkpationwithitemwin .itemdetailtable').datagrid('getSelected').detailid;
+                                    var url = 'maintain/getdetailtips?start=0&limit=1000&detaiid='+detailid;
+                                    $(this).combobox('reload', url);
+                                }
+                            }
+                        }">结果</th>
                     <th data-options="field:'result_mess',width:100,editor:'text'">结果提示</th>
                     <th data-options="field:'id',width:100,hidden:true">id</th>
                 </tr>
@@ -24,6 +35,13 @@
         </div>
 
 
+    </div>
+
+    <div class="tabletoolbar" >
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton add" data-options="iconCls:'icon-add',plain:true" >添加</a>-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton del" data-options="iconCls:'icon-remove',plain:true">删除</a>-->
+        <a href="javascript:void(0)" class="easyui-linkbutton undo" data-options="iconCls:'icon-undo',plain:true">恢复</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton save" data-options="iconCls:'icon-save',plain:true" >保存</a>
     </div>
 
 </div>

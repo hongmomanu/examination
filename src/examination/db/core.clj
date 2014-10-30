@@ -47,7 +47,7 @@
   (database sqlitedb)
   )
 (defentity checkItemDetail
-
+  (pk :itemid)
   (database sqlitedb)
   )
 (defentity reportDetail
@@ -319,24 +319,26 @@
 
   )
 
-(defn getitemdetaibydeptid [start limits  deptid]
+(defn getitemdetaibydeptid [start limits  deptid ids]
   (select checkitem
+    (fields :id)
     (with checkItemDetail
       (fields :itemdetailname [:id :detailid])
       )
     (where (and {:deptid deptid}
+             {:id [in ids]}
              ))
     (limit limits)
     (offset start)
     )
 
   )
-(defn getitemdetaibydeptidnums [deptid]
+(defn getitemdetaibydeptidnums [deptid ids]
   (select checkitem
     (with checkItemDetail
-      (fields :itemdetailname [:id :detailid])
       )
     (where (and {:deptid deptid}
+             {:id [in ids]}
              ))
     (aggregate (count :id) :counts)
     )

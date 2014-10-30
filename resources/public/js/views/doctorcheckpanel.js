@@ -55,6 +55,8 @@ define(function () {
         });
 
 var showpationinfo=function(data){
+
+
     $('#doctorcheckpanel .pationinfoform').form('load',data);
     $('#doctorcheckpanel .checkingitems').datagrid('load',{relationid:data.relationid});
 
@@ -64,18 +66,29 @@ $('#doctorcheckpanel .finishitem').click(function(){
     require(['js/jqueryplugin/easyui-form.js']
         ,function(easyuifrom){
             var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
+
             if(params.relationid){
+                var deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
+                var data=$('#doctorcheckpanel .checkingitems').datagrid('getRows');
+                var deptids=[];
+                for(var i=0;i<data.length;i++){
+                    if(data[i].deptid==deptid)deptids.push(data[i].itemcode);
+                }
+
                 if($('#checkpationwithitemwin').length>0){
                     $('#checkpationwithitemwin').dialog('open');
-                    var deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
-                    $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{deptid:deptid});
+                    $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{deptid:deptid,
+                        itemcodes: $.toJSON(deptids)});
                 }else{
                     require(['text!views/checkpationwithitem.htm','views/checkpationwithitem'],
                         function(div,js){
                             $('body').append(div);
                             js.render();
-                            var deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
-                            $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{deptid:deptid});
+
+                            $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{
+                                deptid:deptid,
+                                itemcodes: $.toJSON(deptids)
+                            });
                         });
                 }
             }else{
