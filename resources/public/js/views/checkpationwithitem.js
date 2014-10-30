@@ -5,7 +5,7 @@ define(function () {
             ,function(seriform){
                 var onClickRow=function (index,table){
                     if (editIndex != index){
-                        if (endEditing()){
+                        if (endEditing(table)){
                             table.datagrid('selectRow', index)
                                 .datagrid('beginEdit', index);
                             editIndex = index;
@@ -16,13 +16,13 @@ define(function () {
                 }
 
                 var editIndex = undefined;
-                var endEditing=function (){
+                var endEditing=function (table){
                     if (editIndex == undefined){return true}
-                    if ($('#checkpationwithitemwin .itemdetailtable').datagrid('validateRow', editIndex)){
+                    if (table.datagrid('validateRow', editIndex)){
                         /* var ed = $('#packagemanagerpaneldetail').datagrid('getEditor', {index:editIndex,field:'productid'});
                          var productname = $(ed.target).combobox('getText');
                          $('#packagemanagerpaneldetail').datagrid('getRows')[editIndex]['productname'] = productname;*/
-                        $('#checkpationwithitemwin .itemdetailtable').datagrid('endEdit', editIndex);
+                        table.datagrid('endEdit', editIndex);
                         //editIndex = undefined;
                         return true;
                     } else {
@@ -38,7 +38,7 @@ define(function () {
                     editIndex = undefined;
                 }
                 var accept=function (table,addurl,editurl,delurl){
-                    if (endEditing()){
+                    if (endEditing(table)){
                         var inserted=table.datagrid('getChanges','inserted');
                         var deleted=table.datagrid('getChanges','deleted');
                         var updated=table.datagrid('getChanges','updated');
@@ -145,6 +145,14 @@ define(function () {
                 var reject =function (table){
                     table.datagrid('rejectChanges');
                     editIndex = undefined;
+                };
+                var append =function (table){
+                    if (endEditing(table)){
+                        table.datagrid('appendRow',{status:'是'});
+                        editIndex = table.datagrid('getRows').length-1;
+                        table.datagrid('selectRow', editIndex)
+                            .datagrid('beginEdit', editIndex);
+                    }
                 }
                 function getChanges(table){
                     /*var rows = $('#checkpationwithitemwin .itemdetailtable').datagrid('getChanges');
@@ -165,6 +173,28 @@ define(function () {
                 $('#checkpationwithitemwin .tabletoolbar').find('.undo').click(
                     function(){
                         return reject($('#checkpationwithitemwin .itemdetailtable'))
+                    }
+
+                );
+
+                $('#checkpationwithitemwin .conclusiontabletoolbar').find('.del').click(function(){
+                 removeit ($('#checkpationwithitemwin .deptconclusion'));
+                 });
+                $('#checkpationwithitemwin .conclusiontabletoolbar').find('.save').click(function(){
+                    var addurl="maintain/addsuggession";
+                    var editurl='maintain/editsugession';
+                    var delurl="maintain/delsuggessuon";
+                    accept($('#checkpationwithitemwin .deptconclusion'),addurl,editurl,delurl);
+                });
+                $('#checkpationwithitemwin .conclusiontabletoolbar').find('.undo').click(
+                    function(){
+                        return reject($('#checkpationwithitemwin .deptconclusion'))
+                    }
+
+                );
+                $('#checkpationwithitemwin .conclusiontabletoolbar').find('.add').click(
+                    function(){
+                        return append($('#checkpationwithitemwin .deptconclusion'));
                     }
 
                 );
