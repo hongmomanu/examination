@@ -6,6 +6,27 @@ define(function () {
 
             onSelect:function(title,index){
                 if(index==2){
+                    var content_div=$('#checkpationwithitemwin .reportlist');
+                    content_div.html('');
+                    var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
+                    content_div.append('<table class="reporttable"></table>');
+                    var contenttable=content_div.find('.reporttable');
+                    var head_line='<tr><td width="20%">'+params.blh_no+ '&nbsp;'+params.name+'&nbsp;'+
+                        '</td><td width="20%">'+params.sex+'</td>' +
+                        '<td width="20%"></td>'+
+                        '<td width="20%"></td><td width="20%"></td>'+
+                        '</tr>';
+                    contenttable.append(head_line);
+                    var dept_line='<tr><td width="20%">'
+                        +$('#doctorcheckpanel .depttable').datagrid('getSelected').deptname+
+                        '</td><td width="20%"></td>' +
+                        '<td width="20%"></td>'+
+                        '<td width="20%"></td><td width="20%"></td>'+
+                        '</tr>';
+
+                    contenttable.append(dept_line);
+
+                    //content_div.html('<table class="reporttable"></table>');
 
                     /*require(['js/commonfuncs/AjaxForm.js']
                         ,function(ajaxfrom){
