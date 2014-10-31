@@ -11,12 +11,12 @@ define(function () {
                     var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
                     content_div.append('<table class="reporttable"></table>');
                     var contenttable=content_div.find('.reporttable');
-                    var head_line='<tr><td width="20%">'+params.blh_no+ '&nbsp;'+params.name+'&nbsp;'+
-                        '</td><td width="20%">'+params.sex+'</td>' +
-                        '<td width="20%"></td>'+
-                        '<td width="20%"></td><td width="20%"></td>'+
+                    var head_line='<tr><td width="20%" style="border-bottom: 2px solid black;">'+params.blh_no+ $.repeat('&nbsp;',3)+params.name+
+                        '</td><td width="20%" style="border-bottom: 2px solid black;">'+params.sex+'</td>' +
+                        '<td colspan="3"  style="border-bottom: 2px solid black;"></td>'+
                         '</tr>';
                     contenttable.append(head_line);
+                    //contenttable.append('<tr><td colspan="3" height="3"><hr style="border-bottom:5px solid #000000;margin: 0 0 0 0;"/></td></tr>');
                     var dept_line='<tr><td width="20%">'
                         +$('#doctorcheckpanel .depttable').datagrid('getSelected').deptname+
                         '</td><td width="20%"></td>' +
@@ -24,7 +24,7 @@ define(function () {
                         '<td width="20%"></td><td width="20%"></td>'+
                         '</tr>';
                     contenttable.append(dept_line);
-                    var head_line='<tr><td width="20%">'
+                    var head_line='<tr ><td width="20%">'
                         +"xiangmumingcheng"+
                         '</td><td width="20%">jianchajieguo</td>' +
                         '<td width="20%">danwei</td>'+
