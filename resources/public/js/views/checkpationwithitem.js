@@ -23,8 +23,14 @@ define(function () {
                         '<td width="20%"></td>'+
                         '<td width="20%"></td><td width="20%"></td>'+
                         '</tr>';
-
                     contenttable.append(dept_line);
+                    /*var items={};
+                    var data=$('#doctorcheckpanel .checkingitems').datagrid('getRows');
+                    for(var i=0;i<data.length;i++){
+                        if(items[data[i].itemname]){
+                            items[data[i].itemname].push();
+                        }
+                    }*/
 
                     //content_div.html('<table class="reporttable"></table>');
 
