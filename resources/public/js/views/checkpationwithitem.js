@@ -1,6 +1,33 @@
 define(function () {
 
     function render(parameters) {
+
+        $('#checkpationwithitemwin .easyui-tabs').tabs().tabs({
+
+            onSelect:function(title,index){
+                if(index==2){
+
+                    /*require(['js/commonfuncs/AjaxForm.js']
+                        ,function(ajaxfrom){
+                            var url="auth/getsessionuserinfo";
+                            var success=function(data){
+                                 console.log(data);
+                            };
+                            var errorfunc=function(){
+                                $.messager.alert('操作失败','服务异常!');
+                            };
+                            ajaxfrom.ajaxsend('post','json',url,{},success,null,errorfunc)
+
+                        });*/
+
+
+
+
+
+                }
+            }
+        })
+
         require(['js/jqueryplugin/easyui-form.js']
             ,function(seriform){
                 var onClickRow=function (index,table){

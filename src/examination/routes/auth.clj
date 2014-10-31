@@ -76,6 +76,10 @@
     (auth/getuploadfile filename)
     )
 
+  (POST "/auth/getsessionuserinfo"[]
+    (auth/getsessionuserinfo)
+    )
+
   (POST "/auth/editdivision" [divisionname signaturepath divisionid parentid divisionpath]
     (auth/savedivision divisionname signaturepath divisionid parentid divisionpath)
 

@@ -418,6 +418,15 @@
 
   )
 
+(defn getsessionuserinfo []
+  (let [
+         userid (getuserid nil)
+         ]
+    (resp/json (db/getuserbyid userid))
+    )
+
+  )
+
 (defn gettreefunc [node roleid callback]
   (let [
 
