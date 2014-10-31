@@ -64,6 +64,11 @@
   (POST "/maintain/getsuggests" [start limit  totalname rowsname deptid keyword]
     (maintain/getsuggests start limit  totalname rowsname deptid keyword))
 
+  (POST "/maintain/getdeptconclusionbyrid" [start limit  totalname rowsname deptid relationid]
+    (maintain/getdeptconclusionbyrid start limit  totalname rowsname deptid relationid))
+
+
+
   (POST "/maintain/getdetailtips" [start limit  totalname rowsname detaiid]
     (maintain/getdetailtips start limit  totalname rowsname detaiid))
 
@@ -175,6 +180,12 @@
 
 (POST "/maintain/addnewunitmembers" [members ]
   (maintain/addnewunitmembers members)
+  )
+(POST "/maintain/addsuggessionbyrid" [items ]
+  (maintain/addsuggessionbyrid items)
+  )
+(POST "/maintain/delsuggessuonbyrid" [delids]
+  (maintain/delsuggessuonbyrid delids)
   )
 (POST "/maintain/additemdetailtable" [details]
   (maintain/additemdetailtable details)

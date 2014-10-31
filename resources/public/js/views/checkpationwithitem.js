@@ -45,16 +45,7 @@ define(function () {
                         if(inserted.length>0){
                             require(['js/commonfuncs/AjaxForm.js']
                                 ,function(ajaxfrom){
-                                    var rids=[];
-                                    var rowdata=$('#checkpationwithitemwin .unitmembers').datagrid('getRows');
-                                    for(var i=0;i<rowdata.length;i++){
-                                        rids.push(rowdata[i].relationid);
-                                    }
 
-                                    for(var i=0;i<inserted.length;i++){
-                                        delete inserted[i].deptname;
-                                        delete inserted[i].itemname;
-                                    }
                                     var success=function(){
                                         $.messager.alert('操作成功','成功!');
                                         table.datagrid('acceptChanges');
@@ -64,7 +55,7 @@ define(function () {
                                     var errorfunc=function(){
                                         $.messager.alert('操作失败','失败!');
                                     };
-                                    var params= {items:$.toJSON(inserted),rids:$.toJSON(rids)};
+                                    var params= {items:$.toJSON(inserted)};
                                     ajaxfrom.ajaxsend('post','json',addurl,params,success,null,errorfunc)
 
                                 });
@@ -118,16 +109,12 @@ define(function () {
                                     var errorfunc=function(){
                                         $.messager.alert('操作失败','失败!');
                                     };
-                                    var rids=[];
-                                    var rowdata=table.datagrid('getRows');
-                                    for(var i=0;i<rowdata.length;i++){
-                                        rids.push(rowdata[i].relationid);
-                                    }
-                                    var itemcodes=[];
+
+                                    var delids=[];
                                     for(var i=0;i<deleted.length;i++){
-                                        itemcodes.push(deleted[i].itemcode);
+                                        delids.push(deleted[i].id);
                                     }
-                                    var params= {rids: $.toJSON(rids),itemcodes: $.toJSON(itemcodes)};
+                                    var params= {delids: $.toJSON(delids)};
                                     ajaxfrom.ajaxsend('post','json',delurl,params,success,null,errorfunc);
 
                                 });
@@ -181,9 +168,9 @@ define(function () {
                  removeit ($('#checkpationwithitemwin .deptconclusion'));
                  });
                 $('#checkpationwithitemwin .conclusiontabletoolbar').find('.save').click(function(){
-                    var addurl="maintain/addsuggession";
-                    var editurl='maintain/editsugession';
-                    var delurl="maintain/delsuggessuon";
+                    var addurl="maintain/addsuggessionbyrid";
+                    var editurl='maintain/editsugessionbyrid';
+                    var delurl="maintain/delsuggessuonbyrid";
                     accept($('#checkpationwithitemwin .deptconclusion'),addurl,editurl,delurl);
                 });
                 $('#checkpationwithitemwin .conclusiontabletoolbar').find('.undo').click(
@@ -320,7 +307,28 @@ define(function () {
 
                     },
                     onClickRow:function(index,rowData){
-                        console.log(rowData);
+
+                        var relationid=$('#doctorcheckpanel .pationinfoform').form("serialize").relationid;
+                        var deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
+                        var newrow={
+                            suggestion:rowData.content,
+                            reason:rowData.name,
+                            relationid:relationid,
+                            deptid:deptid,
+                            suggestid:rowData.id
+                        };
+                        var addeddata=$('#checkpationwithitemwin .deptconclusion').datagrid('getRows');
+                        var flag=false;
+                        for(var i=0;i<addeddata.length;i++){
+                            if(addeddata[i].suggestid==rowData.id){
+                                flag=true;
+                                break;
+                            }
+                        }
+                        if(!flag){
+                            $('#checkpationwithitemwin .deptconclusion').datagrid('appendRow',newrow);
+                        }
+
                     }
 
                 })

@@ -301,6 +301,13 @@
     (resp/json (assoc {} rowsname results totalname nums))
     )
   )
+(defn getdeptconclusionbyrid [start limit  totalname rowsname deptid relationid]
+  (let [results (db/getdeptconclusionbyrid start limit deptid relationid)
+        nums  (:counts (first (db/getdeptconclusionbyridnums deptid relationid)))
+        ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+  )
 (defn getdetailtips [start limit  totalname rowsname detailid]
 
   (let [results (db/getdetailtips start limit detailid)
@@ -567,6 +574,19 @@
     )
 
   )
+(defn addsuggessionbyrid [items]
+  (let [items (json/read-str items :key-fn keyword)]
+    (db/addsuggessionbyrid items)
+    (resp/json {:success true})
+    )
+  )
+(defn delsuggessuonbyrid [delids]
+  (let [ids (json/read-str delids :key-fn keyword)]
+    (db/delsuggessuonbyrid ids)
+    (resp/json {:success true})
+    )
+  )
+
 (defn addnewsuggests [suggets]
   (let [items (json/read-str suggets :key-fn keyword)]
     (dorun (map #(db/addnewsuggest %) items))

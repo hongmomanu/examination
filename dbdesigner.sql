@@ -174,6 +174,7 @@ CREATE TABLE IF NOT EXISTS deptSuggestion
   DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
   --pation_no     INTEGER, -- 病人内码
   --times     int       , --检查次数
+  suggestid  integer ,--病因内码
   relationid integer,--内码
   deptid  int, --  检查科室
   suggestion VARCHAR(100), --  科室建议

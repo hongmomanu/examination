@@ -16,7 +16,7 @@
 
 (declare users roles functorole functions enumerate divisions
          systemlog registRelation patientMainIndex checkitem
-        examinationPackage reportDetail  checkItemDetailTip
+        examinationPackage reportDetail  checkItemDetailTip deptSuggestion
   )
 
 
@@ -51,6 +51,10 @@
   (database sqlitedb)
   )
 (defentity reportDetail
+
+  (database sqlitedb)
+  )
+(defentity deptSuggestion
 
   (database sqlitedb)
   )
@@ -589,6 +593,24 @@
     (limit limits)
     (offset start))
   )
+(defn getdeptconclusionbyrid [start limits deptid relationid]
+  (select deptSuggestion
+    (where (and
+             {:relationid relationid}
+             {:deptid deptid}
+             ))
+    (limit limits)
+    (offset start))
+  )
+(defn getdeptconclusionbyridnums [deptid relationid]
+  (select deptSuggestion
+    (where (and
+             {:relationid relationid}
+             {:deptid deptid}
+             ))
+    (aggregate (count :id) :counts)
+   )
+  )
 
 (defn getdetailtips [start limits detailid]
   (select checkItemDetailTip
@@ -1113,6 +1135,18 @@
     (values fields)
     )
   )
+(defn addsuggessionbyrid [fields]
+  (insert deptSuggestion
+    (values fields)
+    )
+  )
+
+(defn delsuggessuonbyrid [ids]
+  (delete deptSuggestion
+    (where {:id [in ids]})
+    )
+  )
+
 (defn addnewsuggest [fields]
   (insert deptCustomDescript
     (values fields)
