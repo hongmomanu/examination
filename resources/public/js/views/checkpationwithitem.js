@@ -24,14 +24,32 @@ define(function () {
                         '<td width="20%"></td><td width="20%"></td>'+
                         '</tr>';
                     contenttable.append(dept_line);
-                    /*var items={};
-                    var data=$('#doctorcheckpanel .checkingitems').datagrid('getRows');
+                    var head_line='<tr><td width="20%">'
+                        +"xiangmumingcheng"+
+                        '</td><td width="20%">jianchajieguo</td>' +
+                        '<td width="20%">danwei</td>'+
+                        '<td width="20%">cankaofanwei</td><td width="20%">tishi</td>'+
+                        '</tr>';
+                    contenttable.append(head_line);
+
+                    var items={};
+                    var data=$('#checkpationwithitemwin .itemdetailtable').datagrid('getRows');
                     for(var i=0;i<data.length;i++){
                         if(items[data[i].itemname]){
-                            items[data[i].itemname].push();
+                            items[data[i].itemname].push(data[i]);
+                        }else{
+                            items[data[i].itemname]=[];
                         }
-                    }*/
+                    }
+                    for(var item in items){
+                        var item_line='<tr><td width="20%">'
+                            +item+
+                            '</td><td width="20%"></td>' +
+                            '<td width="20%" colspan="2"></td>'+
+                            '<td width="20%" colspan="2"></td>'+
+                            '</tr>';
 
+                    }
                     //content_div.html('<table class="reporttable"></table>');
 
                     /*require(['js/commonfuncs/AjaxForm.js']
