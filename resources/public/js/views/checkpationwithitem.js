@@ -44,7 +44,7 @@ define(function () {
                         }
                     }
                     for(var item in items){
-                        console.log(items[item]);
+                        //console.log(items[item]);
                         if(items[item].length>0){
                             var item_line='<tr><td width="20%">'
                                 +item+
@@ -52,8 +52,23 @@ define(function () {
                                 '<td width="20%" colspan="2">检查医生&nbsp;&nbsp;'
                                 +(items[item][0].displayname?items[item][0].displayname:"未检查")+'</td>'+
                                 '</tr>';
-
                             contenttable.append(item_line);
+
+                            for(var i=0;i<items[item].length;i++){
+                                var itemdetail_line='<tr><td width="20%">'
+                                    +items[item][i].itemdetailname+
+                                    '<td width="20%" >'+(items[item][i].result?items[item][i].result:"未检查")+'</td>'+
+                                    '<td width="20%" >'+items[item][i].unit+'</td>'+
+                                    '<td width="20%" >'+(items[item][i].downlimit
+                                    +"~"+items[item][i].uplimit)+'</td>'+
+                                    '<td width="20%" >'+(items[item][i].result_mess?items[item][i].result_mess:"未检查")
+                                    +'</td>'
+                                    '</tr>';
+                                contenttable.append(itemdetail_line);
+
+                            }
+
+
                         }
 
 
