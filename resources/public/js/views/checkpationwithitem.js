@@ -22,20 +22,22 @@ define(function () {
                         '</b></td>'+
                         '</tr>';
                     contenttable.append(dept_line);
-                    var head_line='<tr ><td width="20%">'
+                    var head_line='<tr ><td width="20%" class="biggerline">'
                         +"项目名称"+
-                        '</td><td width="20%">检查结果</td>' +
-                        '<td width="20%">单位</td>'+
-                        '<td width="20%">参考范围</td><td width="20%">提示</td>'+
+                        '</td><td width="20%" class="biggerline">检查结果</td>' +
+                        '<td width="20%" class="biggerline">单位</td>'+
+                        '<td width="20%" class="biggerline">参考范围</td>' +
+                        '<td width="20%" class="biggerline">提示</td>'+
                         '</tr>';
                     contenttable.append(head_line);
 
                     var items={};
                     var data=$('#checkpationwithitemwin .itemdetailtable').datagrid('getRows');
                     var checkdate=null;
+                    var deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
                     for(var i=0;i<data.length;i++){
                         if(data[i].checkdate)checkdate=data[i].checkdate;
-                        if(items[data[i].itemname]){
+                        if(items[data[i].itemname]&&deptid==data[i].deptid){
                             items[data[i].itemname].push(data[i]);
                         }else{
                             items[data[i].itemname]=[];
@@ -43,14 +45,17 @@ define(function () {
                     }
                     for(var item in items){
                         console.log(items[item]);
-                        var item_line='<tr><td width="20%">'
-                            +item+
-                            '</td><td width="20%"></td>' +items[item].checkdate+
-                            '<td width="20%" colspan="2">'+checkdate+'</td>'+
-                            '<td width="20%" colspan="2">'+items[item][0].displayname+'</td>'+
-                            '</tr>';
+                        if(items[item].length>0){
+                            var item_line='<tr><td width="20%">'
+                                +item+
+                                '<td width="20%" colspan="2">检查日期&nbsp;&nbsp;'+(checkdate?checkdate:"未检查")+'</td>'+
+                                '<td width="20%" colspan="2">检查医生&nbsp;&nbsp;'
+                                +(items[item][0].displayname?items[item][0].displayname:"未检查")+'</td>'+
+                                '</tr>';
 
-                        contenttable.append(item_line);
+                            contenttable.append(item_line);
+                        }
+
 
                     }
                     //content_div.html('<table class="reporttable"></table>');
