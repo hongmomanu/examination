@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ae5813a-5333-4d5a-bc7b-256668f8a93c" name="Default" comment="">
+    <list default="true" id="bdacbddd-df2d-4dbb-a223-c93348526f85" name="Default" comment="jack commit">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/examination/routes/home.clj" afterPath="$PROJECT_DIR$/src/examination/routes/home.clj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/examination/layout.clj" afterPath="$PROJECT_DIR$/src/examination/layout.clj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="f07f9af9-74de-4917-9675-757962f88c56" name="Failed commit: Default" comment="jack commit" />
     <ignored path="examination.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,7 +22,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <breakpoint_any converted="true">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
         <option name="NOTIFY_UNCAUGHT" value="true" />
@@ -66,109 +67,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="newcheckitemwin.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js">
+      <file leaf-file-name="home.clj" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/examination/routes/home.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2196">
-              <caret line="11" column="49" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+            <state vertical-scroll-proportion="0.78846157" vertical-offset="0" max-vertical-offset="780">
+              <caret line="41" column="85" selection-start-line="41" selection-start-column="85" selection-end-line="41" selection-end-column="85" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dbdesigner.sql" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dbdesigner.sql">
+      <file leaf-file-name="test.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/templates/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.724138" vertical-offset="2340" max-vertical-offset="3294">
-              <caret line="136" column="34" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="34" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newcheckitemwin.htm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.htm">
+      <file leaf-file-name="layout.clj" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/examination/layout.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="810">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+              <caret line="5" column="12" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="usermanagerpanel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/public/js/views/usermanagerpanel.js">
+      <file leaf-file-name="maintab.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/templates/maintab.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1807" max-vertical-offset="2376">
-              <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="116" selection-end-column="13" />
+            <state vertical-scroll-proportion="-24.375" vertical-offset="0" max-vertical-offset="720">
+              <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="itemmanagerpanel.htm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm">
+      <file leaf-file-name="maintabdetail.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/templates/maintabdetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0" vertical-offset="1350" max-vertical-offset="2430">
-              <caret line="78" column="23" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="40" />
+            <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="180">
+              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unitmanagerpanel.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.js">
+      <file leaf-file-name="checkpationwithitem.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/public/js/views/checkpationwithitem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.793103" vertical-offset="1765" max-vertical-offset="2394">
-              <caret line="109" column="29" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="29" />
+            <state vertical-scroll-proportion="-4.6153846" vertical-offset="735" max-vertical-offset="6825">
+              <caret line="57" column="53" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newunitwin.htm" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/public/js/views/newunitwin.htm">
+      <file leaf-file-name="checkpationwithitem.htm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/public/js/views/checkpationwithitem.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23863636" vertical-offset="0" max-vertical-offset="810">
-              <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1395">
+              <caret line="0" column="31" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="newunitwin.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/public/js/views/newunitwin.js">
+      <file leaf-file-name="doctorcheckpanel.htm" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/public/js/views/doctorcheckpanel.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.413793" vertical-offset="1134" max-vertical-offset="2160">
-              <caret line="74" column="44" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+            <state vertical-scroll-proportion="-23.4" vertical-offset="0" max-vertical-offset="2700">
+              <caret line="78" column="52" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="unitmanagerpanel.htm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.htm">
+      <file leaf-file-name="doctorcheckpanel.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/public/js/views/doctorcheckpanel.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.696429" vertical-offset="1103" max-vertical-offset="1602">
-              <caret line="79" column="36" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#0;n#tr#6;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#a#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-2.4615386" vertical-offset="881" max-vertical-offset="2790">
+              <caret line="63" column="47" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="maintain.clj" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/examination/routes/maintain.clj">
+        <entry file="file://$PROJECT_DIR$/src/examination/controller/maintain.clj">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.75862" vertical-offset="289" max-vertical-offset="900">
-              <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+            <state vertical-scroll-proportion="-21.615385" vertical-offset="1178" max-vertical-offset="11295">
+              <caret line="116" column="9" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -178,73 +171,61 @@
   </component>
   <component name="FindManager">
     <FindUsagesManager>
-      <setting name="OPEN_NEW_TAB" value="true" />
+      <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/resources/public/js/config.js" />
-        <option value="$PROJECT_DIR$/resources/public/test.html" />
-        <option value="$PROJECT_DIR$/src/examination/handler.clj" />
-        <option value="$PROJECT_DIR$/src/examination/controller/index.clj" />
-        <option value="$PROJECT_DIR$/src/examination/routes/index.clj" />
-        <option value="$PROJECT_DIR$/src/examination/db/schema.clj" />
-        <option value="$PROJECT_DIR$/dbtables.sql" />
-        <option value="$PROJECT_DIR$/resources/templates/base.html" />
-        <option value="$PROJECT_DIR$/resources/public/html/menu_qxgl.html" />
-        <option value="$PROJECT_DIR$/resources/public/js/commonfuncs/AjaxForm.js" />
-        <option value="$PROJECT_DIR$/src/examination/routes/home.clj" />
-        <option value="$PROJECT_DIR$/resources/public/css/index.css" />
-        <option value="$PROJECT_DIR$/resources/templates/loginbase.html" />
-        <option value="$PROJECT_DIR$/resources/public/css/login.css" />
-        <option value="$PROJECT_DIR$/resources/public/css/screen.css" />
-        <option value="$PROJECT_DIR$/resources/public/js/layoutinit.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/ManagerTree.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/rolemanagerpanel.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/funcmanagerpanel.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/newenumwin.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/newuserwin.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/TreeClickEvent.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/edituserpasswin.js" />
-        <option value="$PROJECT_DIR$/resources/templates/main.html" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/enumerateconfigmanager.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/newuserwin.htm" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/newrolewin.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/newdeptwin.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/newdeptwin.htm" />
-        <option value="$PROJECT_DIR$/project.clj" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/checkdeptmanagerpanel.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/checkdeptmanagerpanel.htm" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/newrolewin.htm" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/packagemanagerpanel.htm" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/rolemanagerpanel.htm" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.htm" />
         <option value="$PROJECT_DIR$/resources/public/js/views/usermanagerpanel.htm" />
-        <option value="$PROJECT_DIR$/src/examination/controller/auth.clj" />
-        <option value="$PROJECT_DIR$/src/examination/routes/auth.clj" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/usermanagerpanel.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.htm" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/suggestmanagerpanel.htm" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/suggestmanagerpanel.js" />
+        <option value="$PROJECT_DIR$/project.clj" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/individualregistrationpanel.htm" />
         <option value="$PROJECT_DIR$/dbdesigner.sql" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/groupsregistrationpanel.js" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/individualregistrationpanel.js" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/altercheckingitempanel.htm" />
         <option value="$PROJECT_DIR$/src/examination/routes/maintain.clj" />
         <option value="$PROJECT_DIR$/src/examination/controller/maintain.clj" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/altercheckingitempanel.js" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/unitcheckingitempanel.htm" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/doctorcheckpanel.htm" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/checkpationwithitem.htm" />
+        <option value="$PROJECT_DIR$/resources/public/js/commonfuncs/jqueryextend.js" />
+        <option value="$PROJECT_DIR$/resources/public/css/screen.css" />
         <option value="$PROJECT_DIR$/src/examination/db/core.clj" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/newunitwin.js" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.htm" />
-        <option value="$PROJECT_DIR$/resources/public/js/views/newunitwin.htm" />
+        <option value="$PROJECT_DIR$/resources/public/test.js" />
+        <option value="$PROJECT_DIR$/resources/public/test.html" />
+        <option value="$PROJECT_DIR$/resources/templates/main.html" />
+        <option value="$PROJECT_DIR$/resources/templates/maintabdetail.html" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/checkpationwithitem.js" />
+        <option value="$PROJECT_DIR$/resources/public/js/views/doctorcheckpanel.js" />
+        <option value="$PROJECT_DIR$/src/examination/layout.clj" />
+        <option value="$PROJECT_DIR$/resources/templates/maintab.html" />
+        <option value="$PROJECT_DIR$/src/examination/routes/home.clj" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="30" />
-    <option name="width" value="1370" />
-    <option name="height" value="740" />
+    <option name="x" value="550" />
+    <option name="y" value="27" />
+    <option name="width" value="1203" />
+    <option name="height" value="900" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -272,7 +253,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -288,40 +268,169 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="examination" />
-              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="examination" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="project.propCompiler" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.sorted" value="false" />
+    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Zsmzj" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="LayoutCode.rearrangeEntriesSQLite" value="false" />
+    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/public/js/views" />
-      <recent name="$PROJECT_DIR$/resources/public/js/jqueryplugin" />
-      <recent name="$PROJECT_DIR$/resources/public/js" />
-      <recent name="$PROJECT_DIR$/resources/public/html" />
       <recent name="$PROJECT_DIR$/resources/templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/public/js/views" />
+      <recent name="$PROJECT_DIR$/src/examination/controller" />
+      <recent name="$PROJECT_DIR$/src/examination/routes" />
     </key>
   </component>
   <component name="RunManager">
@@ -352,6 +461,19 @@
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -378,19 +500,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -433,7 +542,7 @@
           <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
           <option name="launcherType" value="OSDefault" />
           <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
         </LauncherParameters>
       </option>
       <option name="mobileRunTarget" value="Emulator" />
@@ -477,7 +586,7 @@
           <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
           <option name="launcherType" value="OSDefault" />
           <option name="newPlayerInstance" value="false" />
-          <option name="playerPath" value="/usr/bin/flashplayerdebugger" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
         </LauncherParameters>
       </option>
       <option name="moduleName" value="" />
@@ -545,179 +654,151 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" myUseAcceleration="nothing" SSL_PROTOCOLS="sslv3">
+  <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3ae5813a-5333-4d5a-bc7b-256668f8a93c" name="Default" comment="" />
-      <created>1412997459108</created>
-      <updated>1412997459108</updated>
-      <workItem from="1412997460200" duration="27884000" />
-      <workItem from="1413176952938" duration="17052000" />
-      <workItem from="1413252226121" duration="45058000" />
-      <workItem from="1413356227402" duration="9952000" />
+      <changelist id="bdacbddd-df2d-4dbb-a223-c93348526f85" name="Default" comment="" />
+      <created>1413028776848</created>
+      <updated>1413028776848</updated>
+      <workItem from="1414322077147" duration="3345000" />
+      <workItem from="1414325515246" duration="14213000" />
+      <workItem from="1414503657653" duration="18099000" />
+      <workItem from="1414854273357" duration="19892000" />
     </task>
     <task id="LOCAL-00001" summary="jack commit">
-      <created>1413004888023</created>
-      <updated>1413004888023</updated>
+      <created>1413201056571</created>
+      <updated>1413201056571</updated>
     </task>
     <task id="LOCAL-00002" summary="jack commit">
-      <created>1413009641474</created>
-      <updated>1413009641474</updated>
+      <created>1413204834621</created>
+      <updated>1413204834621</updated>
     </task>
     <task id="LOCAL-00003" summary="jack commit">
-      <created>1413177547596</created>
-      <updated>1413177547596</updated>
+      <created>1413206888114</created>
+      <updated>1413206888114</updated>
     </task>
     <task id="LOCAL-00004" summary="jack commit">
-      <created>1413177694621</created>
-      <updated>1413177694621</updated>
+      <created>1413208031741</created>
+      <updated>1413208031741</updated>
     </task>
     <task id="LOCAL-00005" summary="jack commit">
-      <created>1413178292542</created>
-      <updated>1413178292542</updated>
+      <created>1413208689514</created>
+      <updated>1413208689514</updated>
     </task>
     <task id="LOCAL-00006" summary="jack commit">
-      <created>1413182276688</created>
-      <updated>1413182276688</updated>
+      <created>1413208750601</created>
+      <updated>1413208750601</updated>
     </task>
     <task id="LOCAL-00007" summary="jack commit">
-      <created>1413182678668</created>
-      <updated>1413182678668</updated>
+      <created>1413293117740</created>
+      <updated>1413293117740</updated>
     </task>
     <task id="LOCAL-00008" summary="jack commit">
-      <created>1413186036731</created>
-      <updated>1413186036731</updated>
+      <created>1413295274137</created>
+      <updated>1413295274137</updated>
     </task>
     <task id="LOCAL-00009" summary="jack commit">
-      <created>1413190241446</created>
-      <updated>1413190241446</updated>
+      <created>1413379242245</created>
+      <updated>1413379242245</updated>
     </task>
     <task id="LOCAL-00010" summary="jack commit">
-      <created>1413190450086</created>
-      <updated>1413190450086</updated>
+      <created>1413379690197</created>
+      <updated>1413379690197</updated>
     </task>
     <task id="LOCAL-00011" summary="jack commit">
-      <created>1413191017363</created>
-      <updated>1413191017363</updated>
+      <created>1413467125552</created>
+      <updated>1413467125552</updated>
     </task>
     <task id="LOCAL-00012" summary="jack commit">
-      <created>1413191289951</created>
-      <updated>1413191289951</updated>
+      <created>1413683564625</created>
+      <updated>1413683564625</updated>
     </task>
     <task id="LOCAL-00013" summary="jack commit">
-      <created>1413192640654</created>
-      <updated>1413192640654</updated>
+      <created>1413687909393</created>
+      <updated>1413687909393</updated>
     </task>
     <task id="LOCAL-00014" summary="jack commit">
-      <created>1413254295040</created>
-      <updated>1413254295040</updated>
+      <created>1413722641438</created>
+      <updated>1413722641438</updated>
     </task>
     <task id="LOCAL-00015" summary="jack commit">
-      <created>1413254308232</created>
-      <updated>1413254308232</updated>
+      <created>1413815640602</created>
+      <updated>1413815640602</updated>
     </task>
     <task id="LOCAL-00016" summary="jack commit">
-      <created>1413254778332</created>
-      <updated>1413254778332</updated>
+      <created>1413816043359</created>
+      <updated>1413816043359</updated>
     </task>
     <task id="LOCAL-00017" summary="jack commit">
-      <created>1413255562182</created>
-      <updated>1413255562182</updated>
+      <created>1413818190592</created>
+      <updated>1413818190593</updated>
     </task>
     <task id="LOCAL-00018" summary="jack commit">
-      <created>1413259105696</created>
-      <updated>1413259105696</updated>
+      <created>1413899711672</created>
+      <updated>1413899711672</updated>
     </task>
     <task id="LOCAL-00019" summary="jack commit">
-      <created>1413265754109</created>
-      <updated>1413265754109</updated>
+      <created>1413902449319</created>
+      <updated>1413902449319</updated>
     </task>
     <task id="LOCAL-00020" summary="jack commit">
-      <created>1413272184539</created>
-      <updated>1413272184539</updated>
+      <created>1414289191035</created>
+      <updated>1414289191035</updated>
     </task>
     <task id="LOCAL-00021" summary="jack commit">
-      <created>1413273020675</created>
-      <updated>1413273020675</updated>
+      <created>1414322209067</created>
+      <updated>1414322209067</updated>
     </task>
     <task id="LOCAL-00022" summary="jack commit">
-      <created>1413273038105</created>
-      <updated>1413273038105</updated>
+      <created>1414324761950</created>
+      <updated>1414324761950</updated>
     </task>
     <task id="LOCAL-00023" summary="jack commit">
-      <created>1413274018800</created>
-      <updated>1413274018800</updated>
+      <created>1414325825283</created>
+      <updated>1414325825283</updated>
     </task>
     <task id="LOCAL-00024" summary="jack commit">
-      <created>1413276871528</created>
-      <updated>1413276871528</updated>
+      <created>1414334919370</created>
+      <updated>1414334919370</updated>
     </task>
     <task id="LOCAL-00025" summary="jack commit">
-      <created>1413277708814</created>
-      <updated>1413277708814</updated>
+      <created>1414415986949</created>
+      <updated>1414415986949</updated>
     </task>
     <task id="LOCAL-00026" summary="jack commit">
-      <created>1413279125729</created>
-      <updated>1413279125729</updated>
+      <created>1414503724312</created>
+      <updated>1414503724312</updated>
     </task>
     <task id="LOCAL-00027" summary="jack commit">
-      <created>1413355623578</created>
-      <updated>1413355623578</updated>
+      <created>1414763610337</created>
+      <updated>1414763610337</updated>
     </task>
     <task id="LOCAL-00028" summary="jack commit">
-      <created>1413356246332</created>
-      <updated>1413356246332</updated>
+      <created>1414898334286</created>
+      <updated>1414898334286</updated>
     </task>
     <task id="LOCAL-00029" summary="jack commit">
-      <created>1413357444712</created>
-      <updated>1413357444712</updated>
+      <created>1414900609030</created>
+      <updated>1414900609030</updated>
     </task>
     <task id="LOCAL-00030" summary="jack commit">
-      <created>1413357768880</created>
-      <updated>1413357768881</updated>
+      <created>1414927231173</created>
+      <updated>1414927231173</updated>
     </task>
     <task id="LOCAL-00031" summary="jack commit">
-      <created>1413358358562</created>
-      <updated>1413358358562</updated>
+      <created>1414931830952</created>
+      <updated>1414931830952</updated>
     </task>
-    <task id="LOCAL-00032" summary="jack commit">
-      <created>1413359962148</created>
-      <updated>1413359962148</updated>
-    </task>
-    <task id="LOCAL-00033" summary="jack commit">
-      <created>1413360040165</created>
-      <updated>1413360040165</updated>
-    </task>
-    <task id="LOCAL-00034" summary="jack commit">
-      <created>1413360824403</created>
-      <updated>1413360824403</updated>
-    </task>
-    <task id="LOCAL-00035" summary="jack commit">
-      <created>1413362860519</created>
-      <updated>1413362860519</updated>
-    </task>
-    <task id="LOCAL-00036" summary="jack commit">
-      <created>1413362900114</created>
-      <updated>1413362900114</updated>
-    </task>
-    <task id="LOCAL-00037" summary="jack commit">
-      <created>1413365191691</created>
-      <updated>1413365191692</updated>
-    </task>
-    <task id="LOCAL-00038" summary="jack commit">
-      <created>1413366170939</created>
-      <updated>1413366170939</updated>
-    </task>
-    <option name="localTasksCounter" value="39" />
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99946000" />
+    <option name="totallyTimeSpent" value="55549000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="30" width="1370" height="740" extended-state="0" />
+    <frame x="550" y="27" width="1203" height="900" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -732,19 +813,21 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29307568" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972324" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946634" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27348295" sideWeight="0.6682135" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.49458483" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -769,421 +852,393 @@
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/public/js/jqueryplugin/jquery.json-2.4.js">
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/individualregistrationpanel.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3690">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/mainapp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
-          <caret line="5" column="22" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/html/menu_qxgl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="270">
-          <caret line="5" column="42" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6896553" vertical-offset="4731" max-vertical-offset="6048">
-          <caret line="272" column="19" selection-start-line="272" selection-start-column="19" selection-end-line="272" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1764">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/templates/loginbase.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1026">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.189655" vertical-offset="1345" max-vertical-offset="1638">
-          <caret line="85" column="1" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/css/screen.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4827585" vertical-offset="1836" max-vertical-offset="5922">
-          <caret line="110" column="32" selection-start-line="110" selection-start-column="1" selection-end-line="110" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/layoutinit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4827585" vertical-offset="972" max-vertical-offset="1566">
-          <caret line="62" column="80" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
+        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="0">
+          <caret line="14" column="103" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/commonfuncs/AjaxForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="239" max-vertical-offset="864">
-          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="28" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newenumwin.js">
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/suggestmanagerpanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.827586" vertical-offset="997" max-vertical-offset="1332">
-          <caret line="68" column="69" selection-start-line="68" selection-start-column="3" selection-end-line="68" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1770" max-vertical-offset="3810">
+          <caret line="118" column="25" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/项目进度计划.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/individualregistrationpanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="3915">
+          <caret line="119" column="71" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/groupsregistrationpanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3915" max-vertical-offset="5220">
+          <caret line="261" column="70" selection-start-line="261" selection-start-column="70" selection-end-line="261" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/altercheckingitempanel.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8333335" vertical-offset="1237" max-vertical-offset="2580">
+          <caret line="95" column="59" selection-start-line="95" selection-start-column="59" selection-end-line="95" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/packagechoose.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="3150">
+          <caret line="45" column="92" selection-start-line="45" selection-start-column="65" selection-end-line="45" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/examination/db/schema.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1485">
+          <caret line="37" column="59" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/altercheckingitempanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="178" max-vertical-offset="4635">
+          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/unitgroupsmanagerpanel.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="273" max-vertical-offset="1395">
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/unitcheckingitempanel.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="902" max-vertical-offset="1800">
+          <caret line="65" column="75" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/views/newchapter.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1206">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1005">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newchapter.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="315">
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/packagemanagerpanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="4350">
+          <caret line="5" column="59" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/usermanagerpanel.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1468" max-vertical-offset="1980">
+          <caret line="116" column="16" selection-start-line="108" selection-start-column="12" selection-end-line="116" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/commonfuncs/jqueryextend.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+          <caret line="5" column="44" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/controlmanagerpanel.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/css/screen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="720" max-vertical-offset="5205">
+          <caret line="69" column="11" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newenumwin.htm">
+    <entry file="file://$PROJECT_DIR$/dbtables.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="468">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        <state vertical-scroll-proportion="-4.769231" vertical-offset="26" max-vertical-offset="1125">
+          <caret line="10" column="62" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/require.js">
+    <entry file="file://$PROJECT_DIR$/dbdesigner.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="37080">
+        <state vertical-scroll-proportion="-5.1923075" vertical-offset="0" max-vertical-offset="6600">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/md/docs.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/examination/util.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+          <caret line="1" column="30" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/templates/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="506">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/templates/loginbase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="13.75" vertical-offset="330" max-vertical-offset="855">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/apihtml.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
+          <caret line="11" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="111" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
+          <caret line="15" column="101" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/examination/middleware.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/TreeClickEvent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
+          <caret line="9" column="44" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/public/js/ManagerTree.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="385" max-vertical-offset="954">
-          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="795">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/edituserpasswin.htm">
+    <entry file="file://$PROJECT_DIR$/resources/public/js/mainapp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/edituserpasswin.js">
+    <entry file="file://$PROJECT_DIR$/resources/public/js/layoutinit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1305">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/public/js/text.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5880">
+          <caret line="11" column="48" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="29.666666" vertical-offset="712" max-vertical-offset="1470">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/templates/registration.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="767">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.375" vertical-offset="0" max-vertical-offset="510">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/templates/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.592592" vertical-offset="200" max-vertical-offset="1404">
-          <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/enumerateconfigmanager.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.3333335" vertical-offset="0" max-vertical-offset="1206">
-          <caret line="8" column="58" selection-start-line="8" selection-start-column="58" selection-end-line="8" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/TreeClickEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="792">
-          <caret line="14" column="61" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+        <state vertical-scroll-proportion="-8.125" vertical-offset="75" max-vertical-offset="1245">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newfuncwin.js">
+    <entry file="file://$PROJECT_DIR$/resources/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8275862" vertical-offset="303" max-vertical-offset="1242">
-          <caret line="23" column="45" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/enumerateconfigmanager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2142">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/rolemanagerpanel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.827586" vertical-offset="0" max-vertical-offset="2880">
-          <caret line="11" column="54" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1782">
-          <caret line="33" column="35" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/examination/routes/home.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="774">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/examination/routes/index.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="158" max-vertical-offset="522">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newuserwin.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0" vertical-offset="414" max-vertical-offset="810">
-          <caret line="32" column="65" selection-start-line="29" selection-start-column="20" selection-end-line="32" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newrolewin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.8275862" vertical-offset="123" max-vertical-offset="1224">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newdeptwin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.6896553" vertical-offset="1257" max-vertical-offset="2178">
-          <caret line="79" column="67" selection-start-line="78" selection-start-column="16" selection-end-line="79" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newdeptwin.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="540">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newuserwin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.62068963" vertical-offset="972" max-vertical-offset="2160">
-          <caret line="55" column="27" selection-start-line="55" selection-start-column="26" selection-end-line="55" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/checkdeptmanagerpanel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.724138" vertical-offset="331" max-vertical-offset="2268">
-          <caret line="26" column="54" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/checkdeptmanagerpanel.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1296">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#3;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#a#0;n#div#2;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/funcmanagerpanel.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.875" vertical-offset="741" max-vertical-offset="1548">
-          <caret line="47" column="63" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/funcmanagerpanel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1631" max-vertical-offset="2772">
-          <caret line="104" column="33" selection-start-line="104" selection-start-column="33" selection-end-line="104" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/usermanagerpanel.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="25" max-vertical-offset="1620">
-          <caret line="17" column="74" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.1034484" vertical-offset="1544" max-vertical-offset="4626">
-          <caret line="94" column="40" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/examination/routes/auth.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="807" max-vertical-offset="3384">
-          <caret line="55" column="63" selection-start-line="54" selection-start-column="2" selection-end-line="55" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/examination/controller/auth.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.75862" vertical-offset="2867" max-vertical-offset="10638">
-          <caret line="175" column="6" selection-start-line="169" selection-start-column="15" selection-end-line="175" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/examination/controller/maintain.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.6551723" vertical-offset="365" max-vertical-offset="2178">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/examination/db/core.clj">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.4827585" vertical-offset="4307" max-vertical-offset="8352">
-          <caret line="261" column="0" selection-start-line="261" selection-start-column="0" selection-end-line="261" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/usermanagerpanel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1807" max-vertical-offset="2376">
-          <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="116" selection-end-column="13" />
+        <state vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="300">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/examination/routes/maintain.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.75862" vertical-offset="289" max-vertical-offset="900">
-          <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+        <state vertical-scroll-proportion="-10.230769" vertical-offset="1234" max-vertical-offset="3840">
+          <caret line="100" column="35" selection-start-line="100" selection-start-column="14" selection-end-line="100" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.js">
+    <entry file="file://$PROJECT_DIR$/src/examination/db/core.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.793103" vertical-offset="1765" max-vertical-offset="2394">
-          <caret line="109" column="29" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="29" />
+        <state vertical-scroll-proportion="-10.653846" vertical-offset="5783" max-vertical-offset="18375">
+          <caret line="404" column="54" selection-start-line="404" selection-start-column="54" selection-end-line="404" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.htm">
+    <entry file="file://$PROJECT_DIR$/src/examination/controller/maintain.clj">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="810">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-21.615385" vertical-offset="1178" max-vertical-offset="11295">
+          <caret line="116" column="9" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newcheckitemwin.js">
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/doctorcheckpanel.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2196">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        <state vertical-scroll-proportion="-23.4" vertical-offset="0" max-vertical-offset="2700">
+          <caret line="78" column="52" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newunitwin.js">
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/checkpationwithitem.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.413793" vertical-offset="1134" max-vertical-offset="2160">
-          <caret line="74" column="44" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1395">
+          <caret line="0" column="31" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/itemmanagerpanel.htm">
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/checkpationwithitem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0" vertical-offset="1350" max-vertical-offset="2430">
-          <caret line="78" column="23" selection-start-line="78" selection-start-column="23" selection-end-line="78" selection-end-column="40" />
+        <state vertical-scroll-proportion="-4.6153846" vertical-offset="735" max-vertical-offset="6825">
+          <caret line="57" column="53" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/unitmanagerpanel.htm">
+    <entry file="file://$PROJECT_DIR$/resources/public/js/views/doctorcheckpanel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.696429" vertical-offset="1103" max-vertical-offset="1602">
-          <caret line="79" column="36" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#6;n#table#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#a#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dbdesigner.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.724138" vertical-offset="2340" max-vertical-offset="3294">
-          <caret line="136" column="34" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="34" />
+        <state vertical-scroll-proportion="-2.4615386" vertical-offset="881" max-vertical-offset="2790">
+          <caret line="63" column="47" selection-start-line="63" selection-start-column="47" selection-end-line="63" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/public/js/views/newunitwin.htm">
+    <entry file="file://$PROJECT_DIR$/resources/templates/maintabdetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23863636" vertical-offset="0" max-vertical-offset="810">
-          <caret line="7" column="16" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="180">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/examination/layout.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/templates/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/templates/maintab.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.375" vertical-offset="0" max-vertical-offset="720">
+          <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/examination/routes/home.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78846157" vertical-offset="0" max-vertical-offset="780">
+          <caret line="41" column="85" selection-start-line="41" selection-start-column="85" selection-end-line="41" selection-end-column="85" />
           <folding />
         </state>
       </provider>

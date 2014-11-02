@@ -4,6 +4,7 @@
             [noir.session :as session]
             [noir.response :as resp]
             [noir.io :as io]
+            [selmer.parser :refer [render-file]]
             [examination.controller.auth :as auth]
             [examination.util :as util]))
 
@@ -37,8 +38,7 @@
   (GET "/maintab" [] (main-page "maintab.html"))
   (GET "/login" [] (login-page))
   (GET "/test1" []
-    (layout/render "maintab.html"
-      {:htmlpath "text!views/doctorcheckpanel.htm" :jspath  "views/doctorcheckpanel"}
-      )
-                    )
+    (render-file "templates/maintab.html"
+      {:htmlpath "text!views/doctorcheckpanel.htm" :jspath  "views/doctorcheckpanel" }
+      ))
   (GET "/about" [] (about-page)))
