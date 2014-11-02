@@ -11,17 +11,32 @@
     {% script "js/easyui/locale/easyui-lang-zh_CN.js" %}
     {% script "js/jqueryplugin/jquery.json-2.4.js" %}
     {% script "js/jqueryplugin/date.js" %}
+    {% script "js/commonfuncs/jqueryextend.js" %}
     {% script "js/jqueryplugin/printThis.js" %}
-    <script type="application/javascript">
-        var roleid={{roleid}}
+    <script data-main="js/mainapp" src="js/require.js"></script>
+
+    <script type="text/javascript">
+
+        var htmlpath="{{htmlpath}}" ;
+        var jspath="{{jspath}}";
+
+
+            var require_render=function(htmlfile,jsfile){
+
+                $('body').append(htmlfile);
+                $.parser.parse();
+                jsfile.render();
+
+            };
+
+            require([htmlpath,jspath],require_render);
+
+
+
     </script>
 
-
-   <!-- <script data-main="jsnew/mainapp" src="require.js"></script>
-    <script type="text/javascript"  src="jsnew/commonfuncs/jquery.json-2.4.js"></script>
--->
 </head>
 <body>
-
+{{htmlcontent}}
 </body>
 </html>

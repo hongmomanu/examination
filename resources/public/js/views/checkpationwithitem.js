@@ -11,30 +11,30 @@ define(function () {
                     var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
                     content_div.append('<table class="reporttable"></table>');
                     var contenttable=content_div.find('.reporttable');
-                    var head_line='<tr><td width="20%" style="border-bottom: 2px solid black;">'+params.blh_no+ $.repeat('&nbsp;',3)+params.name+
-                        '</td><td width="20%" style="border-bottom: 2px solid black;">'+params.sex+'</td>' +
-                        '<td colspan="3"  style="border-bottom: 2px solid black;"></td>'+
+                    var head_line='<tr><td width="20%" class="biggerline">'+params.blh_no+ $.repeat('&nbsp;',3)+params.name+
+                        '</td><td width="20%" sclass="biggerline">'+params.sex+'</td>' +
+                        '<td colspan="3"  class="biggerline"></td>'+
                         '</tr>';
                     contenttable.append(head_line);
                     //contenttable.append('<tr><td colspan="3" height="3"><hr style="border-bottom:5px solid #000000;margin: 0 0 0 0;"/></td></tr>');
-                    var dept_line='<tr><td width="20%">'
+                    var dept_line='<tr><td colspan="5" class="smallerline"><b>'
                         +$('#doctorcheckpanel .depttable').datagrid('getSelected').deptname+
-                        '</td><td width="20%"></td>' +
-                        '<td width="20%"></td>'+
-                        '<td width="20%"></td><td width="20%"></td>'+
+                        '</b></td>'+
                         '</tr>';
                     contenttable.append(dept_line);
                     var head_line='<tr ><td width="20%">'
-                        +"xiangmumingcheng"+
-                        '</td><td width="20%">jianchajieguo</td>' +
-                        '<td width="20%">danwei</td>'+
-                        '<td width="20%">cankaofanwei</td><td width="20%">tishi</td>'+
+                        +"项目名称"+
+                        '</td><td width="20%">检查结果</td>' +
+                        '<td width="20%">单位</td>'+
+                        '<td width="20%">参考范围</td><td width="20%">提示</td>'+
                         '</tr>';
                     contenttable.append(head_line);
 
                     var items={};
                     var data=$('#checkpationwithitemwin .itemdetailtable').datagrid('getRows');
+                    var checkdate=null;
                     for(var i=0;i<data.length;i++){
+                        if(data[i].checkdate)checkdate=data[i].checkdate;
                         if(items[data[i].itemname]){
                             items[data[i].itemname].push(data[i]);
                         }else{
@@ -42,12 +42,15 @@ define(function () {
                         }
                     }
                     for(var item in items){
+                        console.log(items[item]);
                         var item_line='<tr><td width="20%">'
                             +item+
-                            '</td><td width="20%"></td>' +
-                            '<td width="20%" colspan="2"></td>'+
-                            '<td width="20%" colspan="2"></td>'+
+                            '</td><td width="20%"></td>' +items[item].checkdate+
+                            '<td width="20%" colspan="2">'+checkdate+'</td>'+
+                            '<td width="20%" colspan="2">'+items[item][0].displayname+'</td>'+
                             '</tr>';
+
+                        contenttable.append(item_line);
 
                     }
                     //content_div.html('<table class="reporttable"></table>');

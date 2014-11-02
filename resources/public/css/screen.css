@@ -67,6 +67,14 @@ body {
     overflow: hidden;
 }
 
+.biggerline{
+    border-bottom: 2px solid black;
+
+}
+.smallerline{
+    border-bottom: 1px solid black;
+}
+
 .reporttable
 {
     border-bottom:1px solid black ;

@@ -3,6 +3,7 @@
             [examination.layout :as layout]
             [noir.session :as session]
             [noir.response :as resp]
+            [noir.io :as io]
             [examination.controller.auth :as auth]
             [examination.util :as util]))
 
@@ -35,4 +36,9 @@
   (GET "/" [] (main-page "main.html"))
   (GET "/maintab" [] (main-page "maintab.html"))
   (GET "/login" [] (login-page))
+  (GET "/test1" []
+    (layout/render "maintab.html"
+      {:htmlpath "text!views/doctorcheckpanel.htm" :jspath  "views/doctorcheckpanel"}
+      )
+                    )
   (GET "/about" [] (about-page)))

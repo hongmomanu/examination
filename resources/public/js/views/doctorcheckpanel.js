@@ -86,12 +86,13 @@ $('#doctorcheckpanel .finishitem').click(function(){
                         function(div,js){
                             $('body').append(div);
                             js.render();
-
-                            $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{
-                                deptid:deptid,
-                                relationid:relationid,
-                                itemcodes: $.toJSON(deptids)
-                            });
+                            /**
+                                $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{
+                                    deptid:deptid,
+                                    relationid:relationid,
+                                    itemcodes: $.toJSON(deptids)
+                                });
+                             **/
                         });
                 }
             }else{

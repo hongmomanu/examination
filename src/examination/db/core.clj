@@ -51,7 +51,7 @@
   (database sqlitedb)
   )
 (defentity reportDetail
-
+  (belongs-to users {:fk :userid})
   (database sqlitedb)
   )
 (defentity deptSuggestion
@@ -402,7 +402,10 @@
   )
 (defn getdetaireportbyid [relationid detaiid]
   (select reportDetail
-    (fields :result :result_mess)
+    (fields :result :result_mess [:datetime :checkdate])
+    (with users
+      (fields :displayname)
+      )
     (where (and {:relationid relationid}
              {:detailcode detaiid}
              ))
