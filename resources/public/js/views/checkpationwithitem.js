@@ -73,6 +73,13 @@ define(function () {
 
 
                     }
+
+                    var conclusion_line='<tr ><td colspan="5"><b>'
+                        +"小结"+
+                        '</b></td>'+
+                        '</tr>';
+                    contenttable.append(conclusion_line);
+
                     //content_div.html('<table class="reporttable"></table>');
 
                     /*require(['js/commonfuncs/AjaxForm.js']

@@ -78,6 +78,7 @@ $('#doctorcheckpanel .finishitem').click(function(){
 
                 if($('#checkpationwithitemwin').length>0){
                     $('#checkpationwithitemwin').dialog('open');
+                    $('#checkpationwithitemwin .easyui-tabs').tabs('select',0);
                     $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{deptid:deptid,
                         relationid:relationid,
                         itemcodes: $.toJSON(deptids)});
