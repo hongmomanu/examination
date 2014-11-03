@@ -158,6 +158,11 @@
     (values dept)
     )
   )
+(defn getcontolmsgbyrid [relationid]
+  (select reportItem
+    (where {:relationid relationid})
+    )
+  )
 
 (defn update-user [id passwordold passwordnew]
   (update users

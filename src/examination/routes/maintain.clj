@@ -190,6 +190,9 @@
 (POST "/maintain/additemdetailtable" [details]
   (maintain/additemdetailtable details)
   )
+(POST "/maintain/getcontolmsgbyrid" [relationid]
+  (maintain/getcontolmsgbyrid relationid)
+  )
 (POST "/maintain/editdetailtips" [tips ]
   (maintain/editdetailtips tips)
   )

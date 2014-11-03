@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS reportItem
   rebate_bl DECIMAL(9,2), --  打折比例
   pay_mark int, --   是否收费
   result		 VARCHAR(100), --  检查结果
-  suggection  VARCHAR(100),   --建议
+  suggestion  VARCHAR(100),   --建议
   prevent_way VARCHAR(100), --  防止措施
   other VARCHAR(100) --  其它
 

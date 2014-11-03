@@ -53,6 +53,7 @@ define(function () {
             /*$('#altercheckingitempanel .altercheckingration').form('load',record);
             $('#altercheckingitempanel .checkingitems').datagrid('load',{relationid:record.relationid});*/
             isblh_select=true;
+            getcontolmsgbyrid(record.relationid);
         };
         var myloader = function(param,success,error){
             var q = param.q || '';
@@ -94,6 +95,30 @@ define(function () {
 
         });
 
+        var getcontolmsgbyrid=function(relationid){
+            require(['js/commonfuncs/AjaxForm.js']
+                ,function(ajaxfrom){
+                    var params={
+                        relationid:relationid
+                    };
+                    var succ=function(data){
+                        if(data.length>0){
+                            $('#datareceivedpanel .form').form('load',data[0]);
+                        }
+                    };
+                    var errorfunc=function(){
+
+                    };
+
+                    ajaxfrom.ajaxsend('post','json','maintain/getcontolmsgbyrid',params,succ,null,errorfunc,true);
+
+                });
+
+        };
+
+        $('#datareceivedpanel .savebtns').find('.save').click(function(){
+           alert(1);
+        });
         $('#datareceivedpanel .controlmanagerpanel').tree({
             method: 'post',
             url: 'maintain/getcontroltree',

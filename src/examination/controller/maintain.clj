@@ -435,6 +435,10 @@
 
     )
   )
+(defn getcontolmsgbyrid [relationid]
+
+  (resp/json (db/getcontolmsgbyrid relationid))
+  )
 (defn getcontroltree [node value callback]
   (let [
          types (db/getenumeratebytype "总控室类别")
