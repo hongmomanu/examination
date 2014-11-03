@@ -438,7 +438,7 @@
 (defn savecontolmsgbyrid [id relationid result suggestion other]
   (let [
          filelds {
-                   :relatioid relationid :result result
+                   :relationid relationid :result result
                   :suggestion suggestion :other other
                   }
         ]
