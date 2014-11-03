@@ -52,7 +52,7 @@ define(function () {
             onBeforeLoad: function (params) {
                 var options = $('#groupsregistedperson').datagrid('options');
                 params.start = (options.pageNumber - 1) * options.pageSize;
-                params.isunit=1;
+                params.isunit=$.toJSON([1]);
                 params.isinto=$.toJSON([0,1]);
                 params.limit = options.pageSize;
                 params.totalname = "total";

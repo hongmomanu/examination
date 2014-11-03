@@ -157,6 +157,7 @@
          custom-formatter (f/formatter "yyyy-MM-dd")
          now (if (nil? date) (f/unparse custom-formatter (l/local-now)) date)
          isinto (json/read-str isinto)
+         isunit (json/read-str isunit)
          results (db/getregistedperson start limit keywords now isunit isinto)
          test (println results)
          res (map #(conj {:itemnums (:counts (first (db/getafterRegistnums (:relationid %))))

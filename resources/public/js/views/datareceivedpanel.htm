@@ -1,11 +1,23 @@
 <div id="datareceivedpanel" class="easyui-layout"  data-options="fit:true">
     <div data-options="region:'north',split:false,collapsible:false" style="height:30px;padding-top: 3px;">
         <div>
-            条形号码: <input class="easyui-textbox" style="width:80px">
-            姓名: <input class="easyui-textbox" data-options="readonly:true" style="width:80px">
-            性别:<input class="easyui-textbox" data-options="readonly:true" style="width:80px">
-            年龄:<input class="easyui-textbox" data-options="readonly:true" style="width:80px">
-            单位名称:<input class="easyui-textbox" data-options="readonly:true" style="width:80px">
+            <table width="680px;">
+                <tr>
+                    <td width="28%"><b>条形号码</b>: <input class="checkingpationblhno" style="width:80px"></td>
+                    <td width="15%"><b>姓名</b>: <a class="username"  style="width:80px"></a></td>
+                    <td width="7%"><b>性别</b>:<a class="sex"  style="width:80px"></a></td>
+                    <td width="10%"><b>年龄</b>:<a class="age"  style="width:80px"></a></td>
+                    <td width="30%"><b>单位名称</b>:<a class="unitname"  style="width:80px"></a></td>
+                    <td width="10%"><input class="easyui-datebox checkingday"  name="checkday"  data-options="required:true"
+                                           style="width: 120px;"></td>
+                </tr>
+            </table>
+
+
+
+
+
+
             <!--<a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>-->
         </div>
     </div>

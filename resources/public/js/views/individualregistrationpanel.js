@@ -62,7 +62,7 @@ define(function () {
                 params.start = (options.pageNumber - 1) * options.pageSize;
                 params.limit = options.pageSize;
                 params.totalname = "total";
-                params.isunit=0;
+                params.isunit=$.toJSON([0]),
                 params.isinto=$.toJSON([0,1]);
                 params.rowsname = "rows";
             },

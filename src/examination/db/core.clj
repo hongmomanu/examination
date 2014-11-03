@@ -476,10 +476,10 @@
   (select registRelation
     (fields [:id :relationid] :status)
     (with patientMainIndex
-      (fields :id :blh_no :name :sex :address :birthday )
+      (fields :id :blh_no :name :sex :address :birthday :unitname)
       (where (and
                {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
-               {:isunit isunit}
+               {:isunit [in isunit]}
                
                ))
       )
@@ -556,7 +556,7 @@
     (with patientMainIndex
       (where (and
                {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
-               {:isunit isunit}
+               {:isunit [in isunit]}
 
                ))
       )
