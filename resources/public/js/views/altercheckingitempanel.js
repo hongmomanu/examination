@@ -260,7 +260,7 @@ define(function () {
                         time:$('#altercheckingitempanel .checkingday').datebox('getValue'),
                         start:0,
                         limit:20,
-                        isunit:0,
+                        isunit:$.toJSON([0]),
                         isinto:$.toJSON([1]),
                         totalname: "total",
                         rowsname : "rows"
@@ -277,8 +277,8 @@ define(function () {
                 });
 
         }
-        var date=new Date();
-        $('#altercheckingitempanel .checkingday').datebox('setValue', date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
+        //var date=new Date();
+        $('#altercheckingitempanel .checkingday').datebox('setValue', $.format.date(new Date(), "yyyy-MM-dd"));
 
         $('#altercheckingitempanel .checkingpationblhno').combobox({
             required:true,

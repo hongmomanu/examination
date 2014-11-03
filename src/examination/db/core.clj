@@ -16,7 +16,8 @@
 
 (declare users roles functorole functions enumerate divisions
          systemlog registRelation patientMainIndex checkitem
-        examinationPackage reportDetail  checkItemDetailTip deptSuggestion
+         examinationPackage reportDetail  reportItem
+         checkItemDetailTip deptSuggestion
   )
 
 
@@ -52,6 +53,9 @@
   )
 (defentity reportDetail
   (belongs-to users {:fk :userid})
+  (database sqlitedb)
+  )
+(defentity reportItem
   (database sqlitedb)
   )
 (defentity deptSuggestion
@@ -153,6 +157,23 @@
   (insert checkdept
     (values dept)
     )
+  )
+(defn getcontolmsgbyrid [relationid]
+  (select reportItem
+    (where {:relationid relationid})
+    )
+  )
+(defn insertcontolmsgbyrid [fields]
+  (insert reportItem
+    (values fields)
+    )
+  )
+(defn savecontolmsgbyrid [fields id]
+  (update reportItem
+    (set-fields fields)
+    (where {:id id})
+    )
+
   )
 
 (defn update-user [id passwordold passwordnew]
@@ -476,10 +497,10 @@
   (select registRelation
     (fields [:id :relationid] :status)
     (with patientMainIndex
-      (fields :id :blh_no :name :sex :address :birthday )
+      (fields :id :blh_no :name :sex :address :birthday :unitname)
       (where (and
                {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
-               {:isunit isunit}
+               {:isunit [in isunit]}
                
                ))
       )
@@ -556,7 +577,7 @@
     (with patientMainIndex
       (where (and
                {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
-               {:isunit isunit}
+               {:isunit [in isunit]}
 
                ))
       )

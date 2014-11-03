@@ -1,0 +1,131 @@
+<div id="datareceivedpanel" class="easyui-layout"  data-options="fit:true">
+    <div data-options="region:'north',split:false,collapsible:false" style="height:30px;padding-top: 3px;">
+        <div>
+            <table width="680px;">
+                <tr>
+                    <td width="28%"><b>条形号码</b>: <input class="checkingpationblhno" style="width:80px"></td>
+                    <td width="15%"><b>姓名</b>: <a class="username"  style="width:80px"></a></td>
+                    <td width="7%"><b>性别</b>:<a class="sex"  style="width:80px"></a></td>
+                    <td width="10%"><b>年龄</b>:<a class="age"  style="width:80px"></a></td>
+                    <td width="30%"><b>单位名称</b>:<a class="unitname"  style="width:80px"></a></td>
+                    <td width="10%"><input class="easyui-datebox checkingday"  name="checkday"  data-options="required:true"
+                                           style="width: 120px;"></td>
+                </tr>
+            </table>
+
+            <!--<a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>-->
+        </div>
+    </div>
+
+    <div data-options="region:'center',split:true,collapsible:false">
+        <div data-options="tabPosition:'left',fit:true" class="easyui-tabs" >
+            <div title="数据接受" style="padding:5px">
+                <div class="easyui-layout"  data-options="fit:true">
+
+                    <div data-options="region:'west',split:true,collapsible:false" style="width:35%">
+                        <table  class="checkingitems">
+                            <thead>
+                            <tr>
+                                <th data-options="field:'itemname',width:100">项目名称</th>
+                                <th data-options="field:'finish',width:60,formatter:function(val,row){
+                                    if (val == 0){
+                                        return '<span style=&quot;color:red;&quot;>未完成</span>';
+                                    } else if(val ==1) {
+                                        return '<span style=&quot;color:green;&quot;>已完成</span>';
+                                    }else  {
+                                        return '<span style=&quot;color:blue;&quot;>新添加</span>';
+                                    }
+                                }">状态</th>
+                                <th data-options="field:'deptname',width:80">科室</th>
+
+                                <th data-options="field:'id',width:100,hidden:true">id</th>
+                                <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+
+                            </tr>
+                            </thead>
+
+
+                        </table>
+
+                    </div>
+                    <div data-options="region:'center',split:true,collapsible:false" style="width:65%">
+                        <table class="itemdetailtable">
+                            <thead>
+                            <tr>
+                                <th data-options="field:'itemname',width:100">类别</th>
+                                <th data-options="field:'itemdetailname',width:100">名称</th>
+                                <th data-options="field:'result',width:100">结果</th>
+                                <th data-options="field:'result_mess',width:100">结果提示</th>
+                                <th data-options="field:'id',width:100,hidden:true">id</th>
+                            </tr>
+                            </thead>
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div title="总检室" style="padding:10px">
+                <div class="easyui-layout"  data-options="fit:true">
+
+                    <div data-options="region:'west',split:true,collapsible:false" style="width:35%">
+                        <ul class="controlmanagerpanel" >
+
+
+                        </ul>
+                    </div>
+
+                    <div data-options="region:'center',split:true,collapsible:false" style="width:35%">
+                        <form>
+                            <table class="formtable">
+
+                                <tr>
+                                    <td>结果:</td>
+                                    <td><input  class="easyui-textbox result" type="text" name="result" data-options="multiline:true"
+                                                style="height:80px;width: 70%"></td>
+
+                                </tr>
+                                <tr>
+                                    <td>健康指南:</td>
+                                    <td><input  class="easyui-textbox healthhelp" type="text" name="suggestion" data-options="multiline:true"
+                                                style="height:80px;width: 70%"></td>
+
+                                </tr>
+                                <tr>
+                                    <td>其它:</td>
+                                    <td><input  class="easyui-textbox other" type="text" name="other" data-options="multiline:true"
+                                                style="height:80px;width: 70%"></td>
+
+                                </tr>
+
+
+                                <tr style="display: none;"><td>
+                                    <input type="text" name="id" >
+                                </td></tr>
+
+
+                            </table>
+
+
+                        </form>
+
+                        <div class="savebtns" style="text-align: center;">
+                            <a class="easyui-linkbutton save" data-options="iconCls:'icon-save',plain:true" >保存</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div title="数据打印"  style="padding:10px">
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

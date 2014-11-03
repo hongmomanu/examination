@@ -165,6 +165,24 @@ CREATE TABLE IF NOT EXISTS reportDetail
 
 
 );
+-- 报告单条目
+CREATE TABLE IF NOT EXISTS reportItem
+(
+  id         INTEGER PRIMARY KEY AUTOINCREMENT, --自增主键
+  DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP, 'localtime')), --  时间
+  --pation_no     INTEGER, -- 病人内码
+  --times     int       , --检查次数
+  relationid integer,--内码
+  total_je  DECIMAL(9,2), --  检查总费用
+  rebate_je DECIMAL(9,2), --  打折后费用
+  rebate_bl DECIMAL(9,2), --  打折比例
+  pay_mark int, --   是否收费
+  result		 VARCHAR(100), --  检查结果
+  suggestion  VARCHAR(100),   --建议
+  prevent_way VARCHAR(100), --  防止措施
+  other VARCHAR(100) --  其它
+
+);
 
 
 -- 科室建议

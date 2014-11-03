@@ -157,6 +157,7 @@
          custom-formatter (f/formatter "yyyy-MM-dd")
          now (if (nil? date) (f/unparse custom-formatter (l/local-now)) date)
          isinto (json/read-str isinto)
+         isunit (json/read-str isunit)
          results (db/getregistedperson start limit keywords now isunit isinto)
          test (println results)
          res (map #(conj {:itemnums (:counts (first (db/getafterRegistnums (:relationid %))))
@@ -433,6 +434,25 @@
     (resp/json (map #(conj {:text (:groupname %)} %) (db/getgroupsbyunit node)))
 
     )
+  )
+(defn savecontolmsgbyrid [id relationid result suggestion other]
+  (let [
+         filelds {
+                   :relationid relationid :result result
+                  :suggestion suggestion :other other
+                  }
+        ]
+    (if (or (nil? id)(= id ""))(db/insertcontolmsgbyrid
+                                 filelds
+
+                                 )(db/savecontolmsgbyrid filelds id))
+    )
+
+  (resp/json {:success true})
+  )
+(defn getcontolmsgbyrid [relationid]
+
+  (resp/json (db/getcontolmsgbyrid relationid))
   )
 (defn getcontroltree [node value callback]
   (let [

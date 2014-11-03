@@ -245,7 +245,7 @@ define(function () {
             pageSize:30000,
             onBeforeLoad: function (params) {
                 var options = $(this).datagrid('options');
-                params.isunit=1;
+                params.isunit=$.toJSON([1]);
                 params.isinto= $.toJSON([1]);
                 params.start = (options.pageNumber - 1) * options.pageSize;
                 params.limit = options.pageSize;
