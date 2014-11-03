@@ -375,6 +375,7 @@
                            )
       )
 
+    (dorun (map #(when(= (getitemdetailnums (:itemcode %)) (:counts %))(db/updatefinishbyid relationid (:itemcode %))) (db/getfinshitem relationid)))
     (resp/json {:success true})
     )
   )

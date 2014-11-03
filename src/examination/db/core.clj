@@ -248,6 +248,15 @@
     )
   )
 
+(defn updatefinishbyid [relationid itemid]
+
+  (update afterRegist
+    (set-fields {:finish 1})
+    (where {:relationid relationid :itemcode itemid})
+    )
+
+  )
+
 (defn getuserbyid [userid]
   (select users
     (where {:id userid})
@@ -433,6 +442,14 @@
 
     )
 
+  )
+(defn getfinshitem [relationid]
+  (select reportDetail
+    (fields :itemcode)
+    (where {:relationid relationid})
+    (group :itemcode)
+    (aggregate (count :id) :counts)
+    )
   )
 (defn delitemdetailtable [relationid detailids]
   (delete reportDetail
