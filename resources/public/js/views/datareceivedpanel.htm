@@ -1,12 +1,60 @@
-<div id="datareceivedpanel" data-options="tabPosition:'left'" class="easyui-tabs" style="width:700px;height:250px">
-    <div title="数据接受" style="padding:10px">
-
+<div id="datareceivedpanel" class="easyui-layout"  data-options="fit:true">
+    <div data-options="region:'north',split:false,collapsible:false" style="height:30px;padding-top: 3px;">
+        <div>
+            条形号码: <input class="easyui-textbox" style="width:80px">
+            姓名: <input class="easyui-textbox" data-options="readonly:true" style="width:80px">
+            性别:<input class="easyui-textbox" data-options="readonly:true" style="width:80px">
+            年龄:<input class="easyui-textbox" data-options="readonly:true" style="width:80px">
+            单位名称:<input class="easyui-textbox" data-options="readonly:true" style="width:80px">
+            <!--<a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>-->
+        </div>
     </div>
-    <div title="总检室" style="padding:10px">
 
-    </div>
-    <div title="数据打印" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
+    <div data-options="region:'center',split:true,collapsible:false">
+        <div data-options="tabPosition:'left',fit:true" class="easyui-tabs" >
+            <div title="数据接受" style="padding:5px">
+                <div class="easyui-layout"  data-options="fit:true">
 
+                    <div data-options="region:'west',split:true,collapsible:false" style="width:35%">
+                        <table  class="checkingitems">
+                            <thead>
+                            <tr>
+                                <th data-options="field:'itemname',width:100">项目名称</th>
+                                <th data-options="field:'finish',width:60,formatter:function(val,row){
+                                    if (val == 0){
+                                        return '<span style=&quot;color:red;&quot;>未完成</span>';
+                                    } else if(val ==1) {
+                                        return '<span style=&quot;color:green;&quot;>已完成</span>';
+                                    }else  {
+                                        return '<span style=&quot;color:blue;&quot;>新添加</span>';
+                                    }
+                                }">状态</th>
+                                <th data-options="field:'deptname',width:80">科室</th>
+
+                                <th data-options="field:'id',width:100,hidden:true">id</th>
+                                <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+
+                            </tr>
+                            </thead>
+
+
+                        </table>
+
+                    </div>
+                    <div data-options="region:'center',split:true,collapsible:false" style="width:65%">
+                    </div>
+                </div>
+            </div>
+            <div title="总检室" style="padding:10px">
+
+            </div>
+            <div title="数据打印"  style="padding:10px">
+
+            </div>
+
+        </div>
     </div>
+
+
 
 </div>
