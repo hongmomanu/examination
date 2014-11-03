@@ -3,6 +3,46 @@ define(function () {
     function render(parameters) {
         $('#datareceivedpanel .checkingday').datebox('setValue', $.format.date(new Date(), "yyyy-MM-dd"));
 
+        $('#datareceivedpanel .itemdetailtable').datagrid({
+            singleSelect: true,
+            collapsible: true,
+            rownumbers: true,
+            method:'post',
+            fitColumns:true,
+            url:'maintain/getitemdetaibydeptid',
+            remoteSort: false,
+            fit:true,
+            pagination:false,
+            pageSize:1000,
+            onBeforeLoad: function (params) {
+                var options = $(this).datagrid('options');
+                params.start = (options.pageNumber - 1) * options.pageSize;
+                params.limit = options.pageSize;
+                params.totalname = "total";
+                params.rowsname = "rows";
+
+                //if(!params.deptid){
+                    /*var relationid=$('#doctorcheckpanel .pationinfoform').form("serialize").relationid;
+                    var deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
+                    var data=$('#doctorcheckpanel .checkingitems').datagrid('getRows');
+                    var deptids=[];
+                    for(var i=0;i<data.length;i++){
+                        if(data[i].deptid==deptid)deptids.push(data[i].itemcode);
+                    }*/
+                    //params.deptid=deptid;
+                    //params.relationid=relationid;
+                    //params.itemcodes= $.toJSON(deptids);
+
+                //}
+            },
+            onClickRow:function(index){
+                //onClickRow(index,$('#checkpationwithitemwin .itemdetailtable'));
+            }
+
+        });
+
+
+
         var blhselect=function(record){
             //console.log(record);
             $('#datareceivedpanel .username').text(record.name);
@@ -75,6 +115,13 @@ define(function () {
                 params.rowsname = "rows";
             },
             onClickRow:function(index, rowData){
+
+                $('#datareceivedpanel .itemdetailtable').datagrid('load',
+                    {
+                        relationid:rowData.relationid,
+                        deptid:rowData.deptid,
+                        itemcodes:$.toJSON([rowData.itemcode])
+                    })
             }
 
         });
