@@ -435,6 +435,21 @@
 
     )
   )
+(defn savecontolmsgbyrid [id relationid result suggestion other]
+  (let [
+         filelds {
+                   :relatioid relationid :result result
+                  :suggestion suggestion :other other
+                  }
+        ]
+    (if (or (nil? id)(= id ""))(db/insertcontolmsgbyrid
+                                 filelds
+
+                                 )(db/savecontolmsgbyrid filelds id))
+    )
+
+  (resp/json {:success true})
+  )
 (defn getcontolmsgbyrid [relationid]
 
   (resp/json (db/getcontolmsgbyrid relationid))

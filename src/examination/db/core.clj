@@ -163,6 +163,18 @@
     (where {:relationid relationid})
     )
   )
+(defn insertcontolmsgbyrid [fields]
+  (insert reportItem
+    (values fields)
+    )
+  )
+(defn savecontolmsgbyrid [fields id]
+  (update reportItem
+    (set-fields fields)
+    (where {:id id})
+    )
+
+  )
 
 (defn update-user [id passwordold passwordnew]
   (update users
