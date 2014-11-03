@@ -16,7 +16,8 @@
 
 (declare users roles functorole functions enumerate divisions
          systemlog registRelation patientMainIndex checkitem
-        examinationPackage reportDetail  checkItemDetailTip deptSuggestion
+         examinationPackage reportDetail  reportItem
+         checkItemDetailTip deptSuggestion
   )
 
 
@@ -52,6 +53,9 @@
   )
 (defentity reportDetail
   (belongs-to users {:fk :userid})
+  (database sqlitedb)
+  )
+(defentity reportItem
   (database sqlitedb)
   )
 (defentity deptSuggestion

@@ -66,6 +66,53 @@
                 </div>
             </div>
             <div title="总检室" style="padding:10px">
+                <div class="easyui-layout"  data-options="fit:true">
+
+                    <div data-options="region:'west',split:true,collapsible:false" style="width:35%">
+                        <ul class="controlmanagerpanel" >
+
+
+                        </ul>
+                    </div>
+
+                    <div data-options="region:'center',split:true,collapsible:false" style="width:35%">
+                        <form>
+                            <table class="formtable">
+
+                                <tr>
+                                    <td>结果:</td>
+                                    <td><input  class="easyui-textbox" type="text" name="result" data-options="multiline:true"
+                                                style="height:80px;width: 100%"></td>
+
+                                </tr>
+                                <tr>
+                                    <td>健康指南:</td>
+                                    <td><input  class="easyui-textbox" type="text" name="prevent_way" data-options="multiline:true"
+                                                style="height:80px;width: 100%"></td>
+
+                                </tr>
+                                <tr>
+                                    <td>其它:</td>
+                                    <td><input  class="easyui-textbox" type="text" name="other" data-options="multiline:true"
+                                                style="height:80px;width: 100%"></td>
+
+                                </tr>
+
+
+                                <tr style="display: none;"><td>
+                                    <input type="text" name="id" >
+                                </td></tr>
+
+
+                            </table>
+
+
+                        </form>
+
+                    </div>
+
+                </div>
+
 
             </div>
             <div title="数据打印"  style="padding:10px">

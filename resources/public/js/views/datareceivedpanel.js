@@ -94,6 +94,49 @@ define(function () {
 
         });
 
+        $('#datareceivedpanel .controlmanagerpanel').tree({
+            method: 'post',
+            url: 'maintain/getcontroltree',
+            treeField: 'text',
+            idField: 'id',
+            onBeforeLoad: function (row, params) {
+
+                if (!row)params.node = -1;
+                else {
+                    params.node=params.id;
+                    params.value=row.value;
+                    /*params.node = row.nodeid;
+                     params.pid=parent.id;*/
+                }
+
+            },
+            onContextMenu: function(e,node){
+
+
+            },
+            onLoadSuccess: function (row, data) {
+
+            },
+            onClick: function (node) {
+                if(node.id>0){
+                    var pid=$('#datareceivedpanel .controlmanagerpanel').tree('getParent',node.target)
+
+                    if(pid){
+                        /*$('#controlmanagerlayout').layout('expand','east');
+                        $('#controlitemform').form('load',node);
+*/
+                    }else{
+                        //$('#controlmanagerlayout').layout('collapse','east');
+                    }
+
+                }else{
+                    //$('#controlmanagerlayout').layout('collapse','east');
+                }
+
+            }
+        });
+
+
 
         $('#datareceivedpanel .checkingitems').datagrid({
             singleSelect: true,
