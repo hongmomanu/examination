@@ -42,7 +42,7 @@ define(function () {
         });
 
 
-
+        var isblh_select=false;
         var blhselect=function(record){
             //console.log(record);
             $('#datareceivedpanel .username').text(record.name);
@@ -52,7 +52,7 @@ define(function () {
             $('#datareceivedpanel .checkingitems').datagrid('load',{relationid:record.relationid});
             /*$('#altercheckingitempanel .altercheckingration').form('load',record);
             $('#altercheckingitempanel .checkingitems').datagrid('load',{relationid:record.relationid});*/
-            //isblh_select=record.relationid;
+            isblh_select=true;
         };
         var myloader = function(param,success,error){
             var q = param.q || '';
@@ -118,20 +118,34 @@ define(function () {
 
             },
             onClick: function (node) {
-                if(node.id>0){
-                    var pid=$('#datareceivedpanel .controlmanagerpanel').tree('getParent',node.target)
+                if(isblh_select){
+                    if(node.id>0){
+                        var pid=$('#datareceivedpanel .controlmanagerpanel').tree('getParent',node.target)
 
-                    if(pid){
-                        /*$('#controlmanagerlayout').layout('expand','east');
-                        $('#controlitemform').form('load',node);
-*/
+                        if(pid){
+                            var type=node.type;
+                            var textitem=null;
+                            var text="";
+                            if(type==="结果"){
+                                textitem=$('#datareceivedpanel .result');
+                            }else if(type==="建议"){
+                                textitem=$('#datareceivedpanel .healthhelp');
+                            }else if(type==="其它"){
+                                textitem=$('#datareceivedpanel .other');
+                            }
+                            text=textitem.textbox('getValue');
+                            textitem.textbox('setValue',
+                                    text+node.content+"\n");
+
+                        }else{
+                            //$('#controlmanagerlayout').layout('collapse','east');
+                        }
+
                     }else{
                         //$('#controlmanagerlayout').layout('collapse','east');
                     }
-
-                }else{
-                    //$('#controlmanagerlayout').layout('collapse','east');
                 }
+
 
             }
         });
