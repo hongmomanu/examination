@@ -62,7 +62,7 @@ define(function () {
                                     '<td width="20%" >'+(items[item][i].downlimit
                                     +"~"+items[item][i].uplimit)+'</td>'+
                                     '<td width="20%" >'+(items[item][i].result_mess?items[item][i].result_mess:"未检查")
-                                    +'</td>'
+                                    +'</td>'+
                                     '</tr>';
                                 contenttable.append(itemdetail_line);
 

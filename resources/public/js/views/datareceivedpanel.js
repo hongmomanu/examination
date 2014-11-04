@@ -71,16 +71,16 @@ define(function () {
                         var items={};
                         for(var i=0;i<data.length;i++){
                             if(items[data[i].deptname]){
-                                if(items[data[i].deptname][data[i].itemname]){
-                                    items[data[i].deptname][data[i].itemname].push(data[i]);
+                                if(items[data[i].deptname].data[data[i].itemname]){
+                                    items[data[i].deptname].data[data[i].itemname].push(data[i]);
                                 }else{
-                                    items[data[i].deptname][data[i].itemname]=[];
-                                    items[data[i].deptname][data[i].itemname].push(data[i]);
+                                    items[data[i].deptname].data[data[i].itemname]=[];
+                                    items[data[i].deptname].data[data[i].itemname].push(data[i]);
                                 }
                             }else{
 
-                                items[data[i].deptname]={};
-                                items[data[i].deptname][data[i].itemname]=[data[i]];
+                                items[data[i].deptname]={id:data[i].deptid,data:{}};
+                                items[data[i].deptname].data[data[i].itemname]=[data[i]];
                             }
                         }
                         var content_div=$('#datareceivedpanel .reportlist');
@@ -100,7 +100,27 @@ define(function () {
                                 '</tr>';
                             contenttable.append(head_line);
 
-                            var checkitems=items[deptitem];
+                            var checkitems=items[deptitem].data;
+
+
+                            var params={
+                                start:0,
+                                limit:200,
+                                deptid:items[deptitem].id,
+                                relationid:isblh_select.relationid,
+                                totalname: "total",
+                                rowsname : "rows"
+                            };
+                            var succ=function(data){
+                                console.log(data);
+                            };
+                            var errorfunc=function(){
+
+                            };
+
+                            ajaxform.ajaxsend('post','json','maintain/getdeptconclusionbyrid',params,succ,null,errorfunc,true);
+
+
 
                             console.log(checkitems);
                             for(var checkitem in checkitems){
@@ -124,7 +144,7 @@ define(function () {
                                             '<td width="20%" >'+(checkitems[checkitem][i].downlimit
                                             +"~"+checkitems[checkitem][i].uplimit)+'</td>'+
                                             '<td width="20%" >'+(checkitems[checkitem][i].result_mess?checkitems[checkitem][i].result_mess:"未检查")
-                                            +'</td>'
+                                            +'</td>'+
                                         '</tr>';
                                         contenttable.append(itemdetail_line);
 
