@@ -13,13 +13,21 @@ define(function () {
                             var content_div=$('#datareceivedpanel .reportlist');
                             content_div.html('');
                             //var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
+
                             content_div.append('<table class="controltable"></table>');
                             var controltable=content_div.find('.controltable');
-                            var head_line='<tr><td colspan="2"   style="text-align: center;font-size: 20px;" class="smallerline">绍兴市人民医院体检报告</td>'+
+                            var head_line='<tr><td colspan="4"   style="text-align: center;font-size: 20px;" class="smallerline"><b>绍兴市人民医院体检报告</b></td>'+
                                 '</tr>';
                             controltable.append(head_line);
 
                             if(isblh_select){
+                                var sex_name_line='<tr>' +
+                                    '<td width="20%" style="text-align: right;font-size: 16px;" ><a style="color: blue">姓名:</a></td>'
+                                    +'<td width="30%" style="text-align: left;font-size: 16px;" >'+isblh_select.name+'</td>' +
+                                    '<td width="20%" style="text-align: right;font-size: 16px;" ><a style="color: blue">性别:</a></td>'
+                                    +'<td width="30%" style="text-align: left;font-size: 16px;">'+isblh_select.sex+'</td>';
+                                    '</tr>';
+                                controltable.append(sex_name_line);
 
                             }
 
@@ -85,7 +93,7 @@ define(function () {
                     $('#datareceivedpanel .checkingitems').datagrid('load',{relationid:record.relationid});
                     /*$('#altercheckingitempanel .altercheckingration').form('load',record);
                      $('#altercheckingitempanel .checkingitems').datagrid('load',{relationid:record.relationid});*/
-                    isblh_select=record.relationid;
+                    isblh_select=record;
                     getcontolmsgbyrid(isblh_select);
                 };
                 var myloader = function(param,success,error){
@@ -149,7 +157,7 @@ define(function () {
 
                     var formdata=$('#datareceivedpanel form').form("serialize");
                     var params=formdata;
-                    params.relationid=isblh_select;
+                    params.relationid=isblh_select.relationid;
                     var succ=function(data){
                         $.messager.alert('操作成功','保存成功!');
                     };
