@@ -120,12 +120,22 @@
 
             </div>
             <div title="数据打印"  style="padding:10px">
-
-                <div class="reportlist" style="border: 1px solid blue;
+                <div class="easyui-layout"  data-options="fit:true">
+                    <div data-options="region:'center',split:false,collapsible:false">
+                        <div class="reportlist" style="border: 1px solid blue;
                 margin: 15px 15px 15px 15px;text-align: center;padding-left: 15px;padding-right: 15px; ">
 
+                        </div>
+                    </div>
+                    <div data-options="region:'east',split:false,collapsible:false" style="width: 120px;">
 
+                        <div class="printlnbtns" style="text-align: center;">
+                            <a class="easyui-linkbutton print" data-options="iconCls:'icon-save',plain:true" >打印</a>
+                        </div>
+
+                    </div>
                 </div>
+
 
             </div>
 

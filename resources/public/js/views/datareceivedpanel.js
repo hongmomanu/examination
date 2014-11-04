@@ -16,7 +16,7 @@ define(function () {
 
                             content_div.append('<table  class="controltable"></table>');
                             var controltable=content_div.find('.controltable');
-                            var head_line='<tr><td colspan="4"   style="text-align: center;font-size: 20px;" class="smallerline"><b>绍兴市人民医院体检报告</b></td>'+
+                            var head_line='<tr><td height="70px;" colspan="4"   style="text-align: center;font-size: 20px;" class="smallerline"><b>绍兴市人民医院体检报告</b></td>'+
                                 '</tr>';
                             controltable.append(head_line);
 
@@ -34,17 +34,19 @@ define(function () {
                                     '</tr>';
                                 controltable.append(blh_line);
                                 var result_line='<tr>' +
-                                    '<td width="15%" height="200px" style="text-align: right;font-size: 16px;vertical-align:top;" ><a style="color: blue">检查结果:</a></td>'
+                                    '<td width="15%" height="120px" style="text-align: right;font-size: 16px;vertical-align:top;" ><a style="color: blue">检查结果:</a></td>'
                                     +'<td colspan="3" style="text-align: left;font-size: 16px;vertical-align:top;" >'+
                                     $('#datareceivedpanel form').form("serialize").result+'</td>' +
                                     '</tr>';
                                 controltable.append(result_line);
                                 var healthhelp_line='<tr>' +
-                                    '<td width="15%" height="200px" style="text-align: right;font-size: 16px;vertical-align:top;" ><a style="color: blue">健康指南:</a></td>'
+                                    '<td width="15%" height="120px" style="text-align: right;font-size: 16px;vertical-align:top;" ><a style="color: blue">健康指南:</a></td>'
                                     +'<td colspan="3" style="text-align: left;font-size: 16px;vertical-align:top;" >'+
                                     $('#datareceivedpanel form').form("serialize").suggestion+'</td>' +
                                     '</tr>';
                                 controltable.append(healthhelp_line);
+
+                                makedetailreport();
 
                             }
 
@@ -56,7 +58,26 @@ define(function () {
 
                         }
                     }
-                })
+                });
+
+                var makedetailreport=function(){
+
+                    var params={
+                        relationid:isblh_select.relationid
+                    };
+                    var succ=function(data){
+
+                        console.log(data) ;
+
+                    };
+                    var errorfunc=function(){
+                        //error.apply(this, arguments);
+                        $.messager.alert('操作失败','获取服务失败');
+                    };
+
+                    ajaxform.ajaxsend('post','json','maintain/getdetaireportbyrid',params,succ,null,errorfunc,true);
+
+                };
 
 
                 $('#datareceivedpanel .checkingday').datebox('setValue', $.format.date(new Date(), "yyyy-MM-dd"));
@@ -169,6 +190,15 @@ define(function () {
 
 
                 };
+
+                $('#datareceivedpanel .printlnbtns').find('.print').click(function(){
+                    if(isblh_select){
+                        $("#datareceivedpanel .controltable").printThis()
+                    }else{
+                        $.messager.alert('提示','未选择体检人员!');
+                    }
+
+                });
 
                 $('#datareceivedpanel .savebtns').find('.save').click(function(){
 

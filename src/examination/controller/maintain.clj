@@ -152,6 +152,10 @@
   )
 
 
+(defn getdetaireportbyrid[relationid]
+  (resp/json (db/getdetaireportbyrid relationid))
+  )
+
 (defn getregistedperson [start limit  totalname rowsname  isunit  isinto keywords date]
   (let [
          custom-formatter (f/formatter "yyyy-MM-dd")

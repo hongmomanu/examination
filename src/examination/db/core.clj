@@ -53,6 +53,7 @@
   )
 (defentity reportDetail
   (belongs-to users {:fk :userid})
+  (belongs-to checkdept {:fk :deptid})
   (database sqlitedb)
   )
 (defentity reportItem
@@ -442,6 +443,19 @@
 
     )
 
+  )
+(defn getdetaireportbyrid [relationid]
+  (select reportDetail
+    (with users
+      (fields :displayname)
+      )
+    (with checkdept
+      (fields :deptname)
+      )
+    (where (and {:relationid relationid}
+             ))
+
+    )
   )
 (defn getfinshitem [relationid]
   (select reportDetail

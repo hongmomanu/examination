@@ -81,6 +81,11 @@
   (POST "/maintain/getregistedperson" [start limit  totalname rowsname isunit isinto keyword date]
     (maintain/getregistedperson start limit  totalname rowsname isunit  isinto keyword date))
 
+  (POST "/maintain/getdetaireportbyrid" [relationid]
+    (maintain/getdetaireportbyrid relationid))
+
+
+
   (POST "/maintain/getcheckornopation" [start limit  totalname rowsname keyword deptid ischecked]
     (maintain/getcheckornopation start limit  totalname rowsname keyword deptid ischecked))
 
