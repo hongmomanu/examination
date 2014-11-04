@@ -15,6 +15,7 @@ define(function () {
                             //var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
 
                             content_div.append('<table  class="controltable"></table>');
+                            content_div.append('<table  class="reporttable"></table>');
                             var controltable=content_div.find('.controltable');
                             var head_line='<tr><td height="70px;" colspan="4"   style="text-align: center;font-size: 20px;" class="smallerline"><b>绍兴市人民医院体检报告</b></td>'+
                                 '</tr>';
@@ -82,6 +83,71 @@ define(function () {
                                 items[data[i].deptname][data[i].itemname]=[data[i]];
                             }
                         }
+                        var content_div=$('#datareceivedpanel .reportlist');
+                        var contenttable=content_div.find('.reporttable');
+                        for(var deptitem in items){
+                            var dept_line='<tr><td colspan="5" class="smallerline"><b>'
+                                +deptitem+
+                                '</b></td>'+
+                                '</tr>';
+                            contenttable.append(dept_line);
+                            var head_line='<tr ><td width="20%" class="biggerline">'
+                                +"项目名称"+
+                                '</td><td width="20%" class="biggerline">检查结果</td>' +
+                                '<td width="20%" class="biggerline">单位</td>'+
+                                '<td width="20%" class="biggerline">参考范围</td>' +
+                                '<td width="20%" class="biggerline">提示</td>'+
+                                '</tr>';
+                            contenttable.append(head_line);
+
+                            var checkitems=items[deptitem];
+
+                            console.log(checkitems);
+                            for(var checkitem in checkitems){
+                                //console.log(items[item]);
+
+                                if(checkitems[checkitem].length>0){
+                                    var checkdate= checkitems[checkitem][0].DATETIME.split(" ")[0];
+                                    var item_line='<tr><td width="20%">'
+                                        +checkitem+
+                                        '<td width="20%" colspan="2">检查日期&nbsp;&nbsp;'+(checkdate?checkdate:"未检查")+'</td>'+
+                                        '<td width="20%" colspan="2">检查医生&nbsp;&nbsp;'
+                                        +(checkitems[checkitem][0].displayname?checkitems[checkitem][0].displayname:"未检查")+'</td>'+
+                                        '</tr>';
+                                    contenttable.append(item_line);
+
+                                    for(var i=0;i<checkitems[checkitem].length;i++){
+                                        var itemdetail_line='<tr><td width="20%">'
+                                            +checkitems[checkitem][i].detailname+
+                                            '<td width="20%" >'+(checkitems[checkitem][i].result?checkitems[checkitem][i].result:"未检查")+'</td>'+
+                                            '<td width="20%" >'+checkitems[checkitem][i].unit+'</td>'+
+                                            '<td width="20%" >'+(checkitems[checkitem][i].downlimit
+                                            +"~"+checkitems[checkitem][i].uplimit)+'</td>'+
+                                            '<td width="20%" >'+(checkitems[checkitem][i].result_mess?checkitems[checkitem][i].result_mess:"未检查")
+                                            +'</td>'
+                                        '</tr>';
+                                        contenttable.append(itemdetail_line);
+
+                                    }
+
+
+                                }
+
+
+                            }
+
+                            var conclusion_line='<tr ><td colspan="5"><b>'
+                                +"小结"+
+                                '</b></td>'+
+                                '</tr>';
+                            contenttable.append(conclusion_line);
+
+
+
+
+
+                        }
+
 
 
 
