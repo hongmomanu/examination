@@ -277,7 +277,7 @@ define(function () {
 
                 $('#datareceivedpanel .printlnbtns').find('.print').click(function(){
                     if(isblh_select){
-                        $("#datareceivedpanel .controltable").printThis()
+                        $("#datareceivedpanel .controltable,#datareceivedpanel .reporttable").printThis()
                     }else{
                         $.messager.alert('提示','未选择体检人员!');
                     }
