@@ -589,7 +589,6 @@
   )
 
 (defn getregistedpersonnums [ keywords now isunit isinto]
-
   (select registRelation
     (with patientMainIndex
       (where (and

@@ -65,7 +65,7 @@ define(function () {
 
                         var params={
                             keyword: q,
-                            time:$('#datareceivedpanel .checkingday').datebox('getValue'),
+                            date:$('#datareceivedpanel .checkingday').datebox('getValue'),
                             start:0,
                             limit:20,
                             isunit:$.toJSON([0,1]),
