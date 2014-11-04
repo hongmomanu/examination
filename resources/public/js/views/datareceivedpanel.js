@@ -14,7 +14,7 @@ define(function () {
                             content_div.html('');
                             //var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
 
-                            content_div.append('<table class="controltable"></table>');
+                            content_div.append('<table  class="controltable"></table>');
                             var controltable=content_div.find('.controltable');
                             var head_line='<tr><td colspan="4"   style="text-align: center;font-size: 20px;" class="smallerline"><b>绍兴市人民医院体检报告</b></td>'+
                                 '</tr>';
@@ -22,12 +22,29 @@ define(function () {
 
                             if(isblh_select){
                                 var sex_name_line='<tr>' +
-                                    '<td width="20%" style="text-align: right;font-size: 16px;" ><a style="color: blue">姓名:</a></td>'
-                                    +'<td width="30%" style="text-align: left;font-size: 16px;" >'+isblh_select.name+'</td>' +
-                                    '<td width="20%" style="text-align: right;font-size: 16px;" ><a style="color: blue">性别:</a></td>'
-                                    +'<td width="30%" style="text-align: left;font-size: 16px;">'+isblh_select.sex+'</td>';
+                                    '<td width="15%" height="40px" style="text-align: right;font-size: 16px;vertical-align:bottom;" ><a style="color: blue">姓名:</a></td>'
+                                    +'<td width="35%" style="text-align: left;font-size: 16px;vertical-align:bottom;" >'+isblh_select.name+'</td>' +
+                                    '<td width="15%" style="text-align: right;font-size: 16px;vertical-align:bottom;" ><a style="color: blue">性别:</a></td>'
+                                    +'<td width="35%" style="text-align: left;font-size: 16px;vertical-align:bottom;">'+isblh_select.sex+'</td>'+
                                     '</tr>';
                                 controltable.append(sex_name_line);
+                                var blh_line='<tr>' +
+                                    '<td width="15%" height="40px" style="text-align: right;font-size: 16px;" ><a style="color: blue">病人卡号:</a></td>'
+                                    +'<td colspan="3" style="text-align: left;font-size: 16px;" >'+isblh_select.blh_no+'</td>' +
+                                    '</tr>';
+                                controltable.append(blh_line);
+                                var result_line='<tr>' +
+                                    '<td width="15%" height="200px" style="text-align: right;font-size: 16px;vertical-align:top;" ><a style="color: blue">检查结果:</a></td>'
+                                    +'<td colspan="3" style="text-align: left;font-size: 16px;vertical-align:top;" >'+
+                                    $('#datareceivedpanel form').form("serialize").result+'</td>' +
+                                    '</tr>';
+                                controltable.append(result_line);
+                                var healthhelp_line='<tr>' +
+                                    '<td width="15%" height="200px" style="text-align: right;font-size: 16px;vertical-align:top;" ><a style="color: blue">健康指南:</a></td>'
+                                    +'<td colspan="3" style="text-align: left;font-size: 16px;vertical-align:top;" >'+
+                                    $('#datareceivedpanel form').form("serialize").suggestion+'</td>' +
+                                    '</tr>';
+                                controltable.append(healthhelp_line);
 
                             }
 
@@ -94,7 +111,7 @@ define(function () {
                     /*$('#altercheckingitempanel .altercheckingration').form('load',record);
                      $('#altercheckingitempanel .checkingitems').datagrid('load',{relationid:record.relationid});*/
                     isblh_select=record;
-                    getcontolmsgbyrid(isblh_select);
+                    getcontolmsgbyrid(isblh_select.relationid);
                 };
                 var myloader = function(param,success,error){
                     var q = param.q || '';
