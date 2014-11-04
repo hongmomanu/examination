@@ -301,7 +301,7 @@ define(function () {
                         text:'保存',
 
                         handler:function(){
-
+                            $('#checkpationwithitemwin').dialog('close');
 
 
                         }

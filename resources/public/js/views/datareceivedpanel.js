@@ -5,6 +5,35 @@ define(function () {
 
         require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
             ,function(easyuiform,ajaxform){
+
+                $('#datareceivedpanel .easyui-tabs').tabs().tabs({
+
+                    onSelect:function(title,index){
+                        if(index==2){
+                            var content_div=$('#datareceivedpanel .reportlist');
+                            content_div.html('');
+                            //var params=$('#doctorcheckpanel .pationinfoform').form("serialize");
+                            content_div.append('<table class="controltable"></table>');
+                            var controltable=content_div.find('.controltable');
+                            var head_line='<tr><td colspan="2"   style="text-align: center;font-size: 20px;" class="smallerline">绍兴市人民医院体检报告</td>'+
+                                '</tr>';
+                            controltable.append(head_line);
+
+                            if(isblh_select){
+
+                            }
+
+
+                            //contenttable.append('<tr><td colspan="3" height="3"><hr style="border-bottom:5px solid #000000;margin: 0 0 0 0;"/></td></tr>');
+
+                            //contenttable.append(dept_line);
+
+
+                        }
+                    }
+                })
+
+
                 $('#datareceivedpanel .checkingday').datebox('setValue', $.format.date(new Date(), "yyyy-MM-dd"));
 
                 $('#datareceivedpanel .itemdetailtable').datagrid({
