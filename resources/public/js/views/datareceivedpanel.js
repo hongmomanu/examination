@@ -67,7 +67,25 @@ define(function () {
                     };
                     var succ=function(data){
 
-                        console.log(data) ;
+                        var items={};
+                        for(var i=0;i<data.length;i++){
+                            if(items[data[i].deptname]){
+                                if(items[data[i].deptname][data[i].itemname]){
+                                    items[data[i].deptname][data[i].itemname].push(data[i]);
+                                }else{
+                                    items[data[i].deptname][data[i].itemname]=[];
+                                    items[data[i].deptname][data[i].itemname].push(data[i]);
+                                }
+                            }else{
+
+                                items[data[i].deptname]={};
+                                items[data[i].deptname][data[i].itemname]=[data[i]];
+                            }
+                        }
+
+
+
+                        //console.log(items);
 
                     };
                     var errorfunc=function(){
