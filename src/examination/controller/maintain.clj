@@ -442,10 +442,19 @@
   )
 (defn savecontolmsgbyrid [id relationid result suggestion other]
   (let [
+
+         items (db/getregistedcheckitems 0 1000 nil relationid)
+         total_je (apply + (map #(read-string (:price %)) items))
+         rebate_bl 1
+         rebate_je (* rebate_bl total_je)
+
          filelds {
                    :relationid relationid :result result
                   :suggestion suggestion :other other
+                  :total_je total_je   :rebate_bl rebate_bl :rebate_je rebate_je
                   }
+
+
         ]
     (if (or (nil? id)(= id ""))(db/insertcontolmsgbyrid
                                  filelds

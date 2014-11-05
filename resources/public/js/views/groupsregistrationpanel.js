@@ -80,8 +80,6 @@ define(function () {
                 var options = $('#groupscheckeditems').datagrid('options');
                 var selected=$('#groupsregistedperson').datagrid('getSelected');
                 if(selected)params.relationid=selected.relationid;
-                console.log(options);
-                console.log(selected);
 
                 params.start = (options.pageNumber - 1) * options.pageSize;
                 params.limit = options.pageSize;
