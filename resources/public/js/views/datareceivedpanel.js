@@ -86,23 +86,6 @@ define(function () {
                         var content_div=$('#datareceivedpanel .reportlist');
                         var contenttable=content_div.find('.reporttable');
                         for(var deptitem in items){
-                            var dept_line='<tr><td colspan="5" class="smallerline"><b>'
-                                +deptitem+
-                                '</b></td>'+
-                                '</tr>';
-                            contenttable.append(dept_line);
-                            var head_line='<tr ><td width="20%" class="biggerline">'
-                                +"项目名称"+
-                                '</td><td width="20%" class="biggerline">检查结果</td>' +
-                                '<td width="20%" class="biggerline">单位</td>'+
-                                '<td width="20%" class="biggerline">参考范围</td>' +
-                                '<td width="20%" class="biggerline">提示</td>'+
-                                '</tr>';
-                            contenttable.append(head_line);
-
-                            var checkitems=items[deptitem].data;
-
-
                             var params={
                                 start:0,
                                 limit:200,
@@ -112,7 +95,73 @@ define(function () {
                                 rowsname : "rows"
                             };
                             var succ=function(data){
-                                console.log(data);
+
+
+                                var dept_line='<tr><td style="text-align: left" colspan="5" class="smallerline"><b>'
+                                    +deptitem+
+                                    '</b></td>'+
+                                    '</tr>';
+                                contenttable.append(dept_line);
+                                var head_line='<tr ><td width="20%" class="biggerline">'
+                                    +"项目名称"+
+                                    '</td><td width="20%" class="biggerline">检查结果</td>' +
+                                    '<td width="20%" class="biggerline">单位</td>'+
+                                    '<td width="20%" class="biggerline">参考范围</td>' +
+                                    '<td width="20%" class="biggerline">提示</td>'+
+                                    '</tr>';
+                                contenttable.append(head_line);
+
+                                var checkitems=items[deptitem].data;
+                                for(var checkitem in checkitems){
+                                    //console.log(items[item]);
+
+                                    if(checkitems[checkitem].length>0){
+                                        var checkdate= checkitems[checkitem][0].DATETIME.split(" ")[0];
+                                        var item_line='<tr><td width="20%">'
+                                            +checkitem+
+                                            '<td width="20%" colspan="2">检查日期&nbsp;&nbsp;'+(checkdate?checkdate:"未检查")+'</td>'+
+                                            '<td width="20%" colspan="2">检查医生&nbsp;&nbsp;'
+                                            +(checkitems[checkitem][0].displayname?checkitems[checkitem][0].displayname:"未检查")+'</td>'+
+                                            '</tr>';
+                                        contenttable.append(item_line);
+
+                                        for(var i=0;i<checkitems[checkitem].length;i++){
+                                            var itemdetail_line='<tr><td width="20%">'
+                                                +checkitems[checkitem][i].detailname+
+                                                '<td width="20%" >'+(checkitems[checkitem][i].result?checkitems[checkitem][i].result:"未检查")+'</td>'+
+                                                '<td width="20%" >'+checkitems[checkitem][i].unit+'</td>'+
+                                                '<td width="20%" >'+(checkitems[checkitem][i].downlimit
+                                                +"~"+checkitems[checkitem][i].uplimit)+'</td>'+
+                                                '<td width="20%" >'+(checkitems[checkitem][i].result_mess?checkitems[checkitem][i].result_mess:"未检查")
+                                                +'</td>'+
+                                                '</tr>';
+                                            contenttable.append(itemdetail_line);
+
+                                        }
+
+
+                                    }
+
+
+                                }
+
+                                var conclusion_line='<tr ><td style="text-align: left" colspan="5"><b>'
+                                    +"小结"+
+                                    '</b></td>'+
+                                    '</tr>';
+                                contenttable.append(conclusion_line);
+
+                                var conclustion_str="";
+                                for(var i=0;i<data.rows.length;i++){
+                                    conclustion_str+=data.rows[i].suggestion+'<br>'
+                                }
+                                var conclusion_content='<tr ><td style="text-align: left" colspan="5">'
+                                    +conclustion_str+
+                                    '</td>'+
+                                    '</tr>';
+                                contenttable.append(conclusion_content);
+
+
                             };
                             var errorfunc=function(){
 
@@ -122,45 +171,7 @@ define(function () {
 
 
 
-                            console.log(checkitems);
-                            for(var checkitem in checkitems){
-                                //console.log(items[item]);
 
-                                if(checkitems[checkitem].length>0){
-                                    var checkdate= checkitems[checkitem][0].DATETIME.split(" ")[0];
-                                    var item_line='<tr><td width="20%">'
-                                        +checkitem+
-                                        '<td width="20%" colspan="2">检查日期&nbsp;&nbsp;'+(checkdate?checkdate:"未检查")+'</td>'+
-                                        '<td width="20%" colspan="2">检查医生&nbsp;&nbsp;'
-                                        +(checkitems[checkitem][0].displayname?checkitems[checkitem][0].displayname:"未检查")+'</td>'+
-                                        '</tr>';
-                                    contenttable.append(item_line);
-
-                                    for(var i=0;i<checkitems[checkitem].length;i++){
-                                        var itemdetail_line='<tr><td width="20%">'
-                                            +checkitems[checkitem][i].detailname+
-                                            '<td width="20%" >'+(checkitems[checkitem][i].result?checkitems[checkitem][i].result:"未检查")+'</td>'+
-                                            '<td width="20%" >'+checkitems[checkitem][i].unit+'</td>'+
-                                            '<td width="20%" >'+(checkitems[checkitem][i].downlimit
-                                            +"~"+checkitems[checkitem][i].uplimit)+'</td>'+
-                                            '<td width="20%" >'+(checkitems[checkitem][i].result_mess?checkitems[checkitem][i].result_mess:"未检查")
-                                            +'</td>'+
-                                        '</tr>';
-                                        contenttable.append(itemdetail_line);
-
-                                    }
-
-
-                                }
-
-
-                            }
-
-                            var conclusion_line='<tr ><td colspan="5"><b>'
-                                +"小结"+
-                                '</b></td>'+
-                                '</tr>';
-                            contenttable.append(conclusion_line);
 
 
 
