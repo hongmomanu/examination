@@ -548,6 +548,26 @@
 
   )
 
+(defn getstaticbyrange [beginday endday isunit]
+  (select reportItem
+    (where {:relationid  [in
+                   (subselect registRelation (fields :id)
+                     (where (and {:status 2}
+                              {:check_date [>= beginday]}
+                              {:check_date [<= endday]}
+                              {:pation_no [in (subselect patientMainIndex (fields :id)
+                                                (where {:isunit isunit})
+                                                )]}
+                              ))
+                     )
+
+                   ]})
+    (aggregate (sum :rebate_je) :sums)
+    (aggregate (count :id) :counts)
+    )
+
+  )
+
 
 (defn getregistedpersonbyrange [start limits bgno endno now isunit isinto]
 

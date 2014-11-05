@@ -26,6 +26,9 @@
             )
   )
 
+(declare   savecontolmsgbyrid
+  )
+
 (defn getitemnums [deptid]
   (:counts (first (db/getitemnums deptid)))
   )
@@ -435,10 +438,11 @@
 
 (defn getdaystatic [beginday endday]
   (let [
-          totalunit 1
-          totalpost 1
+          totalunit (db/getstaticbyrange beginday endday 1)
+          totalpost (db/getstaticbyrange beginday endday 0)
+
          ]
-    (resp/json {:success true})
+    (resp/json {:success true :unit totalunit :person totalpost})
     )
 
   )
