@@ -88,6 +88,12 @@
     (maintain/getdaystatic beginday endday))
 
 
+  (POST "/maintain/finishcontrolcheck" [id relationid result suggestion other]
+    (maintain/finishcontrolcheck id relationid result suggestion other)
+    )
+
+
+
 
   (POST "/maintain/getcheckornopation" [start limit  totalname rowsname keyword deptid ischecked]
     (maintain/getcheckornopation start limit  totalname rowsname keyword deptid ischecked))

@@ -483,7 +483,7 @@
                {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
                ))
       )
-    (where (and {:status 1}
+    (where (and {:status  [in [1 2]]}
              {:id  [in
                     (subselect afterRegist (fields :relationid)
                       (where {:itemcode [in (subselect checkitem (fields :id)
@@ -508,7 +508,7 @@
                {:blh_no [like (str "%" (if (nil? keywords)"" keywords) "%")]}
                ))
       )
-    (where (and {:status 1}
+    (where (and {:status [in [1 2]]}
              {:id  [in
                     (subselect afterRegist (fields :relationid)
                       (where {:itemcode [in (subselect checkitem (fields :id)

@@ -213,6 +213,12 @@
 
 
 )
+(defn finishcontrolcheck [id relationid result suggestion other]
+  (with-db db/sqlitedb (transaction
+    (db/updateregistRelation {:status 2} relationid)
+    (savecontolmsgbyrid id relationid result suggestion other)))
+  (resp/json {:success true})
+  )
 (defn intocheck [relationid]
 
   (let [

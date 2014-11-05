@@ -239,9 +239,13 @@ define(function () {
                 var isblh_select=false;
                 var blhselect=function(record){
                     //console.log(record);
+                    var status=record.status;
+                    if(status==2)status="<a style='color: green'>总检完成</a>";
+                    else status="<a style='color: red'>未总检</a>";
                     $('#datareceivedpanel .username').text(record.name);
                     $('#datareceivedpanel .sex').text(record.sex);
                     $('#datareceivedpanel .unitname').text(record.unitname);
+                    $('#datareceivedpanel .status').html(status);
                     $('#datareceivedpanel .age').text((new Date()).getFullYear()- Date.parse(record.birthday).getFullYear()+1);
                     $('#datareceivedpanel .checkingitems').datagrid('load',{relationid:record.relationid});
                     /*$('#altercheckingitempanel .altercheckingration').form('load',record);
@@ -259,7 +263,7 @@ define(function () {
                             start:0,
                             limit:20,
                             isunit:$.toJSON([0,1]),
-                            isinto:$.toJSON([1]),
+                            isinto:$.toJSON([1,2]),
                             totalname: "total",
                             rowsname : "rows"
                         };
@@ -273,7 +277,27 @@ define(function () {
                         ajaxform.ajaxsend('post','json','maintain/getregistedperson',params,succ,null,errorfunc,true);
 
 
-                }
+                };
+                $('#datareceivedpanel .finish').click(function(){
+                    if(isblh_select){
+                        var formdata=$('#datareceivedpanel form').form("serialize");
+                        var params=formdata;
+                        params.relationid=isblh_select.relationid
+
+                        var succ=function(data){
+                            $('#datareceivedpanel .status').html("<a style='color: green'>总检完成</a>");
+                        };
+                        var errorfunc=function(){
+                        };
+
+                        ajaxform.ajaxsend('post','json','maintain/finishcontrolcheck',params,succ,null,errorfunc,true);
+
+                    }else{
+                        $.messager.alert('提示','未选择体检人员!');
+                    }
+
+
+                });
 
                 $('#datareceivedpanel .checkingpationblhno').combobox({
                     required:true,
@@ -316,18 +340,24 @@ define(function () {
                 });
 
                 $('#datareceivedpanel .savebtns').find('.save').click(function(){
+                    if(isblh_select){
+                        var formdata=$('#datareceivedpanel form').form("serialize");
+                        var params=formdata;
+                        params.relationid=isblh_select.relationid;
+                        var succ=function(data){
+                            $.messager.alert('操作成功','保存成功!');
+                        };
+                        var errorfunc=function(){
+                            $.messager.alert('操作失败','保存失败!');
+                        };
 
-                    var formdata=$('#datareceivedpanel form').form("serialize");
-                    var params=formdata;
-                    params.relationid=isblh_select.relationid;
-                    var succ=function(data){
-                        $.messager.alert('操作成功','保存成功!');
-                    };
-                    var errorfunc=function(){
-                        $.messager.alert('操作失败','保存失败!');
-                    };
+                        ajaxform.ajaxsend('post','json','maintain/savecontolmsgbyrid',params,succ,null,errorfunc,true);
 
-                    ajaxform.ajaxsend('post','json','maintain/savecontolmsgbyrid',params,succ,null,errorfunc,true);
+
+                    }else{
+                        $.messager.alert('提示','未选择体检人员!');
+                    }
+
 
 
                 });
