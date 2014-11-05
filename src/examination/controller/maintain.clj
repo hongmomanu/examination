@@ -427,6 +427,15 @@
   (if (nil? (some #(= (:id item) %) ids)) false true)
   )
 
+(defn getdaystatic [beginday endday]
+  (let [
+          totalunit 1
+          totalpost 1
+         ]
+    (resp/json {:success true})
+    )
+
+  )
 
 (defn getunitgroup [node pid rootname callback]
   (let [

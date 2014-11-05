@@ -17,7 +17,9 @@ define(function () {
 
                     };
                     var succ=function(data){
-                        console.log(data);
+
+                        //console.log(data);
+
                     };
                     var errorfunc=function(){
                         $.messager.alert('提示','error!');

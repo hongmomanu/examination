@@ -84,6 +84,9 @@
   (POST "/maintain/getdetaireportbyrid" [relationid]
     (maintain/getdetaireportbyrid relationid))
 
+  (POST "/maintain/getdaystatic" [beginday endday]
+    (maintain/getdaystatic beginday endday))
+
 
 
   (POST "/maintain/getcheckornopation" [start limit  totalname rowsname keyword deptid ischecked]
