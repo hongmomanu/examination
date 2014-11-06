@@ -1,0 +1,44 @@
+<div id="reportquerypanel" class="easyui-layout"  data-options="fit:true">
+
+    <table class="maintable">
+
+        <thead>
+        <tr>
+            <th data-options="field:'blh_no',width:100">卡号</th>
+            <th data-options="field:'times',width:60">次数</th>
+            <th data-options="field:'name',width:80">姓名</th>
+            <th data-options="field:'sex',width:120">性别</th>
+            <th data-options="field:'birthday',width:120">出生年月</th>
+            <th data-options="field:'unitname',width:120">单位</th>
+            <th data-options="field:'check_date',width:120">检查日期</th>
+            <th data-options="field:'id',width:100,hidden:true">id</th>
+            <!--<th data-options="field:'time',width:150,align:'center',sortable:true">注册时间</th>-->
+
+        </tr>
+        </thead>
+
+
+
+    </table>
+
+
+    <div class="searchtoolbar" style="padding:2px 5px;">
+        体检单位: <input class="easyui-datebox" style="width:110px">
+        体检日期: <input class="easyui-datebox beginday"  style="width:110px">
+        -->: <input class="easyui-datebox endday"  style="width:110px">
+        卡号: <input class="easyui-textbox beginno" style="width:110px">
+        -->: <input class="easyui-textbox endno" style="width:110px">
+        性别:
+        <select class="easyui-combobox" panelHeight="auto" style="width:60px">
+            <option value="java">Java</option>
+            <option value="c">C</option>
+            <option value="basic">Basic</option>
+            <option value="perl">Perl</option>
+            <option value="python">Python</option>
+        </select>
+        <a href="#" class="easyui-linkbutton search" iconCls="icon-search">查询</a>
+        <a href="#" class="easyui-linkbutton print" iconCls="icon-print">打印</a>
+    </div>
+
+
+</div>
