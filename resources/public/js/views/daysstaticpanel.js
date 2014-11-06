@@ -8,6 +8,10 @@ define(function () {
                 $('#daysstaticpanel .beginday').datebox('setValue', $.format.date((new Date()).add({ months: -3}), "yyyy-MM-dd"));
                 $('#daysstaticpanel .endday').datebox('setValue', $.format.date(new Date(), "yyyy-MM-dd"));
 
+                $('#daysstaticpanel .print').click(function(){
+                    $("#daysstaticpanel .content").printThis();
+
+                })
                 $('#daysstaticpanel .static').click(function(){
 
                     //alert(1);
@@ -26,13 +30,14 @@ define(function () {
                             "-->"+$('#daysstaticpanel .endday').datebox('getValue')+
                             "</a>");
                         div.append('<table class="formtable">' +
-                            '<tr><td>个人人数：</td><td>'+personobj.counts+'</td>' +
-                            '<td>团体人数：</td><td>'+unitobj.counts+'</td>'+
-                            '<td>总人数：</td><td>'+(unitobj.counts+personobj.counts)+'</td>'+
+                            '<tr><td width="10%">个人人数：</td><td width="20%">'+personobj.counts+'</td>' +
+                            '<td width="10%">团体人数：</td><td width="20%">'+unitobj.counts+'</td>'+
+                            '<td width="10%">总人数：</td><td width="20%">'+(unitobj.counts+personobj.counts)+'</td>'+
                             '</tr>' +
-                            '<tr><td>个人费用：</td><td>'+personobj.sums+'</td>' +
-                            '<td>团体费用：</td><td>'+unitobj.sums+'</td>'+
-                            '<td>总费用：</td><td>'+(unitobj.sums+personobj.sums)+'</td>'+
+                            '<tr><td width="10%">个人费用：</td><td width="20%">'+(personobj.counts==0?0:personobj.sums)+'</td>' +
+                            '<td width="10%">团体费用：</td><td width="20%">'+(unitobj.counts==0?0:unitobj.sums)+'</td>'+
+                            '<td width="10%">总费用：</td><td width="20%">'+((unitobj.counts==0?0:unitobj.sums)
+                            +(personobj.counts==0?0:personobj.sums))+'</td>'+
                             '</tr>' +
                             '</table>') ;
 
