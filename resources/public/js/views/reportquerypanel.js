@@ -14,7 +14,7 @@ define(function () {
                     collapsible: true,
                     rownumbers: true,
                     method:'post',
-                    url:'maintain/getregistedpersossssss',
+                    url:'maintain/getfinishedperson',
                     remoteSort: false,
                     //fitColumns:true,
                     fit:true,
@@ -25,6 +25,12 @@ define(function () {
                         var options = $(this).datagrid('options');
                         params.start = (options.pageNumber - 1) * options.pageSize;
                         params.limit = options.pageSize;
+                        params.beginday = $('#reportquerypanel .beginday').datebox('getValue');
+                        params.endday = $('#reportquerypanel .endday').datebox('getValue');
+                        params.unitname = $('#reportquerypanel .easyui-combogrid').combogrid('getValue');
+                        params.beginno=$('#reportquerypanel .beginno').textbox('getValue');
+                        params.endno=$('#reportquerypanel .endno').textbox('getValue');
+                        params.sex=$('#reportquerypanel .sex').combobox('getValue');
                         params.totalname = "total";
                         params.rowsname = "rows";
                     },
