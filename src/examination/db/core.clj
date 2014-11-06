@@ -588,6 +588,29 @@
     )
   )
   )
+
+(defn getillstatic [beginday endday unitname]
+  (select deptSuggestion
+    (fields :reason)
+    (group :reason)
+    (where {:relationid [in  (subselect registRelation
+                               (fields :id)
+                               (where (and {:check_date [>= beginday]}
+                                        {:check_date [<= endday]}
+                                        {:status 2}
+                                        {:pation_no [in
+                                                     (subselect patientMainIndex
+                                                       (fields :id)
+                                                       (where (and
+                                                                {:unitname [like (str "%" (if (nil? unitname)"" unitname) "%")]}
+                                                                ))
+                                                          )
+                                                     ]}
+                                        )
+                                 ))]})
+    (aggregate (count :id) :counts)
+    )
+  )
 (defn getfinishedpersonnums [beginday endday
                           beginno endno unitname sex]
   (select registRelation

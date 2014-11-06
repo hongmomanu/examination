@@ -92,6 +92,9 @@
   (POST "/maintain/getdaystatic" [beginday endday]
     (maintain/getdaystatic beginday endday))
 
+  (POST "/maintain/getillstatic" [beginday endday unitname]
+    (maintain/getillstatic beginday endday unitname))
+
 
   (POST "/maintain/finishcontrolcheck" [id relationid result suggestion other]
     (maintain/finishcontrolcheck id relationid result suggestion other)

@@ -82,6 +82,8 @@ $('#doctorcheckpanel .finishitem').click(function(){
                     $('#checkpationwithitemwin .itemdetailtable').datagrid('load',{deptid:deptid,
                         relationid:relationid,
                         itemcodes: $.toJSON(deptids)});
+                    $('#checkpationwithitemwin .deptconclusion').datagrid('reload');
+                    $('#checkpationwithitemwin .deptconclusiontips').datagrid('reload');
                 }else{
                     require(['text!views/checkpationwithitem.htm','views/checkpationwithitem'],
                         function(div,js){

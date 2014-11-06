@@ -24,6 +24,18 @@
                 <thead>
                 <tr>
                     <th data-options="field:'name',width:100,editor:'text'">诊断名称</th>
+                    <th data-options="field:'content',width:100,editor:{
+                            type:'textbox',
+                            options:{
+                                multiline:true,
+                                height:80
+
+                            }
+                        },formatter: function formatPrice(val,row){
+
+                            if(val)val=val.replace(/\n/g, '<br>');
+                            return val;
+                    }">建议</th>
                     <th data-options="field:'pycode',width:80,editor:'text'">拼音代码</th>
                     <th data-options="field:'sortnum',width:60,editor:'text'">排序号</th>
 

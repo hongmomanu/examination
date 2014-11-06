@@ -176,6 +176,9 @@ define(function () {
             method:'post',
             fitColumns:true,
             url:'maintain/getsuggests',
+            rowStyler:function(index,row){
+                return 'height:100;';
+            },
             remoteSort: false,
             /*sortName:'time',
              sortOrder:'desc',*/

@@ -464,6 +464,18 @@
     )
 
   )
+(defn getillstatic [beginday endday unitname]
+  (let [
+          totalnum (:counts (first (db/getfinishedpersonnums beginday endday
+                     "0" "9" unitname nil)))
+
+          datas (db/getillstatic beginday endday unitname)
+
+         ]
+    (resp/json {:success true :totalnum totalnum :datas datas})
+    )
+
+  )
 
 (defn getunitgroup [node pid rootname callback]
   (let [
