@@ -52,9 +52,10 @@
         卡号: <input class="easyui-textbox beginno" style="width:110px">
         -->: <input class="easyui-textbox endno" style="width:110px">
         性别:
-        <select class="easyui-combobox sex" panelHeight="auto" style="width:60px">
-
-        </select>
+        <input class="easyui-combobox lazy-combobox sex" type="text"
+               name="sex" searchtype="性别限制"
+               data-options="required:false,valueField: 'enumeratevalue',
+                                         textField: 'enumeratelabel',width:60">
         <a href="#" class="easyui-linkbutton search" iconCls="icon-search">查询</a>
         <a href="#" class="easyui-linkbutton print" iconCls="icon-print">打印</a>
     </div>
