@@ -21,27 +21,28 @@ define(function () {
 
                     };
                     var succ=function(data){
-                        console.log(data);
-                        /*var personobj= data.person[0];
-                        var unitobj= data.unit[0];
+                        //console.log(data);
+                        var illrows=data.datas;
                         var div=$('#illquerypanel .content');
                         div.html("");
                         div.append("<a>日期："+$('#illquerypanel .beginday').datebox('getValue')+
                             "-->"+$('#illquerypanel .endday').datebox('getValue')+
                             "</a>");
-                        div.append('<table class="formtable">' +
-                            '<tr><td width="10%">个人人数：</td><td width="20%">'+personobj.counts+'</td>' +
-                            '<td width="10%">团体人数：</td><td width="20%">'+unitobj.counts+'</td>'+
-                            '<td width="10%">总人数：</td><td width="20%">'+(unitobj.counts+personobj.counts)+'</td>'+
-                            '</tr>' +
-                            '<tr><td width="10%">个人费用：</td><td width="20%">'+(personobj.counts==0?0:personobj.sums)+'</td>' +
-                            '<td width="10%">团体费用：</td><td width="20%">'+(unitobj.counts==0?0:unitobj.sums)+'</td>'+
-                            '<td width="10%">总费用：</td><td width="20%">'+((unitobj.counts==0?0:unitobj.sums)
-                            +(personobj.counts==0?0:personobj.sums))+'</td>'+
-                            '</tr>' +
-                            '</table>') ;
-*/
-                        //console.log(data);
+                        div.append('<table class="formtable"></table>');
+                        var row_head='<tr><td width="50%">疾病名称</td><td width="25%">人数</td>' +
+                            '<td width="15%">百分率</td>'+
+                            '</tr>'
+                        var table=$('#illquerypanel .formtable');
+                        table.append(row_head);
+                        for(var i=0;i<illrows.length;i++){
+                           var row_str='<tr><td width="50%">'+illrows[i].reason+'</td><td width="25%">'+illrows[i].counts+'</td>' +
+                               '<td width="25%">'+(illrows[i].counts/data.totalnum*100).toFixed(3)+'</td>'+
+                               '</tr>' ;
+                            table.append(row_str);
+                        }
+
+
+
 
                     };
                     var errorfunc=function(){
