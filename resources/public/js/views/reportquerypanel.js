@@ -6,6 +6,9 @@ define(function () {
         require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
             ,function(easyuiform,ajaxform){
 
+                $('#reportquerypanel .endday').datebox('setValue', $.format.date(new Date(), "yyyy-MM-dd"));
+                $('#reportquerypanel .beginday').datebox('setValue',  $.format.date((new Date()).add({ months: -3}), "yyyy-MM-dd"));
+
                 $('#reportquerypanel .maintable').datagrid({
                     singleSelect: true,
                     collapsible: true,
