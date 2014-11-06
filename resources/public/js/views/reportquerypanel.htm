@@ -24,7 +24,7 @@
 
     <div class="searchtoolbar" style="padding:2px 5px;">
         体检单位:  <select class="easyui-combogrid" style="width:110px" data-options="
-            panelWidth: 200,
+            panelWidth: 400,
             idField: 'unitname',
             textField: 'unitname',
             url: 'maintain/getunits',
@@ -52,10 +52,11 @@
         卡号: <input class="easyui-textbox beginno" style="width:110px">
         -->: <input class="easyui-textbox endno" style="width:110px">
         性别:
-        <input class="easyui-combobox lazy-combobox sex" type="text"
-               name="sex" searchtype="性别限制"
-               data-options="required:false,valueField: 'enumeratevalue',
-                                         textField: 'enumeratelabel',width:60">
+        <select class="easyui-combobox sex" panelHeight="auto" style="width:60px">
+            <option value="">不限</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
         <a href="#" class="easyui-linkbutton search" iconCls="icon-search">查询</a>
         <a href="#" class="easyui-linkbutton print" iconCls="icon-print">打印</a>
     </div>

@@ -568,6 +568,46 @@
 
   )
 
+(defn getfinishedperson [start limit beginday endday
+                          beginno endno unitname sex]
+  (select registRelation
+    (fields [:id :relationid] :status  :check_date)
+    (with patientMainIndex
+      (fields :id :blh_no :name :sex :address :birthday :times :unitname)
+      (where (and
+               {:blh_no [>= beginno]}
+               {:blh_no [<= endno]}
+               {:unitname [like (str "%" (if (nil? unitname)"" unitname) "%")]}
+               {:sex [like (str "%" (if (nil? sex)"" sex) "%")]}
+               ))
+      )
+    (where (and {:check_date [>= beginday]}
+             {:check_date [<= endday]}
+             {:status 2}
+             )
+    )
+  )
+  )
+(defn getfinishedpersonnums [beginday endday
+                          beginno endno unitname sex]
+  (select registRelation
+    (with patientMainIndex
+
+      (where (and
+               {:blh_no [>= beginno]}
+               {:blh_no [<= endno]}
+               {:unitname [like (str "%" (if (nil? unitname)"" unitname) "%")]}
+               {:sex [like (str "%" (if (nil? sex)"" sex) "%")]}
+               ))
+      )
+    (where (and {:check_date [>= beginday]}
+             {:check_date [<= endday]}
+             {:status 2}
+             )
+    )
+    (aggregate (count :id) :counts)
+  )
+  )
 
 (defn getregistedpersonbyrange [start limits bgno endno now isunit isinto]
 

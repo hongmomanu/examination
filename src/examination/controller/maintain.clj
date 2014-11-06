@@ -202,6 +202,24 @@
     (resp/json (assoc {} rowsname res totalname nums))
     )
   )
+
+(defn getfinishedperson [start limit  totalname rowsname beginday endday
+          beginno endno unitname sex]
+  (let [
+         beginno (if (= "" beginno) "0" beginno)
+         endno (if (= "" endno) "9" endno)
+         results  (db/getfinishedperson start limit beginday endday
+                    beginno endno unitname sex)
+
+         nums    (:counts (first (db/getfinishedpersonnums beginday endday
+                                   beginno endno unitname sex)))
+
+         ]
+    (resp/json (assoc {} rowsname results totalname nums))
+    )
+
+
+  )
 (defn outcheck [relationid]
   (let [
          pation (first (db/getregistedpersonbyid relationid))

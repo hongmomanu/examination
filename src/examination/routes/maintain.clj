@@ -81,6 +81,11 @@
   (POST "/maintain/getregistedperson" [start limit  totalname rowsname isunit isinto keyword date]
     (maintain/getregistedperson start limit  totalname rowsname isunit  isinto keyword date))
 
+  (POST "/maintain/getfinishedperson" [start limit  totalname rowsname beginday endday
+                                       beginno endno unitname sex]
+    (maintain/getfinishedperson start limit  totalname rowsname beginday endday
+                                beginno endno unitname sex))
+
   (POST "/maintain/getdetaireportbyrid" [relationid]
     (maintain/getdetaireportbyrid relationid))
 

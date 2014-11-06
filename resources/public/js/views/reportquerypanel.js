@@ -6,7 +6,7 @@ define(function () {
         require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
             ,function(easyuiform,ajaxform){
 
-                var combox=$('#reportquerypanel .lazy-combobox');
+               /* var combox=$('#reportquerypanel .lazy-combobox');
                 combox.combobox({
                     onShowPanel: function () {
                         var searchtype = $(this).attr('searchtype');
@@ -14,6 +14,13 @@ define(function () {
                         $(this).combobox('reload', url);
                     }
 
+                });*/
+
+                $('#reportquerypanel .search').click(function(){
+                    $('#reportquerypanel .maintable').datagrid('reload');
+                });
+                $('#reportquerypanel .print').click(function(){
+                    $('#reportquerypanel .datagrid-view').printThis();
                 });
 
                 $('#reportquerypanel .endday').datebox('setValue', $.format.date(new Date(), "yyyy-MM-dd"));
