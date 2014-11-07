@@ -814,6 +814,63 @@
     (limit limits)
     (offset start))
   )
+(defn deptquerystatic[deptid beginday endday]
+
+
+  (select reportDetail
+    (fields :userid)
+    (with users
+      (fields :displayname)
+      )
+    (where (and {:deptid deptid}
+             {:relationid [in  (subselect registRelation (fields :id)
+                                (where (and {:status 2}
+                                         {:check_date [>= beginday]}
+                                         {:check_date [<= endday]}
+
+                                         ))
+                                )]}
+             ))
+    (group :userid :relationid)
+    (aggregate (count :id) :counts)
+    )
+  )
+(defn deptquerystaticfinal[userid deptid beginday endday]
+
+
+  (select registRelation
+
+    (where (and {:status 2}
+             {:check_date [>= beginday]}
+             {:check_date [<= endday]}
+             {:id [in  (subselect reportDetail (fields :relationid)
+                         (where (and {:deptid deptid}
+                                  {:userid userid}
+                                  ))
+
+                                   )]}
+             ))
+    (aggregate (count :id) :counts)
+    )
+  )
+(defn deptqueryuserstatic [deptid beginday endday]
+  (select reportDetail
+    (fields :userid)
+    (with users
+      (fields :displayname)
+      )
+    (where (and {:deptid deptid}
+             {:relationid [in  (subselect registRelation (fields :id)
+                                 (where (and {:status 2}
+                                          {:check_date [>= beginday]}
+                                          {:check_date [<= endday]}
+
+                                          ))
+                                 )]}
+             ))
+    (group :userid )
+    )
+  )
 (defn getdepts [start limits keywords]
   (select checkdept
 

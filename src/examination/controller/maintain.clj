@@ -476,7 +476,20 @@
     )
 
   )
+(defn getpationnumbyuser [users deptid beginday endday]
+  (map #(conj % (first(db/deptquerystaticfinal (:userid %) deptid beginday endday)))  users)
+  )
+(defn deptworkquerystatic [beginday endday]
+  (let [
+         depts (db/getdepts 0 100 nil)
+         users (map #(conj % {:results (getpationnumbyuser (db/deptqueryuserstatic  (:id %) beginday endday) (:id %) beginday endday)}) depts)
+         ;results (map #(conj % {:results (db/deptquerystatic (:id %) beginday endday)}) depts)
+         ]
+    ;(println users)
+    (resp/json {:success true :results users})
+    )
 
+  )
 (defn getunitgroup [node pid rootname callback]
   (let [
 
