@@ -3,7 +3,7 @@ define(function () {
     function render(parameters) {
 
 
-        $('#checkitemchoosewin').dialog({
+        $('#groupcheckitemchoosewin').dialog({
             title: '套餐选择窗口',
             width: '100%',
             height: '100%',
@@ -23,8 +23,8 @@ define(function () {
 
                     require(['js/commonfuncs/AjaxForm.js']
                         ,function(ajaxfrom){
-                            var params={relationid:$('#registedperson').datagrid('getSelected').relationid};
-                            var items=$('#checkitemchoosewin .checkitemchoosepanelselecteditems').datagrid('getRows');
+                            var params={relationid:$('#groupsregistedperson').datagrid('getSelected').relationid};
+                            var items=$('#groupcheckitemchoosewin .groupcheckitemchoosepanelselecteditems').datagrid('getRows');
                             if(items.length>0){
                                 var members=[];
                                 $.each(items,function(index,item){
@@ -36,9 +36,9 @@ define(function () {
                                     members.push(obj);
                                 });
                                 var success=function(data){
-                                    $('#checkitemchoosewin').dialog('close');
-                                    $('#checkeditems').datagrid('reload');
-                                    $('#registedperson').datagrid('reload');
+                                    $('#groupcheckitemchoosewin').dialog('close');
+                                    $('#groupscheckeditems').datagrid('reload');
+                                    $('#groupsregistedperson').datagrid('reload');
                                 };
                                 var errorfunc=function(){
 
@@ -48,7 +48,7 @@ define(function () {
                                 ajaxfrom.ajaxsend('post','json','maintain/addcheckitemsbyrid',params,success,null,errorfunc)
 
                             }else{
-                                $('#checkitemchoosewin').dialog('close');
+                                $('#groupcheckitemchoosewin').dialog('close');
                             }
 
                         });
@@ -67,7 +67,7 @@ define(function () {
             modal: true
         });
 
-        $('#checkitemchoosewin .checkitemchoosepanelselecteditems').datagrid({
+        $('#groupcheckitemchoosewin .groupcheckitemchoosepanelselecteditems').datagrid({
             singleSelect: true,
             collapsible: true,
             rownumbers: true,
@@ -80,7 +80,7 @@ define(function () {
             onRowContextMenu:function(e, rowIndex, rowData) {
                 e.preventDefault();
                 $(this).datagrid('selectRow', rowIndex);
-                $('#checkitemchoosewincheckitemmenu').menu('show', {
+                $('#groupcheckitemchoosewincheckitemmenu').menu('show', {
                     left: e.pageX,
                     top: e.pageY
                 })
@@ -91,18 +91,18 @@ define(function () {
             }
 
         });
-        $('#checkitemchoosewincheckitemmenu .remove').click(function(){
-            var datagrid=$('#checkitemchoosewin .checkitemchoosepanelselecteditems');
+        $('#groupcheckitemchoosewincheckitemmenu .remove').click(function(){
+            var datagrid=$('#groupcheckitemchoosewin .groupcheckitemchoosepanelselecteditems');
             var row=datagrid.datagrid('getSelected');
             var rowindex=datagrid.datagrid('getRowIndex',row);
             datagrid.datagrid('deleteRow',rowindex);
 
         });
-        var rows=$('#checkeditems').datagrid('getRows');
+        var rows=$('#groupscheckeditems').datagrid('getRows');
 
-        $('#checkitemchoosewin .checkitemchoosepanelselecteditems').datagrid('loadData',rows);
+        $('#groupcheckitemchoosewin .groupcheckitemchoosepanelselecteditems').datagrid('loadData',rows);
 
-        $('#checkitemchoosewin .itemtree').tree({
+        $('#groupcheckitemchoosewin .itemtree').tree({
             //rownumbers: true,
             checkbox:false,
             //onlyLeafCheck:true,
@@ -135,7 +135,7 @@ define(function () {
             onClick: function (node) {
                 if($(this).tree('isLeaf',node.target)){
 
-                    if(!isexsits(node,$('#checkitemchoosewin .checkitemchoosepanelselecteditems').datagrid('getRows'))){
+                    if(!isexsits(node,$('#groupcheckitemchoosewin .groupcheckitemchoosepanelselecteditems').datagrid('getRows'))){
                         var rowdata={
                             deptname:$(this).tree('getParent',node.target).value,
                             itemcode:node.nodeid,
@@ -143,13 +143,13 @@ define(function () {
                             itemname:node.value
                         }
 
-                        $('#checkitemchoosewin .checkitemchoosepanelselecteditems').datagrid('appendRow',rowdata) ;
+                        $('#groupcheckitemchoosewin .groupcheckitemchoosepanelselecteditems').datagrid('appendRow',rowdata) ;
                     }
                 }
             }
         });
 
-        var datagrid=$('#checkitemchoosewin .itemgrid').datagrid();
+        var datagrid=$('#groupcheckitemchoosewin .itemgrid').datagrid();
 
         datagrid.datagrid({
             singleSelect: true,
@@ -177,16 +177,19 @@ define(function () {
                     itemcode:rowData.id,
                     itemname:rowData.itemname,
                     price:rowData.price
+
                 };
-                $('#checkitemchoosewin .checkitemchoosepanelselecteditems').datagrid('appendRow',item) ;
+                $('#groupcheckitemchoosewin .groupcheckitemchoosepanelselecteditems').datagrid('appendRow',item) ;
             }
         });
+
         var pager = datagrid.datagrid('getPager');	// get the pager of datagrid
         var b=pager.find('table').find('tr').append('<td><input class="search" type="text" style="width: 100"></td>');
         $(b).keyup(function() {
             var value=b.find('.search').val();
-            $('#checkitemchoosewin .itemgrid').datagrid('load',{keywords:value});
+            $('#groupcheckitemchoosewin .itemgrid').datagrid('load',{keywords:value});
         });
+
         var isexsits=function(node,rowdata){
 
             var flag=false;
@@ -198,6 +201,8 @@ define(function () {
             }
             return flag;
         }
+
+
 
 
 

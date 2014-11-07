@@ -15,7 +15,7 @@ define(function () {
             cache: false,
             buttons:[{
                 text:'确定',
-                id:'confirmselectitems',
+                //id:'confirmselectitems',
                 disabled:false,
                 handler:function(){
 

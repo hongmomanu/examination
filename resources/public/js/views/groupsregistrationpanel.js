@@ -294,7 +294,16 @@ define(function () {
         });
 
         $('#groupscheckitemmenu .selectitem').click(function(e){
-            alert(2);
+            if($('#groupcheckitemchoosewin').length>0){
+                $('#groupcheckitemchoosewin').dialog('open');
+            }else{
+                require(['text!views/groupcheckitemchoose.htm','views/groupcheckitemchoose'],
+                    function(div,checkitemchoosewin){
+                        $('body').append(div);
+                        $.parser.parse('#groupcheckitemchoosewin');
+                        checkitemchoosewin.render();
+                    });
+            };
         });
 
         $('#groupscheckitemmenu .intocheck').click(function(e){
