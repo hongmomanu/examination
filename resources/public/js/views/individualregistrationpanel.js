@@ -210,7 +210,16 @@ define(function () {
         });
 
         $('#checkitemmenu .selectitem').click(function(e){
-            alert(2);
+            if($('#checkitemchoosewin').length>0){
+                $('#checkitemchoosewin').dialog('open');
+            }else{
+                require(['text!views/checkitemchoose.htm','views/checkitemchoose'],
+                    function(div,checkitemchoosewin){
+                        $('body').append(div);
+                        $.parser.parse('#checkitemchoosewin');
+                        checkitemchoosewin.render();
+                    });
+            }
         });
 
         $('#checkitemmenu .intocheck').click(function(e){
