@@ -21,8 +21,8 @@ define(function(){
                         }
 
 
-                        var content = '<iframe name="'+node.value+'"  frameborder="0" scrolling="no"  src="test1?name='+node.value+
-                            '" style="width:100%;height:100%;"></iframe>';
+                        var content = '<div style="height: 100%"><iframe name="'+node.value+'"  frameborder="0" scrolling="no"  src="test1?name='+node.value+
+                            '" style="width:100%;height:100%;"></iframe></div>';
                         var options= {
                             title: node.text,
                             content: content,
@@ -34,6 +34,7 @@ define(function(){
                         var iframe = $('iframe[name='+node.value+']');
                         //console.log(iframe);
                         iframe.height(iframe.height()-6);
+
 
 
 
