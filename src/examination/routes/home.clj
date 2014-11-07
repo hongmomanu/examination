@@ -37,8 +37,8 @@
   (GET "/" [] (main-page "main.html"))
   (GET "/maintab" [] (main-page "maintab.html"))
   (GET "/login" [] (login-page))
-  (GET "/test1" []
+  (GET "/test1" [name]
     (render-file "templates/maintab.html"
-      {:htmlpath "text!views/doctorcheckpanel.htm" :jspath  "views/doctorcheckpanel" }
+      {:htmlpath (str "text!views/" name ".htm") :jspath  (str "views/" name) }
       ))
   (GET "/about" [] (about-page)))

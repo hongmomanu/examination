@@ -20,7 +20,24 @@ define(function(){
                             }
                         }
 
-                        var folder="views/";
+
+                        var content = '<iframe name="'+node.value+'"  frameborder="0" scrolling="no"  src="test1?name='+node.value+
+                            '" style="width:100%;height:100%;"></iframe>';
+                        var options= {
+                            title: node.text,
+                            content: content,
+                            id:node.id,
+                            //businesstype:businesstype,
+                            closable: true
+                        };
+                        $('#tabs').tabs('add',options);
+                        var iframe = $('iframe[name='+node.value+']');
+                        //console.log(iframe);
+                        iframe.height(iframe.height()-6);
+
+
+
+                        /*var folder="views/";
                         var htmlfile='text!'+folder+node.value+'.htm';
                         var jsfile=folder+node.value;
                         var value=node.value;
@@ -28,7 +45,7 @@ define(function(){
                         require(['js/TreeClickEvent.js'],function(TreeClickEvent){
                             TreeClickEvent.ShowContent(htmlfile,jsfile,title,value,folder,null,node.id);
                             me.nodeid=node.id;
-                        });
+                        });*/
 
                     }
                 },

@@ -10,6 +10,8 @@ define(function(){
                 LoadingMask.ajaxLoading();
                 var require_render=function(htmlfile,jsfile){
 
+
+
                     var options= {
                         title: title,
                         content: htmlfile,
