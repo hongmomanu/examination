@@ -20,7 +20,7 @@ define(function () {
 
 
         var removeit=function (){
-            console.log(editIndex);
+            //console.log(editIndex);
             if (editIndex == undefined){return;}
             $('#unitcheckingitempanel .checkingitems').datagrid('cancelEdit', editIndex)
                 .datagrid('deleteRow', editIndex);

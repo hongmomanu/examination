@@ -21,7 +21,7 @@ define(function () {
 
                     };
                     var succ=function(data){
-                        console.log(data);
+                        //console.log(data);
                         var results=data.results;
 
                         var div=$('#deptworkquerypanel .content');

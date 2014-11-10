@@ -20,7 +20,7 @@ define(function () {
 
 
         var removeit=function (){
-            console.log(editIndex);
+            //console.log(editIndex);
             if (editIndex == undefined){return;}
             $('#altercheckingitempanel .checkingitems').datagrid('cancelEdit', editIndex)
                 .datagrid('deleteRow', editIndex);
@@ -48,7 +48,7 @@ define(function () {
                             var errorfunc=function(){
                                 $.messager.alert('操作失败','失败!');
                             };
-                            console.log(inserted);
+                            //console.log(inserted);
                             var params= {items:$.toJSON(inserted),relationid:isblh_select};
                             ajaxfrom.ajaxsend('post','json','maintain/addcheckingitemsbyrid',params,success,null,errorfunc)
 

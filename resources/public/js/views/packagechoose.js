@@ -175,7 +175,7 @@ define(function () {
                 $.each(selected,function(index,item)
                     {
                         var isexist=isitemexist(rows,item,$('#packagechoosepanelitems'));
-                        console.log(isexist);
+                        //console.log(isexist);
                         if(isexist.flag)$('#packagechoosepanelitems').datagrid('selectRow',isexist.index);
                     }
                 )
