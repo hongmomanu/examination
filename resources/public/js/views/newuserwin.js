@@ -10,25 +10,28 @@ define(function () {
             buttons:[{
                 text:'保存',
                 id:'savenewuserbtn',
-                disabled:true,
+                disabled:false,
                 handler:function(){
                    //alert(1);
                     require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyform,ajaxfrom){
 
 
-                            var params=$('#newuserwin form').form("serialize");
-                            params.iscommon=false;
-                            var success=function(){
-                                $.messager.alert('操作成功','新增用户成功!');
-                                $('#newuserwin').dialog('close');
-                                $('#usermanagerpanel').datagrid('reload');
-                            };
-                            var errorfunc=function(){
-                                $.messager.alert('操作失败','新增用户失败!');
-                            }
-                            ajaxfrom.ajaxsend('post','json','auth/addnewuser',params,success,null,errorfunc)
+                            var form=$('#newuserwin form');
+                            if(form.form('validate')) {
 
+                                var params = form.form("serialize");
+                                params.iscommon = false;
+                                var success = function () {
+                                    $.messager.alert('操作成功', '新增用户成功!');
+                                    $('#newuserwin').dialog('close');
+                                    $('#usermanagerpanel').datagrid('reload');
+                                };
+                                var errorfunc = function () {
+                                    $.messager.alert('操作失败', '新增用户失败!');
+                                }
+                                ajaxfrom.ajaxsend('post', 'json', 'auth/addnewuser', params, success, null, errorfunc)
+                            }
                         });
 
                 }

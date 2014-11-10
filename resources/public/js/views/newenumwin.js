@@ -10,26 +10,28 @@ define(function () {
             buttons:[{
                 text:'保存',
                 id:'savenewenumbtn',
-                disabled:true,
+                disabled:false,
                 handler:function(){
                     require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyform,ajaxfrom){
-                            var params=$('#newenumwin form').form("serialize");
-                            var success=function(res){
-                                if(res.success){
-                                    $.messager.alert('操作成功','新增枚举成功!');
-                                    $('#newenumwin').dialog('close');
-                                    $('#enummanagerpanel').datagrid('reload');
-                                }else{
-                                    $.messager.alert('操作失败', res.msg);
+                            var form=$('#newenumwin form');
+                            if(form.form('validate')) {
+                                var params = form.form("serialize");
+                                var success = function (res) {
+                                    if (res.success) {
+                                        $.messager.alert('操作成功', '新增枚举成功!');
+                                        $('#newenumwin').dialog('close');
+                                        $('#enummanagerpanel').datagrid('reload');
+                                    } else {
+                                        $.messager.alert('操作失败', res.msg);
+                                    }
+
+                                };
+                                var errorfunc = function () {
+                                    $.messager.alert('操作失败', '新增枚举失败!');
                                 }
-
-                            };
-                            var errorfunc=function(){
-                                $.messager.alert('操作失败','新增枚举失败!');
+                                ajaxfrom.ajaxsend('post', 'json', 'auth/addnewenum', params, success, null, errorfunc)
                             }
-                            ajaxfrom.ajaxsend('post','json','auth/addnewenum',params,success,null,errorfunc)
-
                         });
 
                 }

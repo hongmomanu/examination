@@ -65,6 +65,7 @@ define(function () {
                 params.isunit=$.toJSON([0]),
                 params.isinto=$.toJSON([0,1]);
                 params.rowsname = "rows";
+                params.date = $('#checkday').datebox('getValue');
             },
             onSelect:function(index, rowData){
                 $('#checkeditems').datagrid('reload');
@@ -124,8 +125,14 @@ define(function () {
 
         }
         var date=new Date();
-        $('#checkday').datebox('setValue', date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
 
+        $('#checkday').datebox({
+            onSelect: function(date){
+                //console.log($.format.date(date, "yyyy-MM-dd"));
+                $('#registedperson').datagrid('reload');
+            }
+        });
+        $('#checkday').datebox('setValue', $.format.date(date, "yyyy-MM-dd"));
         $('#pationblhno').combobox({
             required:true,
             hasDownArrow:false,

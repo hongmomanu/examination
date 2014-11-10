@@ -10,27 +10,28 @@ define(function () {
             buttons:[{
                 text:'保存',
                 id:'savenewcheckitembtn',
-                disabled:true,
+                disabled:false,
                 handler:function(){
                    //alert(1);
                     require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyform,ajaxfrom){
-
-                            var params=$('#newcheckitemwin form').form("serialize");
-                            params.iscommon=false;
-                            params.itemid=$('#itemmanagerpanel').treegrid('getSelected').itemid;
-                            var success=function(){
-                                $.messager.alert('操作成功','新增成功!');
-                                $('#newcheckitemwin').dialog('close');
-                                //$('#itemmanagerpanel').treegrid('reload', params.pid);
-                                $('#itemmanagerpanel').treegrid('reload',$('#itemmanagerpanel').treegrid('getSelected')._parentId)
-                                //$('#checkitemmanagerpanel').datagrid('reload');
-                            };
-                            var errorfunc=function(){
-                                $.messager.alert('操作失败','新增失败!');
+                            var form=$('#newcheckitemwin form');
+                            if(form.form('validate')) {
+                                var params = form.form("serialize");
+                                params.iscommon = false;
+                                params.itemid = $('#itemmanagerpanel').treegrid('getSelected').itemid;
+                                var success = function () {
+                                    $.messager.alert('操作成功', '新增成功!');
+                                    $('#newcheckitemwin').dialog('close');
+                                    //$('#itemmanagerpanel').treegrid('reload', params.pid);
+                                    $('#itemmanagerpanel').treegrid('reload', $('#itemmanagerpanel').treegrid('getSelected')._parentId)
+                                    //$('#checkitemmanagerpanel').datagrid('reload');
+                                };
+                                var errorfunc = function () {
+                                    $.messager.alert('操作失败', '新增失败!');
+                                }
+                                ajaxfrom.ajaxsend('post', 'json', 'maintain/addnewcheckitemdetail', params, success, null, errorfunc)
                             }
-                            ajaxfrom.ajaxsend('post','json','maintain/addnewcheckitemdetail',params,success,null,errorfunc)
-
                         });
 
                 }

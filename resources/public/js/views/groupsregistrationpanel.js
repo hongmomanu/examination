@@ -57,6 +57,7 @@ define(function () {
                 params.limit = options.pageSize;
                 params.totalname = "total";
                 params.rowsname = "rows";
+                params.date = $('#groupcheckday').datebox('getValue');
             },
             onSelect:function(index, rowData){
                 $('#groupscheckeditems').datagrid('reload');
@@ -130,7 +131,16 @@ define(function () {
         };
 
         var date=new Date();
-        $('#groupcheckday').datebox('setValue', date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
+
+        $('#groupcheckday').datebox({
+            onSelect: function(date){
+                //console.log($.format.date(date, "yyyy-MM-dd"));
+                $('#groupsregistedperson').datagrid('reload');
+            }
+        });
+        $('#groupcheckday').datebox('setValue', $.format.date(date, "yyyy-MM-dd"));
+
+        //$('#groupcheckday').datebox('setValue', date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
 
 
 

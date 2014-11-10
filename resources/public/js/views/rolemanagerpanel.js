@@ -104,7 +104,7 @@ define(function () {
 
                                 var params=$('#roleinfoform').form("serialize");
 
-                                var selectItems=$('#rolefuncgrid').tree('getChecked');
+                                var selectItems=$('#rolefuncgrid').tree('getChecked',['checked','indeterminate']);
                                 var unselectItems=$('#rolefuncgrid').tree('getChecked','unchecked');
                                 var funcid_arr=[];
                                 var delete_arr=[];

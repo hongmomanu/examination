@@ -251,6 +251,7 @@ define(function () {
                     /*$('#altercheckingitempanel .altercheckingration').form('load',record);
                      $('#altercheckingitempanel .checkingitems').datagrid('load',{relationid:record.relationid});*/
                     isblh_select=record;
+                    $('#datareceivedpanel .easyui-tabs').tabs('select',0);
                     getcontolmsgbyrid(isblh_select.relationid);
                 };
                 var myloader = function(param,success,error){

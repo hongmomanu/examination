@@ -10,25 +10,26 @@ define(function () {
             buttons:[{
                 text:'保存',
                 id:'savenewdeptbtn',
-                disabled:true,
+                disabled:false,
                 handler:function(){
                    //alert(1);
                     require(['js/jqueryplugin/easyui-form.js','js/commonfuncs/AjaxForm.js']
                         ,function(easyform,ajaxfrom){
+                            var form=$('#newdeptwin form');
+                            if(form.form('validate')) {
 
-
-                            var params=$('#newdeptwin form').form("serialize");
-                            params.iscommon=false;
-                            var success=function(){
-                                $.messager.alert('操作成功','新增科室成功!');
-                                $('#newdeptwin').dialog('close');
-                                $('#deptmanagerpanel').datagrid('reload');
-                            };
-                            var errorfunc=function(){
-                                $.messager.alert('操作失败','新增科室失败!');
+                                var params = form.form("serialize");
+                                params.iscommon = false;
+                                var success = function () {
+                                    $.messager.alert('操作成功', '新增科室成功!');
+                                    $('#newdeptwin').dialog('close');
+                                    $('#deptmanagerpanel').datagrid('reload');
+                                };
+                                var errorfunc = function () {
+                                    $.messager.alert('操作失败', '新增科室失败!');
+                                }
+                                ajaxfrom.ajaxsend('post', 'json', 'auth/addnewdept', params, success, null, errorfunc)
                             }
-                            ajaxfrom.ajaxsend('post','json','auth/addnewdept',params,success,null,errorfunc)
-
                         });
 
                 }
