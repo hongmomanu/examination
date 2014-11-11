@@ -297,7 +297,7 @@ define(function () {
                     height: '100%',
                     closed: false,
                     cache: false,
-                    buttons:[{
+                    buttons:[/*{
                         text:'保存',
 
                         handler:function(){
@@ -305,10 +305,12 @@ define(function () {
 
 
                         }
-                    },{
-                        text:'取消',
+                    },*/{
+                        text:'关闭',
                         handler:function(){
                             $('#checkpationwithitemwin').dialog('close');
+                            $('#doctorcheckpanel .checkingitems').datagrid('reload');
+
                         }
                     }],
                     modal: true
