@@ -585,6 +585,7 @@
   )
 
 (defn getenumbytype [type callback]
+  (println 1111 )
   (let [
 
          reuslts (db/getenumeratebytype type)

@@ -40,8 +40,12 @@
                             options:{
                                 valueField:'enumeratevalue',
                                 textField:'enumeratelabel',
+                                onBeforeLoad:function(param){
+
+                                    param.type='婚姻状态';
+                                 },
                                 onShowPanel: function () {
-                                    var url = 'auth/getenumbytype?type=婚姻状态';
+                                    var url = 'auth/getenumbytype';
                                     $(this).combobox('reload', url);
                                 }
                             }
@@ -51,8 +55,12 @@
                             options:{
                                 valueField:'enumeratevalue',
                                 textField:'enumeratelabel',
+                                onBeforeLoad:function(param){
+
+                                    param.type='性别';
+                                 },
                                 onShowPanel: function () {
-                                    var url = 'auth/getenumbytype?type=性别';
+                                    var url = 'auth/getenumbytype';
                                     $(this).combobox('reload', url);
                                 }
                             }
@@ -69,8 +77,12 @@
                             options:{
                                 valueField:'enumeratevalue',
                                 textField:'enumeratelabel',
+                                onBeforeLoad:function(param){
+
+                                    param.type='职务';
+                                 },
                                 onShowPanel: function () {
-                                    var url = 'auth/getenumbytype?type=职务';
+                                    var url = 'auth/getenumbytype';
                                     $(this).combobox('reload', url);
                                 }
                             }
@@ -80,8 +92,12 @@
                             options:{
                                 valueField:'enumeratevalue',
                                 textField:'enumeratelabel',
+                                onBeforeLoad:function(param){
+
+                                    param.type='职称';
+                                 },
                                 onShowPanel: function () {
-                                    var url = 'auth/getenumbytype?type=职称';
+                                    var url = 'auth/getenumbytype';
                                     $(this).combobox('reload', url);
                                 }
                             }

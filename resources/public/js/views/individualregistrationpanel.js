@@ -6,9 +6,13 @@ define(function () {
 
         var combox=$('#registmanagerlayout .lazy-combobox');
         combox.combobox({
-            onShowPanel: function () {
+            onBeforeLoad:function(param){
                 var searchtype = $(this).attr('searchtype');
-                var url = 'auth/getenumbytype?type='+searchtype;
+                param.type=searchtype;
+            },
+            onShowPanel: function () {
+                //var searchtype = $(this).attr('searchtype');
+                var url = 'auth/getenumbytype';
                 $(this).combobox('reload', url);
             }
 

@@ -80,9 +80,13 @@ define(function () {
 
         var combox=$('#newunitwin .lazy-combobox');
         combox.combobox({
+            onBeforeLoad:function(param){
+                var searchtype = $(this).attr('searchtype');
+                param.type=searchtype;
+            },
             onShowPanel: function () {
-             var searchtype = $(this).attr('searchtype');
-             var url = 'auth/getenumbytype?type='+searchtype;
+             //var searchtype = $(this).attr('searchtype');
+             var url = 'auth/getenumbytype';
              $(this).combobox('reload', url);
             }
 

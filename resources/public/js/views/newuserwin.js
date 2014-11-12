@@ -78,6 +78,7 @@ define(function () {
 
 
         $('#newuserwin .lazy-combobox').combobox({
+
             onShowPanel: function () {
                 var url = 'auth/getroles?start=0&limit=100' ;
                 $(this).combobox('reload', url);

@@ -133,7 +133,11 @@ define(function () {
     function render(parameters) {
         var combox=$('#suggestmanagerlayout .lazy-combobox');
         combox.combobox({
-            url:'auth/getenumbytype?type='+ combox.attr('searchtype')
+            onBeforeLoad:function(param){
+                var searchtype = $(this).attr('searchtype');
+                param.type=searchtype;
+            },
+            url:'auth/getenumbytype'
             /*onShowPanel: function () {
              var searchtype = $(this).attr('searchtype');
              var url = 'auth/getenumbytype?type='+searchtype;

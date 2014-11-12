@@ -13,8 +13,12 @@
                             options:{
                                 valueField:'enumeratevalue',
                                 textField:'enumeratelabel',
+                                onBeforeLoad:function(param){
+
+                                    param.type='适用范围';
+                                 },
                                 onShowPanel: function () {
-                                    var url = 'auth/getenumbytype?type=适用范围';
+                                    var url = 'auth/getenumbytype';
                                     $(this).combobox('reload', url);
                                 }
                             }
