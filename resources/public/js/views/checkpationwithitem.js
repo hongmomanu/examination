@@ -306,10 +306,11 @@ define(function () {
 
                         }
                     },*/{
-                        text:'确定',
+                        text:'关闭',
                         handler:function(){
                             $('#checkpationwithitemwin').dialog('close');
                             $('#doctorcheckpanel .checkingitems').datagrid('reload');
+
                         }
                     }],
                     modal: true

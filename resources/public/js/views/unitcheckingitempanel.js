@@ -247,6 +247,7 @@ define(function () {
                 var options = $(this).datagrid('options');
                 params.isunit=$.toJSON([1]);
                 params.isinto= $.toJSON([1]);
+                //params.date=$('#unitcheckingitempanel .checkingday').datebox('getValue'),
                 params.start = (options.pageNumber - 1) * options.pageSize;
                 params.limit = options.pageSize;
                 params.totalname = "total";

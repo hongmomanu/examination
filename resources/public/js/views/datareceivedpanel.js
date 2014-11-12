@@ -287,11 +287,12 @@ define(function () {
 
                         var succ=function(data){
                             $('#datareceivedpanel .status').html("<a style='color: green'>总检完成</a>");
+                            $.messager.alert('提示','总检完成!');
                         };
                         var errorfunc=function(){
                         };
 
-                        ajaxform.ajaxsend('post','json','maintain/finishcontrolcheck',params,succ,null,errorfunc,true);
+                        ajaxform.ajaxsend('post','json','maintain/finishcontrolcheck',params,succ,null,errorfunc,false);
 
                     }else{
                         $.messager.alert('提示','未选择体检人员!');

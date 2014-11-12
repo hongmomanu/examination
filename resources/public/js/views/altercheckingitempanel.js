@@ -257,7 +257,7 @@ define(function () {
                 ,function(ajaxfrom){
                     var params={
                         keyword: q,
-                        time:$('#altercheckingitempanel .checkingday').datebox('getValue'),
+                        //date:$('#altercheckingitempanel .checkingday').datebox('getValue'),
                         start:0,
                         limit:20,
                         isunit:$.toJSON([0]),
