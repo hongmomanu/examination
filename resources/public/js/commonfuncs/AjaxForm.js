@@ -18,7 +18,7 @@ define(function(){
            });
 
        },
-       ajaxsend:function(method,type,url,params,success,complete,errorfunc,hideprogress){
+       ajaxsend:function(method,type,url,params,success,complete,errorfunc,hideprogress,isasync){
 
            if(!hideprogress)$.messager.progress();
            var compfunc=function(){
@@ -28,6 +28,7 @@ define(function(){
            $.ajax({
                type: method,
                dataType: type,
+               async:!isasync,
                url: url,
                data: params,
                complete :compfunc,

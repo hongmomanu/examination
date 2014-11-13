@@ -83,6 +83,7 @@ define(function () {
                                 items[data[i].deptname].data[data[i].itemname]=[data[i]];
                             }
                         }
+                        //console.log(items);
                         var content_div=$('#datareceivedpanel .reportlist');
                         var contenttable=content_div.find('.reporttable');
                         for(var deptitem in items){
@@ -167,7 +168,7 @@ define(function () {
 
                             };
 
-                            ajaxform.ajaxsend('post','json','maintain/getdeptconclusionbyrid',params,succ,null,errorfunc,true);
+                            ajaxform.ajaxsend('post','json','maintain/getdeptconclusionbyrid',params,succ,null,errorfunc,true,true);
 
 
 
