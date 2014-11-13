@@ -37,12 +37,18 @@ define(function () {
                     var deptid=$('#doctorcheckpanel .depttable').datagrid('getSelected').id;
                     for(var i=0;i<data.length;i++){
                         if(data[i].checkdate)checkdate=data[i].checkdate;
-                        if(items[data[i].itemname]&&deptid==data[i].deptid){
+                        if(deptid==data[i].deptid){
+                            if(!(items[data[i].itemname]))items[data[i].itemname]=[];
+                            items[data[i].itemname].push(data[i]);
+                        }
+                        /*if(items[data[i].itemname]&&deptid==data[i].deptid){
                             items[data[i].itemname].push(data[i]);
                         }else{
                             items[data[i].itemname]=[];
-                        }
+                            items[data[i].itemname].push(data[i]);
+                        }*/
                     }
+                   // console.log(items);
                     for(var item in items){
                         //console.log(items[item]);
                         if(items[item].length>0){
@@ -73,12 +79,24 @@ define(function () {
 
 
                     }
-
+                    var concludata=$('#checkpationwithitemwin .deptconclusion').datagrid('getRows');
+                    //console.log(concludata);
+                    var conclucontent="";
+                    for(var m=0;m<concludata.length;m++){
+                        conclucontent+=concludata[m].suggestion+"<br>";
+                    }
                     var conclusion_line='<tr ><td colspan="5"><b>'
                         +"小结"+
                         '</b></td>'+
                         '</tr>';
+                    var conclusioncontent_line='<tr ><td colspan="5">'
+                        +conclucontent+
+                        '</td>'+
+                        '</tr>';
                     contenttable.append(conclusion_line);
+                    contenttable.append(conclusioncontent_line);
+
+
 
                     //content_div.html('<table class="reporttable"></table>');
 

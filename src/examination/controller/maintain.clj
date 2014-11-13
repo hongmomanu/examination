@@ -192,7 +192,10 @@
   (let [
          custom-formatter (f/formatter "yyyy-MM-dd")
          now (if (nil? date) (f/unparse custom-formatter (l/local-now)) date)
+         bgno (if (= "" bgno) "0" bgno)
+         endno (if (= "" endno) "9" endno)
          isinto (json/read-str isinto)
+         isunit (json/read-str isunit)
          results (db/getregistedpersonbyrange start limit bgno endno now isunit isinto)
          test (println results)
          res (map #(conj {:itemnums (:counts (first (db/getafterRegistnums (:relationid %))))

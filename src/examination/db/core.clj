@@ -641,7 +641,7 @@
       (where (and
                {:blh_no [>= bgno]}
                {:blh_no [<= endno]}
-               {:isunit isunit}
+               {:isunit [in isunit]}
 
                ))
       )
@@ -710,7 +710,7 @@
       (where (and
                {:blh_no [>= bgno]}
                {:blh_no [<= endno]}
-               {:isunit isunit}
+               {:isunit [in isunit]}
                ))
       )
     (where (and
